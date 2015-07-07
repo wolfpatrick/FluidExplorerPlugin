@@ -1,0 +1,10 @@
+
+<RCC>
+	<qresource>
+ 
+		<file>icon_open_30px.png</file>
+		<file>icon_add_30px.png</file>
+		<file>icon_help_30px.png</file>
+	
+ </qresource>
+</RCC>

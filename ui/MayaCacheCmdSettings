@@ -1,0 +1,36 @@
+_author__ = 'Patrick'
+
+class MayaCacheCmdSettings(object):
+
+    def __init__(self):
+        self._outputPath = ""
+        self._numberSamples = 128
+        self._cam_perspective = False
+
+
+    @property
+    def outputPath(self):
+        return self._outputPath
+
+    @outputPath.setter
+    def outputPath(self, value):
+        self._outputPath = value
+
+    @property
+    def numberSamples(self):
+        return self._numberSamples
+
+    @numberSamples.setter
+    def numberSamples(self, value):
+        self._numberSamples = value
+
+
+    @property
+    def cam_perspective (self):
+        return self._cam_perspective
+
+    @cam_perspective.setter
+    def cam_perspective(self, value):
+        self._cam_perspective = value
+
+

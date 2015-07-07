@@ -1,0 +1,51 @@
+import os
+import sys
+
+import maya.cmds as cmds
+import maya.mel
+import maya.utils
+
+import FluidMain
+
+
+def create_fluidExplorer_shelf():
+    maya.mel.eval('if (`shelfLayout -exists FluidExplorer `) deleteUI FluidExplorer;')
+    shelfTab = maya.mel.eval('global string $gShelfTopLevel;')
+    maya.mel.eval('global string $scriptsShelf;')
+    maya.mel.eval('$scriptsShelf = `shelfLayout -p $gShelfTopLevel FluidExplorer`;')
+    maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "FluidExplorer" ' + 
+      '-label "FluidExplorer"  -image "logo.png" -sourceType "python" ' +
+      '-command ("if(pre_init()): myWin1 = FluidMain.main(); myWin1.show()") -width 34 -height 34 -style "iconOnly";')
+      
+create_fluidExplorer_shelf()
+
+#
+# This function is callede at the beginning and checks if a valid  fluid node is selected.
+# Return true: FluidExplorer app starts, Return false: Show warning message
+#
+def pre_init():
+    
+    file2Cmd = open('C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/MEL/getSelectedContainer.mel', 'r')
+    cmdText = file2Cmd.read()
+    print cmdText
+    maya.mel.eval(cmdText)
+    file2Cmd.close()
+ 
+    isFluidObject = maya.mel.eval("getSelectedContainer();")
+    
+    fluidSelected = False
+    
+    if (len(isFluidObject) > 0) :
+        fluidSelected = True
+    
+    if fluidSelected:
+        print "Valid fluid selected: " + str(isFluidObject)
+      
+        selObj = str(isFluidObject)
+        cmds.select(selObj, r=True)
+        cmds.move(1,1,100)    #Move selected object to see if it is really selected
+        return True
+        
+    else:
+        print "No valid fluid selected"
+        return False

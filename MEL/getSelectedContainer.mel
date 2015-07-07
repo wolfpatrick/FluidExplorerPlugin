@@ -1,0 +1,133 @@
+// -----------------------------------------------------------------
+//
+// global proc getSelectContainer()
+//
+// -----------------------------------------------------------------
+//
+// Selects an valid FluidContainer and returns name of container     
+//
+//    + Inputs 
+//      
+//    + Output 
+//        - string : Name of container    
+//
+// -----------------------------------------------------------------
+
+// Get the node type of object
+global proc string objType1(string $selection)
+{  
+    string $t = `objectType $selection`;
+    if ($t == "fluidShape") {
+        return $t;
+    }
+    else {
+        string $objType[];
+        $objType = `listRelatives -s $selection`;
+        print $objType[0];
+        if ($objType[0] == ""){
+            return "";
+        }
+        else {
+            return `nodeType $objType[0]`;
+        }
+    }
+};
+
+// -- BEGIN -- 
+global proc string getSelectedContainer()
+{
+    
+// Return value
+string $nameContainer = "";
+      
+  
+string $selectedObjName[] = `ls -sl`;
+
+int $count_fluidShape = 0;
+int $index_fluidShape = -1;
+
+int $lenSelObj = size($selectedObjName);
+
+
+for ($i=0; $i<$lenSelObj;$i++)
+{
+    string $tmp = $selectedObjName[$i];
+    $res = objType1($tmp);
+    if ($res=="fluidShape")
+    {
+        $count_fluidShape++;
+        $index_fluidShape = $i;
+    }
+}
+
+    print ( $lenSelObj + "\n-------" );
+string $currentObj = "";
+
+if ($lenSelObj==0)
+{
+    warning -showLineNumber true "Please select an object first.";
+    string $dialogResult = `confirmDialog -title "Information: Fluid Container" 
+        -message "\nPlease select a Fluid Container first!"
+        -button "Help"
+        -button "OK"
+        -defaultButton "OK"
+        -ma "left"
+        -icon "information"`;
+    if ($dialogResult == "Help") {
+        webBrowser -url "http://homepage.univie.ac.at/patrick_wolf/beliv_2012/index.php";
+    } 
+}
+else if ($count_fluidShape>=2)
+{
+    //print("Count: " + $lenSelObj)
+    warning -showLineNumber true "More than one ";
+    string $dialogResult = `confirmDialog -title "Information: Fluid Container" 
+        -message "\nPlease select one Fluid Container only!"
+        -button "Help"
+        -button "OK"
+        -defaultButton "OK"
+        -ma "left"
+        -icon "information"`;
+    if ($dialogResult == "Help") {
+        webBrowser -url "http://google.de";
+    } 
+}
+else
+{
+    if ($count_fluidShape == 1)
+    {
+        $currentObj = $selectedObjName[$index_fluidShape];
+        $nameContainer = $currentObj;
+    }  
+    else
+    {
+        warning -showLineNumber true "More than one ";
+        string $dialogResult = `confirmDialog -title "Information: Fluid Container" 
+            -message "\nPlease select a Fluid Container first!"
+            -button "Help"
+            -button "OK"
+            -defaultButton "OK"
+            -ma "left"
+            -icon "information"`;
+        if ($dialogResult == "Help") {
+            webBrowser -url "http://google.de";
+        } 
+    }
+} //end if ($lenSelObj==0)
+
+return $nameContainer;
+
+} // -- END --
+
+
+/*
+// Test
+$a = getSelectedContainer();
+if (size($a) > 0)
+{
+    //  Select the valid FluidContainer and perform 
+    select -r $a;
+    move 10 1 1;
+
+}
+*/
