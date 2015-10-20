@@ -1,9 +1,8 @@
-__author__ = 'Patrick'
-
+# Stores the default values of the create project dialog
 class DefaultUIParameters(object):
 
     StyleSheet_Button_Off = "QPushButton { background-color: None; border: 3px solid grey; border-radius: 5px; }"
-    StyleSheet_Button_On = "QPushButton { background-color: None; border: 3px solid rgb(255,160,47); border-radius: 5px;s}"
+    StyleSheet_Button_On  = "QPushButton { background-color: None; border: 3px solid rgb(255,160,47); border-radius: 5px;s}"
 
     # Project name
     DEF_SIMULATION_NAME = "Untitled"
@@ -17,4 +16,3 @@ class DefaultUIParameters(object):
     DEF_NUMBER_SEQUENCES = 128
     DEF_NUMBER_SEQUENCES_MIN = 2
     DEF_NUMBER_SEQUENCES_MAX = 500
-

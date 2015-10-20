@@ -1,11 +1,8 @@
-__author__ = 'Patrick'
-from ui.SliderContainerLayouts import VelocityLayout
-
 import random
+
 
 class SliderSpanSelected():
     def __init__(self, velocityLayout):
-
        # self.velocitySwirl_Span = velocityLayout.containerSwirl.checkBox.isChecked()
         self.velocitySwirl_Span = self.setSpanValues(velocityLayout.containerSwirl)
 

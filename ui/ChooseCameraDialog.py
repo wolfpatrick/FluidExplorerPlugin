@@ -1,12 +1,10 @@
 from PySide import QtGui
 from PySide import QtCore
-
 from ChooseCameraUI import Ui_DialogChooseCamer
 from MayaUiDefaultValues import MayaUiDefaultValues
 
 
 class ChooseCameraDialog(QtGui.QDialog):
-
     selectedCamera = None
 
     def __init__(self, *args):
