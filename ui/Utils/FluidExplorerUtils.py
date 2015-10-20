@@ -1,14 +1,11 @@
 import os
 import ConfigParser
 
-from PySide import QtGui
-from PySide import QtCore
 
-class FluidExplorerUtils():
+class FluidExplorerUtils(object):
 
     @staticmethod
     def dirExists(path):
-        exists = False
         exists = os.path.exists(path)
         return exists
 
@@ -33,3 +30,11 @@ class FluidExplorerUtils():
         # Save file
         with open(path, 'w') as configfile:
             config.write(configfile)
+
+    @staticmethod
+    def readAttributeFromConfigurationFile(choosenDir, category, attribute):
+        config = ConfigParser()
+        config.read(choosenDir)
+
+        result = config.get(category, attribute)
+        return result
