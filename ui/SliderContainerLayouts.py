@@ -1,6 +1,5 @@
 from PySide import QtGui
 from PySide import QtCore
-
 from ParamterTab import SliderContainer
 from ParamterTabDefaultValues import ParameterTabDefaultValues
 from Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
@@ -24,7 +23,6 @@ class SliderContainerLayout(object):
         self.resetButton.clicked.connect(self.resetButton_Event)
 
         self.sliderList = list()
-        #self.initializeSliderDefaultValues()
         self.fluidBoxName = "FLUID_TODO"
 
     def resetButton_Event(self, sliderList):

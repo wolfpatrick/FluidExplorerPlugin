@@ -1,5 +1,6 @@
-_author__ = 'Patrick'
-
+#
+# This class hold all scene attributes
+#
 class MayaCacheCmdSettings(object):
 
     def _init__(self):

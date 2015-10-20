@@ -1,12 +1,6 @@
 from PySide import QtGui
 from PySide import QtCore
-
 from RangeSlider.HRangeSlider import QHRangeSlider
-from ParamterTabDefaultValues import ParameterTabDefaultValues
-
-
-#from icons import checkbox_icon
-#from icons import toolbox_icon
 
 
 class SliderContainer(object):
@@ -59,6 +53,7 @@ class SliderContainer(object):
             self.lineEditDefault.editingFinished.connect(self.leaveLineEditDef_A)
             self.lineEditMin.editingFinished.connect(self.leaveLineEditMin_A)
             self.lineEditMax.editingFinished.connect(self.leaveLineEditMax_A)
+            self.resetButton.clicked.connect(self.resetValues)
 
         # --------------------------------------------------------------------------------------------------------------
 
@@ -92,7 +87,6 @@ class SliderContainer(object):
                 lineEditMax.setText(str(slider.rangeValues[1]))
                 lineEditMin.setFocus()
                 lineEditDefault.setText(str(slider.defaultSingleValue))
-                print "BABBBBABABABBABAB"
             else:
                 # Range is not active
                 slider.isRangeActive = False
@@ -109,7 +103,6 @@ class SliderContainer(object):
 
         def leaveLineEditMinEvent(self, lineEditMin, lineEditMax, slider):
                 v_str = lineEditMin.text()
-
                 try:
                     v = float(v_str)
 
@@ -134,10 +127,8 @@ class SliderContainer(object):
                 slider.setValues([v1, v2])
                 slider.update()
 
-
         def leaveLineEditMaxEvent(self, lineEditMin, lineEditMax, slider):
             v_str = lineEditMax.text()
-
             try:
                 v = float(v_str)
 
@@ -164,7 +155,6 @@ class SliderContainer(object):
 
         def leaveLineEditEvent(self, lineEdit, slider):
             v_str = lineEdit.text()
-
             try:
                 v = float(v_str)
 
@@ -189,6 +179,7 @@ class SliderContainer(object):
             slider.update()
 
         def resetValues(self):
+            print 'dasdsddas'
             if self.rangeSlider.isRangeActive:
                 self.rangeSlider.setValues([self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1]])
                 self.lineEditMin.setText(str(self.rangeSlider.rangeValues[0]))
@@ -200,19 +191,12 @@ class SliderContainer(object):
             self.rangeSlider.update()
 
 
-from ui.Utils.RangeSliderSpan import FluidContainerValues
-from ui.Utils.RangeSliderSpan import FluidValueSampler
-
 class ParameterTab(object):
 
     def __init__(self):
-        #self.DEF_VALUES = ParameterTabDefaultValues()
         self.setupTabWidget()
-        self.initialComponents()
 
-
-    def initialComponents(self):
-        #print self.toolBox.count()
+    def initialToolBoxComponents(self):
         for itemIndex in range(0,self.toolBox.count()):
             self.toolBox.setItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_1.png'))
         self.toolBox.setItemIcon(0, QtGui.QIcon(':/arrow_small_2.png'))
@@ -230,35 +214,15 @@ class ParameterTab(object):
         self.VelocityLayout = VelocityLayout()
         VelocityBox.setLayout(self.VelocityLayout.getLayout())
 
-        #print "11------------11-------"
-        #from Utils.RangeSliderSpan import SliderSpanSelected
-        #self.selectedSliderValues = SliderSpanSelected(self.VelocityLayout)
-
-        #print self.VelocityLayout.containerSwirl.getSliderValues()
-        #print "-------------------"
-
-
-
-        #self.x = FluidValueSampler()
-#        self.x.setSldierRangeValues_VelocityLayout(self.VelocityLayout)
-
-
-#        print self.x.velocitySwirl
- #       print "-------------------"
-
         # The toolbox stores all slider containers
         self.toolBox = QtGui.QToolBox()
         self.toolBox.addItem(DiffusionBox, " Menu_1")
         self.toolBox.addItem(VelocityBox, " Velocity")
-        #self.toolBox.addItem(QtGui.QLabel("B"), " Menu_3")
+        self.toolBox.currentChanged.connect(self.toolBoxChanged_Event)
+        self.initialToolBoxComponents()
 
         vBoxlayout = QtGui.QVBoxLayout()
-        vBoxlayout.setSpacing(0)
         vBoxlayout.addWidget(self.toolBox)
-
-        # Connection with the toolbox
-        self.toolBox.currentChanged.connect(self.toolBoxChanged_Event)
-        self.initialComponents()
 
         self.parameterTab = QtGui.QWidget()
         self.parameterTab.setLayout(vBoxlayout)
@@ -267,7 +231,6 @@ class ParameterTab(object):
         pass
 
     def getSelectedValuesFromSlider(self):
-
         from Utils.RangeSliderSpan import SliderSpanSelected
 
         self.selectedSliderValues = SliderSpanSelected(self.VelocityLayout)
@@ -285,36 +248,3 @@ class ParameterTab(object):
 
     def getTab(self):
         return self.parameterTab
-
-
-class ToolItem(QtGui.QWidget):
-
-    def __init__(self, title, item):
-        super(ToolItem, self).__init__()
-
-        self.item = QtGui.QWidget()
-        vLayout = QtGui.QVBoxLayout()
-        vLayout.setContentsMargins(0, 0, 0, 0)
-        vLayout.addWidget(QtGui.QLabel(title))
-        vLayout.addWidget(self.item)
-        self.setLayout(vLayout)
-
-        self.item.setVisible(False)
-
-    def mousePressEvent(self, *args, **kwargs):
-        self.item.setVisible(not self.item.isVisible())
-
-class ToolBox(QtGui.QWidget):
-
-    def __init__(self):
-        super(ToolBox, self).__init__()
-        self.vLay = QtGui.QVBoxLayout()
-        self.setLayout(self.vLay)
-
-    def addItem(self, item):
-        count = self.vLay.count()
-        if count > 1:
-            self.vLay.removeItem(self.vLay.itemAt(count-1))
-
-        self.vLay.addWidget(item)
-        self.vLay.addStretch()
