@@ -13,10 +13,14 @@ from ui.MainWindow import Ui_MainWindow
 from ui.FileOpenDialog import FileOpenDialog
 from ui.CreateProjectDialog import CreateProjectDialog
 from ui.ParameterInputBoxes import ParameterInputBoxes
-from ui.icons import icons
-from ui.icons import logo
+from ui.Icons import icons
+#from ui.icons import checkbox_icon
 import os
 
+from ui.ChooseCameraDialog import ChooseCameraDialog
+
+#from backports import configparser
+from ui.MayaUiDefaultValues import MayaUiDefaultValues
 
 def main(argv):
     print "dadas"
@@ -38,11 +42,14 @@ class MyMainWindow(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self, *args)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        #self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint) -- TODO delete the next line
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+
         self.createConnections()
         #self.setWindowIcon(QtGui.QIcon('a.png'))
         self.createButtonIcons()
 
-        f = open('ui/icons/darkorange.stylesheet', 'r')
+        f = open('ui/resources/darkorange.stylesheet', 'r')
         styleData = f.read()
         f.close()
         self.setStyleSheet(styleData)
@@ -86,21 +93,29 @@ class MyMainWindow(QtGui.QMainWindow):
                 print "WARNING: Please check name of directory!"
         print "RES: " + str(dirExists)
         """
-        print "[ Button clicked: " + self.sender().text() + "]"
+        print "[ Button clicked: " + self.sender().text() + "]."
+        currentSceneName = "E:/FluidExplorer_Code/Maya_Fluids/scene_1/scene1.mb"
         fileDialog = FileOpenDialog(self)
         #fileDialog.openDirectoryDialog()
-        fileDialog.openDirDialog()
+        fileDialog.openDirDialog(currentSceneName)
+
 
 
     @QtCore.Slot()
     def buttonNewProject_Event(self):
         print "[ Button clicked: " + self.sender().text() + "]"
-        createDialog = CreateProjectDialog(self)
+        self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint)
+
+        uiValues = MayaUiDefaultValues()
+        #createDialog = CreateProjectDialog(self) # TOTO delete the followig line
+        createDialog = CreateProjectDialog(self,"TODO")
         createDialog.exec_()
+        self.show()
         #createDialog = QtGui.QDialog(self)
         #ui_dialog = Ui_CreateProjectDialog()
         #ui_dialog.setupUi(createDialog)
         #createDialog.exec_()
+        #self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint)
 
     @QtCore.Slot()
     def buttonHelpMain_Event(self):
@@ -117,9 +132,6 @@ class MyMainWindow(QtGui.QMainWindow):
 # call main function
 if __name__ == '__main__':
     print "[ FluidExplorer started ]"
-
-
-
 
     from ui.MayaCacheCommandParameters import MayaCacheCommand
 
@@ -165,9 +177,35 @@ if __name__ == '__main__':
     print "The Command: " + cmdStr
 
 
-    a = True
-    b = False
 
-    print "BOOL: " + str((a and b))
+    # config file - write
+#    config = configparser.ConfigParser()
+#    config.add_section('default')
+#    config.set('default', 'SimulationName', 'E:/FluidExplorer_Code/Maya_Fluids/scene_1/scene1.mb')
+
+
+    #config['DEFAULT'] = {'SimulationName': 'C:/Users/Patrick/Desktop/abc.mb', 'ShapeName', 'fluid1'}
+
+#    with open('example.ini', 'w') as configfile:
+#        config.write(configfile)
+
+    """
+    # config file read
+    config = configparser.ConfigParser()
+    print "A_: " + str(config.read('example.ini'))
+    print config.get('DEFAULT','simulationname')
+    print config.get('TIERE','Hund')
+    """
+
+
+    print "ROTATION"
+
+    step = 10
+
+    stepAcc = 0
+    while stepAcc < 360:
+        print "V: " + str(stepAcc)
+        stepAcc = stepAcc + step
+
     main(sys.argv)
 

@@ -6,13 +6,14 @@ import  subprocess
 from PySide import QtGui
 from PySide import QtCore
 
+
+
 class FileOpenDialog(QtGui.QDialog):
 
     global WORKING_DIRECTORY
     WORKING_DIRECTORY = os.getcwd()
 
     def openDirectoryDialog(self, version):
-
 
         """
         Opens a dialog to allow user to choose a directory
@@ -23,9 +24,9 @@ class FileOpenDialog(QtGui.QDialog):
         if directory:
             print "[ Selected directory: " + directory + " ]"
             self.openSimulation()
-
         else:
             print "[ No directory selected ]"
+
 
     def openSimulation(self):
         print "[ Open Simulation ]"
@@ -39,21 +40,49 @@ class FileOpenDialog(QtGui.QDialog):
         os.chdir(path)
         print os.getcwd()
 
-    def checkPrjRoot(self):
-        isOk = False
 
-        # TODO check if directory is ok
-        if (1==1):
-            isOk = True
+    def checkPrjRoot(self, choosenDir, currentScene):
+        isSameScene = True
+        isNumberOk = True
 
-        return isOk
+        # config file read
+        config = configparser.ConfigParser()
+        config.read(choosenDir)
+        tmpSimulationName = config.get('default','SimulatioNname')
+        tmpNumberSamples = config.get('default','NumberSamples')
+
+        # Check numner of samples
+        dirname, filename = os.path.split(os.path.abspath(choosenDir))
+        file_list = next(os.walk(dirname))[1]
+
+        numDirs = 0
+        for index, item in enumerate(file_list):
+            #print str(index) + " " + str(item)
+            tmp = str(item)
+            if not tmp.startswith('.'):
+                numDirs = numDirs + 1;
+
+        if int(tmpNumberSamples) != int(numDirs):
+            print "Not the same number of Samples!"
+            isNumberOk = False
+
+        # Check if same scene opened
+        tmpSimulationName_low = tmpSimulationName.lower()
+        currentScene_low = currentScene.lower()
+        if tmpSimulationName_low != currentScene_low :
+            print "Not the same scene is open!"
+            isSameScene = False
 
 
-    def openDirDialog(self):
+        return [isNumberOk, isSameScene]
+
+
+    def openDirDialog(self, currentSceneName):
 
         dialog = QtGui.QFileDialog(self)
         dialog.setWindowTitle(self.tr("Fluid Explorer - Choose Project Directory"))
-        dialog.setFileMode(QtGui.QFileDialog.DirectoryOnly)
+        dialog.setFileMode(QtGui.QFileDialog.ExistingFile)
+        dialog.setNameFilter("FluidExplorer Project (*.fxp)")
         dialog.setDirectory(WORKING_DIRECTORY)
         dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
         #dialog.setWindowIcon(QtGui.QIcon(self.tr("ui/icons/icon_add_30px.png")))
@@ -67,17 +96,22 @@ class FileOpenDialog(QtGui.QDialog):
                 choosenDir = fileA[0]
                 print "[ Selected directory: " + choosenDir + " ]"
 
-                isOk = self.checkPrjRoot()
-                if (isOk == True):
-                    print "ok"
+                # Get the current maya scene name
+                #currentSceneName = "E:/FluidExplorer_Code/Maya_Fluids/scene_1/scene1.mb"
+                [isNumberOk, isSameScene] = self.checkPrjRoot(choosenDir, currentSceneName)
+
+                if (isNumberOk==True and isSameScene==True):
+                    print "Status: ok"
+                    # Call the FluidExplorer
                     self.openSimulation()
                 else:
                     print "not ok..."
                     msgBox = QtGui.QMessageBox()
-                    msgBox.setText("Please select a valid directory!")
+                    msgBox.setText("Please select a valid directory! TODO...")
                     msgBox.setWindowTitle("Warning - Load Project")
                     msgBox.setIcon(QtGui.QMessageBox.Warning)
                     msgBox.exec_()
+
 
     def openDirDialogQuick(self):
 

@@ -5,6 +5,13 @@
 		<file>icon_open_30px.png</file>
 		<file>icon_add_30px.png</file>
 		<file>icon_help_30px.png</file>
+		<file>img_1.png</file>
+		<file>img_2.png</file>
+		<file>img_3.png</file>
+		<file>img_4.png</file>
+		<file>checkbox.png</file>
+		<file>arrow_small_1.png</file>
+		<file>arrow_small_2.png</file>
 	
  </qresource>
 </RCC>

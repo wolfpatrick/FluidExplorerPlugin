@@ -439,7 +439,7 @@ class ParameterInputBoxes(QtGui.QMainWindow):
 
 
     def lineEdit_SWIRL_MIN_Leafe(self):
-
+        print "SWIRL"
         v_str = self.lineEdit_BUOYANY_MIN.text()
         try:
             v = float(v_str)

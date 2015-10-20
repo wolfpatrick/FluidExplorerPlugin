@@ -17,6 +17,8 @@ from FluidExplorerPlugin.ui.CreateProjectDialog import CreateProjectDialog
 from FluidExplorerPlugin.ui.icons import icons
 from FluidExplorerPlugin.ui.Utils import settings
 
+from FluidExplorerPlugin.ui.Utils.MayaCmds import MayaFunctions
+
 
 # Get the maya main window as a QMainWindow instance    
 def getMayaWindow():
@@ -86,13 +88,24 @@ class ControlMainWindow(QtGui.QMainWindow):
     @QtCore.Slot()
     def buttonLoadSimulation_Event(self):
         print "[ Button clicked: " + self.sender().text() + "]"
+
+        # Get current scene name
+        currentSceneName = cmds.file(q=True, sceneName=True)
+        print "Current scene: " + str(currentSceneName)
+
         openD = FileOpenDialog(self)
-        openD.openDirDialog()
+        openD.openDirDialog(currentSceneName)
 
     # Eventhandler - create simulation
     @QtCore.Slot()
     def buttonNewProject_Event(self):
         print "[ Button clicked ... : " + self.sender().text() + "]"
+
+        helpFunc = MayaFunctions()
+        [stat, errorMsg] = helpFunc.getSelectedContainerPy
+        print "STATUS: " + str(stat)
+        print errorMsg
+
         #smaya.mel.eval("sphere -radius 3;")
         #cmd = 'fluidExplorer - s1 4 -p "C:/TMP/FE_Simulations";'
         #print "STRING: " + cmd

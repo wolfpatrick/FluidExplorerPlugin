@@ -1,13 +1,8 @@
 __author__ = 'babbel'
 
-
-#!/usr/bin/python
+# Code adapted from
 #
-## @file
-#
-# Deprecated! Use qtRangeSlider instead!
-#
-# Qt Widget Range slider widget.
+# Widget Range slider widget.
 #
 # Hazen 4/09
 #
@@ -15,31 +10,69 @@ __author__ = 'babbel'
 from PySide import QtCore, QtGui
 import sys
 
-# Camera widget
 class QHRangeSlider(QtGui.QWidget):
-    def __init__(self, lineEditElement_MIN = None, lineEditElement_MAX = None,  range = None, values = None, parent = None, enabledFlag = None):
+
+    def __init__(self, lineEditElement_MIN = None, lineEditElement_MAX = None, lineEdit_DEF = None,  range = None,
+                 values = None, parent = None, enabledFlag = None):
+
         QtGui.QWidget.__init__(self, parent)
-        if (not parent):
+
+        if not parent:
             self.setGeometry(200, 200, 200, 20)
+
         self.emit_while_moving = 0
         self.scale = 0
         self.setMouseTracking(False)
         self.moving = "none"
 
+        # LineEdit values
         self.lineEditElement_MIN = lineEditElement_MIN
         self.lineEditElement_MAX = lineEditElement_MAX
+        self.lineEditElement_DEF = lineEdit_DEF
 
+        # Width of the bar
         self.bar_width = 10
+
         if range:
             self.setRange(range)
         if values:
             self.setValues(values)
         else:
-            self.setValues([0.3, 0.6])
+            pass
+            #self.setValues([0.3, 0.6])
 
+        # Store values
+        self.maxValue = range[1]
+        self.rangeValues = range
+        self.defaultSingleValue = 1 # Stored the current value from Maya
+
+        # Additional flags tho control the style
         self.enabledFlag = enabledFlag
+        self.isRangeActive = True
+        self.maxReached = False
 
+        """
+        if not self.isRangeActive:
+            print self.defaultSingleValue
+            tmpRange = [0, 1]
+            self.update()
+        """
 
+    def changeStyle(self):
+        if self.isRangeActive:
+            tmpRange = [self.defaultSingleValue, 0]
+            hslider.setValues(tmpRange)
+            self.isRangeActive = False
+        elif not self.isRangeActive:
+            tmpRange = [self.rangeValues[0], self.rangeValues[1]]
+            hslider.setValues(tmpRange)
+            self.isRangeActive = True
+
+        hslider.update()
+
+    def changeSliderEnabled(self, flag):
+        self.enabledFlag = flag
+        self.update()
 
     def emitRange(self):
         w = float(self.width() - 2 * self.bar_width - 1)
@@ -50,99 +83,191 @@ class QHRangeSlider(QtGui.QWidget):
             fmin = float(self.rmin - self.bar_width)/(w+1.0)
             fmax = float(self.rmax - self.bar_width)/w
 
-        #print "Range change:", fmin, fmax
+        if self.isRangeActive:
+            print "Range:", fmin, fmax
+        else:
+            sliderValue = fmin
+            if self.maxReached == True:
+                print "...................."
+                sliderValue = self.maxValue
 
-        # Update the line edits
-        self.lineEditElement_MIN.setText( str(round(fmin,1)) )
-        self.lineEditElement_MAX.setText( str(round(fmax,1)) )
+            print "Value: ", sliderValue
+
+        # Update the QLineEdit elements
+        if self.isRangeActive:
+            self.lineEditElement_MIN.setText(str(round(fmin, 2)))
+            self.lineEditElement_MAX.setText(str(round(fmax, 2)))
+        elif not self.isRangeActive:
+            self.lineEditElement_DEF.setText(str(round(sliderValue, 2)))
 
     def paintEvent(self, event):
-        painter = QtGui.QPainter(self)
-        rmin = self.rmin
-        rmax = self.rmax
-        w = self.width()
-        h = self.height()
 
-        # background
-        g1 = QtGui.QColor(64, 64, 64)
-        if self.enabledFlag == False:
-             g1 = QtGui.QColor(QtCore.Qt.transparent) # delete this
-        #g1 = QtGui.QColor(QtCore.Qt.transparent) # delete this
-        #painter.setPen(QtCore.Qt.gray)
-        painter.setPen(g1)
-        #painter.setPen(g1)
-        painter.setBrush(QtCore.Qt.lightGray)
-        if self.enabledFlag == False:
-             painter.setBrush(QtCore.Qt.transparent) # delete this
-        #painter.setBrush(QtCore.Qt.b) # delete
-        painter.drawRect(2, 2, w-4, h-4)
+        if self.isRangeActive:
+            painter = QtGui.QPainter(self)
+            rmin = self.rmin
+            rmax = self.rmax
+            w = self.width()
+            h = self.height()
 
-        # range bar
-        lb = QtGui.QColor(215, 128, 26)
+            # Background
+            g1 = QtGui.QColor(64, 64, 64)
+            if self.enabledFlag == False:
+                 g1 = QtGui.QColor(QtCore.Qt.transparent) # delete this
 
-        if self.enabledFlag == False:
-            lb = QtGui.QColor(QtCore.Qt.transparent) # delete this
+            painter.setPen(g1)
+            painter.setBrush(QtCore.Qt.lightGray)
 
-        painter.setPen(QtCore.Qt.darkGray)
-        if self.enabledFlag == False:
+            if self.enabledFlag == False:
+                 painter.setBrush(QtCore.Qt.transparent) # delete this
+
+            painter.drawRect(2, 2, w-4, h-4)
+
+            # Range bar
+            lb = QtGui.QColor(215, 128, 26)
+
+            if self.enabledFlag == False:
+                lb = QtGui.QColor(QtCore.Qt.transparent) # delete this
+
+            painter.setPen(QtCore.Qt.darkGray)
+
+            if self.enabledFlag == False:
+                painter.setPen(QtCore.Qt.black)
+
+            painter.setBrush(lb)
+            painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10)
+
+            # min & max tabs
             painter.setPen(QtCore.Qt.black)
+            painter.setBrush(QtCore.Qt.darkGray)
+            painter.setBrush(lb)
+            x=QtGui.QColor(215, 128, 26)
 
-        painter.setBrush(lb)     #darkGray
+            if self.enabledFlag == False:
+                painter.setBrush(QtCore.Qt.transparent)
 
-        painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10) # vorher: rmax-rmin+2, rmin-1
+            painter.drawRect(rmin-self.bar_width, 1, 10, h-2)
+            painter.setBrush(lb)
 
-        # min & max tabs
-        painter.setPen(QtCore.Qt.black)
-        painter.setBrush(QtCore.Qt.darkGray)
-        if self.enabledFlag == False:
-            painter.setBrush(QtCore.Qt.transparent)
-        #if self.enabledFlag == False:
-             #painter.setBrush(QtCore.Qt.transparent) # delete this
-        #painter.setBrush(QtCore.Qt.transparent) # delete this
-        painter.drawRect(rmin-self.bar_width, 1, 10, h-2)
+            if self.enabledFlag == False:
+                painter.setBrush(QtCore.Qt.transparent)
 
-        painter.setPen(QtCore.Qt.black)
-        painter.setBrush(QtCore.Qt.gray)
-        if self.enabledFlag == False:
-            painter.setBrush(QtCore.Qt.transparent)
-        #if self.enabledFlag == False:
-             #painter.setBrush(QtCore.Qt.transparent) # delete this
-        #painter.setBrush(QtCore.Qt.transparent) # delete this
-        painter.drawRect(rmax, 1, self.bar_width, h-2)
+            painter.drawRect(rmax, 1, self.bar_width, h-2)
+
+        else:
+
+            painter = QtGui.QPainter(self)
+            rmin = self.rmin
+            rmax = self.rmax
+            w = self.width()
+            h = self.height()
+
+            # Background
+            g1 = QtGui.QColor(64, 64, 64)
+            if self.enabledFlag == False:
+                 g1 = QtGui.QColor(QtCore.Qt.transparent)
+
+            painter.setPen(g1)
+            painter.setBrush(QtCore.Qt.lightGray)
+
+            if self.enabledFlag == False:
+                 painter.setBrush(QtCore.Qt.transparent)
+
+            painter.drawRect(2, 2, w-4, h-4)
+
+            # Bar
+            lb = QtGui.QColor(215, 128, 26)
+
+            if self.enabledFlag == False:
+                lb = QtGui.QColor(QtCore.Qt.transparent)
+
+            painter.setPen(QtCore.Qt.darkGray)
+
+            if self.enabledFlag == False:
+                painter.setPen(QtCore.Qt.black)
+
+            painter.setBrush(lb)
+
+
+            if self.isRangeActive == True:
+                painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10)
+
+            # Min tab
+            painter.setPen(QtCore.Qt.black)
+            painter.setBrush(QtCore.Qt.darkGray)
+            painter.setBrush(lb)
+            x = QtGui.QColor(215, 128, 26)
+
+            if self.isRangeActive == True:
+                painter.setBrush(x)
+
+            if self.enabledFlag == False:
+                painter.setBrush(QtCore.Qt.transparent)
+
+            painter.drawRect(rmin-self.bar_width, 1, 20, h-2)
+            painter.setBrush(lb)
+
+            if self.enabledFlag == False:
+                painter.setBrush(QtCore.Qt.transparent)
 
     def mouseMoveEvent(self, event):
-        w = self.width()
-        diff = self.start_x - event.x()
-        if self.moving == "min":
-            temp = self.start_rmin - diff
-            if (temp >= self.bar_width) and (temp < w - self.bar_width):
-                self.rmin = temp
-                if self.rmax < self.rmin:
-                    self.rmax = self.rmin
-                self.update()
-                if self.emit_while_moving:
-                    self.emitRange()
-        elif self.moving == "max":
-            temp = self.start_rmax - diff
-            if (temp >= self.bar_width) and (temp < w - self.bar_width):
-                self.rmax = temp
-                if self.rmax < self.rmin:
-                    self.rmin = self.rmax
-                self.update()
-                if self.emit_while_moving:
-                    self.emitRange()
-        elif self.moving == "bar":
-            temp = self.start_rmin - diff
-            if (temp >= self.bar_width) and (temp < w - self.bar_width - (self.start_rmax - self.start_rmin)):
-                self.rmin = temp
-                self.rmax = self.start_rmax - diff
-                self.update()
-                if self.emit_while_moving:
-                    self.emitRange()
+        if self.isRangeActive:
+            w = self.width()
+            diff = self.start_x - event.x()
+
+            if self.moving == "min":
+                temp = self.start_rmin - diff
+                if (temp >= self.bar_width) and (temp < w - self.bar_width):
+                    self.rmin = temp
+                    if self.rmax < self.rmin:
+                        self.rmax = self.rmin
+                    self.update()
+                    if self.emit_while_moving:
+                        self.emitRange()
+            elif self.moving == "max":
+                temp = self.start_rmax - diff
+                if (temp >= self.bar_width) and (temp < w - self.bar_width):
+                    self.rmax = temp
+                    if self.rmax < self.rmin:
+                        self.rmin = self.rmax
+                    self.update()
+                    if self.emit_while_moving:
+                        self.emitRange()
+            elif self.moving == "bar":
+                temp = self.start_rmin - diff
+                if (temp >= self.bar_width) and (temp < w - self.bar_width - (self.start_rmax - self.start_rmin)):
+                    self.rmin = temp
+                    self.rmax = self.start_rmax - diff
+                    self.update()
+                    if self.emit_while_moving:
+                        self.emitRange()
+
+        else:
+
+            w = self.width()
+            diff = self.start_x - event.x()
+
+            res = self.rmin + self.bar_width
+
+            if self.moving == "min":
+                temp = self.start_rmin - diff
+                #if temp >= self.rmax:
+                if res >= self.width():
+                    # Max reached
+                    self.maxReached = True
+                else:
+                    self.maxReached = False
+
+                if (temp >= self.bar_width) and (temp < w - self.bar_width):
+                    self.rmin = temp
+                    if self.rmax < self.rmin:
+                        self.rmax = self.rmin
+                    self.update()
+                    if self.emit_while_moving:
+                        self.emitRange()
 
     def mousePressEvent(self, event):
         x = event.x()
-        if abs(self.rmin - 0.5 * self.bar_width - x) < (0.5 * self.bar_width):
+        if abs(self.rmin - 0.5 * self.bar_width - x) < (0.5 * self.bar_width+10):   # Edited !!
             self.moving = "min"
         elif abs(self.rmax + 0.5 * self.bar_width - x) < (0.5 * self.bar_width):
             self.moving = "max"
@@ -177,26 +302,46 @@ class QHRangeSlider(QtGui.QWidget):
             self.emit_while_moving = 0
 
 
-
-"""
-#
-# Testing
-#
+# -----------------
+# RangeSlider Test
+# -----------------
 
 if __name__ == "__main__":
+
     class Parameters:
         def __init__(self):
             self.x_pixels = 200
             self.y_pixels = 200
+
+            self.flag = True
+
+    def change():
+        print "Style changed ..."
+        hslider.changeStyle()
+
+    def changeEnabled():
+        print "Enabled/Disabled"
+        hslider.changeSliderEnabled(False)
+
     app = QtGui.QApplication(sys.argv)
-#    hslider = QHRangeSlider()
-    hslider = QHRangeSlider(range = [-5.0, 5.0], values = [-5, -4])
-    #hslider.setValues([-5, 5])
+    # hslider = QHRangeSlider()
+
+    # Slider
+    hslider = QHRangeSlider(range = [0, 2], values = [0, 2])
+    hslider.setValues([0, 2])
+
+    # PushButton
+    button = QtGui.QPushButton("Change Style")
+    button.show()
+    button.clicked.connect(change)
+
+    button1 = QtGui.QPushButton("Change Enabled/Dissable")
+    button1.show()
+    button1.clicked.connect(changeEnabled)
 
     hslider.setEmitWhileMoving(True)
     hslider.show()
     sys.exit(app.exec_())
-"""
 
 
 #
@@ -222,4 +367,3 @@ if __name__ == "__main__":
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-

@@ -2,7 +2,8 @@ _author__ = 'Patrick'
 
 class MayaCacheCmdSettings(object):
 
-    def __init__(self):
+    def _init__(self):
+        self._fluidBoxName = ""
         self._outputPath = ""
         self._numberSamples = 128
         self._prjName = ""
@@ -10,6 +11,18 @@ class MayaCacheCmdSettings(object):
         self._cam_viewcube = False
         self._cam_sphere = False
         self._cam_rotation = 0
+        self._cam_custom_name = None
+        self._animationStartTime = 0.0
+        self._animationEndTime = 0.0
+        self._createCacheCommandString = ""
+
+    @property
+    def fluidBoxName(self):
+        return self._fluidBoxName
+
+    @fluidBoxName.setter
+    def fluidBoxName(self, value):
+        self._fluidBoxName = value
 
     @property
     def outputPath(self):
@@ -67,15 +80,56 @@ class MayaCacheCmdSettings(object):
     def cam_rotation(self, value):
         self._cam_rotation = value
 
+    @property
+    def cam_custom_name(self):
+        return self._cam_custom_name
+
+    @cam_custom_name.setter
+    def cam_custom_name(self, value):
+        self._cam_custom_name = value
+
+    @property
+    def animationStartTime(self):
+        return self._animationStartTime
+
+    @animationStartTime.setter
+    def animationStartTime(self, value):
+        self._animationStartTime = value
+
+    @property
+    def animationEndTime(self):
+        return self._animationEndTime
+
+    @animationEndTime.setter
+    def animationEndTime(self, value):
+        self._animationEndTime = value
+
+    @property
+    def createCacheCommandString(self):
+        return self._createCacheCommandString
+
+    @createCacheCommandString.setter
+    def createCacheCommandString(self, value):
+        self._createCacheCommandString = value
+
+    @property
+    def randomSliderSamples(self):
+        return self._randomSliderSamples
+
+    @randomSliderSamples.setter
+    def randomSliderSamples(self, value):
+        self._randomSliderSamples = value
+
     @staticmethod
     def printValues(valuesGeneral):
-        print "-- General Parameters  --"
-
+        print "----- General Parameters  -----"
+        print "\tFluid container    : " + str(valuesGeneral.fluidBoxName)
         print "\tNum. Samples: " + str(valuesGeneral.numberSamples)
         print "\tOutput Path : " + str(valuesGeneral.outputPath)
         print "\tProj. Name  : " + str(valuesGeneral.prjName)
-
         print "\tCamera Perspective : " + str(valuesGeneral.cam_perspective)
         print "\tCamera ViewCube    : " + str(valuesGeneral.cam_viewcube)
-        print "\tCamera Sphere      : " + str(valuesGeneral.cam_sphere)
+        print "\tCamera Custom      : " + str(valuesGeneral.cam_sphere) + str(valuesGeneral.cam_custom_name)
         print "\tCamera Rotation    : " + str(valuesGeneral.cam_rotation)
+        print "\tAnimation Start Time : " + str(valuesGeneral.animationStartTime)
+        print "\tAnimation End Time   : " + str(valuesGeneral.animationEndTime)
