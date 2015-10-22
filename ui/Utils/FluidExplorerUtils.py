@@ -33,7 +33,7 @@ class FluidExplorerUtils(object):
 
     @staticmethod
     def readAttributeFromConfigurationFile(choosenDir, category, attribute):
-        config = ConfigParser()
+        config = ConfigParser.ConfigParser()
         config.read(choosenDir)
 
         result = config.get(category, attribute)
