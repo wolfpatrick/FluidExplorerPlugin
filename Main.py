@@ -94,7 +94,9 @@ class MyMainWindow(QtGui.QMainWindow):
         exists = os.path.exists(path)
         return exists
 
+#
 # ---- Call main function ----
+#
 if __name__ == '__main__':
     print "[ FluidExplorer started ]"
     main(sys.argv)
