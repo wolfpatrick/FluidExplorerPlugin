@@ -14,7 +14,7 @@ import maya.utils
 # UI files created with pyside-uic from qt_xml description
 from FluidExplorerPlugin.ui.FileOpenDialog import FileOpenDialog
 from FluidExplorerPlugin.ui.CreateProjectDialog import CreateProjectDialog
-from FluidExplorerPlugin.ui.icons import icons
+from ui.Icons import icons
 from FluidExplorerPlugin.ui.Utils import settings
 
 from FluidExplorerPlugin.ui.Utils.MayaCmds import MayaFunctions

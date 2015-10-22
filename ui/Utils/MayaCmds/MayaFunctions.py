@@ -1,18 +1,20 @@
-from ui.MayaCacheCommandParameters import MayaCacheCommand
+#from ui.MayaCacheCommandParameters import MayaCacheCommand
+#from FluidExplorerPlugin.ui.MayaCacheCommandParameters import MayaCacheCommand
+
+
 #from FluidExplorerPlugin.ui.MayaCacheCmdSettings import MayaCacheCmdSettings
 
 #from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
 #from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
 
-#import maya.cmds as cmds
-#import pymel.core as pm
-#import maya.mel as mel
+import maya.cmds as cmds
+import pymel.core as pm
+import maya.mel as mel
 
-from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
 
 import os
-from PySide import QtCore, QtGui
-from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
+from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
+#from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
 
 
 class MayaFunctionUtils(object):

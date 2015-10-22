@@ -82,11 +82,13 @@ class CreateProjectDialog(QtGui.QDialog):
 
         workDir = os.getcwd() + "/" + "Output" + "/"
         workDir = "E:/TMP"
-        if (platform.system() == "Windows"):
-            self.workDir = workDir.replace("/","\\")
+        if platform.system() == "Windows":
+            self.workDirPath = workDir.replace("/", "\\")
             #self.workDir = self.workDir + "output"
-        self.ui.lineEdit_ProjPath.setText(self.workDir)
+        self.ui.lineEdit_ProjPath.setText(self.workDirPath)
 
+        buttonStyleBold = "QPushButton { font-weight: bold; }"
+        self.ui.pushButtonCreateSimulation.setStyleSheet(buttonStyleBold)
         self.ui.label.setEnabled(False)
         self.ui.spinBox_rotDeg.setEnabled(False)
         self.ui.spinBox_rotDeg.setValue(DefaultUIParameters.DEF_SPIN_ROT)

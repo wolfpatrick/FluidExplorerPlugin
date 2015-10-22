@@ -1,7 +1,6 @@
-__author__ = 'Patrick'
 
 import random
-#import maya.cmds as cmds
+import maya.cmds as cmds
 
 #from FluidExplorerPlugin.ui.MayaCacheCommandParameters import MayaCacheCommand
 

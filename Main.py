@@ -25,6 +25,7 @@ class MyMainWindow(QtGui.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint) #self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint)
+        self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.Window)
 
         icons.qInitResources()
         self.createConnections()
@@ -32,9 +33,9 @@ class MyMainWindow(QtGui.QMainWindow):
 
         # Load the dark.orange stylesheet for the entire project (stored in ui/resources folder)
         f = open('ui/resources/darkorange.stylesheet', 'r')
-        styleData = f.read()
+        self.styleData = f.read()
         f.close()
-        self.setStyleSheet(styleData)
+        self.setStyleSheet(self.styleData)
 
     def createConnections(self):
         self.ui.pushButtonLoadSimulation.clicked.connect(self.buttonLoadSimulation_Event)
@@ -49,6 +50,8 @@ class MyMainWindow(QtGui.QMainWindow):
         self.ui.pushButtonNewProject.setIcon(icon_create)
         self.ui.pushButtonLoadSimulation.setIcon(icon_open)
         self.ui.pushButtonHelpMain.setIcon(icon_help)
+
+
 
         icon_win = QtGui.QIcon(QtGui.QPixmap(':/logo.png'))
         self.setWindowIcon(icon_win)
@@ -78,8 +81,7 @@ class MyMainWindow(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def buttonNewProject_Event(self):
-        self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint)
-
+        #self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint)
         # createDialog = CreateProjectDialog(self) # TOTO delete the followig line
         createDialog = CreateProjectDialog(self, "TODO")
         createDialog.exec_()

@@ -1,6 +1,7 @@
 from PySide import QtGui
 import os
-from ui.Utils.FluidExplorerUtils import FluidExplorerUtils
+from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
+#from ui.Utils.FluidExplorerUtils import FluidExplorerUtils
 
 
 class FileOpenDialog(QtGui.QDialog):
