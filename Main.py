@@ -56,6 +56,7 @@ class MyMainWindow(QtGui.QMainWindow):
 
     @QtCore.Slot()
     def buttonLoadSimulation_Event(self):
+        self.hide()
         """
         path = "E:\Literatur\?"
         pr = "Untitled"
@@ -73,6 +74,7 @@ class MyMainWindow(QtGui.QMainWindow):
         currentSceneName = "E:/FluidExplorer_Code/Maya_Fluids/scene_1/scene1.mb"
         fileDialog = FileOpenDialog(self)
         fileDialog.openDirDialog(currentSceneName)  # fileDialog.openDirectoryDialog()
+        self.show()
 
     @QtCore.Slot()
     def buttonNewProject_Event(self):
