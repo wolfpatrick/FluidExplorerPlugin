@@ -495,7 +495,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.ui.pushButton_CamVC.setStyleSheet(DefaultUIParameters.StyleSheet_Button_On)
         self.ui.pushButton_CamSPH.setIcon(QtGui.QIcon(self.tr(":/img_3.png")))
         self.ui.pushButton_CamSPH.setStyleSheet(DefaultUIParameters.StyleSheet_Button_Off)
-        self.ui.pushButton_ROT.setIcon(QtGui.QIcon(self.tr(":/img_4.png")))
+        self.ui.pushButton_ROT.setIcon(QtGui.QIcon(self.tr(":/img_5.png")))
         self.ui.pushButton_ROT.setStyleSheet(DefaultUIParameters.StyleSheet_Button_Off)
         self.ui.pushButton_CamPV.clicked.connect(self.pushButtonCamPV_Event)
         self.ui.pushButton_CamVC.clicked.connect(self.pushButtonCamVC_Event)
