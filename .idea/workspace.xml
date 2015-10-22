@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="Project Cleaned 4">
+    <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -27,79 +27,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IMG_5.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_5.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMG_4.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_4.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon_add_30px.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/icon_add_30px.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="darkorange.stylesheet" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet">
+      <file leaf-file-name="CreateProjectDialog.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10731">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.37738246" vertical-offset="9783" max-vertical-offset="13335">
+              <caret line="497" column="67" selection-start-line="497" selection-start-column="67" selection-end-line="497" selection-end-column="67" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icons.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/icons.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31382316" vertical-offset="0" max-vertical-offset="803">
-              <caret line="12" column="166" selection-start-line="12" selection-start-column="166" selection-end-line="12" selection-end-column="166" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon_help_30px.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/icon_help_30px.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMG_2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_2.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMG_3.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_3.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icon_open_30px.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/icon_open_30px.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ico_search.ico" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Icons/ico_search.ico">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -145,11 +79,11 @@
         <option value="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
         <option value="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
         <option value="$PROJECT_DIR$/ui/DefaultUIValues.py" />
-        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/ui/Icons/icons.qrc" />
+        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
       </list>
     </option>
   </component>
@@ -678,7 +612,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445515581802</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Project Cleaned 4">
+      <created>1445516601264</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1445516601264</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -703,11 +643,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962668" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962668" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38681492" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -768,13 +708,13 @@
     <MESSAGE value="Project Cleaned 3" />
     <MESSAGE value="Project Cleaned 5 Load Project Dialog&#10;" />
     <MESSAGE value="Project Cleaned - Project Dialog" />
-    <MESSAGE value="Project Cleaned 4" />
     <MESSAGE value="icon added&#10;" />
     <MESSAGE value="Project Cleaned 6" />
     <MESSAGE value="icon added" />
     <MESSAGE value="Project Cleaned UI updated&#10;" />
     <MESSAGE value="Project Cleaned - Icon added&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Cleaned - Icon added&#10;" />
+    <MESSAGE value="Project Cleaned 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Cleaned 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -930,6 +870,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5733">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,14 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="890" max-vertical-offset="13335">
-          <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/DefaultUIValues.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546">
@@ -1102,11 +1035,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Icons/icon_help_30px.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1125,14 +1053,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_4.png">
+    <entry file="file://$PROJECT_DIR$/ui/Icons/icon_open_30px.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Icons/icon_add_30px.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/ui/Icons/icons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31382316" vertical-offset="0" max-vertical-offset="803">
+          <caret line="12" column="166" selection-start-line="12" selection-start-column="166" selection-end-line="12" selection-end-column="166" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet">
@@ -1143,15 +1074,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Icons/icon_open_30px.png">
+    <entry file="file://$PROJECT_DIR$/ui/Icons/icon_add_30px.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Icons/icons.py">
+    <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_4.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Icons/IMG_5.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31382316" vertical-offset="0" max-vertical-offset="803">
-          <caret line="12" column="166" selection-start-line="12" selection-start-column="166" selection-end-line="12" selection-end-column="166" />
+        <state vertical-scroll-proportion="0.37738246" vertical-offset="9783" max-vertical-offset="13335">
+          <caret line="497" column="67" selection-start-line="497" selection-start-column="67" selection-end-line="497" selection-end-column="67" />
           <folding />
         </state>
       </provider>
