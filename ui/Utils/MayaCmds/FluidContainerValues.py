@@ -9,11 +9,11 @@ class ContainerValuesUtils():
     def setFluidContainerParameter(self, property, paramterValue):
         tmpCmd = self.fluidName + '.' + property
         print tmpCmd
-        #cmds.setAttr(tmpCmd, paramterValue)
+        cmds.setAttr(tmpCmd, paramterValue)
         
     def getFluidContainerParamter(self, property):
         tmpCmd = self.fluidName + '.' + property
-        #paramterValue = cmds.getAttr(tmpCmd)
+        paramterValue = cmds.getAttr(tmpCmd)
         paramterValue = 9.0
         return paramterValue
         

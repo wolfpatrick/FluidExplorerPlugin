@@ -54,6 +54,8 @@ class CreateProjectDialog(QtGui.QDialog):
 
         self.simulationSettings = MayaCacheCmdSettings()
         self.setUpComponents()
+        print '////////////////////////////'
+        print fluidName
 
 
     def centre(self):

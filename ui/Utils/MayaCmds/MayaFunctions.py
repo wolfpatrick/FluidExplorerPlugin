@@ -66,7 +66,7 @@ class MayaFunctionUtils(object):
     def createFluid(self, cmdStr, progressbar):
         progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
         print progressbar.labelText()
-        #pm.mel.eval(cmdStr)
+        pm.mel.eval(cmdStr)
 
     def setSampledValue(self, fluidName, values):
         """
@@ -76,7 +76,7 @@ class MayaFunctionUtils(object):
         for item in members:
             tmpCmd = fluidName + "." + str(item)
             attributeValue = float(getattr(values, item))
-            #cmds.setAttr(tmpCmd, attributeValue)
+            cmds.setAttr(tmpCmd, attributeValue)
 
     def changeToPerspCam(self):
         currentCam = cmds.lookThru(q=True)
