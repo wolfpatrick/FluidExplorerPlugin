@@ -19,7 +19,6 @@ class FileOpenDialog(QtGui.QDialog):
 
     def openSimulation(self):
         # subprocess.call(["E:/FluidExplorer_Code/Release/fluidexplorer.exe"], shell=True)
-        #subprocess.call(["fluidexplorer.exe"])
         path = os.getcwd()
         os.chdir("E:/FluidExplorer_Code/Release/")
         os.system("fluidexplorer.exe")
@@ -28,9 +27,15 @@ class FileOpenDialog(QtGui.QDialog):
     def checkPrjRoot(self, choosenDir, currentScene):
         isSameScene = True
         isNumberOk = True
+        canReadConfigFile = True
 
-        tmpSimulationName = FluidExplorerUtils.readAttributeFromConfigurationFile('default', 'SimulatioNname')
-        tmpNumberSamples = FluidExplorerUtils.readAttributeFromConfigurationFile('default', 'NumberSamples')
+        try:
+            tmpSimulationName = FluidExplorerUtils.readAttributeFromConfigurationFile(choosenDir, 'default_settings', 'SimulatioNname')
+            tmpNumberSamples = FluidExplorerUtils.readAttributeFromConfigurationFile(choosenDir,  'default_settings', 'NumberSamples')
+            tmpNumberSamples = int(tmpNumberSamples)
+        except:
+            canReadConfigFile = False
+            return [canReadConfigFile, isNumberOk, isSameScene]
 
         # Check numner of samples
         dirname, filename = os.path.split(os.path.abspath(choosenDir))
@@ -45,6 +50,7 @@ class FileOpenDialog(QtGui.QDialog):
 
         if int(tmpNumberSamples) != int(numDirs):
             print "Not the same number of Samples!"
+            errorTxt = "Not the same number of Samples!"
             isNumberOk = False
 
         # Check if same scene opened
@@ -52,9 +58,10 @@ class FileOpenDialog(QtGui.QDialog):
         currentScene_low = currentScene.lower()
         if tmpSimulationName_low != currentScene_low :
             print "Not the same scene is open!"
+            errorTxt = "Not the same scene is open!"
             isSameScene = False
 
-        return [isNumberOk, isSameScene]
+        return [canReadConfigFile, isNumberOk, isSameScene]
 
     def openDirDialog(self, currentSceneName):
 
@@ -71,19 +78,31 @@ class FileOpenDialog(QtGui.QDialog):
             if len(fileA) == 1:
                 choosenDir = fileA[0]
                 print "[ Selected directory: " + choosenDir + " ]"
-
                 # Get the current maya scene name
-                #currentSceneName = "E:/FluidExplorer_Code/Maya_Fluids/scene_1/scene1.mb"
-                [isNumberOk, isSameScene] = self.checkPrjRoot(choosenDir, currentSceneName)
+                [canReadConfigFile, isNumberOk, isSameScene] = self.checkPrjRoot(choosenDir, currentSceneName)
 
-                if (isNumberOk == True and isSameScene==True):
-                    self.openSimulation()
-                else:
+                if not canReadConfigFile:
                     msgBox = QtGui.QMessageBox()
-                    msgBox.setText("Please select a valid directory! TODO...")
+                    msgBox.setText("Error while reading the project file!")
                     msgBox.setWindowTitle("Warning - Load Project")
-                    msgBox.setIcon(QtGui.QMessageBox.Warning)
+                    msgBox.setIcon(QtGui.QMessageBox.Critical)
                     msgBox.exec_()
+                else:
+                    if not isNumberOk:
+                            msgBox = QtGui.QMessageBox()
+                            msgBox.setText("NUMBEr!")
+                            msgBox.setWindowTitle("Warning - Load Project")
+                            msgBox.setIcon(QtGui.QMessageBox.Warning)
+                            msgBox.exec_()
+                    else:
+                        try:
+                            self.openSimulation()
+                        except:
+                            msgBox = QtGui.QMessageBox()
+                            msgBox.setText("Cannot start FluidExplorer application!")
+                            msgBox.setWindowTitle("Error - Load Project")
+                            msgBox.setIcon(QtGui.QMessageBox.Critical)
+                            msgBox.exec_()
 
     def openDirDialogQuick(self):
         dialog = QtGui.QFileDialog(self)

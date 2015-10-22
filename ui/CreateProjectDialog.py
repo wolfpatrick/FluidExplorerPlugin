@@ -55,6 +55,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.simulationSettings = MayaCacheCmdSettings()
         self.setUpComponents()
 
+
     def centre(self):
         # Get the current screens' dimensions...
         screen = QtGui.QDesktopWidget().screenGeometry()
@@ -72,6 +73,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.fluidName = name
 
     def setUpComponents(self):
+        self.ui.tabWidget.removeTab(1)
         self.setAnimationStartEndTime()
 
         icon_open = QtGui.QIcon(QtGui.QPixmap(':/icon_help_30px.png'))

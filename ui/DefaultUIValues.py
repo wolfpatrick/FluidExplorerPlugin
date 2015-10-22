@@ -1,4 +1,4 @@
-# Stores the default values of the create project dialog
+# Stores the default values of the create project dialog anf the main dialog
 class DefaultUIParameters(object):
 
     StyleSheet_Button_Off = "QPushButton { background-color: None; border: 3px solid grey; border-radius: 5px; }"
@@ -16,3 +16,6 @@ class DefaultUIParameters(object):
     DEF_NUMBER_SEQUENCES = 128
     DEF_NUMBER_SEQUENCES_MIN = 2
     DEF_NUMBER_SEQUENCES_MAX = 500
+
+    # Url to the help page
+    URL = "http://google.de"
