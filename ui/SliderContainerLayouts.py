@@ -23,7 +23,7 @@ class SliderContainerLayout(object):
         self.resetButton.clicked.connect(self.resetButton_Event)
 
         self.sliderList = list()
-        self.fluidBoxName = "FLUID_TODO"
+        self.fluidBoxName = ""
 
     def resetButton_Event(self, sliderList):
         self.reset(sliderList)
@@ -31,6 +31,9 @@ class SliderContainerLayout(object):
     def reset(self, sliderList):
         for listItem in sliderList:
             listItem.resetValues()
+
+    def setFluidBoxName(self, boxName):
+        self.fluidBoxName = boxName
 
 
 class DiffusionLayout(SliderContainerLayout):
@@ -89,12 +92,13 @@ class VelocityLayout(SliderContainerLayout):
 
         self.containerSwirl = SliderContainer("Swirl", self.DEF_VALUES.velocitySwirl_RANGE[0], self.DEF_VALUES.velocitySwirl_RANGE[1], self.DEF_VALUES.velocitySwirl_DEF)
         self.containerSwirl.addToLayout(self.gridLayout_Box, 1)
+        # TODO Add new items
 
         self.gridLayout_Box.addWidget(self.resetButton,  2, 13, 1, 4)
         self.gridLayout_Box.addWidget(QtGui.QSplitter(QtCore.Qt.Vertical), 3, 0)
-
-        # List which stores all slider containers
         self.sliderList.append(self.containerSwirl)
+
+        self.setAllValues(self.sliderList)  # Set all values to start position
 
         return self.gridLayout_Box
 
@@ -104,11 +108,11 @@ class VelocityLayout(SliderContainerLayout):
     def initializeSliderDefaultValues(self):
         fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
 
-        self.DEF_VALUES.velocitySwirl_DEF =  fluidContainerObj.getFluidContainerParamter("")
+        self.DEF_VALUES.velocitySwirl_DEF = fluidContainerObj.getFluidContainerParamter(self.DEF_VALUES.velocitySwirl_NAME)
 
         del fluidContainerObj
 
-    def getSliderValues(self):
-        pass
-
+    def setAllValues(self, sliderList):
+        for sliderItem in sliderList:
+            sliderItem.resetValues()
 

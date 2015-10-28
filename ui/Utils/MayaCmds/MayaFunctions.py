@@ -65,7 +65,6 @@ class MayaFunctionUtils(object):
 
     def createFluid(self, cmdStr, progressbar):
         progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
-        print progressbar.labelText()
         pm.mel.eval(cmdStr)
 
     def setSampledValue(self, fluidName, values):

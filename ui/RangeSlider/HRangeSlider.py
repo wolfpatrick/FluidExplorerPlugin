@@ -44,7 +44,7 @@ class QHRangeSlider(QtGui.QWidget):
         # Store values
         self.maxValue = range[1]
         self.rangeValues = range
-        self.defaultSingleValue = 1 # Stored the current value from Maya
+        #self.defaultSingleValue = 1 # Stored the current value from Maya
 
         # Additional flags tho control the style
         self.enabledFlag = enabledFlag
@@ -88,17 +88,20 @@ class QHRangeSlider(QtGui.QWidget):
         else:
             sliderValue = fmin
             if self.maxReached == True:
-                print "...................."
                 sliderValue = self.maxValue
 
             print "Value: ", sliderValue
 
         # Update the QLineEdit elements
         if self.isRangeActive:
-            self.lineEditElement_MIN.setText(str(round(fmin, 2)))
-            self.lineEditElement_MAX.setText(str(round(fmax, 2)))
+            #self.lineEditElement_MIN.setText(str(round(fmin, 2)))
+            self.lineEditElement_MIN.setText(str(format(fmin, '.2f')))
+            #self.lineEditElement_MAX.setText(str(round(fmax, 2)))
+            self.lineEditElement_MAX.setText(str(format(fmax, '.2f')))
         elif not self.isRangeActive:
-            self.lineEditElement_DEF.setText(str(round(sliderValue, 2)))
+            #self.lineEditElement_DEF.setText(str(round(sliderValue, 2)))
+            self.lineEditElement_DEF.setText(str(format(sliderValue, '.2f')))
+
 
     def paintEvent(self, event):
 

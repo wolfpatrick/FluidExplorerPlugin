@@ -15,7 +15,6 @@ class SliderContainer(object):
             txt = "<b>" + propertyName + "</b>"
             self.label = QtGui.QLabel(txt)
             self.checkBox = QtGui.QCheckBox("")
-            self.checkBox.setChecked(True)
             self.lineEditMin = QtGui.QLineEdit(str(sliderMinValue))
             self.lineEditMax = QtGui.QLineEdit(str(sliderMaxValue))
             self.lineEditDefault = QtGui.QLineEdit(str(sliderDefaultValue))
@@ -26,19 +25,32 @@ class SliderContainer(object):
             self.lineEditDefault.setFixedWidth(39), self.lineEditDefault.setAlignment(QtCore.Qt.AlignCenter)
             self.rangeSlider.setValues([sliderMinValue, sliderMaxValue])  # --> 2 ??
             self.rangeSlider.setEmitWhileMoving(True)
-            self.rangeSlider.update()
 
             self.resetButton = QtGui.QPushButton("Reset all Values")
 
             self.createConnections()
             self.initialComponents()
+            self.rangeSlider.update()
+            self.iniSliderValues2()
 
-        def iniSliderValues(self, min, max):
-            self.rangeSlider.setValues([min, max])
+        def iniSliderValues(self, minMax):
+            self.rangeSlider.setValues([minMax[0], minMax[1]])
             self.rangeSlider.update()
 
+        def iniSliderValues2(self):
+            self.rangeSlider.setValues([float(self.lineEditMin.text()), float(self.lineEditMax.text())])
+            self.rangeSlider.update()
+
+
         def initialComponents(self):
-            self.lineEditDefault.setEnabled(False)
+            self.lineEditDefault.setEnabled(True)
+            self.lineEditMax.setEnabled(False)
+            self.lineEditMax.setEnabled(False)
+            self.lineEditMin.setMaxLength(4)
+            self.lineEditMax.setMaxLength(4)
+            self.lineEditDefault.setMaxLength(4)
+            self.checkBox.setChecked(False)
+            self.rangeSlider.isRangeActive = False
 
         def addToLayout(self, gridLayout_Box, position):
             gridLayout_Box.addWidget(self.label, position, 0, 1, 2, QtCore.Qt.AlignRight)
@@ -83,21 +95,21 @@ class SliderContainer(object):
                 lineEditDefault.setEnabled(False)
                 lineEditMin.setEnabled(True)
                 lineEditMax.setEnabled(True)
-                lineEditMin.setText(str(slider.rangeValues[0]))
-                lineEditMax.setText(str(slider.rangeValues[1]))
+                lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
+                lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                 lineEditMin.setFocus()
-                lineEditDefault.setText(str(slider.defaultSingleValue))
+                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
             else:
                 # Range is not active
                 slider.isRangeActive = False
-                lineEditDefault.setText(str(slider.defaultSingleValue))
+                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
                 lineEditDefault.setEnabled(True)
                 lineEditMin.setEnabled(False)
                 lineEditMax.setEnabled(False)
                 lineEditDefault.setFocus()
                 slider.setValues([float(slider.defaultSingleValue), float(slider.defaultSingleValue)])
-                lineEditMin.setText(str(slider.rangeValues[0]))
-                lineEditMax.setText(str(slider.rangeValues[1]))
+                lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
+                lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
 
             slider.update()
 
@@ -108,24 +120,25 @@ class SliderContainer(object):
 
                     if v < float(slider.rangeValues[0]):
                         #print "error to small"
-                        lineEditMin.setText(str(slider.rangeValues[0]))
+                        lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                     elif v > float(slider.rangeValues[1]):
                         #print "error to big"
-                        lineEditMin.setText(str(slider.rangeValues[1]))
-                        lineEditMax.setText(str(slider.rangeValues[1]))
+                        lineEditMin.setText(str(format(slider.rangeValues[1], '.2f')))
+                        lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                     else:
                         #print "ok"
                         pass
 
                 except ValueError:
-                    lineEditMin.setText(str(slider.rangeValues[0]))
+                    lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
 
                 v1 = float(lineEditMin.text())
                 v2 = float(lineEditMax.text())
 
-                # Update slider
+                # Update slider and line edit
                 slider.setValues([v1, v2])
                 slider.update()
+                lineEditMin.setText(str(format(v1, '.2f')))
 
         def leaveLineEditMaxEvent(self, lineEditMin, lineEditMax, slider):
             v_str = lineEditMax.text()
@@ -134,17 +147,17 @@ class SliderContainer(object):
 
                 if v < float(slider.rangeValues[0]):
                     #print "error to small"
-                    lineEditMax.setText(str(slider.rangeValues[0]))
-                    lineEditMin.setText(str(slider.rangeValues[0]))
+                    lineEditMax.setText(str(format(slider.rangeValues[0], '.2f')))
+                    lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                 elif v > float(slider.rangeValues[1]):
                     #print "error to big"
-                    lineEditMax.setText(str(slider.rangeValues[1]))
+                    lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                 else:
                     #print "ok"
                     pass
 
             except ValueError:
-                lineEditMax.setText(str(slider.rangeValues[1]))
+                lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
 
             v1 = float(lineEditMin.text())
             v2 = float(lineEditMax.text())
@@ -152,52 +165,57 @@ class SliderContainer(object):
             # Update slider
             slider.setValues([v1, v2])
             slider.update()
+            lineEditMax.setText(str(format(v2, '.2f')))
 
         def leaveLineEditEvent(self, lineEdit, slider):
             v_str = lineEdit.text()
             try:
                 v = float(v_str)
+                v = round(v, 2)
 
                 if v < float(slider.rangeValues[0]):
                     #print "error to small"
-                    lineEdit.setText(str(slider.rangeValues[0]))
+                    lineEdit.setText(str(format(slider.rangeValues[0], '.2f')))
                     v = slider.rangeValues[0]
                 elif v > float(slider.rangeValues[1]):
                     #print "error to big"
-                    lineEdit.setText(str(slider.rangeValues[1]))
+                    lineEdit.setText(str(format(slider.rangeValues[1], '.2f')))
                     v = slider.rangeValues[1]
                 else:
                     pass
                     #print "OK"
 
             except ValueError:
-                lineEdit.setText(str(float(slider.defaultSingleValue)))
+                lineEdit.setText(str(format(slider.defaultSingleValue, '.2f')))
                 v = float(slider.defaultSingleValue)
 
             # Set value
             slider.setValues([float(v), 0])
             slider.update()
+            lineEdit.setText(str(format(v, '.2f')))
 
         def resetValues(self):
-            print 'dasdsddas'
+            print "RESET CALLED"
+            print self.rangeSlider.rangeValues[0]
             if self.rangeSlider.isRangeActive:
                 self.rangeSlider.setValues([self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1]])
-                self.lineEditMin.setText(str(self.rangeSlider.rangeValues[0]))
-                self.lineEditMax.setText(str(self.rangeSlider.rangeValues[1]))
+                self.lineEditMin.setText(str(format(self.rangeSlider.rangeValues[0], '.2f')))
+                self.lineEditMax.setText(str(format(self.rangeSlider.rangeValues[1], '.2f')))
             else:
                 self.rangeSlider.setValues([self.rangeSlider.defaultSingleValue, 0])
-                self.lineEditDefault.setText(str(self.rangeSlider.defaultSingleValue))
+                self.lineEditDefault.setText(str(format(self.rangeSlider.defaultSingleValue, '.2f')))
 
             self.rangeSlider.update()
 
 
 class ParameterTab(object):
 
-    def __init__(self):
+    def __init__(self, boxName):
+        self.fluidBoxName = boxName
         self.setupTabWidget()
 
     def initialToolBoxComponents(self):
-        for itemIndex in range(0,self.toolBox.count()):
+        for itemIndex in range(0, self.toolBox.count()):
             self.toolBox.setItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_1.png'))
         self.toolBox.setItemIcon(0, QtGui.QIcon(':/arrow_small_2.png'))
 
@@ -208,7 +226,9 @@ class ParameterTab(object):
 
         DiffusionBox = QtGui.QGroupBox()
         self.DiffusionLayout = DiffusionLayout()
+        self.DiffusionLayout.setFluidBoxName(self.fluidBoxName)
         DiffusionBox.setLayout(self.DiffusionLayout.getLayout())
+
 
         VelocityBox = QtGui.QGroupBox()
         self.VelocityLayout = VelocityLayout()
@@ -216,8 +236,8 @@ class ParameterTab(object):
 
         # The toolbox stores all slider containers
         self.toolBox = QtGui.QToolBox()
-        self.toolBox.addItem(DiffusionBox, " Menu_1")
         self.toolBox.addItem(VelocityBox, " Velocity")
+        self.toolBox.addItem(DiffusionBox, " Menu_1")
         self.toolBox.currentChanged.connect(self.toolBoxChanged_Event)
         self.initialToolBoxComponents()
 
@@ -246,5 +266,14 @@ class ParameterTab(object):
             if itemIndex == currentTabIndex:
                 self.toolBox.setItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_2.png'))
 
+        self.initAllSlidersOfTheBox()
+
     def getTab(self):
         return self.parameterTab
+
+    def initAllSlidersOfTheBox(self):
+        #self.VelocityLayout.containerSwirl.resetValues()
+        #self.VelocityLayout.setAllValues()
+        pass
+
+

@@ -37,6 +37,7 @@ class CreateProjectDialog(QtGui.QDialog):
     choosenCamera = None
 
     def __init__(self, args, fluidName):
+        print 'BABBBBBBBElx'
         QtGui.QDialog.__init__(self, args)
         self.fluidName = fluidName
 
@@ -45,7 +46,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.ui.setupUi(self)
         self.createConnections()
 
-        self.tabParametersfirstOpend = True
+        #self.tabParametersfirstOpend = True
         self.setFluidName(fluidName)
         self.centre()
 
@@ -53,10 +54,15 @@ class CreateProjectDialog(QtGui.QDialog):
         self.tabParamters = None
 
         self.simulationSettings = MayaCacheCmdSettings()
+        self.simulationSettings.fluidBoxName = fluidName
         self.setUpComponents()
-        print '////////////////////////////'
-        print fluidName
 
+        self.tabParameterValuesFirstOpened = False
+        self.ui.tabWidget.setCurrentIndex(2)
+
+        self.ui.tabWidget.setCurrentIndex(1)
+        self.ui.tabWidget.repaint()
+        self.ui.tabWidget.update()
 
     def centre(self):
         # Get the current screens' dimensions...
@@ -102,7 +108,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.addParamterTab()
         
     def addParamterTab(self):
-        self.tabParamterslasObj = ParameterTab()
+        self.tabParamterslasObj = ParameterTab(self.simulationSettings.fluidBoxName)
         self.tabParamters = self.tabParamterslasObj.getTab()
         self.ui.tabWidget.addTab(self.tabParamters, "Paramaters")
 
