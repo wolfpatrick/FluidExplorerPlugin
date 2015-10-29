@@ -203,9 +203,8 @@ class CreateProjectDialog(QtGui.QDialog):
             cacheName = self.simulationSettings.fluidBoxName + "_" + str(iIndex)
             cacheCmd = MayaCacheCmdString()
             pathOut = self.simulationSettings.outputPath + "/" + str(iIndex)
-            #cacheCmd.setRenderSettingsFromMaya(self.simulationSettings.animationStartTime, self.simulationSettings.animationEndTime, pathOut, cacheName)
-            #cmdStr = cacheCmd.getCacheCommandString()
-            cmdStr = "TEST"
+            cacheCmd.setRenderSettingsFromMaya(self.simulationSettings.animationStartTime, self.simulationSettings.animationEndTime, pathOut, cacheName)
+            cmdStr = cacheCmd.getCacheCommandString()
             cacheCmdList.append(cmdStr)
             del cacheCmd
 
@@ -218,32 +217,34 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Progress bar
         progressWasCanceled = False
-        limit = 0
-        progress = QtGui.QProgressDialog("Creating Fluids", None, 0, limit, self)
-        progress.setWindowModality(QtCore.Qt.WindowModal)
-        progress.setMinimumDuration(0)
-        progress.show()
+        #limit = 0
+        #progress = QtGui.QProgressDialog("Creating Fluids", None, 0, limit, self)
+        #progress.setWindowModality(QtCore.Qt.WindowModal)
+        #progress.setMinimumDuration(0)
+        #progress.show()
 
         simulationIndex = 0
         import itertools
         for lCmd, lSamples in itertools.izip(self.simulationSettings.createCacheCommandString, self.simulationSettings.randomSliderSamples):
             # Progressbar
             progressBarText = "Creating Simulation" + " " + str(simulationIndex+1) + " " + "from" + " " + str(self.simulationSettings.numberSamples)
-            progress.setLabelText(progressBarText)
+            #progress.setLabelText(progressBarText)
 
             # Set the values, start the caching and create all images
             mayaCallObject.setSampledValue(self.simulationSettings.fluidBoxName, lSamples)
-            mayaCallObject.createFluid(lCmd, progress)
-            progress.setLabelText(progressBarText)
-            mayaCallObject.renderImagesFromCameras(self.simulationSettings, simulationIndex, progress)
+            mayaCallObject.createFluid(lCmd, None)
+            #progress.setLabelText(progressBarText)
 
+            # Render images
+            mayaCallObject.renderImagesFromCameras(self.simulationSettings, simulationIndex, None)
+
+            print
             simulationIndex += 1
-
-        del mayaCallObject
         # --------------------------------------------------------------------------------------------------------------
 
         # Select maya default camera
         mayaCallObject.startPosition(self.simulationSettings)
+        del mayaCallObject
 
         # Create configuration file
         pathConfigFile = simulationNameAbsolut + "/" + str(self.simulationSettings.prjName) + ".fxp"

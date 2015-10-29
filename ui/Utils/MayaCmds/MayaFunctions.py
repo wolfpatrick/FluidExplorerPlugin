@@ -15,11 +15,13 @@ import maya.mel as mel
 import os
 from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
 #from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
-
+import thread
+import threading
 
 class MayaFunctionUtils(object):
 
     def __init__(self):
+        self.finished = False
         pass
 
     def getObjType(self, selection):
@@ -62,10 +64,10 @@ class MayaFunctionUtils(object):
             else:
                 return [False, "Please select one Fluid Container only!"]
 
-
     def createFluid(self, cmdStr, progressbar):
-        progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
+        #progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
         pm.mel.eval(cmdStr)
+
 
     def setSampledValue(self, fluidName, values):
         """
@@ -119,7 +121,7 @@ class MayaFunctionUtils(object):
         """
         :type generalSettings: MayaCacheCmdSettings
         """
-        progress.setLabelText(progress.labelText() + "\n\n" + "Rendering Images...")
+        #progress.setLabelText(progress.labelText() + "\n\n" + "Rendering Images...")
         self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
         renderImageFlag = False    # True --> Images are rendered

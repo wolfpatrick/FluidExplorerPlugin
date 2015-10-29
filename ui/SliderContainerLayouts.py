@@ -116,3 +116,61 @@ class VelocityLayout(SliderContainerLayout):
         for sliderItem in sliderList:
             sliderItem.resetValues()
 
+
+
+def renderImages(path, filename, startFrame, endFrame, resWidth, resHeight):
+
+    print path
+    print filename
+    print startFrame
+    print endFrame
+    print resWidth
+    print resHeight
+
+    cmds.setAttr('defaultRenderGlobals.currentRenderer', 'mayaSoftware', type='string')
+    cmds.setAttr('defaultResolution.width', 960)
+    cmds.setAttr('defaultResolution.height', 540)
+    cmds.setAttr('perspShape.renderable', 1);
+    cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
+
+    renderPanel = ""
+    renderPanels = mel.eval('getPanel -scriptType "renderWindowPanel";')
+
+    if len(renderPanels) >= 1:
+        renderPanel = renderPanels[0]
+    else:
+        mel.eval('scriptedPanel -type "renderWindowPanel" -unParent renderView;')
+        mel.eval('scriptedPanel -e -label "Render View" $renderPanel;')
+
+    cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
+    cmds.setAttr('defaultRenderGlobals.extensionPadding', 5)
+    fileName = "PATRICK"
+    cmds.setAttr('defaultRenderGlobals.imageFilePrefix', fileName, type='string')
+
+    startFrom = startFrame
+    renderTill = endFrame
+
+    mel.eval('currentTime %s ;'%(startFrom))
+    while(startFrom < renderTill):
+        #
+        # renderWindowSaveImageCallback ($renderPanel, $concatFilename, `getAttr defaultRenderGlobals.imageFormat`);
+        #
+        mel.eval('renderWindowRender redoPreviousRender renderPanel;')
+        startFrom += 1
+        mel.eval('currentTime %s ;'%(startFrom))
+
+
+
+
+renderImages("a", "a", "a", "a", "a", "a")
+
+
+
+
+
+
+
+
+
+
+
