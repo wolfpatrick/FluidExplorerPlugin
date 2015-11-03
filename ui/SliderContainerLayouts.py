@@ -3,6 +3,7 @@ from PySide import QtCore
 from ParamterTab import SliderContainer
 from ParamterTabDefaultValues import ParameterTabDefaultValues
 from Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
+from Utils.MayaCmds.SliderState import SliderState
 
 
 class SliderContainerLayout(object):
@@ -41,6 +42,8 @@ class DiffusionLayout(SliderContainerLayout):
     def getLayout(self):
         self.initializeSliderDefaultValues()
 
+
+        """
         self.containerA = SliderContainer("TEST1", 0.0, 1.1, 0.5)
         self.containerA.addToLayout(self.gridLayout_Box, 1)
         self.containerB = SliderContainer("TEST2 ", 0.0, 3.1, 0.5)
@@ -71,6 +74,7 @@ class DiffusionLayout(SliderContainerLayout):
 
         self.sliderList.append(self.containerA)
         self.sliderList.append(self.containerB)
+        """
         # TODO
 
         return self.gridLayout_Box
@@ -90,12 +94,13 @@ class VelocityLayout(SliderContainerLayout):
     def getLayout(self):
         self.initializeSliderDefaultValues()
 
-        self.containerSwirl = SliderContainer("Swirl", self.DEF_VALUES.velocitySwirl_RANGE[0], self.DEF_VALUES.velocitySwirl_RANGE[1], self.DEF_VALUES.velocitySwirl_DEF)
+        self.containerSwirl = SliderContainer("Swirl", self.DEF_VALUES.velocitySwirl_RANGE[0], self.DEF_VALUES.velocitySwirl_RANGE[1], self.DEF_VALUES.velocitySwirl_DEF, self.DEF_VALUES.velocitySwirl_VISIBILITY)
         self.containerSwirl.addToLayout(self.gridLayout_Box, 1)
+
         # TODO Add new items
 
-        self.gridLayout_Box.addWidget(self.resetButton,  2, 13, 1, 4)
-        self.gridLayout_Box.addWidget(QtGui.QSplitter(QtCore.Qt.Vertical), 3, 0)
+        self.gridLayout_Box.addWidget(self.resetButton,  3, 13, 1, 4)
+        self.gridLayout_Box.addWidget(QtGui.QSplitter(QtCore.Qt.Vertical), 4, 0)
         self.sliderList.append(self.containerSwirl)
 
         self.setAllValues(self.sliderList)  # Set all values to start position
@@ -107,8 +112,18 @@ class VelocityLayout(SliderContainerLayout):
 
     def initializeSliderDefaultValues(self):
         fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-
+        print self.fluidBoxName
         self.DEF_VALUES.velocitySwirl_DEF = fluidContainerObj.getFluidContainerParamter(self.DEF_VALUES.velocitySwirl_NAME)
+        self.DEF_VALUES.velocitySwirl_VISIBILITY = fluidContainerObj.getSliderStatusFromMaya(self.DEF_VALUES.velocitySwirl_SN, self.DEF_VALUES.velocitySwirl_NAME)
+        print "////////////AA/////////////////"
+        try:
+            a = SliderState()
+            l = 'Swirl'
+            sliderStatusEnabled = a.findAEFieldByLabel(l).getEnable()
+            print "BB: " + str(sliderStatusEnabled)
+        except:
+            sliderStatusEnabled = True
+        print self.DEF_VALUES.velocitySwirl_VISIBILITY
 
         del fluidContainerObj
 
@@ -116,53 +131,10 @@ class VelocityLayout(SliderContainerLayout):
         for sliderItem in sliderList:
             sliderItem.resetValues()
 
+    def setInitialVisibility(self, sliderList):
+        for sliderItem in sliderList:
+            sliderItem.resetValues()
 
-
-def renderImages(path, filename, startFrame, endFrame, resWidth, resHeight):
-
-    print path
-    print filename
-    print startFrame
-    print endFrame
-    print resWidth
-    print resHeight
-
-    cmds.setAttr('defaultRenderGlobals.currentRenderer', 'mayaSoftware', type='string')
-    cmds.setAttr('defaultResolution.width', 960)
-    cmds.setAttr('defaultResolution.height', 540)
-    cmds.setAttr('perspShape.renderable', 1);
-    cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
-
-    renderPanel = ""
-    renderPanels = mel.eval('getPanel -scriptType "renderWindowPanel";')
-
-    if len(renderPanels) >= 1:
-        renderPanel = renderPanels[0]
-    else:
-        mel.eval('scriptedPanel -type "renderWindowPanel" -unParent renderView;')
-        mel.eval('scriptedPanel -e -label "Render View" $renderPanel;')
-
-    cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
-    cmds.setAttr('defaultRenderGlobals.extensionPadding', 5)
-    fileName = "PATRICK"
-    cmds.setAttr('defaultRenderGlobals.imageFilePrefix', fileName, type='string')
-
-    startFrom = startFrame
-    renderTill = endFrame
-
-    mel.eval('currentTime %s ;'%(startFrom))
-    while(startFrom < renderTill):
-        #
-        # renderWindowSaveImageCallback ($renderPanel, $concatFilename, `getAttr defaultRenderGlobals.imageFormat`);
-        #
-        mel.eval('renderWindowRender redoPreviousRender renderPanel;')
-        startFrom += 1
-        mel.eval('currentTime %s ;'%(startFrom))
-
-
-
-
-renderImages("a", "a", "a", "a", "a", "a")
 
 
 

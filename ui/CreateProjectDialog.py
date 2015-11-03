@@ -106,6 +106,8 @@ class CreateProjectDialog(QtGui.QDialog):
 
         self.initSliderValues()
         self.addParamterTab()
+
+
         
     def addParamterTab(self):
         self.tabParamterslasObj = ParameterTab(self.simulationSettings.fluidBoxName)
@@ -477,7 +479,6 @@ class CreateProjectDialog(QtGui.QDialog):
 
     @QtCore.Slot()
     def pushButtonROT_Event(self):
-        #print "4 clicked"
         flag = self.CLICK_FLAG_CAM_ROT
         if not flag:
             self.ui.pushButton_ROT.setStyleSheet(DefaultUIParameters.StyleSheet_Button_On)

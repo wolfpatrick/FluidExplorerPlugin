@@ -8,5 +8,7 @@ class ParameterTabDefaultValues:
         self.velocitySwirl_RANGE = [0.00, 10.00]
         self.velocitySwirl_DEF = 0.00
         self.velocitySwirl_NAME = 'velocitySwirl'
+        self.velocitySwirl_SN = 'Swirl'
+        self.velocitySwirl_VISIBILITY = True
 
 

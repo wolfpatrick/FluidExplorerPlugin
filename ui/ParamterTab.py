@@ -5,7 +5,7 @@ from RangeSlider.HRangeSlider import QHRangeSlider
 
 class SliderContainer(object):
 
-        def __init__(self, propertyName, sliderMinValue, sliderMaxValue, sliderDefaultValue):
+        def __init__(self, propertyName, sliderMinValue, sliderMaxValue, sliderDefaultValue, sliderVisibilityState):
 
             self.groupBox_Box = QtGui.QWidget()
             gridLayout_Box = QtGui.QGridLayout()
@@ -30,21 +30,28 @@ class SliderContainer(object):
 
             self.createConnections()
             self.initialComponents()
-            self.rangeSlider.update()
             self.iniSliderValues2()
+            self.setContainerLockedState(sliderVisibilityState)
 
-        def iniSliderValues(self, minMax):
-            self.rangeSlider.setValues([minMax[0], minMax[1]])
-            self.rangeSlider.update()
+        def setContainerLockedState(self, state):
+            if not state:
+                #self.rangeSlider.setVisible = state
+                #self.rangeSlider.update()
+                self.label.setEnabled(state)
+                self.checkBox.setEnabled(state)
+                self.lineEditDefault.setEnabled(state)
+                self.lineEditMin.setEnabled(state)
+                self.lineEditMax.setEnabled(state)
+                self.rangeSlider.setEnabled(state)
+                self.rangeSlider.enabledFlag = state
 
         def iniSliderValues2(self):
             self.rangeSlider.setValues([float(self.lineEditMin.text()), float(self.lineEditMax.text())])
             self.rangeSlider.update()
 
-
         def initialComponents(self):
             self.lineEditDefault.setEnabled(True)
-            self.lineEditMax.setEnabled(False)
+            self.lineEditMin.setEnabled(False)
             self.lineEditMax.setEnabled(False)
             self.lineEditMin.setMaxLength(4)
             self.lineEditMax.setMaxLength(4)
@@ -59,6 +66,7 @@ class SliderContainer(object):
             gridLayout_Box.addWidget(self.lineEditMin, position, 5, QtCore.Qt.AlignCenter)
             gridLayout_Box.addWidget(self.rangeSlider, position, 6, 1, 10)
             gridLayout_Box.addWidget(self.lineEditMax, position, 16, QtCore.Qt.AlignCenter)
+
 
         def createConnections(self):
             self.checkBox.clicked.connect(self.checkBoxModeChanged_Event)
@@ -92,6 +100,8 @@ class SliderContainer(object):
                 # Range is active
                 slider.isRangeActive = True
                 slider.setValues([slider.rangeValues[0], slider.rangeValues[1]])
+                slider.update()
+                slider.repaint()
                 lineEditDefault.setEnabled(False)
                 lineEditMin.setEnabled(True)
                 lineEditMax.setEnabled(True)
@@ -108,10 +118,11 @@ class SliderContainer(object):
                 lineEditMax.setEnabled(False)
                 lineEditDefault.setFocus()
                 slider.setValues([float(slider.defaultSingleValue), float(slider.defaultSingleValue)])
+                slider.update()
+                slider.repaint()
                 lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                 lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
 
-            slider.update()
 
         def leaveLineEditMinEvent(self, lineEditMin, lineEditMax, slider):
                 v_str = lineEditMin.text()
@@ -195,17 +206,18 @@ class SliderContainer(object):
             lineEdit.setText(str(format(v, '.2f')))
 
         def resetValues(self):
-            print "RESET CALLED"
-            print self.rangeSlider.rangeValues[0]
             if self.rangeSlider.isRangeActive:
                 self.rangeSlider.setValues([self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1]])
                 self.lineEditMin.setText(str(format(self.rangeSlider.rangeValues[0], '.2f')))
                 self.lineEditMax.setText(str(format(self.rangeSlider.rangeValues[1], '.2f')))
             else:
+                self.rangeSlider.setEmitWhileMoving(True)
                 self.rangeSlider.setValues([self.rangeSlider.defaultSingleValue, 0])
                 self.lineEditDefault.setText(str(format(self.rangeSlider.defaultSingleValue, '.2f')))
+                self.rangeSlider.setValues([float(self.rangeSlider.defaultSingleValue), float(self.rangeSlider.defaultSingleValue)])
 
             self.rangeSlider.update()
+            self.rangeSlider.repaint()
 
 
 class ParameterTab(object):
@@ -272,8 +284,6 @@ class ParameterTab(object):
         return self.parameterTab
 
     def initAllSlidersOfTheBox(self):
-        #self.VelocityLayout.containerSwirl.resetValues()
-        #self.VelocityLayout.setAllValues()
         pass
 
 

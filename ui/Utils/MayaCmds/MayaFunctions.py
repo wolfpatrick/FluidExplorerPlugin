@@ -26,6 +26,9 @@ class MayaFunctionUtils(object):
 
     def getObjType(self, selection):
         t = cmds.objectType(selection)
+        print 'ddddddddddddddddddddddddddddddddddddddddd'
+        print t
+        print selection
         if t == "fluidShape":
             return t
         else:
@@ -34,9 +37,13 @@ class MayaFunctionUtils(object):
             if objType == None:
                 return ""
             else:
+                print "RETURNNNNNNNNNNNNNNN"
+                print cmds.nodeType(objType[0])
                 return cmds.nodeType(objType[0])
 
+    """
     def getSelectedContainerPy(self):
+        #selectedObjName = cmds.ls(sl=True)
         selectedObjName = cmds.ls(sl=True)
 
         count_fluidShape = 0
@@ -46,7 +53,7 @@ class MayaFunctionUtils(object):
 
         for i, item in enumerate(selectedObjName):
             res = self.getObjType(str(item))
-            if res == "fluidShape":
+            if res == "fluidShape" or res == "flameShape":
                 count_fluidShape += 1
                 index_fluidShape = i
 
@@ -62,7 +69,60 @@ class MayaFunctionUtils(object):
                 containerName = currentObj
                 return [True, containerName]
             else:
+
                 return [False, "Please select one Fluid Container only!"]
+    """
+
+    def getSelectedContainerPy(self):
+        #selectedObjName = cmds.ls(sl=True)
+        selectedObjName = cmds.ls(sl=True)
+        print "---"
+        print selectedObjName
+        print "---"
+        count_fluidShape = 0
+        index_fluidShape = -1
+
+        lenSelObj = len(selectedObjName)
+
+        for i, item in enumerate(selectedObjName):
+            res = self.getObjType(str(item))
+            print "TYPE: " + res
+            if res == "fluidShape" or res=="flameShape":
+                count_fluidShape += 1
+                index_fluidShape = i
+
+        currentObj = ""
+        print "LEN:" + str(count_fluidShape)
+        if int(lenSelObj) == 0:
+            return [False, "Please select an object first!"]
+        elif int(count_fluidShape) >= 2:
+            return [False, "Please select one Fluid Container only!"]
+        else:
+            if int(count_fluidShape) == 1:
+                print str(index_fluidShape)
+
+                currentObj = selectedObjName[int(index_fluidShape)]
+                print currentObj
+                nodetype = cmds.nodeType(currentObj)
+                print "NODE" + nodetype
+                containerName = ''
+                if nodetype == 'transform':
+                    print "TRASNF"
+                    lr = cmds.listRelatives(currentObj, children=True)
+                    print len(lr)
+                    if len(lr) >= 1:
+                        print lr
+                        containerName = lr[0]
+
+
+                else:
+                    containerName = currentObj
+                return [True, containerName]
+            else:
+                return [False, "Please select one Fluid Container only!"]
+
+
+
 
     def createFluid(self, cmdStr, progressbar):
         #progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")

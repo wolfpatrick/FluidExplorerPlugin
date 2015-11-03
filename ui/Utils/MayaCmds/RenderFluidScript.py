@@ -8,6 +8,7 @@ class RenderFluidScript():
         pass
 
     def renderImages(self, path, filename, startFrame, endFrame, resWidth = 960, resHeight = 540):
+
         resWidth = int(resWidth)
         resHeight = int(resHeight)
 
