@@ -2,9 +2,7 @@ QToolTip
 {
      border: 1px solid black;
      background-color: #ffa02f;
-     padding: 1px;
-     border-radius: 3px;
-     opacity: 100;
+     padding-right: 2px;
 }
 
 QWidget
@@ -167,6 +165,7 @@ QTextEdit:focus
     border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
 }
 
+/*
 QScrollBar:horizontal {
      border: 1px solid #222222;
      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);
@@ -206,6 +205,7 @@ QScrollBar::right-arrow:horizontal, QScrollBar::left-arrow:horizontal
       height: 1px;
       background: white;
 }
+*/
 
 QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 {
@@ -348,12 +348,13 @@ QProgressBar
     border: 2px solid grey;
     border-radius: 5px;
     text-align: center;
+	text-size: 15px;
 }
 
 QProgressBar::chunk
 {
     background-color: #d7801a;
-    width: 2.15px;
+    /*width: 2.15px;*/
     margin: 0.5px;
 }
 
@@ -503,4 +504,25 @@ QSpinBox {
     border: 1px solid #1e1e1e;
     border-radius: 3;
 
+}
+
+QScrollBar:horizontal {
+     border: 1px solid #222222;
+     background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);
+     height: 0px;
+     margin: 0px 16px 0 16px;
+}
+
+QToolBox::tab::disabled[enabled="false"] {
+	color: rgb(255, 100, 255);
+}
+
+QLineEdit:disabled
+{
+    color: #454545;
+}
+
+QToolBox:tab:disabled
+{
+    color: #454545;
 }

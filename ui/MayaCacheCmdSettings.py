@@ -1,21 +1,20 @@
-#
-# This class hold all scene attributes
-#
 class MayaCacheCmdSettings(object):
-
     def _init__(self):
         self._fluidBoxName = ""
         self._outputPath = ""
         self._numberSamples = 128
+        self._numberOfFrames = 0
         self._prjName = ""
-        self._cam_perspective = False
-        self._cam_viewcube = False
-        self._cam_sphere = False
+        self._cam_perspective = 1
+        self._cam_viewcube = 0
+        self._cam_sphere = 0
         self._cam_rotation = 0
         self._cam_custom_name = None
         self._animationStartTime = 0.0
         self._animationEndTime = 0.0
         self._createCacheCommandString = ""
+        self._simulationNameMB = ""
+        self._imageView = 0
 
     @property
     def fluidBoxName(self):
@@ -32,6 +31,14 @@ class MayaCacheCmdSettings(object):
     @outputPath.setter
     def outputPath(self, value):
         self._outputPath = value
+
+    @property
+    def simulationNameMB(self):
+        return self._simulationNameMB
+
+    @simulationNameMB.setter
+    def simulationNameMB(self, value):
+        self._simulationNameMB = value
 
     @property
     def numberSamples(self):
@@ -121,13 +128,31 @@ class MayaCacheCmdSettings(object):
     def randomSliderSamples(self, value):
         self._randomSliderSamples = value
 
+    @property
+    def imageView(self):
+        return self._imageView
+
+    @imageView.setter
+    def imageView(self, value):
+        self._imageView = value
+
+    @property
+    def numberOfFrames(self):
+        return self._numberOfFrames
+
+    @numberOfFrames.setter
+    def numberOfFrames(self, value):
+        self._numberOfFrames = value
+
     @staticmethod
     def printValues(valuesGeneral):
-        print "----- General Parameters  -----"
+        print "Project Settings: "
+        print "\tProj. Name  : " + str(valuesGeneral.prjName)
+        print "\tOutput Path : " + str(valuesGeneral.outputPath)
         print "\tFluid container    : " + str(valuesGeneral.fluidBoxName)
         print "\tNum. Samples: " + str(valuesGeneral.numberSamples)
-        print "\tOutput Path : " + str(valuesGeneral.outputPath)
-        print "\tProj. Name  : " + str(valuesGeneral.prjName)
+        print "\tNum. Frames: " + str(valuesGeneral.numberOfFrames)
+        print "\tScene Name  : " + str(valuesGeneral.simulationNameMB)
         print "\tCamera Perspective : " + str(valuesGeneral.cam_perspective)
         print "\tCamera ViewCube    : " + str(valuesGeneral.cam_viewcube)
         print "\tCamera Custom      : " + str(valuesGeneral.cam_sphere) + str(valuesGeneral.cam_custom_name)

@@ -1,45 +1,40 @@
 #from ui.MayaCacheCommandParameters import MayaCacheCommand
 #from FluidExplorerPlugin.ui.MayaCacheCommandParameters import MayaCacheCommand
-
-
 #from FluidExplorerPlugin.ui.MayaCacheCmdSettings import MayaCacheCmdSettings
+#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
+#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
+#from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
 
-#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
-#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
+import os
+import thread
+import threading
 
 import maya.cmds as cmds
 import pymel.core as pm
 import maya.mel as mel
 
-
-import os
 from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
-#from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
-import thread
-import threading
+
 
 class MayaFunctionUtils(object):
 
     def __init__(self):
         self.finished = False
-        pass
+
 
     def getObjType(self, selection):
         t = cmds.objectType(selection)
-        print 'ddddddddddddddddddddddddddddddddddddddddd'
-        print t
-        print selection
+
         if t == "fluidShape":
             return t
         else:
-            #objType = `listRelatives -s $selection`;
+            # objType = `listRelatives -s $selection`;
             objType = cmds.listRelatives(selection, s=True)
             if objType == None:
                 return ""
             else:
-                print "RETURNNNNNNNNNNNNNNN"
-                print cmds.nodeType(objType[0])
                 return cmds.nodeType(objType[0])
+
 
     """
     def getSelectedContainerPy(self):
@@ -73,12 +68,10 @@ class MayaFunctionUtils(object):
                 return [False, "Please select one Fluid Container only!"]
     """
 
+
     def getSelectedContainerPy(self):
-        #selectedObjName = cmds.ls(sl=True)
         selectedObjName = cmds.ls(sl=True)
-        print "---"
-        print selectedObjName
-        print "---"
+
         count_fluidShape = 0
         index_fluidShape = -1
 
@@ -86,46 +79,40 @@ class MayaFunctionUtils(object):
 
         for i, item in enumerate(selectedObjName):
             res = self.getObjType(str(item))
-            print "TYPE: " + res
-            if res == "fluidShape" or res=="flameShape":
+            if res == "fluidShape" or res == "flameShape":
                 count_fluidShape += 1
                 index_fluidShape = i
 
         currentObj = ""
-        print "LEN:" + str(count_fluidShape)
+        
         if int(lenSelObj) == 0:
-            return [False, "Please select an object first!"]
+            return [ False, "Please select a valid Fluid Container first!" ]
+
         elif int(count_fluidShape) >= 2:
-            return [False, "Please select one Fluid Container only!"]
+            return [ False, "Please select one Fluid Container only!" ]
+
         else:
             if int(count_fluidShape) == 1:
-                print str(index_fluidShape)
 
                 currentObj = selectedObjName[int(index_fluidShape)]
-                print currentObj
                 nodetype = cmds.nodeType(currentObj)
-                print "NODE" + nodetype
+                
                 containerName = ''
                 if nodetype == 'transform':
-                    print "TRASNF"
                     lr = cmds.listRelatives(currentObj, children=True)
-                    print len(lr)
                     if len(lr) >= 1:
-                        print lr
                         containerName = lr[0]
-
-
                 else:
                     containerName = currentObj
-                return [True, containerName]
+
+                return [ True, containerName ]
+
             else:
-                return [False, "Please select one Fluid Container only!"]
-
-
+                return [False, "Please select an valid Fluid Container!"]
 
 
     def createFluid(self, cmdStr, progressbar):
-        #progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
+        # progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
         pm.mel.eval(cmdStr)
 
 
@@ -133,19 +120,35 @@ class MayaFunctionUtils(object):
         """
         :type values: ContainerValuesList
         """
+        print("")
+        print('Set sampled values for: ', fluidName)
+        print("")
+
         members = [attr for attr in dir(values) if not callable(values) and not attr.startswith("__")]
         for item in members:
+
             tmpCmd = fluidName + "." + str(item)
             attributeValue = float(getattr(values, item))
-            cmds.setAttr(tmpCmd, attributeValue)
+
+            # Set the attribute in the fluid container dialog
+            try:
+                cmds.setAttr(tmpCmd, attributeValue)
+                print(str(item), attributeValue)
+            except:
+                print("Warning: Cannot set attribute ", tmpCmd)
+                pass
+
+        print("")
 
     def changeToPerspCam(self):
         currentCam = cmds.lookThru(q=True)
+        print ("CAM: ", currentCam)
         if currentCam != 'persp':
             # Select the perspective camera (default = modelPfloatanel4)attributeValue
             cmdStr = "lookThroughModelPanel" + " " + "persp" + " " + "modelPanel4;"
             mel.eval(cmdStr)
             cmds.lookThru('persp')
+
 
     def viewFromCamPosition(self, positionName, containerName):
         self.changeToPerspCam()
@@ -171,17 +174,15 @@ class MayaFunctionUtils(object):
 
         # Execute MEL command
         mel.eval(cmd)
-        #mel.eval('FrameSelectedInAllViews')
         cmds.viewFit(an=False)
 
-        # if (positionName =='PERSPECTIVE'):
-        #     cmds.dolly(d=-10)
 
-    def renderImagesFromCameras(self, generalSettings, fluidIndex, progress):
+    def renderImagesFromCameras(self, generalSettings, fluidIndex, progress, progressIndex):
         """
         :type generalSettings: MayaCacheCmdSettings
         """
-        #progress.setLabelText(progress.labelText() + "\n\n" + "Rendering Images...")
+        listRenderedImages = list()
+
         self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
         renderImageFlag = False    # True --> Images are rendered
@@ -203,17 +204,16 @@ class MayaFunctionUtils(object):
         if generalSettings.cam_perspective:
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/perspective/"
+            listRenderedImages.append(path)
             os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            mel.eval('RenderIntoNewWindow')
+            self.renderImages(path, fileName, start, end, resW, resH)
+            progressIndex += 1
+            progress.setValue(progressIndex)
 
         if (generalSettings.cam_viewcube == True):
             os.mkdir(generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/")
-
-            # TOP
-            self.viewFromCamPosition('TOP', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/TOP/"
-            os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
 
             # BOTTOM
             #self.viewFromCamPosition('BOTTOM', generalSettings.fluidBoxName)
@@ -222,39 +222,66 @@ class MayaFunctionUtils(object):
             #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
 
             # RIGHT
-            self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/RIGHT/"
-            os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            #self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
+            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/RIGHT/"
+            #os.mkdir(path)
+            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
 
             # LEFT
-            self.viewFromCamPosition('LEFT', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/LEFT/"
-            os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            #self.viewFromCamPosition('LEFT', generalSettings.fluidBoxName)
+            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/LEFT/"
+            #os.mkdir(path)
+            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
 
             # FRONT
             self.viewFromCamPosition('FRONT', generalSettings.fluidBoxName)
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/FRONT/"
+            listRenderedImages.append(path)
             os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            self.renderImages(path, fileName, start, end, resW, resH)
+            progressIndex += 1
+            progress.setValue(progressIndex)
+
+            # RIGHT
+            self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
+            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/SIDE/"
+            listRenderedImages.append(path)
+            os.mkdir(path)
+            self.renderImages(path, fileName, start, end, resW, resH)
+            progressIndex += 1
+            progress.setValue(progressIndex)
+
+            # TOP
+            self.viewFromCamPosition('TOP', generalSettings.fluidBoxName)
+            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/TOP/"
+            listRenderedImages.append(path)
+            os.mkdir(path)
+            self.renderImages(path, fileName, start, end, resW, resH)
+            progressIndex += 1
+            progress.setValue(progressIndex)
 
             # BACK
-            self.viewFromCamPosition('BACK', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/BACK/"
-            os.mkdir(path)
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            #self.viewFromCamPosition('BACK', generalSettings.fluidBoxName)
+            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/BACK/"
+            #os.mkdir(path)
+            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
 
         if (generalSettings._cam_custom_name != None):
             # View from camera
-            cmdStr = "lookThroughModelPanel" + " " + str(generalSettings._cam_custom_name) + " " + "modelPanel4;"
+
+            cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
             mel.eval(cmdStr)
-            cmds.select(generalSettings.fluidBoxName)
+
 
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/custom/"
             os.mkdir(path)
 
-            self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+            mel.eval('RenderIntoNewWindow')
+            self.renderImages(path, fileName, start, end, resW, resH)
+            progressIndex += 1
+            progress.setValue(progressIndex)
+            listRenderedImages.append(path)
+
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
         if generalSettings.cam_rotation != 0:
@@ -274,28 +301,97 @@ class MayaFunctionUtils(object):
                 # Rotate camera
                 cmds.setAttr('persp.rotateY',  stepAcc)
                 cmds.viewFit('persp', an=False)
-                cmds.dolly(d=-15)
+                #cmds.dolly(d=-15)
 
                 path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/" + "deg_" + str(stepAcc) + "/"
                 os.mkdir(path)
-                self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+                self.renderImages(path, fileName, start, end, resW, resH)
+                listRenderedImages.append(path)
+
                 stepAcc = stepAcc + valueY
 
+            progressIndex += 1
+            progress.setValue(progressIndex)
+
         cmds.viewFit('persp', an=False)
+
+        return [int(progressIndex), listRenderedImages]
 
 
     def rotateCamerY(valueY):
         stepAcc = 0
         while stepAcc < 360:
-            print "value: " + str(stepAcc)
             stepAcc = stepAcc + valueY
             cmds.setAttr('persp.rotateY',  stepAcc)
             cmds.viewFit('persp', an=False)
 
+
     def startPosition(self, generalSettings):
         self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
+
     def executeMELRemderCmd(self, path, fileName, start, end, resW, resH):
         cmd = "renderImagesMEL(" + "\"" + path + "\"" + "," + "\"" + fileName + "\"" + "," + str(start) + "," + str(end) + "," + str(resW) + "," + str(resH) + ")"
-        # Execute the mell command
         mel.eval(cmd)
+
+    def renderImages(self, path, filename, startFrame, endFrame, resWidth, resHeight):
+        #print path
+        #print filename
+        #print startFrame
+        #print endFrame
+        #print resWidth
+        #print resHeight
+
+        cmds.setAttr('defaultRenderGlobals.currentRenderer', 'mayaSoftware', type='string')
+        cmds.setAttr('defaultResolution.width', 960)
+        cmds.setAttr('defaultResolution.height', 540)
+        cmds.setAttr('perspShape.renderable', 1);
+        cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
+
+        # Check render panel
+        renderPanel = ""
+        renderPanels = mel.eval('getPanel -scriptType "renderWindowPanel";')
+
+        if len(renderPanels) >= 1:
+            renderPanel = renderPanels[0]
+        else:
+            renderPanel = mel.eval('scriptedPanel -type "renderWindowPanel" -unParent renderView;')
+            melCmd = 'scriptedPanel -e -label "Render View" ' + renderPanel + ';'
+            #mel.eval('scriptedPanel -e -label "Render View" $renderPanel;')
+            mel.eval(melCmd)
+
+        cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
+        cmds.setAttr('defaultRenderGlobals.extensionPadding', 5)
+
+        startFrom = int(startFrame)
+        renderTill = int(endFrame)
+
+        mel.eval('currentTime %s ;'%(startFrom))
+
+        while(startFrom <= renderTill):
+
+            frameNumber = '{0:05d}'.format(startFrom)
+            concatenateFileName = path + 'image_' + frameNumber + ".jpg"
+            concatenateFileName = concatenateFileName.replace('\\', '/')
+
+            if os.path.exists(concatenateFileName):
+                os.remove(concatenateFileName)
+
+            melCmd = 'renderWindowRender redoPreviousRender' + ' '+ renderPanel + ';'
+            mel.eval(melCmd)
+            #mel.eval('renderWindowRender redoPreviousRender renderView;')
+            startFrom += 1
+            mel.eval('currentTime %s ;'%(startFrom))
+
+            renderViewValue = renderPanel
+            print(renderViewValue)
+            #melStrCmd = 'catch(eval(renderWindowSaveImageCallback("' + renderViewValue +'", "' + concatenateFileName +'", `getAttr defaultRenderGlobals.imageFormat`)))'
+            melStrCmd = 'renderWindowSaveImageCallback("' + renderViewValue +'", "' + concatenateFileName +'", `getAttr defaultRenderGlobals.imageFormat`)'
+            #mel.eval(melStrCmd)
+
+            try:
+                mel.eval(melStrCmd)
+            except RuntimeError, err:
+                print err
+
+            concatenateFileName = ''

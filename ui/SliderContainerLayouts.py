@@ -1,24 +1,22 @@
 from PySide import QtGui
 from PySide import QtCore
-from ParamterTab import SliderContainer
-from ParamterTabDefaultValues import ParameterTabDefaultValues
+
+from SliderContainers.ParamterTabDefaultValues import ParameterTabDefaultValues
 from Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
-from Utils.MayaCmds.SliderState import SliderState
 
 
-class SliderContainerLayout(object):
+class SliderContainerLayout(QtGui.QWidget):
 
     def __init__(self):
-
-        self.DEF_VALUES = ParameterTabDefaultValues()
+        QtGui.QWidget.__init__(self)
 
         # Header
         self.gridLayout_Box = QtGui.QGridLayout()
         self.gridLayout_Box.setSpacing(8)
-        self.gridLayout_Box.addWidget(QtGui.QLabel("Range  "), 0, 2, QtCore.Qt.AlignCenter)
-        self.gridLayout_Box.addWidget(QtGui.QLabel("Default"), 0, 4, QtCore.Qt.AlignCenter)
-        self.gridLayout_Box.addWidget(QtGui.QLabel("MIN"), 0, 5, QtCore.Qt.AlignCenter)
-        self.gridLayout_Box.addWidget(QtGui.QLabel("MAX"), 0, 16, QtCore.Qt.AlignCenter)
+        self.gridLayout_Box.addWidget(QtGui.QLabel("<b>Range&nbsp;&nbsp;&nbsp;</b>"), 0, 2, QtCore.Qt.AlignCenter)
+        self.gridLayout_Box.addWidget(QtGui.QLabel("<b>Def.</b>"), 0, 4, QtCore.Qt.AlignCenter)
+        self.gridLayout_Box.addWidget(QtGui.QLabel("<b>Min</b>"), 0, 5, QtCore.Qt.AlignCenter)
+        self.gridLayout_Box.addWidget(QtGui.QLabel("<b>Max</b>"), 0, 13, QtCore.Qt.AlignCenter)
 
         self.resetButton = QtGui.QPushButton("Reset all Values")
         self.resetButton.clicked.connect(self.resetButton_Event)
@@ -79,6 +77,7 @@ class DiffusionLayout(SliderContainerLayout):
 
         return self.gridLayout_Box
 
+
     def resetButton_Event(self):
         self.reset(self.sliderList)
 
@@ -89,6 +88,7 @@ class DiffusionLayout(SliderContainerLayout):
 
         del fluidContainerObj
 
+"""
 class VelocityLayout(SliderContainerLayout):
 
     def getLayout(self):
@@ -112,10 +112,10 @@ class VelocityLayout(SliderContainerLayout):
 
     def initializeSliderDefaultValues(self):
         fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-        print self.fluidBoxName
+
         self.DEF_VALUES.velocitySwirl_DEF = fluidContainerObj.getFluidContainerParamter(self.DEF_VALUES.velocitySwirl_NAME)
         self.DEF_VALUES.velocitySwirl_VISIBILITY = fluidContainerObj.getSliderStatusFromMaya(self.DEF_VALUES.velocitySwirl_SN, self.DEF_VALUES.velocitySwirl_NAME)
-        print "////////////AA/////////////////"
+
         try:
             a = SliderState()
             l = 'Swirl'
@@ -134,7 +134,7 @@ class VelocityLayout(SliderContainerLayout):
     def setInitialVisibility(self, sliderList):
         for sliderItem in sliderList:
             sliderItem.resetValues()
-
+"""
 
 
 

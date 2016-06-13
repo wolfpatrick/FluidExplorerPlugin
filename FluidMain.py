@@ -46,6 +46,7 @@ class ControlMainWindow(QtGui.QMainWindow):
         # Url
         self.url = "http://www.google.de"
         self.url = "http://homepage.univie.ac.at/patrick_wolf/beliv_2012/index.php"
+
 		
         # Initialize buttons
         self.createConnections()
@@ -75,13 +76,15 @@ class ControlMainWindow(QtGui.QMainWindow):
     # Initialize buttons (icons)
     def setupButtons(self):
         # Load icons from resource files (py-side for more information)
-        icon_open = QtGui.QIcon(QtGui.QPixmap(':/icon_open_30px.png'))
+        icon_open = QtGui.QIcon(QtGui.QPixmap(':/open_icon_orange.png'))
         icon_create = QtGui.QIcon(QtGui.QPixmap(':/icon_add_30px.png'))
         icon_help = QtGui.QIcon(QtGui.QPixmap(':/icon_help_30px.png'))
 
         self.ui.pushButtonNewProject.setIcon(icon_create)
         self.ui.pushButtonLoadSimulation.setIcon(icon_open)
-        self.ui.pushButtonHelpMain.setIcon(icon_help)
+        #self.ui.pushButtonHelpMain.setIcon(icon_help)
+        self.ui.labelMain.setText("HALLO")
+        
 
 
     # Eventhandler - load simulation

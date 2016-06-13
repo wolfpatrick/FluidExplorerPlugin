@@ -24,7 +24,7 @@ class MyMainWindow(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self, *args)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint) #self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint)
+        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)     #self.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint)
         self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.Window)
 
         icons.qInitResources()
@@ -100,7 +100,7 @@ class MyMainWindow(QtGui.QMainWindow):
 # ---- Call main function ----
 #
 if __name__ == '__main__':
-    print "[ FluidExplorer started ]"
+    print "[ FluidExplorer started ... ]"
     main(sys.argv)
 
 

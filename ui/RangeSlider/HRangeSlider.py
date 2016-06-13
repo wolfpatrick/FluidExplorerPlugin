@@ -102,9 +102,22 @@ class QHRangeSlider(QtGui.QWidget):
 
         # Update the QLineEdit elements
         if self.isRangeActive:
+            self.lineEditElement_MIN.setMaxLength(4)
+            self.lineEditElement_MAX.setMaxLength(4)
+
+            if fmin < 0:
+                self.lineEditElement_MIN.setMaxLength(5)
+            if fmax < 0:
+                self.lineEditElement_MAX.setMaxLength(5)
+
             self.lineEditElement_MIN.setText(str(format(fmin, '.2f')))
             self.lineEditElement_MAX.setText(str(format(fmax, '.2f')))
+
         elif not self.isRangeActive:
+            self.lineEditElement_DEF.setMaxLength(4)
+            if sliderValue < 0:
+                self.lineEditElement_DEF.setMaxLength(5)
+
             self.lineEditElement_DEF.setText(str(format(sliderValue, '.2f')))
 
         print 'MAX: ' + str(fmax)

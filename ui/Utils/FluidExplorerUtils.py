@@ -1,5 +1,7 @@
 import os
 import ConfigParser
+import xml.etree.cElementTree as ET
+import xml.etree.ElementTree as xml
 
 
 class FluidExplorerUtils(object):
@@ -38,3 +40,49 @@ class FluidExplorerUtils(object):
 
         result = config.get(category, attribute)
         return result
+
+    @staticmethod
+    def readAttributeFromXmlConfigurationsFile(xml_file, childName):
+        try:
+            tree = ET.ElementTree(file=xml_file)
+            root = tree.getroot()
+
+            for child in root:
+                if child.tag.lower() == childName.lower():
+                    el_child_text = child.text
+                    #print el_child_text
+                    return el_child_text
+        except:
+            print "ERROR"
+
+
+
+    @staticmethod
+    def openMayaPort():
+
+        import maya.cmds as cmds
+
+        connectionOK = False
+        loopCount = 0
+
+        while connectionOK == False:
+            loopCount = loopCount + 1
+            print loopCount
+            # if it was already open under another configuration
+            try:
+                cmds.commandPort(name=":7002", close=True)
+                connectionOK = True
+            except:
+                connectionOK = False
+                pass
+
+            # now open a new port
+            try:
+                cmds.commandPort(name=":7002", sourceType="python")
+                connectionOK = True
+            except:
+                connectionOK = False
+
+            if loopCount == 1000:
+                print "break"
+                break

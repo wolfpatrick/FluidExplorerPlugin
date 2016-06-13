@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\WorkspacePython\FluidExplorerPlugin\ui\MainWindow.ui'
+# Form implementation generated from reading ui file 'C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\MainWindow.ui'
 #
-# Created: Mon Jul 06 15:28:07 2015
+# Created: Fri May 06 16:20:38 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.pushButtonLoadSimulation.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonLoadSimulation.setObjectName("pushButtonLoadSimulation")
         self.labelMain = QtGui.QLabel(self.centralwidget)
-        self.labelMain.setGeometry(QtCore.QRect(21, 20, 320, 30))
+        self.labelMain.setGeometry(QtCore.QRect(58, 20, 161, 30))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(20)
@@ -61,6 +61,12 @@ class Ui_MainWindow(object):
         self.pushButtonHelpMain.setIconSize(QtCore.QSize(30, 30))
         self.pushButtonHelpMain.setDefault(False)
         self.pushButtonHelpMain.setObjectName("pushButtonHelpMain")
+        self.labelIcon = QtGui.QLabel(self.centralwidget)
+        self.labelIcon.setGeometry(QtCore.QRect(20, 22, 30, 30))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.labelIcon.setFont(font)
+        self.labelIcon.setObjectName("labelIcon")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setEnabled(False)
@@ -75,4 +81,5 @@ class Ui_MainWindow(object):
         self.pushButtonNewProject.setText(QtGui.QApplication.translate("MainWindow", "Create Simulation", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButtonLoadSimulation.setText(QtGui.QApplication.translate("MainWindow", "Load Simulation", None, QtGui.QApplication.UnicodeUTF8))
         self.labelMain.setText(QtGui.QApplication.translate("MainWindow", "Fluid Explorer", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelIcon.setText(QtGui.QApplication.translate("MainWindow", "HALL", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -88,6 +88,8 @@ class MayaCacheCmdString(object):
             + "\"" + str(self.fluidCachePBFalloff) + "\"" \
             + " }"
 
+        command = command.replace('\\','/')
+
         return command
 
 

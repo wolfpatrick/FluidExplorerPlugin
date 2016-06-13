@@ -1,6 +1,5 @@
-__author__ = 'Patrick'
-
-#import maya.cmds as cmds
+import maya.cmds as cmds
+import math
 
 class MayaUiDefaultValues(object):
 
@@ -53,8 +52,6 @@ class MayaUiDefaultValues(object):
             self._sliderDensityBuoyancy = True
 
 
-
-
     def isAttributeSettable(self, shapeNode, attribute):
         return True # TODO delete
         tmp = shapeNode + "." + attribute
@@ -63,16 +60,16 @@ class MayaUiDefaultValues(object):
         #return settable
         return True
 
+
     def getAnimationStartEnd(self):
-        #minValue = cmds.playbackOptions(q=True, animationStartTime=True)
-        #maxValue = cmds.playbackOptions(q=True, animationEndTime=True)
-        minValue = 1
-        maxValue = 10
-        self._animationMinTime = minValue
-        self._animationEndTime = maxValue
+        minValue = cmds.playbackOptions(q=True, animationStartTime=True)
+        maxValue = cmds.playbackOptions(q=True, animationEndTime=True)
+
+        self._animationMinTime = math.floor(minValue)
+        self._animationEndTime = math.floor(maxValue)
+
 
     def getCamerasFromMaya(self):
-
         # camerasList = ["CamA", "camB"]
         allCameras = cmds.listCameras()
         camerasList = allCameras

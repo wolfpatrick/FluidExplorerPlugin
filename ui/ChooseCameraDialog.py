@@ -1,5 +1,6 @@
 from PySide import QtGui
 from PySide import QtCore
+
 from ChooseCameraUI import Ui_DialogChooseCamer
 from MayaUiDefaultValues import MayaUiDefaultValues
 
