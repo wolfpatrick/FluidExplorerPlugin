@@ -32,7 +32,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
     CLICK_FLAG_CAM_PV = True
     CLICK_FLAG_CAM_VC = False
-    CLICK_FLAG_CAM_SPH = False
+    CLICK_FLAG_CAM_SPH = False  #CLICK_FLAG_CAM_SPH is the flag for the custom camera
     CLICK_FLAG_CAM_ROT = False
     choosenCamera = None
 
@@ -90,7 +90,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
-        self.runTests()
+        self.runTests(self.workDirPath)
         self.setAnimationStartEndTime()
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -658,7 +658,7 @@ class CreateProjectDialog(QtGui.QDialog):
             self.simulationSettings.cam_viewcube = 1;
             self.simulationSettings.imageView = 1
 
-        if self.CLICK_FLAG_CAM_SPH:
+        if self.CLICK_FLAG_CAM_SPH: # SPH is the flag for the custom camera
             self.simulationSettings.cam_sphere = self.CLICK_FLAG_CAM_SPH
             self.simulationSettings.cam_custom_name = self.choosenCamera
             self.simulationSettings.imageView = 1
@@ -828,15 +828,30 @@ class CreateProjectDialog(QtGui.QDialog):
             self.ui.lineEdit_numberSeq.setText(testObject.numberOfSamples)
 
         self.CLICK_FLAG_CAM_PV = testObject.cam_perspective
+        self.CLICK_FLAG_CAM_VC = testObject.cam_viewcube
+        self.CLICK_FLAG_CAM_SPH = testObject.cam_custom
+
+        if self.CLICK_FLAG_CAM_SPH:
+            self.choosenCamera = testObject.cam_custom_name
+            print "cam name -----------------------------"
+            print self.choosenCamera
+            self.simulationSettings.cam_custom_name = self.choosenCamera
+            print "cam name -----------------------------"
 
         self.update()
 
 
-    def runTests(self):
+    def runTests(self, workDir):
+        print "--------------"
+        containerName = self.fluidName
+        testFolder = os.path.abspath(os.path.dirname(__file__) + '/Test')
+        print testFolder
+        print os.path.exists(testFolder)
+        print "--------------"
         testUtils = Test()
+        testUtils.initTest(testFolder, containerName)
         testUtils.setUpLogger()
-
-
+        """
         inputValues = testUtils.wrong_projectName()
         self.setuptInputFields(inputValues)
         testResults = self.buttonCreateSimulation_Event()
@@ -857,12 +872,33 @@ class CreateProjectDialog(QtGui.QDialog):
         testResults = self.buttonCreateSimulation_Event()
         testUtils.evaluate_empty_projectPath(testResults)
 
-
         inputValues = testUtils.create_sumulation_cache_only()
         self.setuptInputFields(inputValues)
         testResults = self.buttonCreateSimulation_Event()
         testUtils.evaluate_create_sumulation_cache_only(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+        """
 
+        """
+        inputValues = testUtils.create_sumulation_cache_and_images_perspective()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_create_sumulation_cache_and_images_perspective(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+
+
+        inputValues = testUtils.create_sumulation_cache_and_images_viewcube()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_create_sumulation_cache_and_images_viewcube(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+        """
+
+        inputValues = testUtils.create_sumulation_cache_and_images_custom()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_create_sumulation_cache_and_images_custom(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+
+        #create_sumulation_cache_and_images_viewcube
+        #camera -centerOfInterest 5 -focalLength 35 -lensSqueezeRatio 1 -cameraScale 1 -horizontalFilmAperture 1.4173 -horizontalFilmOffset 0 -verticalFilmAperture 0.9449 -verticalFilmOffset 0 -filmFit Fill -overscan 1 -motionBlur 0 -shutterAngle 144 -nearClipPlane 0.1 -farClipPlane 10000 -orthographic 0 -orthographicWidth 30 -panZoomEnabled 0 -horizontalPan 0 -verticalPan 0 -zoom 1; objectMoveCommand; cameraMakeNode 1 "";
+        # move -r -2.903079 -7.230613 8.326038 ;
         self.close()
 
 

@@ -2,123 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\MEL\getSelectedContainer.mel" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\MEL\start_from_shelf.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\CreateProjectDialogUIOLD.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\CreateProjectDialogUI_old.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_3.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_3_old.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_4.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_5.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\IMG_round_arrow.xcf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\arrow_1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\arrow_2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\arrow_small_1_white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\arrow_small_2_white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\darkorange-stylesheet" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\darkorange.stylesheet_template" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\help_icon_orang2e.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\ico_add.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\ico_help.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\ico_search.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon-final-black.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon-final-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_add_30px.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_help_30px.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_lock_1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_lock_2.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_lock_3.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icon_open_30px.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\iconsOLD.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icons__Old.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icons_old.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\img_1.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\MainWindow_old.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\MainWindow_old_2.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\MayaCacheCommandParameters.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\MayaUiDefaultValues.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\ParameterInputBoxes.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Utils\MayaCmds\ParameterSpace.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Utils\MayaCmds\SliderState.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Utils\settings.py" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\DefaultUIValues.py" afterPath="$PROJECT_DIR$/ui/Utils/DefaultUIValues.py" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\CreateProjectDialogUI.ui" afterPath="$PROJECT_DIR$/ui/Resources/CreateProjectDialogUI.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame1.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame1.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame10.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame10.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame11.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame11.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame12.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame12.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame13.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame13.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame14.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame14.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame15.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame15.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame16.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame16.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame17.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame17.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame18.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame18.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame19.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame19.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame2.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame2.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame20.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame20.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame3.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame3.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame4.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame4.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame5.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame5.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame6.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame6.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame7.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame7.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame8.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame8.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame9.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame9.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/animation.gif" afterPath="$PROJECT_DIR$/Output/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00001.jpg" afterPath="$PROJECT_DIR$/Output/image_00001.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00002.jpg" afterPath="$PROJECT_DIR$/Output/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00003.jpg" afterPath="$PROJECT_DIR$/Output/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00004.jpg" afterPath="$PROJECT_DIR$/Output/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00005.jpg" afterPath="$PROJECT_DIR$/Output/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00006.jpg" afterPath="$PROJECT_DIR$/Output/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00007.jpg" afterPath="$PROJECT_DIR$/Output/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00008.jpg" afterPath="$PROJECT_DIR$/Output/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00009.jpg" afterPath="$PROJECT_DIR$/Output/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00010.jpg" afterPath="$PROJECT_DIR$/Output/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00011.jpg" afterPath="$PROJECT_DIR$/Output/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00012.jpg" afterPath="$PROJECT_DIR$/Output/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00013.jpg" afterPath="$PROJECT_DIR$/Output/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00014.jpg" afterPath="$PROJECT_DIR$/Output/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00015.jpg" afterPath="$PROJECT_DIR$/Output/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00016.jpg" afterPath="$PROJECT_DIR$/Output/image_00016.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00017.jpg" afterPath="$PROJECT_DIR$/Output/image_00017.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00018.jpg" afterPath="$PROJECT_DIR$/Output/image_00018.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00019.jpg" afterPath="$PROJECT_DIR$/Output/image_00019.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00020.jpg" afterPath="$PROJECT_DIR$/Output/image_00020.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ChooseCameraDialog.py" afterPath="$PROJECT_DIR$/ui/ChooseCameraDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ChooseCameraUI.py" afterPath="$PROJECT_DIR$/ui/ChooseCameraUI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/ColorLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/ColorLayout.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/DensityLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/DensityLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/DynamicSimulationLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/DynamicSimulationLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/FuelLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/FuelLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" afterPath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" afterPath="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.py" afterPath="$PROJECT_DIR$/Main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" afterPath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ParamterTab.py" afterPath="$PROJECT_DIR$/ui/ParamterTab.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/ParamterTabDefaultValues.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/ParamterTabDefaultValues.py" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\Tmp\README.txt" afterPath="$PROJECT_DIR$/Tmp/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" afterPath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainerLayouts.py" afterPath="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/TemperatureLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/TemperatureLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/TurbulenceLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/TurbulenceLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/Untitled.xml" afterPath="$PROJECT_DIR$/Output/Untitled.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainers/VelocityLayout.py" afterPath="$PROJECT_DIR$/ui/SliderContainers/VelocityLayout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" afterPath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\darkorange.stylesheet" afterPath="$PROJECT_DIR$/ui/Resources/darkorange.stylesheet" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icons.py" afterPath="$PROJECT_DIR$/ui/Icons/icons.py" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Icons\icons.qrc" afterPath="$PROJECT_DIR$/ui/Icons/icons.qrc" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\Tmp\runMainFromMaya.txt" afterPath="$PROJECT_DIR$/Tmp/runMainFromMaya.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/Test.py" afterPath="$PROJECT_DIR$/ui/Test/Test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -164,60 +49,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2570" max-vertical-offset="3801">
-              <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MayaFunctions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3788" max-vertical-offset="7644">
-              <caret line="261" column="20" selection-start-line="261" selection-start-column="20" selection-end-line="261" selection-end-column="20" />
+            <state vertical-scroll-proportion="-13.793103" vertical-offset="4514" max-vertical-offset="7644">
+              <caret line="237" column="15" selection-start-line="237" selection-start-column="14" selection-end-line="237" selection-end-column="15" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileOpenDialog.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="4914">
-              <caret line="194" column="43" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FluidExplorerUtils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="819">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MayaUiDefaultValues.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="546">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -232,23 +69,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultUIValues.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Utils/DefaultUIValues.py">
+      <file leaf-file-name="CreateProjectDialog.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="554" max-vertical-offset="1785">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-30.862068" vertical-offset="17921" max-vertical-offset="19173">
+              <caret line="896" column="68" selection-start-line="896" selection-start-column="18" selection-end-line="896" selection-end-column="68" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateProjectDialog.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
+      <file leaf-file-name="Test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47116166" vertical-offset="16997" max-vertical-offset="18417">
-              <caret line="837" column="0" selection-start-line="837" selection-start-column="0" selection-end-line="837" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8448276" vertical-offset="7308" max-vertical-offset="8526">
+              <caret line="397" column="10" selection-start-line="397" selection-start-column="10" selection-end-line="397" selection-end-column="10" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -312,8 +151,8 @@
         <option value="$PROJECT_DIR$/ui/ParamterTab.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
-        <option value="$PROJECT_DIR$/ui/Test/Test.py" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+        <option value="$PROJECT_DIR$/ui/Test/Test.py" />
       </list>
     </option>
   </component>
@@ -374,6 +213,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -470,7 +310,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -921,16 +760,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17249602" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17256461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14423852" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1437649" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15329626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0790938" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07912525" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17871326" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12568952" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1016,14 +855,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ui/Utils/DefaultUIValues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="546">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="64" selection-end-line="1" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="1008">
@@ -1310,9 +1141,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1231">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/DefaultUIValues.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="554" max-vertical-offset="1785">
+        <state vertical-scroll-proportion="0.7611698" vertical-offset="554" max-vertical-offset="1785">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding />
         </state>
@@ -1320,11 +1159,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546">
+        <state vertical-scroll-proportion="0.34118602" vertical-offset="0" max-vertical-offset="1231">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17059301" vertical-offset="0" max-vertical-offset="1231">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.2420795" vertical-offset="83" max-vertical-offset="4914">
+          <caret line="194" column="43" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1332,6 +1182,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="1533">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.793103" vertical-offset="4514" max-vertical-offset="7644">
+          <caret line="237" column="15" selection-start-line="237" selection-start-column="14" selection-end-line="237" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1344,45 +1202,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
+    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="819">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="20" />
+        <state vertical-scroll-proportion="-30.862068" vertical-offset="17921" max-vertical-offset="19173">
+          <caret line="896" column="68" selection-start-line="896" selection-start-column="18" selection-end-line="896" selection-end-column="68" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3674" max-vertical-offset="4914">
-          <caret line="194" column="43" selection-start-line="194" selection-start-column="35" selection-end-line="194" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3788" max-vertical-offset="7644">
-          <caret line="261" column="20" selection-start-line="261" selection-start-column="20" selection-end-line="261" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2570" max-vertical-offset="3801">
-          <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1231">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1390,12 +1220,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
+    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47116166" vertical-offset="16997" max-vertical-offset="18417">
-          <caret line="837" column="0" selection-start-line="837" selection-start-column="0" selection-end-line="837" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8448276" vertical-offset="7308" max-vertical-offset="8526">
+          <caret line="397" column="10" selection-start-line="397" selection-start-column="10" selection-end-line="397" selection-end-column="10" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
