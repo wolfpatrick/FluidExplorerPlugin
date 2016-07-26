@@ -1,7 +1,3 @@
-import string
-from PySide import QtGui
-from PySide import QtCore
-
 import os
 import re
 import platform
@@ -10,17 +6,17 @@ import errno
 import time
 import itertools
 
+from PySide import QtGui
+from PySide import QtCore
 import maya.cmds as cmds
 
 from CreateProjectDialogUI import Ui_CreateProjectDialog
-from DefaultUIValues import DefaultUIParameters
+from Utils.DefaultUIValues import DefaultUIParameters
 from FileOpenDialog import FileOpenDialog
 from ChooseCameraDialog import ChooseCameraDialog
 from MayaCacheCmdSettings import MayaCacheCmdSettings
 from Utils import FluidExplorerUtils
-from MayaUiDefaultValues import MayaUiDefaultValues
-from Utils.MayaCmds.ParameterSpace import MayaCacheCmd
-from MayaCacheCommandParameters import MayaCacheCommand
+from Utils.MayaUiDefaultValues import MayaUiDefaultValues
 from Utils.MayaCmds.MayaCacheCmd import MayaCacheCmdString
 from Utils.MayaCmds.MayaFunctions import MayaFunctionUtils
 from ParamterTab import ParameterTab
@@ -28,12 +24,8 @@ from Utils.RangeSliderSpan import FluidValueSampler
 from Utils.XmlFileWriter import XmlFileWriter
 from Utils.GifCreatpr import GifCreator
 
-#import itertools
-#import errno
-import ConfigParser
-#import pysideuic
-#from RangeSlider.HRangeSlider import QHRangeSlider
-#from ParameterInputBoxes import ParameterInputBoxes
+# For Tests
+from Test.Test import Test
 
 
 class CreateProjectDialog(QtGui.QDialog):
@@ -43,41 +35,40 @@ class CreateProjectDialog(QtGui.QDialog):
     CLICK_FLAG_CAM_SPH = False
     CLICK_FLAG_CAM_ROT = False
     choosenCamera = None
-    FLUID_EXPLORER_URL = "http://www.google.de"
-    DIALOG_STYLE_SHEET = "QPushButton{min-width: 70px;} QMessageBox{font-size: 12px;}"
+
+    FLUID_EXPLORER_URL = DefaultUIParameters.URL
+    DIALOG_STYLE_SHEET = DefaultUIParameters.buttonStyleBold
 
     def __init__(self, args, fluidName):
-        QtGui.QDialog.__init__(self, args)
 
+        QtGui.QDialog.__init__(self, args)
+        print("")
+        print("Create Animation", "Fluid Name: ", format(fluidName))
+        print("")
+
+        # Getselected container name
         self.fluidName = fluidName
 
-        # Store settings
+        # Store project settings
         self.simulationSettings = MayaCacheCmdSettings()
         self.simulationSettings.fluidBoxName = fluidName
 
         # Create the user interface from the ui file
         self.ui = Ui_CreateProjectDialog()
         self.ui.setupUi(self)
-        self.createConnections()
 
         # Store the selected fluid container name
         self.setFluidName(fluidName)
 
+        # Parameter Tab (second tab)
         self.tabParamtersObj = None
         self.tabParamters = None
-
-        self.setUpComponents()
         self.tabParameterValuesFirstOpened = False
         self.ui.tabWidget.setCurrentIndex(0)
         self.ui.tabWidget.update()
-        self.centre()
-        self.setFluidNameLabel()
 
-        self.ui.label_2.setStyleSheet("font-weight: bold;")
-        self.ui.label_3.setStyleSheet("font-weight: bold;")
-        self.ui.label_4.setStyleSheet("font-weight: bold;")
-        self.ui.label_5.setStyleSheet("font-weight: bold;")
-        self.ui.groupBoxCameras.setStyleSheet("QGroupBox{font-weight: bold;}")
+        # FFmpeg path
+        self.ffmpegpath = self.getFFmpegPath()
 
         # Calculation of time
         self.isTimeCalculated = False
@@ -86,86 +77,83 @@ class CreateProjectDialog(QtGui.QDialog):
         self.time_GIF = 0
         self.progressSteps = 0
 
-        # FFmpeg path
-        self.ffmpegpath = self.getFFmpegPath()
-
-        ###############
-        """
-        directoryImagesDir = 'E:/TMP/XXX/'
-        outputGifFileDir = 'E:/WorkspacePython/GifCreator/'
-        outputGifFileName = 'babb123.gif'
-        #fps = 25
-        #gifOptimization = True
-
-        outputFileName = outputGifFileDir + outputGifFileName
-        self.gifImageCreator = GifCreator()
-        ffmpegPath = self.ffmpegpath
-        isFFmpegExecutable = self.gifImageCreator.createGifFromImages(ffmpegPath, directoryImagesDir, outputGifFileDir, outputGifFileName, fps=25, gifOptimization=25)
-        print("FFmpeeg executable: ", isFFmpegExecutable)
-        """
-        ###############
-
+        # Tab order of first view
         self.setTabOrder(self.ui.lineEdit_SimulationName, self.ui.pushButtonCreateSimulation)
         self.setTabOrder(self.ui.pushButtonCreateSimulation, self.ui.label_2)
 
-        #self.ui.tabWidget.setMinimumWidth(800)
-        #self.ui.tabWidget.setMaximumWidth(800)
+        # Initialize components
+        self.createConnections()
+        self.setupComponents()
 
+        # Centre the main window
+        self.centre()
 
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        # Only for testing
+        self.runTests()
+        self.setAnimationStartEndTime()
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     def centre(self):
-        # The dialog window is shifted to the right that the maya question
-        # dialogs are not hidden
+        # The dialog window is shifted to the right that the maya question dialogs are not hidden
         screen = QtGui.QDesktopWidget().screenGeometry()
         mysize = self.geometry()
-        hpos = ( screen.width() - mysize.width() ) / 2
-        vpos = ( screen.height() - mysize.height() ) / 2
+        hpos = (screen.width() - mysize.width()) / 2
+        vpos = (screen.height() - mysize.height()) / 2
 
         self.move(hpos + (mysize.width() / 3), vpos)
 
     def setFluidName(self, name):
         self.fluidName = name
 
-    def setUpComponents(self):
+    def setupComponents(self):
 
         self.ui.tabWidget.removeTab(1)
         self.setAnimationStartEndTime()
 
-        icon_open = QtGui.QIcon(QtGui.QPixmap(':/help_icon_orange.png'))
-        self.ui.pushButtonNewPrjHelp.setIcon(icon_open)
+        # Set the help icon
+        icon_help = QtGui.QIcon(QtGui.QPixmap(':/help_icon_orange.png'))
+        self.ui.pushButtonNewPrjHelp.setIcon(icon_help)
+
+        # Default simulation name
         self.ui.lineEdit_SimulationName.setText(DefaultUIParameters.DEF_SIMULATION_NAME)
 
-        #self.workDirPath = "E:/TMP"
+        # Set the default output directory
         self.workDirPath = cmds.workspace(q=True, dir=True)
-        print("Workspace: ", self.workDirPath)
+        print("Default workspace / output directory: ", self.workDirPath)
         # TODO - delete tmp
         self.workDirPath = "E:/TMP"
 
         if platform.system() == "Windows":
             self.workDirPath = self.workDirPath.replace("/", "\\")
-
         self.ui.lineEdit_ProjPath.setText(self.workDirPath)
 
-        buttonStyleBold = "QPushButton { font-weight: bold; }"
-        self.ui.pushButtonCreateSimulation.setStyleSheet(buttonStyleBold)
-        self.ui.label.setEnabled(False)
-        self.ui.spinBox_rotDeg.setEnabled(False)
+        self.ui.pushButtonCreateSimulation.setStyleSheet(DefaultUIParameters.buttonStyleBold)
         self.ui.spinBox_rotDeg.setValue(DefaultUIParameters.DEF_SPIN_ROT)
         self.ui.spinBox_rotDeg.setMinimum(DefaultUIParameters.DEF_SPIN_ROT_MIN)
         self.ui.spinBox_rotDeg.setMaximum(DefaultUIParameters.DEF_SPIN_ROT_MAX)
+        self.ui.label.setEnabled(False)
+        self.ui.spinBox_rotDeg.setEnabled(False)
 
+        self.ui.label_2.setStyleSheet("font-weight: bold;")
+        self.ui.label_3.setStyleSheet("font-weight: bold;")
+        self.ui.label_4.setStyleSheet("font-weight: bold;")
+        self.ui.label_5.setStyleSheet("font-weight: bold;")
+        self.ui.pushButtonCreateSimulation.setStyleSheet("font-weight: bold;")
+        self.ui.groupBoxCameras.setStyleSheet("QGroupBox{font-weight: bold;}")
+
+        self.setFluidNameLabel()
         self.initCamButtons()
         self.initSliderValues()
         self.addParamterTab()
 
-
     def setFluidNameLabel(self):
         self.ui.labelFluidBox_Value.setText(self.simulationSettings.fluidBoxName)
-        
+
     def addParamterTab(self):
         self.tabParamtersObj = ParameterTab(self.simulationSettings.fluidBoxName)
         self.tabParamters = self.tabParamtersObj.getTab()
-        self.ui.tabWidget.addTab(self.tabParamters, "Paramaters")
+        self.ui.tabWidget.addTab(self.tabParamters, "Fluid Properties")
 
     def createConnections(self):
         self.ui.pushButtonNewPrjHelp.clicked.connect(self.buttonHelpCreateProj_Event)
@@ -180,8 +168,8 @@ class CreateProjectDialog(QtGui.QDialog):
     def setAnimationStartEndTime(self):
         uiStatus = MayaUiDefaultValues()
         uiStatus.getAnimationStartEnd()
-        begin = uiStatus._animationMinTime
-        end = uiStatus._animationEndTime
+        begin = uiStatus.animationMinTime
+        end = uiStatus.animationEndTime
 
         txt = str(begin) + " / " + str(end)
         numberOfFrames = (end - begin) + 1
@@ -200,58 +188,73 @@ class CreateProjectDialog(QtGui.QDialog):
         self.fileDialog = FileOpenDialog(self)
         choosenDir = self.fileDialog.openDirDialogQuick()
 
-        if not choosenDir == "":
+        if choosenDir is not None:
             choosenDir = choosenDir + "/"
             if (platform.system() == "Windows"):
                 choosenDirNew = choosenDir.replace("/","\\")
             else:
                 choosenDirNew = choosenDir
 
-        self.ui.lineEdit_ProjPath.setText(choosenDirNew)
+            self.ui.lineEdit_ProjPath.setText(choosenDirNew)
 
     @QtCore.Slot()
     def buttonCreateSimulation_Event(self):
+
+        # Create project and all contents
 
         self.currentMayaSceneName = ""
         pathName = self.ui.lineEdit_ProjPath.text()
         projName = self.ui.lineEdit_SimulationName.text()
 
-        pathOk = False
         [pathOk, simulationNameAbsolut] = self.checkProjectPathOk(pathName, projName)
         if not pathOk:
             return
         else:
-            # Ckeck if the scene is saved
+            # Save a copy of the current scene in the project folder
+            # Student version -> Save dialog has to be confirmed
             self.currentMayaSceneName = cmds.file(q=True, sn=True)
 
+            saveFileSuccessfully = True
             try:
                 tmpMayaFilePath = self.simulationSettings.outputPath + "/fluid_simulation_scene.mb"
-                cmds.file(rename = tmpMayaFilePath)
+                cmds.file(rename=tmpMayaFilePath)
                 dialogRes = cmds.file(save=True)
                 self.simulationSettings.simulationNameMB = tmpMayaFilePath
             except:
-                print self.currentMayaSceneName
-                print len(self.currentMayaSceneName)
+                saveFileSuccessfully = False
                 if len(self.currentMayaSceneName) == 0:
                     self.currentMayaSceneName = self.currentMayaSceneName + "untitled"
 
-                cmds.file(rename = self.currentMayaSceneName) # Old name
-                self.close()
+                cmds.file(rename=self.currentMayaSceneName) # Old name
                 os.rmdir(self.simulationSettings.outputPath)
 
-        # Get some information about the current scene
+        if not saveFileSuccessfully:
+            print("Warning: ", "Maya file not saved. Simulation stoped!")
+            self.close()
+            return
+
+        # Store information about the current scene
         self.simulationSettings.fluidBoxName = self.fluidName
         self.simulationSettings.numberSamples = self.ui.horizontalSlider_numberSeq.value()
         self.setCameraButtonSelection()
 
         # Show setting parameters in console and create xml file
         MayaCacheCmdSettings.printValues(self.simulationSettings)
-        self.createProjectSettingsFile(simulationNameAbsolut)
+        fileCreated = self.createProjectSettingsFile(simulationNameAbsolut)
+        if not fileCreated:
+            print("Error: ", "Could not create settings file. Simulation stoped!")
+            self.showMessageBox('Error - Create Sumulation','An error occurred while the project file was created!\nFor more information please see the editor log.', 'critical')
+            self.close()
+            return
+
+        # No return until here: Project folder and settings file were created ...
 
         # --------------------------------------------------------------------------------------------------------------
         # Generate a set of N cache commands and a set of N random samples
         # --------------------------------------------------------------------------------------------------------------
-        currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()    # Current spans stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
+
+        # Current spans stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
+        currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
         print currentSpans
 
         randomSamplesList = list()
@@ -280,7 +283,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
         """
         # Print cache command and random values
-        print "\n"
+        print "\nCache Commands:\n"
         for iIndex in range(0, self.simulationSettings.numberSamples):
             print("[ Index: ", iIndex, " ]")
             print("   Command: ", self.simulationSettings.createCacheCommandString[iIndex])
@@ -298,13 +301,10 @@ class CreateProjectDialog(QtGui.QDialog):
         progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
         progressWasCanceled = False
         progress.setWindowTitle("Please wait ...")
-        #progress.setWindowModality(QtCore.Qt.WindowModal)
         progress.setMinimumDuration(0)
         progress.setMaximum(int(self.progressSteps))
         progress.show()
 
-
-        import itertools
         renderedImage = list()
         index = 0
         fluidIndex = 0
@@ -320,7 +320,14 @@ class CreateProjectDialog(QtGui.QDialog):
             self.mayaCallObject.setSampledValue(self.simulationSettings.fluidBoxName, lSamples)
 
             # 2. Call maya cache function
-            self.mayaCallObject.createFluid(lCmd, None)
+            try:
+                self.mayaCallObject.createFluid(lCmd, None)
+            except Exception as e:
+                self.showMessageBox('Error - Create Cache','An error occurred while the cache files were created!\nFor more information please see the editor log.', 'critical')
+                progress.close()
+                self.close()
+                return
+
             progressIndex += 1
             progress.setValue(progressIndex)
 
@@ -329,7 +336,15 @@ class CreateProjectDialog(QtGui.QDialog):
                 self.mayaCallObject.changeToPerspCam()
                 self.mayaCallObject.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
             if self.simulationSettings.imageView:
-                [progressIndexUpdated, renderedImageSubList] = self.mayaCallObject.renderImagesFromCameras(self.simulationSettings, fluidIndex, progress, progressIndex)
+                try:
+                    [progressIndexUpdated, renderedImageSubList] = self.mayaCallObject.renderImagesFromCameras(
+                        self.simulationSettings, fluidIndex, progress, progressIndex)
+                except Exception as e:
+                    self.showMessageBox('Error - Render Images','An error occurred while the images were rendered!\nFor more information please see the editor log.', 'critical')
+                    progress.close()
+                    self.close()
+                    return
+
                 progressIndex = progressIndexUpdated
                 renderedImage.append(renderedImageSubList)
 
@@ -347,12 +362,14 @@ class CreateProjectDialog(QtGui.QDialog):
 
         self.mayaCallObject = None
         progress.close()
+
         # --------------------------------------------------------------------------------------------------------------
 
         # --------------------------------------------------------------------------------------------------------------
         # Create GIF images
         # --------------------------------------------------------------------------------------------------------------
         if self.simulationSettings.imageView:
+            print "\n" + "Creating GIF animations:" + "\n"
             progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
             progress.setWindowTitle("Please wait ...")
             progress.setMinimumDuration(0)
@@ -361,44 +378,49 @@ class CreateProjectDialog(QtGui.QDialog):
             progress.show()
             progressIndex = 0
             for idx, val in enumerate(renderedImage):
-                #print(idx, val)
                 tmpList = val
                 for val in tmpList:
                     progressIndex += 1
                     progress.setValue(progressIndex)
 
-                    # val stores the path to the rendered images
+                    # Store the path to the rendered images
                     directoryImagesDir = val
                     outputGifFileDir = val
                     outputGifFileName = 'animation.gif'
                     self.gifImageCreator = GifCreator()
                     start_time = self.simulationSettings.animationStartTime
-                    isFFmpegExecutable = self.gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir, outputGifFileDir, outputGifFileName, start_time, fps=25, gifOptimization=25)
+                    isFFmpegExecutable = self.gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir,
+                                                                                  outputGifFileDir, outputGifFileName,
+                                                                                  start_time, fps=25, gifOptimization=25)
+
+                    if isFFmpegExecutable==False:
+                        self.showMessageBox('Error - Create Animations','An error occurred while the animations were created!\nFor more information please see the editor log.', 'critical')
+                        progress.close()
+                        self.close()
+                        return
+
+                print "GIF Animation " + str(progressIndex) + " created."
+
             progress.close()
         # --------------------------------------------------------------------------------------------------------------
 
-        self.msgBox = QtGui.QMessageBox(self)
-        self.msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-        self.msgBox.setWindowTitle("Information")
-        text = "Simulations successfully created. " + "\n\nProject Path: " + self.simulationSettings.outputPath + ""
-        self.msgBox.setText(text)
-        self.msgBox.setDefaultButton(QtGui.QMessageBox.Ok)
-        self.msgBox.setIcon(QtGui.QMessageBox.Information)
-        self.msgBox.exec_()
+        text = "Simulations successfully created!" + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
+        self.showMessageBox("Information", text, 'information')
 
-        #cmds.file(save=True)
+        print ""
+        print("Simulation successfully created!")
+        print ""
+
+        # Close window
         self.close()
 
     @QtCore.Slot()
     def lineEdit_numberSeq_EditFinished(self):
-        print self.ui.lineEdit_numberSeq.text()
         if not self.ui.lineEdit_numberSeq.text():
             self.ui.lineEdit_numberSeq.setText(str(DefaultUIParameters.DEF_NUMBER_SEQUENCES))
 
     @QtCore.Slot()
     def sliderNumberSequences_Event(self):
-        print self.ui.horizontalSlider_numberSeq.value()
-        #todo
         tmp = str(self.ui.horizontalSlider_numberSeq.value())
         self.ui.lineEdit_numberSeq.setText(tmp)
 
@@ -501,13 +523,13 @@ class CreateProjectDialog(QtGui.QDialog):
         self.setTime()
 
     def initCamButtons(self):
-        self.ui.pushButton_CamPV.setIcon(QtGui.QIcon(self.tr(":/img_1.png")))
+        self.ui.pushButton_CamPV.setIcon(QtGui.QIcon(self.tr(":/icon_cam_perspective.png")))
         self.ui.pushButton_CamPV.setStyleSheet(DefaultUIParameters.StyleSheet_Button_On)
-        self.ui.pushButton_CamVC.setIcon(QtGui.QIcon(self.tr(":/img_2.png")))
+        self.ui.pushButton_CamVC.setIcon(QtGui.QIcon(self.tr(":/icon_cam_vc.png")))
         self.ui.pushButton_CamVC.setStyleSheet(DefaultUIParameters.StyleSheet_Button_Off)
-        self.ui.pushButton_CamSPH.setIcon(QtGui.QIcon(self.tr(":/img_3.png")))
+        self.ui.pushButton_CamSPH.setIcon(QtGui.QIcon(self.tr(":/icon_cam_custom.png")))
         self.ui.pushButton_CamSPH.setStyleSheet(DefaultUIParameters.StyleSheet_Button_Off)
-        self.ui.pushButton_ROT.setIcon(QtGui.QIcon(self.tr(":/img_5.png")))
+        self.ui.pushButton_ROT.setIcon(QtGui.QIcon(self.tr(":/icon_cam_rotation.png")))
         self.ui.pushButton_ROT.setStyleSheet(DefaultUIParameters.StyleSheet_Button_Off)
         self.ui.pushButton_CamPV.clicked.connect(self.pushButtonCamPV_Event)
         self.ui.pushButton_CamVC.clicked.connect(self.pushButtonCamVC_Event)
@@ -521,35 +543,22 @@ class CreateProjectDialog(QtGui.QDialog):
 
     def checkProjectPathOk(self, pathName, projName):
         if projName == "":
-            msgBox = QtGui.QMessageBox(self)
-            msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-            msgBox.setText("Cannot create project! Please enter a project name.")
-            msgBox.setWindowTitle("Warning - Create Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
-            msgBox.exec_()
+            self.showMessageBox("Warning - Create Simulation", "Cannot create project folder! Please enter a project name.", 'warning')
             self.ui.lineEdit_SimulationName.setFocus()
             return [False, '']
 
         if pathName == "":
-            msgBox = QtGui.QMessageBox(self)
-            msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-            msgBox.setText("Cannot create project folder! Please enter a project path.")
-            msgBox.setWindowTitle("Warning - Create Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
-            msgBox.exec_()
+            self.showMessageBox("Warning - Create Simulation", "Cannot create project folder! Please enter a project path.", 'warning')
             self.ui.lineEdit_ProjPath.setFocus()
+            self.ui.lineEdit_ProjPath.setText(self.workDirPath)
             return [False, '']
 
         if not re.match("^[a-zA-Z0-9_]*$", projName):
-            msgBox = QtGui.QMessageBox(self)
-            msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-            msgBox.setText("Cannot create project! A file name cannot contain special characters.\n"
-                           "Valid characters: numbers, letters, - and _ ")
-            msgBox.setWindowTitle("Warning - Create Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
+            self.showMessageBox("Warning - Create Simulation", "Cannot create project! A file name cannot contain special "
+                                                               "characters.\nValid characters: numbers, letters, - and _ ", 'warning')
             self.ui.lineEdit_SimulationName.setFocus()
             self.ui.lineEdit_SimulationName.setText("")
-            msgBox.exec_()
+
             return [False, '']
 
         pathName = os.path.abspath(pathName)
@@ -559,7 +568,7 @@ class CreateProjectDialog(QtGui.QDialog):
             pathName += '/'
 
         dirExists = FluidExplorerUtils.FluidExplorerUtils.dirExists(pathName)
-        if (dirExists):
+        if dirExists:
             pathPrjAbsolut = os.path.abspath(pathName)
         else:
             try:
@@ -569,27 +578,21 @@ class CreateProjectDialog(QtGui.QDialog):
                 errorText = ""
                 if exc.errno == errno.EACCES:
                     print "Error {0}: {1}" .format(exc.errno, exc.strerror)
-                    er = "Error {0}: {1}" .format(exc.errno, exc.strerror)
+                    errorText = "Error {0}: {1}" .format(exc.errno, exc.strerror)
                     self.ui.lineEdit_ProjPath.setText("")
                     self.ui.lineEdit_ProjPath.setFocus()
                 elif exc.errno == 22:
                     print "Error {0}: {1}" .format(exc.errno, exc.strerror)
-                    er = "Error {0}: {1}" .format(exc.errno, exc.strerror)
+                    errorText = "Error {0}: {1}" .format(exc.errno, exc.strerror)
                     self.ui.lineEdit_ProjPath.setText("")
                     self.ui.lineEdit_ProjPath.setFocus()
                 else:
                     print "Error {0}: {1}" .format(exc.errno, exc.strerror)
-                    er = "Error {0}: {1}" .format(exc.errno, exc.strerror)
+                    errorText = "Error {0}: {1}" .format(exc.errno, exc.strerror)
 
-                msgBox = QtGui.QMessageBox(self)
-                msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-                msgBox.setText("Cannot create project folder! Details: " + errorText)
-                msgBox.setWindowTitle("Warning - Create Simulation")
-                msgBox.setIcon(QtGui.QMessageBox.Warning)
-
+                self.showMessageBox("Warning - Create Simulation", "Cannot create project folder! Please check the project path entered.\nDetails: " + errorText, 'warning')
                 self.ui.lineEdit_ProjPath.setFocus()
                 self.ui.lineEdit_ProjPath.setText(self.workDirPath)
-                msgBox.exec_()
 
                 return [False, '']
 
@@ -598,14 +601,9 @@ class CreateProjectDialog(QtGui.QDialog):
         simulationNameAbsolut = os.path.abspath(projPathFull)
 
         if dirExists:
-            msgBox = QtGui.QMessageBox(self)
-            msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-            msgBox.setText("Project already exists! Please change the project name.")
-            msgBox.setWindowTitle("Warning - Create Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
+            self.showMessageBox("Warning - Create Simulation", "Project already exists! Please change the project name.", 'warning')
             self.ui.lineEdit_SimulationName.setFocus()
             self.ui.lineEdit_SimulationName.setText("")
-            msgBox.exec_()
             simulationNameAbsolut = os.path.abspath(projPathFull)
 
             return [False, '']
@@ -614,8 +612,6 @@ class CreateProjectDialog(QtGui.QDialog):
             try:
                 os.mkdir(simulationNameAbsolut)
             except OSError as exc:
-                errorText = ""
-
                 if exc.errno == errno.EACCES:
                     print "Error {0}: {1}" .format(exc.errno, exc.strerror)
                     errorText = "Error {0}: {1}" .format(exc.errno, exc.strerror)
@@ -631,14 +627,9 @@ class CreateProjectDialog(QtGui.QDialog):
                     print "Error {0}: {1}" .format(exc.errno, exc.strerror)
                     errorText = "Error {0}: {1}" .format(exc.errno, exc.strerror)
 
-                msgBox = QtGui.QMessageBox(self)
-                msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
-                msgBox.setText("Cannot create project! Details: " + errorText)
-                msgBox.setWindowTitle("Warning - Create Simulation")
-                msgBox.setIcon(QtGui.QMessageBox.Warning)
+                self.showMessageBox("Warning - Create Simulation", "Cannot create project folder! Please check the project name entered.\nDetails: " + errorText, 'warning')
                 self.ui.lineEdit_ProjPath.setFocus()
                 self.ui.lineEdit_ProjPath.setText(self.workDirPath)
-                msgBox.exec_()
 
                 return [False, '']
 
@@ -652,9 +643,12 @@ class CreateProjectDialog(QtGui.QDialog):
                 return [True, simulationNameAbsolut]
 
     def setCameraButtonSelection(self):
-        self.simulationSettings.cam_perspective = 0;
-        self.simulationSettings.cam_viewcube = 0;
+        # Default camera values [on/off]: Persp: 0/1; VC: 0/1; Custom: None/string; Rotation: 0/45-90
+        self.simulationSettings.cam_perspective = 0
+        self.simulationSettings.cam_viewcube = 0
         self.simulationSettings.imageView = 0
+        self.simulationSettings.cam_sphere = 0
+        self.simulationSettings.cam_rotation = 0
 
         if self.CLICK_FLAG_CAM_PV:
             self.simulationSettings.cam_perspective = 1;
@@ -679,10 +673,19 @@ class CreateProjectDialog(QtGui.QDialog):
             self.simulationSettings.cam_rotation = 0
 
     def createProjectSettingsFile(self, simulationNameAbsolut):
-        xmlSettingsWriter = XmlFileWriter()
-        pathConfigFile = simulationNameAbsolut + "/" + str(self.simulationSettings.prjName) + ".fxp"
-        xmlSettingsWriter.setXmlDocPath(pathConfigFile, "GlobalSettings")
-        xmlSettingsWriter.writeSettingToXmlFile(self.simulationSettings)
+        try:
+            xmlSettingsWriter = XmlFileWriter()
+            pathConfigFile = simulationNameAbsolut + "/" + str(self.simulationSettings.prjName) + ".fxp"
+            xmlSettingsWriter.setXmlDocPath(pathConfigFile, "GlobalSettings")
+            xmlSettingsWriter.writeSettingToXmlFile(self.simulationSettings)
+        except:
+            return False
+        finally:
+            if os.path.exists(os.path.abspath(pathConfigFile)):
+                return True
+            else:
+                return False
+
 
     def calculateTimeClicked(self):
         # Delete / create output folder
@@ -690,9 +693,10 @@ class CreateProjectDialog(QtGui.QDialog):
         fxPathRel = os.path.dirname(os.path.abspath(filePathMain))
         outputFolder = fxPathRel + '/Output/'
         outputFolderAbs = os.path.abspath(outputFolder)
+
         if os.path.exists(outputFolderAbs):
             # Delete content
-            filelist = [ f for f in os.listdir(outputFolderAbs) if f.endswith((".mc", ".xml", "png", "jpg", "jpeg", "gif")) ]
+            filelist = [f for f in os.listdir(outputFolderAbs) if f.endswith((".mc", ".xml", "png", "jpg", "jpeg", "gif"))]
             for f in filelist:
                 tmpPath = outputFolder + '/' + f
                 tmpPathAbs = os.path.abspath(tmpPath)
@@ -706,16 +710,16 @@ class CreateProjectDialog(QtGui.QDialog):
 
         cacheCmd = MayaCacheCmdString()
         cacheCmd.setRenderSettingsFromMaya(int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), outputFolderAbs, "Untitled")
-        self.execCommand = MayaFunctionUtils()
-        self.execCommand.createFluid(cacheCmd.getCacheCommandString(), None)
+        execCommand = MayaFunctionUtils()
+        execCommand.createFluid(cacheCmd.getCacheCommandString(), None)
 
         res_time_caching = time.time() - start_time_cahching
 
         # Rendering
         start_time_rendering = time.time()
 
-        self.renderer = MayaFunctionUtils()
-        self.renderer.renderImages(outputFolder, "None", int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), 640, 480)
+        renderer = MayaFunctionUtils()
+        renderer.renderImages(outputFolder, "None", int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), 640, 480)
 
         res_time_rendering = time.time() - start_time_rendering
 
@@ -725,9 +729,10 @@ class CreateProjectDialog(QtGui.QDialog):
         directoryImagesDir = outputFolderAbs
         outputGifFileDir = outputFolderAbs
         outputGifFileName = 'animation.gif'
-        self.gifImageCreator = GifCreator()
+
+        gifImageCreator = GifCreator()
         start_time = self.simulationSettings.animationStartTime
-        isFFmpegExecutable = self.gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir, outputGifFileDir, outputGifFileName, start_time, fps=25, gifOptimization=25)
+        gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir, outputGifFileDir, outputGifFileName, start_time, fps=25, gifOptimization=25)
 
         res_time_gif = time.time() - start_time_gif
 
@@ -788,6 +793,79 @@ class CreateProjectDialog(QtGui.QDialog):
 
         return fxPathRel
 
+    def showMessageBox(self, title, text, _type):
+        testMode = False
+        if not testMode:
+            msgBox = QtGui.QMessageBox(self)
+            msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
+            msgBox.setText(text)
+            msgBox.setWindowTitle(title)
+
+            if _type == 'warning':
+                msgBox.setIcon(QtGui.QMessageBox.Warning)
+            if _type == 'critical':
+                msgBox.setIcon(QtGui.QMessageBox.Critical)
+            if _type == 'information':
+                msgBox.setIcon(QtGui.QMessageBox.Information)
+
+            msgBox.exec_()
+
+    #
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # Only for testing
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    def setuptInputFields(self, testObject):
+        """
+        :type testObject: Test
+        """
+
+        if testObject.projectName:
+            self.ui.lineEdit_SimulationName.setText(testObject.projectName)
+        if testObject.projectPath:
+            self.ui.lineEdit_ProjPath.setText(testObject.projectPath)
+        if testObject.numberOfSamples:
+            self.ui.lineEdit_numberSeq.setText(testObject.numberOfSamples)
+
+        self.CLICK_FLAG_CAM_PV = testObject.cam_perspective
+
+        self.update()
 
 
+    def runTests(self):
+        testUtils = Test()
+        testUtils.setUpLogger()
+
+
+        inputValues = testUtils.wrong_projectName()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_wrong_projectName(testResults)
+
+        inputValues = testUtils.empty_projectName()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_empty_projectName(testResults)
+
+        inputValues = testUtils.wrong_projectPath()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_wrong_projectPath(testResults)
+
+        inputValues = testUtils.empty_projectPath()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_empty_projectPath(testResults)
+
+
+        inputValues = testUtils.create_sumulation_cache_only()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_create_sumulation_cache_only(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+
+        self.close()
+
+
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

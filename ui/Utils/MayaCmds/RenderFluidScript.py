@@ -1,3 +1,4 @@
+
 import maya.cmds as cmds
 import maya.mel as mel
 
@@ -37,7 +38,7 @@ class RenderFluidScript():
 
         cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
         cmds.setAttr('defaultRenderGlobals.extensionPadding', 5)
-        fileName = "PATRICK"
+        fileName = "imgage"
         cmds.setAttr('defaultRenderGlobals.imageFilePrefix', fileName, type='string')
 
         startFrom = startFrame
@@ -57,13 +58,11 @@ class RenderFluidScript():
             startFrom += 1
             mel.eval('currentTime %s ;'%(startFrom))
 
-
-#
-#  -- test --
-#
+#  -- TEST --
 #path = "E:/TMP/XXX"
 #filename = "image"
 #startFrame = 10
 #endFrame = 15
 #renderImages(path, filename, startFrame, endFrame, resWidth=960, resHeight=540)
 #
+

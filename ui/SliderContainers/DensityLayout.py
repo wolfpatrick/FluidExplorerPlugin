@@ -48,12 +48,6 @@ class DensityLayout(SliderContainerLayout):
     def resetButton_Event(self):
         self.reset(self.sliderList)
 
-    """
-    def initializeSliderDefaultValues(self):
-        fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-        del fluidContainerObj
-    """
-
     def setAllValues(self, sliderList):
         for sliderItem in sliderList:
             sliderItem.resetValues()

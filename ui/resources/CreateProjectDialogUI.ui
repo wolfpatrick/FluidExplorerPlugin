@@ -413,7 +413,7 @@
       <rect>
        <x>20</x>
        <y>260</y>
-       <width>161</width>
+       <width>171</width>
        <height>21</height>
       </rect>
      </property>
@@ -425,7 +425,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Number of Sequences:</string>
+      <string>Number of Simulations:</string>
      </property>
     </widget>
     <widget class="QLabel" name="labelTime">
@@ -451,9 +451,9 @@
     <widget class="QSlider" name="horizontalSlider_numberSeq">
      <property name="geometry">
       <rect>
-       <x>289</x>
+       <x>285</x>
        <y>261</y>
-       <width>284</width>
+       <width>288</width>
        <height>20</height>
       </rect>
      </property>
@@ -499,9 +499,9 @@ QSlider::sub-page:qlineargradient {
     <widget class="QLineEdit" name="lineEdit_numberSeq">
      <property name="geometry">
       <rect>
-       <x>197</x>
+       <x>202</x>
        <y>259</y>
-       <width>74</width>
+       <width>65</width>
        <height>25</height>
       </rect>
      </property>
@@ -521,7 +521,7 @@ QSlider::sub-page:qlineargradient {
       <rect>
        <x>20</x>
        <y>290</y>
-       <width>261</width>
+       <width>251</width>
        <height>21</height>
       </rect>
      </property>
@@ -539,7 +539,7 @@ QSlider::sub-page:qlineargradient {
     <widget class="QLabel" name="labelAnimationTimeStartEnd">
      <property name="geometry">
       <rect>
-       <x>289</x>
+       <x>285</x>
        <y>290</y>
        <width>281</width>
        <height>21</height>
@@ -601,7 +601,7 @@ QSlider::sub-page:qlineargradient {
     <widget class="QLabel" name="labelFluidBox_Value">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>119</x>
        <y>230</y>
        <width>91</width>
        <height>21</height>
@@ -621,7 +621,7 @@ QSlider::sub-page:qlineargradient {
     <widget class="QLabel" name="labelTime_Value">
      <property name="geometry">
       <rect>
-       <x>67</x>
+       <x>72</x>
        <y>320</y>
        <width>81</width>
        <height>21</height>

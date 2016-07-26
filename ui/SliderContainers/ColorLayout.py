@@ -1,9 +1,7 @@
-from PySide import QtGui
-from PySide import QtCore
-
 from FluidExplorerPlugin.ui.ParamterTab import SliderContainer
 from FluidExplorerPlugin.ui.SliderContainerLayouts import SliderContainerLayout
 from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
+
 
 class ColorLayout(SliderContainerLayout):
 
@@ -25,12 +23,6 @@ class ColorLayout(SliderContainerLayout):
 
     def resetButton_Event(self):
         self.reset(self.sliderList)
-
-    """
-    def initializeSliderDefaultValues(self):
-        fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-        del fluidContainerObj
-    """
 
     def setAllValues(self, sliderList):
         for sliderItem in sliderList:

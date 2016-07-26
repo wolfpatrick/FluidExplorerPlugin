@@ -2,6 +2,7 @@ from FluidExplorerPlugin.ui.ParamterTab import SliderContainer
 from FluidExplorerPlugin.ui.SliderContainerLayouts import SliderContainerLayout
 from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
 
+
 class DynamicSimulationLayout(SliderContainerLayout):
 
     def getLayout(self):
@@ -28,16 +29,6 @@ class DynamicSimulationLayout(SliderContainerLayout):
 
     def resetButton_Event(self):
         self.reset(self.sliderList)
-
-    """
-    def initializeSliderDefaultValues(self):
-        fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-
-        self.DEF_VALUES.velocitySwirl_DEF = fluidContainerObj.getFluidContainerParamter(self.DEF_VALUES.velocitySwirl_NAME)
-        #self.DEF_VALUES.velocitySwirl_VISIBILITY = fluidContainerObj.getSliderStatusFromMaya(self.DEF_VALUES.velocitySwirl_SN, self.DEF_VALUES.velocitySwirl_NAME)
-
-        del fluidContainerObj
-    """
 
     def setAllValues(self, sliderList):
         for sliderItem in sliderList:

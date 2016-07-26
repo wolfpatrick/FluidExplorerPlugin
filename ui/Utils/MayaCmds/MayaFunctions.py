@@ -1,26 +1,13 @@
-#from ui.MayaCacheCommandParameters import MayaCacheCommand
-#from FluidExplorerPlugin.ui.MayaCacheCommandParameters import MayaCacheCommand
-#from FluidExplorerPlugin.ui.MayaCacheCmdSettings import MayaCacheCmdSettings
-#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
-#from ui.MayaCacheCmdSettings import MayaCacheCmdSettings
-#from ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
-
 import os
-import thread
-import threading
-
 import maya.cmds as cmds
 import pymel.core as pm
 import maya.mel as mel
-
-from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesList
 
 
 class MayaFunctionUtils(object):
 
     def __init__(self):
         self.finished = False
-
 
     def getObjType(self, selection):
         t = cmds.objectType(selection)
@@ -35,40 +22,6 @@ class MayaFunctionUtils(object):
             else:
                 return cmds.nodeType(objType[0])
 
-
-    """
-    def getSelectedContainerPy(self):
-        #selectedObjName = cmds.ls(sl=True)
-        selectedObjName = cmds.ls(sl=True)
-
-        count_fluidShape = 0
-        index_fluidShape = -1
-
-        lenSelObj = len(selectedObjName)
-
-        for i, item in enumerate(selectedObjName):
-            res = self.getObjType(str(item))
-            if res == "fluidShape" or res == "flameShape":
-                count_fluidShape += 1
-                index_fluidShape = i
-
-        currentObj = ""
-        if int(lenSelObj) == 0:
-            return [False, "Please select an object first!"]
-        elif int(count_fluidShape) >= 2:
-            return [False, "Please select one Fluid Container only!"]
-        else:
-            if int(count_fluidShape) == 1:
-                print str(index_fluidShape)
-                currentObj = selectedObjName[int(index_fluidShape)]
-                containerName = currentObj
-                return [True, containerName]
-            else:
-
-                return [False, "Please select one Fluid Container only!"]
-    """
-
-
     def getSelectedContainerPy(self):
         selectedObjName = cmds.ls(sl=True)
 
@@ -82,14 +35,12 @@ class MayaFunctionUtils(object):
             if res == "fluidShape" or res == "flameShape":
                 count_fluidShape += 1
                 index_fluidShape = i
-
-        currentObj = ""
         
         if int(lenSelObj) == 0:
-            return [ False, "Please select a valid Fluid Container first!" ]
+            return [False, "Please select a valid Fluid Container first!"]
 
         elif int(count_fluidShape) >= 2:
-            return [ False, "Please select one Fluid Container only!" ]
+            return [False, "Please select one Fluid Container only!"]
 
         else:
             if int(count_fluidShape) == 1:
@@ -105,16 +56,18 @@ class MayaFunctionUtils(object):
                 else:
                     containerName = currentObj
 
-                return [ True, containerName ]
+                return [True, containerName]
 
             else:
                 return [False, "Please select an valid Fluid Container!"]
 
 
     def createFluid(self, cmdStr, progressbar):
-        # progressbar.setLabelText(progressbar.labelText() + "\n\n" + "Caching Simulations...")
-        pm.mel.eval(cmdStr)
-
+        try:
+            pm.mel.eval(cmdStr)
+        except Exception as e:
+            print "Fatal Error: An error occured while the cache files were created! Details: " + e.message
+            raise Exception(e.message)
 
     def setSampledValue(self, fluidName, values):
         """
@@ -128,21 +81,23 @@ class MayaFunctionUtils(object):
         for item in members:
 
             tmpCmd = fluidName + "." + str(item)
-            attributeValue = float(getattr(values, item))
+            try:
+                attributeValue = float(getattr(values, item))
+            except Exception as e:
+                 print("Warning: Cannot set fluid attribute: ", tmpCmd, " Details: ", e.message)
 
             # Set the attribute in the fluid container dialog
             try:
                 cmds.setAttr(tmpCmd, attributeValue)
                 print(str(item), attributeValue)
-            except:
-                print("Warning: Cannot set attribute ", tmpCmd)
+            except Exception as e:
+                print("Warning: Cannot get fluid attribute: ", tmpCmd, " Details: ", e.message)
                 pass
 
         print("")
 
     def changeToPerspCam(self):
         currentCam = cmds.lookThru(q=True)
-        print ("CAM: ", currentCam)
         if currentCam != 'persp':
             # Select the perspective camera (default = modelPfloatanel4)attributeValue
             cmdStr = "lookThroughModelPanel" + " " + "persp" + " " + "modelPanel4;"
@@ -198,8 +153,6 @@ class MayaFunctionUtils(object):
         fileName = "image"
         start = str(int(round(generalSettings.animationStartTime)))
         end = str(int(round(generalSettings.animationEndTime)))
-        resW = 640
-        resH = 480
 
         if generalSettings.cam_perspective:
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
@@ -208,37 +161,32 @@ class MayaFunctionUtils(object):
             os.mkdir(path)
             #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
             mel.eval('RenderIntoNewWindow')
-            self.renderImages(path, fileName, start, end, resW, resH)
+
+            # Rendering
+            try:
+                self.renderImages(path, fileName, start, end)
+            except Exception as e:
+                raise e
+                return
+
             progressIndex += 1
             progress.setValue(progressIndex)
 
         if (generalSettings.cam_viewcube == True):
             os.mkdir(generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/")
 
-            # BOTTOM
-            #self.viewFromCamPosition('BOTTOM', generalSettings.fluidBoxName)
-            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/BOTTOM/"
-            #os.mkdir(path)
-            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
-
-            # RIGHT
-            #self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
-            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/RIGHT/"
-            #os.mkdir(path)
-            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
-
-            # LEFT
-            #self.viewFromCamPosition('LEFT', generalSettings.fluidBoxName)
-            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/LEFT/"
-            #os.mkdir(path)
-            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
-
             # FRONT
             self.viewFromCamPosition('FRONT', generalSettings.fluidBoxName)
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/FRONT/"
             listRenderedImages.append(path)
             os.mkdir(path)
-            self.renderImages(path, fileName, start, end, resW, resH)
+            #self.renderImages(path, fileName, start, end)
+            try:
+                self.renderImages(path, fileName, start, end)
+            except Exception as e:
+                raise e
+                return
+
             progressIndex += 1
             progress.setValue(progressIndex)
 
@@ -247,7 +195,12 @@ class MayaFunctionUtils(object):
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/SIDE/"
             listRenderedImages.append(path)
             os.mkdir(path)
-            self.renderImages(path, fileName, start, end, resW, resH)
+            #self.renderImages(path, fileName, start, end)
+            try:
+                self.renderImages(path, fileName, start, end)
+            except Exception as e:
+                raise e
+                return
             progressIndex += 1
             progress.setValue(progressIndex)
 
@@ -256,28 +209,25 @@ class MayaFunctionUtils(object):
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/TOP/"
             listRenderedImages.append(path)
             os.mkdir(path)
-            self.renderImages(path, fileName, start, end, resW, resH)
+            self.renderImages(path, fileName, start, end)
             progressIndex += 1
             progress.setValue(progressIndex)
 
-            # BACK
-            #self.viewFromCamPosition('BACK', generalSettings.fluidBoxName)
-            #path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/BACK/"
-            #os.mkdir(path)
-            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
-
         if (generalSettings._cam_custom_name != None):
             # View from camera
-
             cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
             mel.eval(cmdStr)
-
 
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/custom/"
             os.mkdir(path)
 
             mel.eval('RenderIntoNewWindow')
-            self.renderImages(path, fileName, start, end, resW, resH)
+            self.renderImages(path, fileName, start, end)
+            try:
+                self.renderImages(path, fileName, start, end)
+            except Exception as e:
+                raise e
+                return
             progressIndex += 1
             progress.setValue(progressIndex)
             listRenderedImages.append(path)
@@ -297,7 +247,6 @@ class MayaFunctionUtils(object):
             valueY = int(round(float(generalSettings.cam_rotation)))
 
             while stepAcc < 360:
-                print "value: " + str(stepAcc)
                 # Rotate camera
                 cmds.setAttr('persp.rotateY',  stepAcc)
                 cmds.viewFit('persp', an=False)
@@ -305,7 +254,12 @@ class MayaFunctionUtils(object):
 
                 path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/" + "deg_" + str(stepAcc) + "/"
                 os.mkdir(path)
-                self.renderImages(path, fileName, start, end, resW, resH)
+                #self.renderImages(path, fileName, start, end)
+                try:
+                    self.renderImages(path, fileName, start, end)
+                except Exception as e:
+                    raise e
+                    return
                 listRenderedImages.append(path)
 
                 stepAcc = stepAcc + valueY
@@ -317,7 +271,6 @@ class MayaFunctionUtils(object):
 
         return [int(progressIndex), listRenderedImages]
 
-
     def rotateCamerY(valueY):
         stepAcc = 0
         while stepAcc < 360:
@@ -325,16 +278,19 @@ class MayaFunctionUtils(object):
             cmds.setAttr('persp.rotateY',  stepAcc)
             cmds.viewFit('persp', an=False)
 
-
     def startPosition(self, generalSettings):
         self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
-
+    """
     def executeMELRemderCmd(self, path, fileName, start, end, resW, resH):
         cmd = "renderImagesMEL(" + "\"" + path + "\"" + "," + "\"" + fileName + "\"" + "," + str(start) + "," + str(end) + "," + str(resW) + "," + str(resH) + ")"
         mel.eval(cmd)
+    """
 
-    def renderImages(self, path, filename, startFrame, endFrame, resWidth, resHeight):
+    def renderImages(self, path, filename, startFrame, endFrame, resWidth=960, resHeight=540):
+
+        renderSuccess = True
+
         #print path
         #print filename
         #print startFrame
@@ -343,10 +299,11 @@ class MayaFunctionUtils(object):
         #print resHeight
 
         cmds.setAttr('defaultRenderGlobals.currentRenderer', 'mayaSoftware', type='string')
-        cmds.setAttr('defaultResolution.width', 960)
-        cmds.setAttr('defaultResolution.height', 540)
+        cmds.setAttr('defaultResolution.width', resWidth)
+        cmds.setAttr('defaultResolution.height', resHeight)
         cmds.setAttr('perspShape.renderable', 1);
         cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
+        cmds.setAttr('defaultRenderGlobals.byFrameStep ', 1.0)
 
         # Check render panel
         renderPanel = ""
@@ -362,13 +319,15 @@ class MayaFunctionUtils(object):
 
         cmds.setAttr('defaultRenderGlobals.imageFormat', 8)
         cmds.setAttr('defaultRenderGlobals.extensionPadding', 5)
+        cmds.setAttr('defaultRenderGlobals.imageFilePrefix', "image", type='string')
 
+        # Start and End Frame
         startFrom = int(startFrame)
         renderTill = int(endFrame)
 
         mel.eval('currentTime %s ;'%(startFrom))
 
-        while(startFrom <= renderTill):
+        while(startFrom<=renderTill):
 
             frameNumber = '{0:05d}'.format(startFrom)
             concatenateFileName = path + 'image_' + frameNumber + ".jpg"
@@ -377,21 +336,27 @@ class MayaFunctionUtils(object):
             if os.path.exists(concatenateFileName):
                 os.remove(concatenateFileName)
 
-            melCmd = 'renderWindowRender redoPreviousRender' + ' '+ renderPanel + ';'
+            melCmd = 'renderWindowRender redoPreviousRender' + ' ' + renderPanel + ';'
             mel.eval(melCmd)
             #mel.eval('renderWindowRender redoPreviousRender renderView;')
             startFrom += 1
             mel.eval('currentTime %s ;'%(startFrom))
 
             renderViewValue = renderPanel
-            print(renderViewValue)
-            #melStrCmd = 'catch(eval(renderWindowSaveImageCallback("' + renderViewValue +'", "' + concatenateFileName +'", `getAttr defaultRenderGlobals.imageFormat`)))'
-            melStrCmd = 'renderWindowSaveImageCallback("' + renderViewValue +'", "' + concatenateFileName +'", `getAttr defaultRenderGlobals.imageFormat`)'
-            #mel.eval(melStrCmd)
+            melStrCmd = 'catchQuiet(renderWindowSaveImageCallback("' + renderViewValue +'", "' + concatenateFileName +'", `getAttr defaultRenderGlobals.imageFormat`))'
 
             try:
                 mel.eval(melStrCmd)
-            except RuntimeError, err:
-                print err
+            except RuntimeError as err:
+                print("Error: An error occured while the images were rendered! Details:", err.message)
+                raise Exception(err.message)
+                renderSuccess = False
+                return renderSuccess
 
-            concatenateFileName = ''
+            except Exception as er:
+                print("Error: An error occured while the images were rendered! Details:", er.message)
+                raise Exception(er.message)
+                renderSuccess = False
+                return renderSuccess
+
+        return renderSuccess

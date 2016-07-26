@@ -146,16 +146,18 @@ class MayaCacheCmdSettings(object):
 
     @staticmethod
     def printValues(valuesGeneral):
-        print "Project Settings: "
-        print "\tProj. Name  : " + str(valuesGeneral.prjName)
-        print "\tOutput Path : " + str(valuesGeneral.outputPath)
-        print "\tFluid container    : " + str(valuesGeneral.fluidBoxName)
+        print " "
+        print "Project Settings:\n"
+        print "\tProj. Name: " + str(valuesGeneral.prjName)
+        print "\tOutput Path: " + str(valuesGeneral.outputPath)
+        print "\tFluid container: " + str(valuesGeneral.fluidBoxName)
         print "\tNum. Samples: " + str(valuesGeneral.numberSamples)
         print "\tNum. Frames: " + str(valuesGeneral.numberOfFrames)
-        print "\tScene Name  : " + str(valuesGeneral.simulationNameMB)
-        print "\tCamera Perspective : " + str(valuesGeneral.cam_perspective)
-        print "\tCamera ViewCube    : " + str(valuesGeneral.cam_viewcube)
-        print "\tCamera Custom      : " + str(valuesGeneral.cam_sphere) + str(valuesGeneral.cam_custom_name)
-        print "\tCamera Rotation    : " + str(valuesGeneral.cam_rotation)
-        print "\tAnimation Start Time : " + str(valuesGeneral.animationStartTime)
-        print "\tAnimation End Time   : " + str(valuesGeneral.animationEndTime)
+        print "\tScene Name: " + str(valuesGeneral.simulationNameMB)
+        print "\tImages available: " + str(valuesGeneral.imageView)
+        print "\tCamera Perspective: " + str(valuesGeneral.cam_perspective)
+        print "\tCamera ViewCube: " + str(valuesGeneral.cam_viewcube)
+        print "\tCamera Custom: " + str(valuesGeneral.cam_sphere) + "/" + str(valuesGeneral.cam_custom_name)
+        print "\tCamera Rotation: " + str(valuesGeneral.cam_rotation)
+        print "\tAnimation Start Time: " + str(valuesGeneral.animationStartTime)
+        print "\tAnimation End Time: " + str(valuesGeneral.animationEndTime)

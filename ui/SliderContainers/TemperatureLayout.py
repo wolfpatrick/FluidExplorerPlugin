@@ -1,9 +1,7 @@
-from PySide import QtGui
-from PySide import QtCore
-
 from FluidExplorerPlugin.ui.ParamterTab import SliderContainer
 from FluidExplorerPlugin.ui.SliderContainerLayouts import SliderContainerLayout
 from FluidExplorerPlugin.ui.Utils.MayaCmds.FluidContainerValues import ContainerValuesUtils
+
 
 class TemperatureLayout(SliderContainerLayout):
 
@@ -49,10 +47,6 @@ class TemperatureLayout(SliderContainerLayout):
 
     def initializeSliderDefaultValues(self):
         fluidContainerObj = ContainerValuesUtils(self.fluidBoxName)
-
-        #self.DEF_VALUES.velocitySwirl_DEF = fluidContainerObj.getFluidContainerParamter(self.DEF_VALUES.velocitySwirl_NAME)
-        #self.DEF_VALUES.velocitySwirl_VISIBILITY = fluidContainerObj.getSliderStatusFromMaya(self.DEF_VALUES.velocitySwirl_SN, self.DEF_VALUES.velocitySwirl_NAME)
-
         del fluidContainerObj
 
     def setAllValues(self, sliderList):

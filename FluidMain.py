@@ -33,7 +33,8 @@ def getMayaWindow():
 class ControlMainWindow(QtGui.QMainWindow):
  
     def __init__(self, parent = getMayaWindow()):
-        
+
+        print "hallo"
         # Initialize qt window
         super(ControlMainWindow, self).__init__(parent)
         self.ui =  mainUi.Ui_MainWindow()

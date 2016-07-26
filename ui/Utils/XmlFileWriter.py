@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as xml
 
+
 class XmlFileWriter:
 
     path = ""
@@ -29,7 +30,6 @@ class XmlFileWriter:
         # Add root
         #root = xml.Element("ProjectSettings")
         appt = xml.Element(self.elementName)
-        #root.append(appt)
 
         # Add children (project settings)
         el_ProjectPath = xml.SubElement(appt, "ProjectPath")
@@ -91,7 +91,6 @@ class XmlFileWriter:
         self.addElement_MayaFilePath(projectSetting.simulationNameMB)
 
         self.writeValuesInFile()
-
 
     def addElement_ProjectPath(self, value):
         self.projectPath = str(value)

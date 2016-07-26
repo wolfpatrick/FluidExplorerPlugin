@@ -1,25 +1,23 @@
-__author__ = 'babbel'
-
-# Code adapted from
-#
-# Widget Range slider widget.
-#
+# Code adapted from:
 # Hazen 4/09
-#
+# Widget Range slider widget.
+
 
 from PySide import QtCore, QtGui
-import sys
+
 
 class QHRangeSlider(QtGui.QWidget):
 
-    def __init__(self, lineEditElement_MIN = None, lineEditElement_MAX = None, lineEdit_DEF = None,  range = None,
-                 values = None, parent = None, enabledFlag = None):
+    def __init__(self, lineEditElement_MIN=None, lineEditElement_MAX=None, lineEdit_DEF=None, range=None,
+                 values=None, parent=None, enabledFlag=None):
 
         QtGui.QWidget.__init__(self, parent)
 
+        self.FMAX = 0
+        self.FMIN = 0
+
         if not parent:
             self.setGeometry(200, 200, 293, 20)
-
 
         self.emit_while_moving = 0
         self.scale = 0
@@ -40,43 +38,16 @@ class QHRangeSlider(QtGui.QWidget):
             self.setValues(values)
         else:
             pass
-            #self.setValues([0.3, 0.6])
 
         # Store values
         self.maxValue = range[1]
+        self.minValue = range[0]
         self.rangeValues = range
-        #self.defaultSingleValue = 1 # Stored the current value from Maya
 
         # Additional flags tho control the style
         self.enabledFlag = enabledFlag
         self.isRangeActive = True
         self.maxReached = False
-        print range
-        print ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-        """
-        if not self.isRangeActive:
-            print self.defaultSingleValue
-            tmpRange = [0, 1]
-            self.update()
-        """
-
-        self.setMinimumWidth(295)
-        self.setMaximumWidth(295)
-
-    def changeStyle(self):
-        if self.isRangeActive:
-            tmpRange = [self.defaultSingleValue, 0]
-            hslider.setValues(tmpRange)
-            self.isRangeActive = False
-        elif not self.isRangeActive:
-            tmpRange = [self.rangeValues[0], self.rangeValues[1]]
-            hslider.setValues(tmpRange)
-            self.isRangeActive = True
-
-        hslider.update()
-        hslider.repaint()
-
-        print "SOZE: " + hslider.size()
 
     def changeSliderEnabled(self, flag):
         self.enabledFlag = flag
@@ -92,13 +63,11 @@ class QHRangeSlider(QtGui.QWidget):
             fmax = float(self.rmax - self.bar_width)/w
 
         if self.isRangeActive:
-            print "Range:", fmin, fmax
+            pass
         else:
             sliderValue = fmin
-            if self.maxReached == True:
+            if self.maxReached:
                 sliderValue = self.maxValue
-
-            print "Value: ", sliderValue
 
         # Update the QLineEdit elements
         if self.isRangeActive:
@@ -113,19 +82,10 @@ class QHRangeSlider(QtGui.QWidget):
             self.lineEditElement_MIN.setText(str(format(fmin, '.2f')))
             self.lineEditElement_MAX.setText(str(format(fmax, '.2f')))
 
-        elif not self.isRangeActive:
-            self.lineEditElement_DEF.setMaxLength(4)
-            if sliderValue < 0:
-                self.lineEditElement_DEF.setMaxLength(5)
-
-            self.lineEditElement_DEF.setText(str(format(sliderValue, '.2f')))
-
-        print 'MAX: ' + str(fmax)
-        print 'MIN: ' + str(fmin)
-
+        self.FMAX = float(str(format(fmax, '.2f')))
+        self.FMIN = float(str(format(fmin, '.2f')))
 
     def paintEvent(self, event):
-
         if self.isRangeActive:
             painter = QtGui.QPainter(self)
             rmin = self.rmin
@@ -139,7 +99,8 @@ class QHRangeSlider(QtGui.QWidget):
                  g1 = QtGui.QColor(QtCore.Qt.transparent) # delete this
 
             painter.setPen(g1)
-            painter.setBrush(QtCore.Qt.lightGray)
+            backC = QtGui.QColor(196, 196, 196)
+            painter.setBrush(backC)
 
             if self.enabledFlag == False:
                  painter.setBrush(QtCore.Qt.transparent) # delete this
@@ -147,8 +108,7 @@ class QHRangeSlider(QtGui.QWidget):
             painter.drawRect(2, 2, w-4, h-4)
 
             # Range bar
-            lb = QtGui.QColor(215, 128, 26)
-
+            lb = QtGui.QColor(255, 160, 47)
             if self.enabledFlag == False:
                 lb = QtGui.QColor(QtCore.Qt.transparent) # delete this
 
@@ -161,16 +121,15 @@ class QHRangeSlider(QtGui.QWidget):
             painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10)
 
             # min & max tabs
-            painter.setPen(QtCore.Qt.black)
+            painter.setPen(QtGui.QColor(92, 92, 92))
             painter.setBrush(QtCore.Qt.darkGray)
-            painter.setBrush(lb)
-            x=QtGui.QColor(215, 128, 26)
+            painter.setBrush(QtGui.QColor(143, 143, 143))
+            x = QtGui.QColor(215, 128, 26)
 
             if self.enabledFlag == False:
                 painter.setBrush(QtCore.Qt.transparent)
 
             painter.drawRect(rmin-self.bar_width, 1, 10, h-2)
-            painter.setBrush(lb)
 
             if self.enabledFlag == False:
                 painter.setBrush(QtCore.Qt.transparent)
@@ -178,7 +137,8 @@ class QHRangeSlider(QtGui.QWidget):
             painter.drawRect(rmax, 1, self.bar_width, h-2)
 
         else:
-
+            # If only one rectange is visible
+            """
             painter = QtGui.QPainter(self)
             rmin = self.rmin
             rmax = self.rmax
@@ -211,7 +171,6 @@ class QHRangeSlider(QtGui.QWidget):
 
             painter.setBrush(lb)
 
-
             if self.isRangeActive == True:
                 painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10)
 
@@ -232,14 +191,24 @@ class QHRangeSlider(QtGui.QWidget):
 
             if self.enabledFlag == False:
                 painter.setBrush(QtCore.Qt.transparent)
+            """
 
     def mouseMoveEvent(self, event):
+        self.isRangeActive = True
+
         if self.isRangeActive:
             w = self.width()
             diff = self.start_x - event.x()
 
             if self.moving == "min":
                 temp = self.start_rmin - diff
+
+                if temp <= 0:
+                    temp = 0
+                    self.lineEditElement_MIN.setText(format(self.minValue, '.2f'))
+                    self.setValues([self.minValue, float(self.lineEditElement_MAX.text())])
+                    self.update()
+
                 if (temp >= self.bar_width) and (temp < w - self.bar_width):
                     self.rmin = temp
                     if self.rmax < self.rmin:
@@ -247,8 +216,24 @@ class QHRangeSlider(QtGui.QWidget):
                     self.update()
                     if self.emit_while_moving:
                         self.emitRange()
+
             elif self.moving == "max":
                 temp = self.start_rmax - diff
+
+                if temp > self.width():
+                    temp = self.width()
+
+                    self.lineEditElement_MAX.setText(format(self.maxValue, '.2f'))
+                    self.lineEditElement_MIN.setText(format(self.FMIN, '.2f'))
+
+                    if self.maxValue >= 5:
+                        self.setValues([float(format(self.FMIN, '.1f')), self.maxValue])
+                    else:
+                        self.setValues([float(format(self.FMIN, '.2f')), self.maxValue])
+
+                    self.update()
+                    self.lineEditElement_MIN.setText(format(self.FMIN, '.2f'))
+
                 if (temp >= self.bar_width) and (temp < w - self.bar_width):
                     self.rmax = temp
                     if self.rmax < self.rmin:
@@ -256,6 +241,9 @@ class QHRangeSlider(QtGui.QWidget):
                     self.update()
                     if self.emit_while_moving:
                         self.emitRange()
+
+            """
+            # If ramnge should be movable
             elif self.moving == "bar":
                 temp = self.start_rmin - diff
                 if (temp >= self.bar_width) and (temp < w - self.bar_width - (self.start_rmax - self.start_rmin)):
@@ -264,46 +252,18 @@ class QHRangeSlider(QtGui.QWidget):
                     self.update()
                     if self.emit_while_moving:
                         self.emitRange()
-
-        else:
-
-            w = self.width()
-            diff = self.start_x - event.x()
-
-            res = self.rmin + self.bar_width
-
-            if self.moving == "min":
-
-                temp = self.start_rmin - diff
-                print temp
-                #if temp >= self.rmax:
-                if res >= self.width()-1:
-                    # Max reached
-                    self.maxReached = True
-                    print "REACHED"
-                    #maxV = round(float(self.lineEditElement_DEF.text()))
-                    maxV = self.rangeValues[1]
-                    print "MAXV" + str(maxV)
-                    self.lineEditElement_DEF.setText(format(maxV, '.2f'))
-                else:
-                    self.maxReached = False
-
-                if (temp >= self.bar_width) and (temp < w - self.bar_width):
-                    self.rmin = temp
-                    if self.rmax < self.rmin:
-                        self.rmax = self.rmin
-                    self.update()
-                    if self.emit_while_moving:
-                        self.emitRange()
+            """
 
     def mousePressEvent(self, event):
         x = event.x()
-        if abs(self.rmin - 0.5 * self.bar_width - x) < (0.5 * self.bar_width+10):   # Edited !!
+        #if abs(self.rmin - 0.5 * self.bar_width - x) < (0.5 * self.bar_width+10):   # Edited !!
+        if abs(self.rmin - 0.5 * self.bar_width - x) < (0.5 * self.bar_width+10):
             self.moving = "min"
         elif abs(self.rmax + 0.5 * self.bar_width - x) < (0.5 * self.bar_width):
             self.moving = "max"
         elif (x > self.rmin) and (x < self.rmax):
             self.moving = "bar"
+
         self.start_rmin = self.rmin
         self.start_rmax = self.rmax
         self.start_x = x
@@ -332,60 +292,21 @@ class QHRangeSlider(QtGui.QWidget):
         else:
             self.emit_while_moving = 0
 
-
-# -----------------
+"""
 # RangeSlider Test
-# -----------------
-
 if __name__ == "__main__":
-
-    class Parameters:
-        def __init__(self):
-            #self.x_pixels = 200
-            #self.y_pixels = 200
-
-            self.flag = True
-
-    def change():
-        print hslider.size()
-        print hslider.geometry()
-        print "Style changed ..."
-        hslider.changeStyle()
-
-    def changeEnabled():
-        print "Enabled/Disabled"
-        hslider.changeSliderEnabled(False)
 
     app = QtGui.QApplication(sys.argv)
     # hslider = QHRangeSlider()
 
     # Slider
-    hslider = QHRangeSlider(range = [0, 2], values = [0, 2])
-    hslider.setMinimumWidth(300)
-    hslider.setMaximumWidth(300)
-    hslider.setMinimumWidth(400)
-    hslider.setMaximumWidth(400)
-    hslider.setMinimumWidth(300)
-    hslider.setMaximumWidth(300)
-    hslider.setValues([0, 2])
+    hslider = QHRangeSlider(range = [0, 22], values = [0, 2])
+    hslider.setValues([-2, 2])
     ss = hslider.width()
-    print ss
-
-
-
-    # PushButton
-    button = QtGui.QPushButton("Change Style")
-    button.show()
-    button.clicked.connect(change)
-
-    #button1 = QtGui.QPushButton("Change Enabled/Dissable")
-    #button1.show()
-    #button1.clicked.connect(changeEnabled)
-
     hslider.setEmitWhileMoving(True)
     hslider.show()
     sys.exit(app.exec_())
-
+"""
 
 #
 # The MIT License

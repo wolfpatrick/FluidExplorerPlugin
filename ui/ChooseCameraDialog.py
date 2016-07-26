@@ -2,7 +2,8 @@ from PySide import QtGui
 from PySide import QtCore
 
 from ChooseCameraUI import Ui_DialogChooseCamer
-from MayaUiDefaultValues import MayaUiDefaultValues
+from Utils.MayaUiDefaultValues import MayaUiDefaultValues
+import maya.cmds as cmds
 
 
 class ChooseCameraDialog(QtGui.QDialog):
@@ -17,8 +18,8 @@ class ChooseCameraDialog(QtGui.QDialog):
         self.ui.pushButtonSelect.setAutoDefault(True)
 
         # Get the cameras from Maya and fill the combo box
-        listUtil = MayaUiDefaultValues()
-        listCameras = listUtil.getCamerasFromMaya()
+        utils = MayaUiDefaultValues()
+        listCameras = utils.getCamerasFromMaya()
 
         for iIndex, iItem in enumerate(listCameras):
             self.ui.comboBox.addItem(iItem)
@@ -30,7 +31,6 @@ class ChooseCameraDialog(QtGui.QDialog):
     @QtCore.Slot()
     def buttonSelectClicked(self):
         cam = str(self.ui.comboBox.currentText())
-        print "Value: " + cam
         self.selectedCamera = cam
         self.close()
 
@@ -41,3 +41,9 @@ class ChooseCameraDialog(QtGui.QDialog):
     @property
     def getChoosenCamera(self):
         return self.selectedCamera
+
+    def getCamerasFromMaya(self):
+        allCameras = cmds.listCameras()
+        camerasList = allCameras
+
+        return camerasList

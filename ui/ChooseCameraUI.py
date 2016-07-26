@@ -9,6 +9,7 @@
 
 from PySide import QtCore, QtGui
 
+
 class Ui_DialogChooseCamer(object):
     def setupUi(self, DialogChooseCamer):
         DialogChooseCamer.setObjectName("DialogChooseCamer")

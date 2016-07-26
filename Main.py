@@ -1,14 +1,15 @@
 import sys
 import webbrowser
+import os
 
 from PySide import QtGui
 from PySide import QtCore
+
 from ui.MainWindow import Ui_MainWindow
 from ui.FileOpenDialog import FileOpenDialog
 from ui.CreateProjectDialog import CreateProjectDialog
-from ui.DefaultUIValues import DefaultUIParameters
+from ui.Utils.DefaultUIValues import DefaultUIParameters
 from ui.Icons import icons
-import os
 
 
 def main(argv):

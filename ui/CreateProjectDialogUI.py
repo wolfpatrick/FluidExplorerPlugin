@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/babbel/Dropbox/CreateProjectDialogUI.ui'
+# Form implementation generated from reading ui file 'C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\CreateProjectDialogUI.ui'
 #
-# Created: Fri Jun  3 09:21:00 2016
+# Created: Wed Jul 20 14:36:40 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -141,7 +141,7 @@ class Ui_CreateProjectDialog(object):
         self.label_selectedCam.setAlignment(QtCore.Qt.AlignCenter)
         self.label_selectedCam.setObjectName("label_selectedCam")
         self.labelNumberSeq = QtGui.QLabel(self.tabSampling)
-        self.labelNumberSeq.setGeometry(QtCore.QRect(20, 260, 161, 21))
+        self.labelNumberSeq.setGeometry(QtCore.QRect(20, 260, 171, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -157,7 +157,7 @@ class Ui_CreateProjectDialog(object):
         self.labelTime.setFont(font)
         self.labelTime.setObjectName("labelTime")
         self.horizontalSlider_numberSeq = QtGui.QSlider(self.tabSampling)
-        self.horizontalSlider_numberSeq.setGeometry(QtCore.QRect(289, 261, 284, 20))
+        self.horizontalSlider_numberSeq.setGeometry(QtCore.QRect(285, 261, 288, 20))
         self.horizontalSlider_numberSeq.setStyleSheet(" QSlider::groove:horizontal {\n"
 "     border: 1px solid #999999;\n"
 "     height: 8px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */\n"
@@ -186,7 +186,7 @@ class Ui_CreateProjectDialog(object):
         self.horizontalSlider_numberSeq.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_numberSeq.setObjectName("horizontalSlider_numberSeq")
         self.lineEdit_numberSeq = QtGui.QLineEdit(self.tabSampling)
-        self.lineEdit_numberSeq.setGeometry(QtCore.QRect(197, 259, 74, 25))
+        self.lineEdit_numberSeq.setGeometry(QtCore.QRect(202, 259, 65, 25))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setWeight(50)
@@ -194,7 +194,7 @@ class Ui_CreateProjectDialog(object):
         self.lineEdit_numberSeq.setFont(font)
         self.lineEdit_numberSeq.setObjectName("lineEdit_numberSeq")
         self.labelAnimationTime = QtGui.QLabel(self.tabSampling)
-        self.labelAnimationTime.setGeometry(QtCore.QRect(20, 290, 261, 21))
+        self.labelAnimationTime.setGeometry(QtCore.QRect(20, 290, 251, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -202,7 +202,7 @@ class Ui_CreateProjectDialog(object):
         self.labelAnimationTime.setFont(font)
         self.labelAnimationTime.setObjectName("labelAnimationTime")
         self.labelAnimationTimeStartEnd = QtGui.QLabel(self.tabSampling)
-        self.labelAnimationTimeStartEnd.setGeometry(QtCore.QRect(289, 290, 281, 21))
+        self.labelAnimationTimeStartEnd.setGeometry(QtCore.QRect(285, 290, 281, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -226,7 +226,7 @@ class Ui_CreateProjectDialog(object):
         self.pushButtonBrowse_CalculateTime.setStyleSheet("")
         self.pushButtonBrowse_CalculateTime.setObjectName("pushButtonBrowse_CalculateTime")
         self.labelFluidBox_Value = QtGui.QLabel(self.tabSampling)
-        self.labelFluidBox_Value.setGeometry(QtCore.QRect(120, 230, 91, 21))
+        self.labelFluidBox_Value.setGeometry(QtCore.QRect(119, 230, 91, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -235,7 +235,7 @@ class Ui_CreateProjectDialog(object):
         self.labelFluidBox_Value.setText("")
         self.labelFluidBox_Value.setObjectName("labelFluidBox_Value")
         self.labelTime_Value = QtGui.QLabel(self.tabSampling)
-        self.labelTime_Value.setGeometry(QtCore.QRect(67, 320, 81, 21))
+        self.labelTime_Value.setGeometry(QtCore.QRect(72, 320, 81, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -287,7 +287,7 @@ class Ui_CreateProjectDialog(object):
         self.label_3.setText(QtGui.QApplication.translate("CreateProjectDialog", "View Cube", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("CreateProjectDialog", "Custom", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("CreateProjectDialog", "Rotation", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Sequences:", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Simulations:", None, QtGui.QApplication.UnicodeUTF8))
         self.labelTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Time:", None, QtGui.QApplication.UnicodeUTF8))
         self.lineEdit_numberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "128", None, QtGui.QApplication.UnicodeUTF8))
         self.labelAnimationTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Animation [Start Time / End Time]:", None, QtGui.QApplication.UnicodeUTF8))

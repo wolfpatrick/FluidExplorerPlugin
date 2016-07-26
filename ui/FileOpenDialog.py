@@ -1,37 +1,33 @@
 import os
-import maya.cmds as cmds
+import subprocess
 
 from PySide import QtGui
+import maya.cmds as cmds
 from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
-
+from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
 
 class FileOpenDialog(QtGui.QDialog):
 
-    global buttonStyleBold
-    buttonStyleBold = "QMessageBox { }" #font-size: 12px;
-
     global WORKING_DIRECTORY
     global FX_RELATIVE_PATH
-    WORKING_DIRECTORY = os.getcwd()
-    PATH_FLUIDEXPLORER_APP = "E:/FluidExplorer_Code/Releas/"
+    WORKING_DIRECTORY = cmds.workspace(q=True, dir=True)
+
+    PATH_FLUIDEXPLORER_APP = "E:/FluidExplorer_Code/Release/"
     FX_RELATIVE_PATH = '/FluidExplorerPlugin/tmp/README.txt' 
 
-    
-    def openSimulation(self, choosenFile):
-        import subprocess
-       
+    def openSimulation(self, choosenFile, fxPathRoot):
+        # choosenFile: Path to the .fxp file
+        # fxPathRoot: script folder
+
+        #print WORKING_DIRECTORY
+        #print fxPathRoot
+
         if not os.path.exists(self.PATH_FLUIDEXPLORER_APP):
-            msgBox = QtGui.QMessageBox()
-            errorMsg = "Unable to start the Fluid Explorer application!" + "\n" + "Please check if the executable file is available."
-            msgBox.setText(errorMsg)
-            msgBox.setWindowTitle("Warning - Start Fluid Explorer")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
-            msgBox.setStyleSheet(buttonStyleBold)
-            msgBox.exec_()
+            errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if  the executable file is available."
+            self.showMessageBox(errorMsg, 'warning')
 
         else:
             simulationDataPath = self.readSimulationDataPath(choosenFile)
-            
             try:
                 path = os.getcwd()
                 os.chdir(self.PATH_FLUIDEXPLORER_APP)
@@ -41,33 +37,32 @@ class FileOpenDialog(QtGui.QDialog):
 
                 # Path to the settings file
                 str_settings_path = "/load path=" + choosenFile
+
+                print("Open FluidExplorer application ...", "")
+                print("   Load Path    : ", str_load_path)  # -> /load path=E:/FluidExplorer_Code/FlameShape//FlameShape1
+                print("   Settings File: ", str_settings_path)  # -> E:/TMP/test.fxp
                 
-                print("Load Path    : ", str_load_path)         # -> /load path=E:/FluidExplorer_Code/FlameShape//FlameShape1
-                print("Settings File: ", str_settings_path)     # -> E:/TMP/test.fxp
-                
-                #
+                # Call Subprocess
                 pid = subprocess.Popen(["fluidexplorer.exe", str_load_path], shell=True) # call subprocess
-                #print pid
-                #
+
 
             except Exception as e:
-               
-                msgBox = QtGui.QMessageBox()
-                errorMsg = "Unable to start the Fluid Explorer application!" + "\nDetails: " + e.message
-                msgBox.setText(errorMsg)
-                msgBox.setWindowTitle("Error - Start Fluid Explorer")
-                msgBox.setIcon(QtGui.QMessageBox.Critical)
-                msgBox.setStyleSheet(buttonStyleBold)
-                msgBox.exec_()
+
+                errorMsg = "Unable to start the FluidExplorer application!" + "\nDetails: " + e.message
+                self.showMessageBox(errorMsg, 'critical')
+
+                os.chdir(os.path.abspath(path))
+
             finally:
                 subprocess._cleanup()
-               
-            os.chdir(path)
+
+            # Return back to root directory
+            os.chdir(os.path.abspath(path))
+            print("Changed directory back after calling FluidExplorer app: ", os.path.abspath(path))
 
             # TODO 
             # Open Port
-            #FluidExplorerUtils.openMayaPort()
-
+            # FluidExplorerUtils.openMayaPort()
 
     def checkPrjRoot(self, choosenDir, currentScene):
         isSameScene = True
@@ -75,36 +70,17 @@ class FileOpenDialog(QtGui.QDialog):
         canReadConfigFile = True
 
         try:
-            tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'MayaFile')
+            tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'MayaFilePath')
+            print("Path of the maya file to load: ", tmpSimulationName)
         except:
             canReadConfigFile = False
-            errorText = "Error while reading the project file!"
-            return [ canReadConfigFile, isNumberOk, isSameScene, errorText ]
-
+            errorText = "An error occured while loading the project file!"
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
 
         if tmpSimulationName == "" or tmpSimulationName == None:
             canReadConfigFile = False
-            errorText = "Error while reading the project file properties!"
-            return [ canReadConfigFile, isNumberOk, isSameScene, errorText ]
-
-        """
-        # Check numner of samples
-        dirname, filename = os.path.split(os.path.abspath(choosenDir))
-        file_list = next(os.walk(dirname))[1]
-
-       
-        #numDirs = 0
-        #for index, item in enumerate(file_list):
-        #    #print str(index) + " " + str(item)
-        #    tmp = str(item)
-        #    if not tmp.startswith('.'):
-        #        numDirs += 1;
-
-        #if int(tmpNumberSamples) != int(numDirs):
-        #    print "Not the same number of Samples!"
-        #    errorTxt = "Not the same number of Samples!"
-        #    isNumberOk = False
-        """
+            errorText = "An error occured while loading the project file!\nProperty: 'MayaFilePath'"
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
 
         # Check if same scene opened
         tmpSimulationName_low = tmpSimulationName.lower()
@@ -112,16 +88,19 @@ class FileOpenDialog(QtGui.QDialog):
 
         if tmpSimulationName_low != currentScene_low:
             isSameScene = False
-            errorTxt = "Please load the correct scene first\nPath: " + tmpSimulationName + "."
+            errorTxt = "Please load the correct maya scene file first!\nPath: " + tmpSimulationName
 
-            return [ canReadConfigFile, isNumberOk, isSameScene, errorTxt ]
+            return [canReadConfigFile, isNumberOk, isSameScene, errorTxt]
 
-        return [ canReadConfigFile, isNumberOk, isSameScene, "" ]
-
+        return [canReadConfigFile, isNumberOk, isSameScene, ""]
 
     def openDirDialog(self, currentSceneName, fxPathRoot):
+
         # currentSceneName: e.g. E:/Tmp/test.mb
-        # fxPath: e.g.: .../maya/2014-x64/scripts
+        # fxPathRoot: e.g.: .../maya/2014-x64/scripts
+        print("")
+        print("Load Animation", "")
+        print("")
 
         strStarted = "started"
 
@@ -142,22 +121,24 @@ class FileOpenDialog(QtGui.QDialog):
                 [canReadConfigFile, isNumberOk, isSameScene, errorText] = self.checkPrjRoot(choosenDir, currentSceneName)
               
                 if not canReadConfigFile:
-                    msgBox = QtGui.QMessageBox()
-                    msgBox.setText(errorText)
-                    msgBox.setWindowTitle("Error - Load Project")
-                    msgBox.setIcon(QtGui.QMessageBox.Critical)
-                    msgBox.setStyleSheet(buttonStyleBold)
-                    msgBox.exec_()
+                    # Can not read xml project file with
+                    self.showMessageBox(errorText, 'critical')
 
                 else:
                     if not isSameScene:
-                            # TODO : MessageBox - Open the right file...
-                            msgBox = QtGui.QMessageBox()
-                            msgBox.setText(errorText)
-                            msgBox.setWindowTitle("Warning - Load Project")
-                            msgBox.setIcon(QtGui.QMessageBox.Warning)
-                            msgBox.setStyleSheet(buttonStyleBold)
-                            msgBox.exec_()
+                        # Warning - not the same scene is loaded
+                        self.showMessageBox(errorText, 'warning')
+                        return
+
+                    # Check if the fluid container exists in the scene
+                    [nodeExists, errorMsg] = self.checkIfFluidNodeExistsInScene(choosenDir)
+                    if not nodeExists:
+                        self.showMessageBox(errorMsg, 'warning')
+                        return
+
+                    #        # Warning scene is loaded
+                    #        self.showMessageBox(errorText, 'warning')
+
                     else:
                         try:
                             import exceptions
@@ -165,49 +146,17 @@ class FileOpenDialog(QtGui.QDialog):
                             fluidExplorerPath = self.getFXPath(fxPathRoot, FX_RELATIVE_PATH)
 
                             if not fluidExplorerPath == "":
-                                self.openSimulation(choosenDir)
+                                self.openSimulation(choosenDir, fxPathRoot)
                             else:
-                                raise Exception("Fluid Explorer executable file not found")
+                                raise Exception("FluidExplorer executable file not found!")
                             
                             # return "started"
 
                         except Exception as e:
-                            msgBox = QtGui.QMessageBox()
-                            errorMsg = "Unable to start the Fluid Explorer application!" + "\nDetails: " + e.message
-                            msgBox.setText(errorMsg)
-                            msgBox.setWindowTitle("Error - Load Project")
-                            msgBox.setIcon(QtGui.QMessageBox.Critical)
-                            msgBox.setStyleSheet(buttonStyleBold)
-                            msgBox.exec_()
+                            errorMsg = "Unable to start the FluidExplorer application!" + "\nDetails: " + e.message
+                            self.showMessageBox(errorMsg, 'critical')
 
-                        #FluidExplorerUtils.openMayaPort()
                         return strStarted   # return started -> everything fine!
-
-
-    def openDirDialogQuick(self):
-        dialog = QtGui.QFileDialog(self)
-        dialog.setWindowTitle(self.tr("Fluid Explorer - Choose Project Directory"))
-        dialog.setFileMode(QtGui.QFileDialog.DirectoryOnly)
-        dir = cmds.workspace(q=True, dir=True)
-        dialog.setDirectory(dir)
-        dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
-
-        if dialog.exec_():
-            fileA = dialog.selectedFiles()
-            if  len(fileA) == 1:
-                choosenDir = fileA[0]
-                
-                isOk = True
-                if isOk:
-                    return choosenDir
-                else:
-                    msgBox = QtGui.QMessageBox()
-                    msgBox.setText("Please select a valid directory!")
-                    msgBox.setWindowTitle("Warning - Load Project")
-                    msgBox.setIcon(QtGui.QMessageBox.Warning)
-                    msgBox.setStyleSheet(buttonStyleBold)
-                    msgBox.exec_()
-
 
     def readSimulationDataPath(self, choosenDir):
         try:
@@ -220,7 +169,6 @@ class FileOpenDialog(QtGui.QDialog):
         path = tmpProjectPath + '/' + tmpProjectName
         return path
 
-
     def getFXPath(self, fxPathRoot, fxRelativePath):
         fullPathToFluidExplorer = ""
        
@@ -229,3 +177,52 @@ class FileOpenDialog(QtGui.QDialog):
             fullPathToFluidExplorer = tmpPath
 
         return fullPathToFluidExplorer
+
+    def checkIfFluidNodeExistsInScene(self, choosenFile):
+        tmpFluidNodeName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenFile, 'FluidBoxName')
+        print("Fluid container name from the settings file ", tmpFluidNodeName)
+
+        if cmds.objExists(tmpFluidNodeName):
+            return [True, ""]
+        else:
+            return [False, "Cannot find the specified Fluid Container in the opened project!\n"
+                           "Please check if the the node '" + tmpFluidNodeName + "' exists."]
+
+    def showMessageBox(self, errorMsg, type):
+        msgBox = QtGui.QMessageBox(self)
+        msgBox.setText(errorMsg)
+        if type == 'critical':
+            msgBox.setWindowTitle("Error - Load Simulation")
+            msgBox.setIcon(QtGui.QMessageBox.Critical)
+        if type == 'warning':
+            msgBox.setWindowTitle("Warning - Load Simulation")
+            msgBox.setIcon(QtGui.QMessageBox.Warning)
+
+        msgBox.setStyleSheet(DefaultUIParameters.buttonStyleBold)
+        msgBox.exec_()
+
+    # The dialog to get to the directory of the simulations
+    def openDirDialogQuick(self):
+        dialog = QtGui.QFileDialog(self)
+        dialog.setWindowTitle(self.tr("Fluid Explorer - Choose Project Directory"))
+        dialog.setFileMode(QtGui.QFileDialog.DirectoryOnly)
+        dir = cmds.workspace(q=True, dir=True)
+        dialog.setDirectory(dir)
+        dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
+
+        if dialog.exec_():
+            fileSelected= dialog.selectedFiles()
+            if len(fileSelected) == 1:
+                choosenDir = fileSelected[0]
+
+                isOk = True
+                if isOk:
+                    return choosenDir
+                else:
+                    msgBox = QtGui.QMessageBox()
+                    msgBox.setText("Please select a valid directory!")
+                    msgBox.setWindowTitle("Warning - Load Simulation")
+                    msgBox.setIcon(QtGui.QMessageBox.Warning)
+                    msgBox.setStyleSheet(DefaultUIParameters.buttonStyleBold)
+                    msgBox.exec_()
+

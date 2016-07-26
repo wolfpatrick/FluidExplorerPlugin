@@ -1,3 +1,5 @@
+/*Adapted from: http://tech-artists.org/forum/showthread.php?2359-Release-Qt-dark-orange-stylesheet*/
+
 QToolTip
 {
      border: 1px solid black;
@@ -383,9 +385,7 @@ QTabBar::tab:last
 
 QTabBar::tab:first:!selected
 {
- margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */
-
-
+    margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */
     border-top-left-radius: 3px;
 }
 
@@ -471,19 +471,14 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     border: 1px solid #444;
 }
 
-
-
 /* Style edited */
 
-
 QToolBox::tab {
-
     font: bold;
     border: 1px solid gray;
     /*font-family: arial;*/
     /*font-family: terminal;*/
     border: 1px solid gray;
-
 }
 
 QToolBox::tab:selected {
@@ -497,13 +492,11 @@ QGroupBox {
 }
 
 QSpinBox {
-
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0 #646464, stop: 1 #5d5d5d);
     padding: 1px;
     border-style: solid;
     border: 1px solid #1e1e1e;
     border-radius: 3;
-
 }
 
 QScrollBar:horizontal {

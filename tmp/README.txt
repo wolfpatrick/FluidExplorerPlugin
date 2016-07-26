@@ -2,6 +2,8 @@
   Setup  |
 +---------+
 
+TODO
+
 1) Open Maya plug-in folder (e.g. maya/2014-x64/scripts) and copy the plugin into the root:
 
 + Structure

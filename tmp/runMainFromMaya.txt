@@ -1,54 +1,89 @@
-import os
-import sys
-
 import maya.cmds as cmds
 import maya.mel
-import maya.utils
+import os.path
+import sys
 
 import FluidMain
 
-def create_fluidExplorer_shelf():
+#import FluidExplorerPlugin.ui.FileOpenDialog
+import FluidExplorerPlugin.ui.CreateProjectDialog # del
+import FluidExplorerPlugin.ui.Utils.XmlFileWriter    # del
+import FluidExplorerPlugin.ui.ParamterTab    # del
+import FluidExplorerPlugin.ui.Utils.MayaCmds.MayaFunctions    # del
+import FluidExplorerPlugin.ui.Utils.RangeSliderSpan    # del
+import FluidExplorerPlugin.ui.Utils.GifCreatpr    # del
+import FluidExplorerPlugin.ui.ParamterTab    # del
+import FluidExplorerPlugin.ui.RangeSlider.HRangeSlider    # del
+
+print os.name
+
+def get_script_folfer():
+    scriptDir = cmds.internalVar(userScriptDir=True)
+    path_fx = scriptDir + "tmp/fx_32px.png"
+    path_help = scriptDir + "tmp/help_32px.png"
+    path_icon_fx = '"' + path_fx + '"'
+    path_icon_help = '"' + path_help + '"'
+
+    if not os.path.isfile(path_fx):
+       return [ "", "" ]
+    if not os.path.isfile(path_help):
+       return [ "", "" ]
+
+    return [ path_icon_fx, path_icon_help ]
+
+def create_fluidExplorer_shelf_text_only():
     maya.mel.eval('if (`shelfLayout -exists FluidExplorer `) deleteUI FluidExplorer;')
     shelfTab = maya.mel.eval('global string $gShelfTopLevel;')
     maya.mel.eval('global string $scriptsShelf;')
     maya.mel.eval('$scriptsShelf = `shelfLayout -p $gShelfTopLevel FluidExplorer`;')
-    maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "FluidExplorer" ' + 
-      '-label "FluidExplorer"  -image "logo.png" -sourceType "python" ' +
-      '-command ("if(pre_init()): myWin1 = FluidMain.main(); myWin1.show()") -width 34 -height 34 -style "iconOnly";')
-      
+
+    maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "Fluid Explorer" ' + '-label "FluidExplorer" -sourceType "python" ' + '-command ("fluidExplorerWin = FluidMain.main(); fluidExplorerWin.show()") -style "textOnly";')
+    maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "Help" ' + '-label "Help" -sourceType "python" ' + '-command ("FluidMain.helpButton();") -style "textOnly";')
+
+def create_fluidExplorer_shelf():
+    try:
+        maya.mel.eval('if (`shelfLayout -exists FluidExplorer `) deleteUI FluidExplorer;')
+        shelfTab = maya.mel.eval('global string $gShelfTopLevel;')
+        maya.mel.eval('global string $scriptsShelf;')
+        maya.mel.eval('$scriptsShelf = `shelfLayout -p $gShelfTopLevel FluidExplorer`;')
+
+        [ path_icon_fx, path_icon_help ] = get_script_folfer()
+        iconFX = '-image ' + path_icon_fx
+        iconHelp = '-image ' + path_icon_help
+
+        cmd_fx = 'shelfButton -parent $scriptsShelf -annotation "Fluid Explorer" ' + '-label "FluidExplorer"' + iconFX + '-sourceType "python" ' +'-command ("fluidExplorerWin = FluidMain.main(); fluidExplorerWin.show()");'
+        cmd_help = 'shelfButton -parent $scriptsShelf -annotation "Help" ' + '-label "FluidExplorer"' + iconHelp + '-sourceType "python" ' +'-command ("FluidMain.helpButtonToolBar();");'
+
+        maya.mel.eval(cmd_fx)
+        maya.mel.eval(cmd_help)
+
+    except:
+        create_fluidExplorer_shelf_text_only()
+
+# Run FluidExplorer
+reload(FluidMain)
+reload(FluidExplorerPlugin.ui.CreateProjectDialog)
+reload(FluidExplorerPlugin.ui.Utils.XmlFileWriter)
+reload(FluidExplorerPlugin.ui.ParamterTab)
+reload(FluidExplorerPlugin.ui.Utils.MayaCmds.MayaFunctions)
+reload(FluidExplorerPlugin.ui.Utils.RangeSliderSpan)
+reload(FluidExplorerPlugin.ui.Utils.GifCreatpr)
+reload(FluidExplorerPlugin.ui.ParamterTab)
+reload(FluidExplorerPlugin.ui.RangeSlider.HRangeSlider)
+
+fluidExplorerWin = FluidMain.main();
+fluidExplorerWin.show()
+
+# Create shelf buttons
 create_fluidExplorer_shelf()
 
-#
-# This function is callede at the beginning and checks if a valid  fluid node is selected.
-# Return true: FluidExplorer app starts, Return false: Show warning message
-#
-def pre_init():
-    
-    pluginLoaded = cmds.pluginInfo( 'MayaHelloWorld2.mll', query=True, loaded=True )
-    if not pluginLoaded:
-        cmds.loadPlugin('MayaHelloWorld2',quiet=True)
-    
-    file2Cmd = open('C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/MEL/getSelectedContainer.mel', 'r')
-    cmdText = file2Cmd.read()
-    print cmdText
-    maya.mel.eval(cmdText)
-    file2Cmd.close()
- 
-    isFluidObject = maya.mel.eval("getSelectedContainer();")
-    
-    fluidSelected = False
-    
-    if (len(isFluidObject) > 0) :
-        fluidSelected = True
-    
-    if fluidSelected:
-        print "Valid fluid selected: " + str(isFluidObject)
-      
-        selObj = str(isFluidObject)
-        cmds.select(selObj, r=True)
-        cmds.move(1,1,100)    #Move selected object to see if it is really selected
-        return True
-        
-    else:
-        print "No valid fluid selected"
-        return False
+
+"""
+maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "FluidExplorer" ' +
+  '-label "FluidExplorer"  -image "E:/TMP/aa.png" -sourceType "python" ' +
+  '-command ("fluidExplorerWin = FluidMain.main(); fluidExplorerWin.show()") -style "iconOnly";')
+
+maya.mel.eval('shelfButton -parent $scriptsShelf -annotation "FluidExplorer" ' +
+  '-label "FluidExplorer"  -image "/tmp/help.png" -sourceType "python" ' +
+  '-command ("FluidMain.helpButton();") -style "iconOnly";')
+"""

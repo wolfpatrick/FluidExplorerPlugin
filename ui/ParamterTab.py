@@ -1,65 +1,52 @@
 from PySide import QtGui
 from PySide import QtCore
+import maya.cmds as cmds
+
 from RangeSlider.HRangeSlider import QHRangeSlider
 from SliderContainers.ParamterTabDefaultValues import ParameterTabDefaultValues
-
-import maya.cmds as cmds
+from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
 
 
 class SliderContainer(object):
-
-        #def __init__(self, propertyName, sliderMinValue, sliderMaxValue, sliderDefaultValue, fieldName):
         def __init__(self, property, propertyName, nodeName, fullPropertyName=""):
-
             self.propertyName = propertyName
 
             self.groupBox_Box = QtGui.QWidget()
             gridLayout_Box = QtGui.QGridLayout()
             self.groupBox_Box.setLayout(gridLayout_Box)
 
-            # Box elements
-            txt = "<span style=\" font-size:8pt;\">" + property + "</span>"
-            txt = property
-            self.label = QtGui.QLabel(txt)
-            tmp = " Property Name: " + propertyName + " \n"
             QtGui.QToolTip.setFont(QtGui.QFont('SansSerif', 10))
-
-
-
-            self.checkBox = QtGui.QCheckBox("")
-            print "--------------------------"
-            print propertyName
-            print nodeName
+            txt = "<span style=\" font-size:8pt;\">" + property + "</span>"
+            self.label = QtGui.QLabel(txt)
 
             [sliderMinValue, sliderMaxValue, sliderDefValue] = self.getFielDefaultValues(propertyName, nodeName)
             isAttrLocked = self.chekIfAttrIsLocked(propertyName, nodeName)
             self.isContainerLocked = isAttrLocked
 
-            print isAttrLocked
-            print "--------------------------"
             if len(fullPropertyName) > 0:
                 toolTipTxt = "Full Name: " + fullPropertyName + ' '
                 self.label.setToolTip(toolTipTxt)
 
-
+            self.checkBox = QtGui.QCheckBox("")
             self.lineEditMin = QtGui.QLineEdit(str(sliderMinValue))
             self.lineEditMax = QtGui.QLineEdit(str(sliderMaxValue))
             self.lineEditDefault = QtGui.QLineEdit(str(sliderDefValue))
             self.rangeSlider = QHRangeSlider(self.lineEditMin, self.lineEditMax, self.lineEditDefault, range = [sliderMinValue, sliderMaxValue], enabledFlag=True)
+            self.sliderDefValue = QtGui.QSlider(QtCore.Qt.Horizontal)   # delete
+            self.sliderDefValue.setStyleSheet(DefaultUIParameters.getCustomSliderStyleSheet(isAttrLocked))
             self.rangeSlider.defaultSingleValue = sliderDefValue
             self.lineEditMin.setFixedWidth(35), self.lineEditMin.setAlignment(QtCore.Qt.AlignCenter)
             self.lineEditMax.setFixedWidth(35), self.lineEditMax.setAlignment(QtCore.Qt.AlignCenter)
             self.lineEditDefault.setFixedWidth(35), self.lineEditDefault.setAlignment(QtCore.Qt.AlignRight)
             self.rangeSlider.setValues([sliderMinValue, sliderMaxValue])
             self.rangeSlider.setEmitWhileMoving(True)
+            self.resetButton = QtGui.QPushButton("Reset all Values")
 
             # Lock icon
-            self.pix = QtGui.QPixmap(":/icon_lock_3.png").scaled(12, 12)
+            self.pix = QtGui.QPixmap(":/icon_lock.png").scaled(12, 12)
             self.lockImage = QtGui.QLabel()
             self.lockImage.setPixmap(self.pix)
-            self.lockImage.setAlignment(QtCore.Qt.AlignLeft);
-
-            self.resetButton = QtGui.QPushButton("Reset all Values")
+            self.lockImage.setAlignment(QtCore.Qt.AlignLeft)
 
             self.createConnections()
             self.initialComponents()
@@ -67,8 +54,6 @@ class SliderContainer(object):
 
         def setContainerLockedState(self, state):
             if not state:
-                #self.rangeSlider.setVisible = state
-                #self.rangeSlider.update()
                 self.label.setEnabled(state)
                 self.checkBox.setEnabled(state)
                 self.lineEditDefault.setEnabled(state)
@@ -80,6 +65,7 @@ class SliderContainer(object):
         def iniSliderValues2(self):
             self.rangeSlider.setValues([float(self.lineEditMin.text()), float(self.lineEditMax.text())])
             self.rangeSlider.update()
+            self.sliderDefValue.setValue(self.translate(self.rangeSlider.defaultSingleValue, self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1], 0, 250))
 
         def initialComponents(self):
             self.lineEditDefault.setEnabled(True)
@@ -90,6 +76,12 @@ class SliderContainer(object):
             self.lineEditDefault.setMaxLength(4)
             self.checkBox.setChecked(False)
             self.rangeSlider.isRangeActive = False
+            self.rangeSlider.setVisible(False)
+            self.sliderDefValue.setRange(0, 250)
+            self.rangeSlider.setMaximumWidth(288)
+            self.rangeSlider.setMinimumWidth(288)
+            self.sliderDefValue.setMaximumWidth(self.rangeSlider.width())
+            self.sliderDefValue.setMinimumWidth(self.rangeSlider.width())
 
         def addToLayout(self, gridLayout_Box, position):
             gridLayout_Box.addWidget(self.label, position, 0, 1, 2, QtCore.Qt.AlignVCenter | QtCore.Qt.AlignRight)
@@ -97,6 +89,7 @@ class SliderContainer(object):
             gridLayout_Box.addWidget(self.lineEditDefault, position, 4, QtCore.Qt.AlignCenter)
             gridLayout_Box.addWidget(self.lineEditMin, position, 5, QtCore.Qt.AlignCenter)
             gridLayout_Box.addWidget(self.rangeSlider, position, 6, 1, 9-2)
+            gridLayout_Box.addWidget(self.sliderDefValue, position, 6, 1, 9-2)
             gridLayout_Box.addWidget(self.lineEditMax, position, 15-2, QtCore.Qt.AlignCenter)
 
             if self.isContainerLocked:
@@ -107,7 +100,9 @@ class SliderContainer(object):
                 self.rangeSlider.setEnabled(False)
                 self.rangeSlider.changeSliderEnabled(False)
                 self.lineEditMax.setEnabled(False)
+                self.sliderDefValue.setEnabled(False)
 
+                # Use this code because some labes are to long
                 if self.propertyName == "densityScale":
                     self.label.setText("Dens. Scale")
                 if self.propertyName == "tensionForce":
@@ -124,16 +119,17 @@ class SliderContainer(object):
             self.lineEditMin.editingFinished.connect(self.leaveLineEditMin_A)
             self.lineEditMax.editingFinished.connect(self.leaveLineEditMax_A)
             self.resetButton.clicked.connect(self.resetValues)
+            self.sliderDefValue.valueChanged.connect(self.sliderDefValueEvent)
 
         # --------------------------------------------------------------------------------------------------------------
-
         @QtCore.Slot()
         def checkBoxModeChanged_Event(self):
-            self.changeSliderMode(self.rangeSlider, self.checkBox, self.lineEditDefault, self.lineEditMin, self.lineEditMax)
+            self.changeSliderMode(self.rangeSlider, self.checkBox, self.lineEditDefault, self.lineEditMin, self.lineEditMax, self.sliderDefValue)
 
         @QtCore.Slot()
         def leaveLineEditDef_A(self):
-            self.leaveLineEditEvent(self.lineEditDefault,  self.rangeSlider)
+            pass
+            self.leaveLineEditEvent(self.lineEditDefault,  self.sliderDefValue, self.rangeSlider)
 
         @QtCore.Slot()
         def leaveLineEditMin_A(self):
@@ -143,35 +139,44 @@ class SliderContainer(object):
         def leaveLineEditMax_A(self):
             self.leaveLineEditMaxEvent(self.lineEditMin, self.lineEditMax,  self.rangeSlider)
 
+        @QtCore.Slot()
+        def sliderDefValueEvent(self):
+            sliderDoubleValue = self.translate(self.sliderDefValue.value(), 0, 250, self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1])
+            self.lineEditDefault.setText(str(format(sliderDoubleValue, '.2f')))
         # --------------------------------------------------------------------------------------------------------------
 
-        def changeSliderMode(self, slider, checkBox, lineEditDefault, lineEditMin, lineEditMax):
+        def changeSliderMode(self, slider, checkBox, lineEditDefault, lineEditMin, lineEditMax, sliderDefValue):
+            self.rangeSlider.isRangeActive = True
             if checkBox.checkState():
                 # Range is active
-                slider.isRangeActive = True
-                slider.setValues([slider.rangeValues[0], slider.rangeValues[1]])
-                slider.update()
-                slider.repaint()
+                sliderDefValue.setVisible(False)
                 lineEditDefault.setEnabled(False)
+                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
+
+                slider.setValues([slider.rangeValues[0], slider.rangeValues[1]])
+                slider.setVisible(True)
+
                 lineEditMin.setEnabled(True)
                 lineEditMax.setEnabled(True)
                 lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                 lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                 lineEditMin.setFocus()
-                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
+
             else:
-                # Range is not active
-                slider.isRangeActive = False
-                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
-                lineEditDefault.setEnabled(True)
+                # Range is NOT active
+                slider.setVisible(False)
                 lineEditMin.setEnabled(False)
                 lineEditMax.setEnabled(False)
-                lineEditDefault.setFocus()
-                slider.setValues([float(slider.defaultSingleValue), float(slider.defaultSingleValue)])
-                slider.update()
-                slider.repaint()
                 lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                 lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
+
+                lineEditDefault.setEnabled(True)
+                lineEditDefault.setText(str(format(slider.defaultSingleValue, '.2f')))
+                lineEditDefault.setFocus()
+
+                sliderDefValue.setVisible(True)
+                sliderValueTranslated = self.translate(slider.defaultSingleValue, slider.rangeValues[0], slider.rangeValues[1], 0, 250)
+                sliderDefValue.setValue(sliderValueTranslated)
 
         def leaveLineEditMinEvent(self, lineEditMin, lineEditMax, slider):
                 v_str = lineEditMin.text()
@@ -227,46 +232,41 @@ class SliderContainer(object):
             slider.update()
             lineEditMax.setText(str(format(v2, '.2f')))
 
-        def leaveLineEditEvent(self, lineEdit, slider):
+        def leaveLineEditEvent(self, lineEdit, slider, rangeSlider):
+
             v_str = lineEdit.text()
             try:
                 v = float(v_str)
                 v = round(v, 2)
 
-                if v < float(slider.rangeValues[0]):
+                if v < float(rangeSlider.rangeValues[0]):
                     #print "error to small"
-                    lineEdit.setText(str(format(slider.rangeValues[0], '.2f')))
-                    v = slider.rangeValues[0]
-                elif v > float(slider.rangeValues[1]):
+                    lineEdit.setText(str(format(rangeSlider.rangeValues[0], '.2f')))
+                    v = rangeSlider.rangeValues[0]
+                elif v > float(rangeSlider.rangeValues[1]):
                     #print "error to big"
-                    lineEdit.setText(str(format(slider.rangeValues[1], '.2f')))
-                    v = slider.rangeValues[1]
+                    lineEdit.setText(str(format(rangeSlider.rangeValues[1], '.2f')))
+                    v = rangeSlider.rangeValues[1]
                 else:
                     pass
                     #print "OK"
 
             except ValueError:
-                lineEdit.setText(str(format(slider.defaultSingleValue, '.2f')))
-                v = float(slider.defaultSingleValue)
+                lineEdit.setText(str(format(rangeSlider.defaultSingleValue, '.2f')))
+                v = float(rangeSlider.defaultSingleValue)
 
             # Set value
-            slider.setValues([float(v), 0])
-            slider.update()
+            sliderValueTranslated = self.translate(v, rangeSlider.rangeValues[0], rangeSlider.rangeValues[1], 0, 250)
+            slider.setValue(sliderValueTranslated)
             lineEdit.setText(str(format(v, '.2f')))
 
         def resetValues(self):
-            if self.rangeSlider.isRangeActive:
-                self.rangeSlider.setValues([self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1]])
-                self.lineEditMin.setText(str(format(self.rangeSlider.rangeValues[0], '.2f')))
-                self.lineEditMax.setText(str(format(self.rangeSlider.rangeValues[1], '.2f')))
-            else:
-                self.rangeSlider.setEmitWhileMoving(True)
-                self.rangeSlider.setValues([self.rangeSlider.defaultSingleValue, 0])
-                self.lineEditDefault.setText(str(format(self.rangeSlider.defaultSingleValue, '.2f')))
-                self.rangeSlider.setValues([float(self.rangeSlider.defaultSingleValue), float(self.rangeSlider.defaultSingleValue)])
-
+            self.rangeSlider.setValues([self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1]])
+            self.lineEditMin.setText(str(format(self.rangeSlider.rangeValues[0], '.2f')))
+            self.lineEditMax.setText(str(format(self.rangeSlider.rangeValues[1], '.2f')))
+            self.lineEditDefault.setText(str(format(self.rangeSlider.defaultSingleValue, '.2f')))
+            self.sliderDefValue.setValue(self.translate(self.rangeSlider.defaultSingleValue, self.rangeSlider.rangeValues[0], self.rangeSlider.rangeValues[1], 0, 250))
             self.rangeSlider.update()
-            self.rangeSlider.repaint()
 
         def getFielDefaultValues(self, fieldName, nodeName):
 
@@ -288,6 +288,16 @@ class SliderContainer(object):
                 print("Warning: Cannot get lock state of attribute: ", cmdStr)
                 return isFieldLocked
 
+        def translate(self, value, leftMin, leftMax, rightMin, rightMax):
+            # Get 'wide' of each range
+            leftSpan = leftMax - leftMin
+            rightSpan = rightMax - rightMin
+
+            # Convert the left range into a range (rightMin-rightMax)
+            valueScaled = float(value - leftMin) / float(leftSpan)
+
+            return rightMin + (valueScaled * rightSpan)
+
 
 class ParameterTab(object):
 
@@ -302,8 +312,6 @@ class ParameterTab(object):
 
     def setupTabWidget(self):
 
-        #from SliderContainerLayouts import DiffusionLayout
-
         from SliderContainers.DensityLayout import DensityLayout
         from SliderContainers.VelocityLayout import VelocityLayout
         from SliderContainers.TurbulenceLayout import TurbulenceLayout
@@ -313,12 +321,6 @@ class ParameterTab(object):
         from SliderContainers.DynamicSimulationLayout import DynamicSimulationLayout
 
         # --------------------------------------------------------------------------------------------------------------
-        #DiffusionBox = QtGui.QGroupBox()
-        #self.DiffusionLayout = DiffusionLayout()
-        #self.DiffusionLayout.setFluidBoxName(self.fluidBoxName)
-        #DiffusionBox.setLayout(self.DiffusionLayout.getLayout())
-
-
         DensityBox = QtGui.QGroupBox()
         self.DensityLayout = DensityLayout()
         self.DensityLayout.setFluidBoxName(self.fluidBoxName)
@@ -355,8 +357,6 @@ class ParameterTab(object):
         self.DynamicSimulationLayout = DynamicSimulationLayout()
         self.DynamicSimulationLayout.setFluidBoxName(self.fluidBoxName)
         DynamicSimulationBox.setLayout(self.DynamicSimulationLayout.getLayout())
-
-
         # --------------------------------------------------------------------------------------------------------------
 
         # The toolbox stores all slider containers
@@ -376,9 +376,8 @@ class ParameterTab(object):
         self.toolBox.setItemEnabled(5, self.isItemEbabled(self.fluidBoxName + '.' + 'fuelMethod'))
         self.toolBox.setItemEnabled(6, self.isItemEbabled(self.fluidBoxName + '.' + 'colorMethod'))
 
-        #self.toolBox.addItem(DiffusionBox, " Menu_1")
-        self.toolBox.currentChanged.connect(self.toolBoxChanged_Event)
         self.initialToolBoxComponents()
+        self.toolBox.currentChanged.connect(self.toolBoxChanged_Event)
 
         vBoxlayout = QtGui.QVBoxLayout()
         vBoxlayout.addWidget(self.toolBox)
@@ -390,14 +389,13 @@ class ParameterTab(object):
         pass
 
     def getSelectedValuesFromSlider(self):
+        print "\nGet selected values from paramter tab:\n"
+
         from Utils.RangeSliderSpan import SliderSpanSelected
 
-        self.selectedSliderValues = SliderSpanSelected(self.DynamicSimulationLayout, self.DensityLayout, self.VelocityLayout, self.TurbulenceLayout, self.TemperatureLayout, self.FuelLayout, self.ColorLayout)
-
-        print "**********************************************"
-        print self.selectedSliderValues
-        print "**********************************************"
-
+        self.selectedSliderValues = SliderSpanSelected(self.DynamicSimulationLayout, self.DensityLayout,
+                                                       self.VelocityLayout, self.TurbulenceLayout,
+                                                       self.TemperatureLayout, self.FuelLayout, self.ColorLayout)
         return self.selectedSliderValues
 
     def randomValuesSnapshot(self):
@@ -408,7 +406,7 @@ class ParameterTab(object):
         for itemIndex in range(self.toolBox.count()):
             self.toolBox.setItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_1.png'))
             if itemIndex == currentTabIndex:
-                self.toolBox.setUpComponentsItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_2.png'))
+                self.toolBox.setItemIcon(itemIndex, QtGui.QIcon(':/arrow_small_2.png'))
 
         self.initAllSlidersOfTheBox()
 
@@ -421,14 +419,12 @@ class ParameterTab(object):
     def isItemEbabled(self, cmdStr):
         try:
             flag = cmds.getAttr(cmdStr)
-            print("Flag", flag)
             if flag == 0:
                 return False
             else:
                 return True
         except ValueError:
             return True
-
 
 
 

@@ -1,6 +1,7 @@
 import os
 import subprocess
 
+
 class GifCreator():
 
     def __init__(self):
@@ -10,8 +11,8 @@ class GifCreator():
 
         imageNames = 'image_%05d.jpg'
 
-        #inputDirFile = os.path.abspath(directoryImages + '/' + imageNames)
-        #outputFileName = os.path.abspath(outputGifFileDir + '/' + outputGifFileName)
+        # inputDirFile = os.path.abspath(directoryImages + '/' + imageNames)
+        # outputFileName = os.path.abspath(outputGifFileDir + '/' + outputGifFileName)
 
         if not directoryImages.endswith('/'):
             directoryImages = directoryImages + '/'
@@ -47,20 +48,33 @@ class GifCreator():
 
                 palette = outputGifFileDir + '/palette.png'
                 palette = os.path.abspath(palette)
-                subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=False, startupinfo=startupinfo)
-                subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=False, startupinfo=startupinfo)
+                try:
+                    subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=False, startupinfo=startupinfo)
+                    subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=False, startupinfo=startupinfo)
+                except Exception as er:
+                    print("Error: " "Could not create the GIF animations! Details: ", er.message)
+                    returnCode = False
+                    return returnCode
 
-                if os.path.exists(palette):
-                    os.remove(palette)
+                finally:
+                    if os.path.exists(palette):
+                        os.remove(palette)
 
             else:
                 palette = outputGifFileDir + '/palette.png'
                 palette = os.path.abspath(palette)
-                subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette])
-                subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName])
+                try:
+                    subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette])
+                    subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName])
+                except Exception as er:
+                    print("Error: " "Could not create the GIF animations! Details: ", er.message)
+                    returnCode = False
+                    return returnCode
 
-                if os.path.exists(palette):
-                    os.remove(palette)
+                finally:
+                    if os.path.exists(palette):
+                        os.remove(palette)
+
 
             returnCode = True
 
