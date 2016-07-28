@@ -215,14 +215,23 @@ class MayaFunctionUtils(object):
 
         if (generalSettings._cam_custom_name != None):
             # View from camera
-            cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
-            mel.eval(cmdStr)
+            try:
+                cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
+                mel.eval(cmdStr)
+            except Exception as er:
+                print("Fatal Error: An error occured while camera was changed! Details: ", er.message)
+                print("Fatal Error: Could not look through camera ", generalSettings._cam_custom_name)
+                raise Exception(er.message)
+                return
+
+            #cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
+            #mel.eval(cmdStr)
 
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/custom/"
             os.mkdir(path)
 
             mel.eval('RenderIntoNewWindow')
-            self.renderImages(path, fileName, start, end)
+            #self.renderImages(path, fileName, start, end)
             try:
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
@@ -235,6 +244,7 @@ class MayaFunctionUtils(object):
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
 
         if generalSettings.cam_rotation != 0:
+
             # Change to perspective camera
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
             cmds.viewFit('persp', an=False)
@@ -254,14 +264,14 @@ class MayaFunctionUtils(object):
 
                 path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/" + "deg_" + str(stepAcc) + "/"
                 os.mkdir(path)
-                #self.renderImages(path, fileName, start, end)
+
                 try:
                     self.renderImages(path, fileName, start, end)
                 except Exception as e:
                     raise e
                     return
-                listRenderedImages.append(path)
 
+                listRenderedImages.append(path)
                 stepAcc = stepAcc + valueY
 
             progressIndex += 1

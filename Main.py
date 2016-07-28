@@ -101,6 +101,7 @@ class MyMainWindow(QtGui.QMainWindow):
 # ---- Call main function ----
 #
 if __name__ == '__main__':
+
     print "[ FluidExplorer started ... ]"
     main(sys.argv)
 

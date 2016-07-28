@@ -1,6 +1,9 @@
 import logging
 import os
+import subprocess
+
 import maya.cmds as cmds
+from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
 
 #######################################################################################################################
 # READ ME - Test Configuration
@@ -8,8 +11,9 @@ import maya.cmds as cmds
 #       FluidMain.py: Set runTests=True (line 62/63)
 #       Ses animation start time to 1
 #       Ses animation end time to 15
-# 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete TestProjects
+# 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete TestProjects if exists
 # 3) Create an empty fluid container (with emitter)
+# 4) In CreateProjectDialog uncommit line 96 - self.runTests(self.workDirPath)
 # 4) Run test -> Create Simulation Button
 #######################################################################################################################
 
@@ -29,6 +33,7 @@ class Test():
         self.cam_viewcube = False
         self.cam_custom = False
         self.cam_custom_name = ""
+        self.cam_rotation = 0
 
         self.numberOfFilesInSimulation = 16
         self.numberOfRenderedImages = 15
@@ -101,9 +106,63 @@ class Test():
                 count += 1
         return count
 
+    # Returns number of dirs and paths
+    def directory_num_rot(self, path):
+        pathList = []
+        list_dir = []
+        list_dir = os.listdir(path)
+        count = 0
+        for file in list_dir:
+            if file.startswith('deg_'):
+                count += 1
+                pathList.append(path + '/' + file)
+
+        return [count, pathList]
+
+    def getNumberOfStepsFromDegrees(self, deg):
+        stepCount = 0
+        degCount = 0
+        while degCount < 360:
+            stepCount += 1
+            degCount += deg
+
+        return stepCount
+
     #
     # TESTS INSTANCES
     #
+
+    # -----------------------------------------------------------------------------------------------------------------
+    # Test Instance: check_if_ffmpeg_exists
+    def check_if_ffmpeg_exists(self):
+        pathToFFmpeg = os.path.abspath(self.workDir + '/../../')
+        if os.name=='nt':
+            pathToFFmpegExe = pathToFFmpeg + '/lib/ffmpeg/ffmpeg.exe'
+        else:
+            # TODO: Add path to file
+            # pathToFFmpegExe=
+            pass
+
+        try:
+            path = pathToFFmpegExe
+            subprocess.call([path], shell=False)
+            self.logResult(True, 'check_if_ffmpeg_exists_and_executable-file_exists')
+            self.logResult(True, 'check_if_ffmpeg_exists_and_executable-file_executable')
+        except OSError as e:
+            if e.errno == os.errno.ENOENT:
+                # Handle file not found error.
+                self.logResult(False, 'check_if_ffmpeg_exists_and_executable-file_exists')
+            else:
+                # Something else went wrong while trying to run ffmpeg
+                self.logResult(False, 'check_if_ffmpeg_exists_and_executable-file_executable')
+    # -----------------------------------------------------------------------------------------------------------------
+
+    # -----------------------------------------------------------------------------------------------------------------
+    # Test Instance: check_if_fluidExplorer_exists
+    def check_if_fluidExplorer_exists(self):
+        # TODO
+        pass
+    # -----------------------------------------------------------------------------------------------------------------
 
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: wrong_projectName
@@ -395,6 +454,210 @@ class Test():
 
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: create_sumulation_cache_and_images_rotation
-    # TODO
+    def create_sumulation_cache_and_images_rotation(self):
+        t = Test()
+        t.projectName = "TestProject4"
+        t.projectPath = self.workDir + '/TestProjects/'
+        t.numberOfSamples = "2"
+        t.cam_perspective = False
+        t.cam_viewcube = False
+        t.cam_custom = False
+        t.cam_custom_name = ""
+        t.cam_rotation = 90
+        cmds.playbackOptions(animationStartTime=1.00)
+        cmds.playbackOptions(animationEndTime=15.00)
+
+        return t
+
+    def evaluate_create_sumulation_cache_and_images_rotation(self, projectPath, projectName, numberOfSamples, deg):
+        # Evaluation - number of rotation views is ok and number of rendered images is ok
+        numberDirsOK = True
+        numberImagesOK = True
+        for i in range(0, int(numberOfSamples)):
+            # Folders
+            tmp = projectPath + "/" + projectName + "/" + str(i) + "/" + "images/rotation/"
+            [numDirs, pathDirs] = self.directory_num_rot(tmp)
+
+            if numDirs == self.getNumberOfStepsFromDegrees(deg):
+                pass
+            else:
+                numberOK = False
+
+            # Rendered images per view correct
+            for path in pathDirs:
+                if os.path.exists(path):
+                    if self.directory_jpg(path) == self.numberOfRenderedImages:
+                        pass
+                    else:
+                        numberOK = False
+                else:
+                    numberImagesOK = False
+
+        # Log result
+        if numberDirsOK and numberImagesOK:
+            self.logResult(True, 'number_of_folders_and_images_correct-rotation_camera')
+        else:
+            self.logResult(False, 'number_of_folders_and_images_correct-rotation_camera')
+
+        # Check if GIF exists
+        gifExists = True
+        for i in range(0, int(numberOfSamples)):
+            tmp = projectPath + "/" + projectName + "/" + str(i) + "/" + "images/rotation/"
+            [numDirs, pathDirs] = self.directory_num_rot(tmp)
+            for path in pathDirs:
+                if os.path.exists(path):
+                    pathToGif = path + '/' + 'animation.gif'
+                    print pathToGif
+                    if not os.path.exists(pathToGif):
+                        gifExists = False
+                else:
+                    gifExists = False
+
+        # Log result
+        if gifExists:
+            self.logResult(True, 'gif_animations_exists-rotation_camera')
+        else:
+            self.logResult(False, 'gif_animations_exists-rotation_camera')
+
     # -----------------------------------------------------------------------------------------------------------------
 
+    # -----------------------------------------------------------------------------------------------------------------
+    # Test Instance: create_sumulation_cache_and_images_rotation
+    def create_sumulation_cache_and_images_all_cameras(self):
+        t = Test()
+        t.projectName = "TestProject5"
+        t.projectPath = self.workDir + '/TestProjects/'
+        t.numberOfSamples = "2"
+        t.cam_perspective = True
+        t.cam_viewcube = True
+        t.cam_custom = True
+        t.cam_custom_name = self.cam_custom_name
+        t.cam_rotation = 90
+        cmds.playbackOptions(animationStartTime=1.00)
+        cmds.playbackOptions(animationEndTime=15.00)
+
+        return t
+
+    # -----------------------------------------------------------------------------------------------------------------
+    # Test Instance: create_sumulation_cache_and_images_all_cameras
+    def evaluation_create_sumulation_cache_and_images_all_cameras(self, projectPath, projectName, numberOfSamples):
+        # Evaluation - Check if the gif images exist in all folders and check if cahce files exist
+
+        cacheFilesOK = True
+        camPerspectiveOK = True
+        camViewcubeOK = True
+        camCustomOK = True
+        camRotationOK = True
+
+        for i in range(0, int(numberOfSamples)):
+
+            tmp = projectPath + "/" + projectName + "/" + str(i) + "/"
+
+            # Files OK - check number of cache files
+            cacheFilesOK = self.checkCacheFilesOK(tmp)
+            if not cacheFilesOK:
+                cacheFilesOK = False
+
+            # Cam: perspective
+            camPerspectiveOK = self.checkIfGifExists(tmp, 'perspective')
+
+            # Cam: viewcube
+            camViewcubeOK = self.checkIfGifExists(tmp, 'viewcube')
+
+            # Cam: custom
+            camCustomOK = self.checkIfGifExists(tmp, 'custom')
+
+            # Cam: rotatin
+            camRotationOK = self.checkIfGifExists(tmp, 'rotation')
+
+        # Log result
+        if cacheFilesOK:
+            self.logResult(True, 'use_all_cameras-cache_files')
+        else:
+            self.logResult(False, 'use_all_cameras-cache_files')
+
+        if camPerspectiveOK:
+            self.logResult(True, 'use_all_cameras-gif_perspective')
+        else:
+            self.logResult(False, 'use_all_cameras-gif_perspective')
+
+        if camViewcubeOK:
+            self.logResult(True, 'use_all_cameras-gif_viewcube')
+        else:
+            self.logResult(False, 'use_all_cameras-gif_viewcube')
+
+        if camCustomOK:
+            self.logResult(True, 'use_all_cameras-gif_custom')
+        else:
+            self.logResult(False, 'use_all_cameras-gif_custom')
+
+        if camRotationOK:
+            self.logResult(True, 'use_all_cameras-gif_rotation')
+        else:
+            self.logResult(False, 'use_all_cameras-gif_rotation')
+
+    def checkCacheFilesOK(self, projPath):
+        result = True
+        if not self.directory_mc_xml(projPath) == self.numberOfFilesInSimulation:
+            result = False
+
+        return result
+
+    def checkIfGifExists(self, tmp, type):
+        result = True
+
+        if type == 'perspective':
+            imagePathPerspGIF = tmp + 'images/perspective/animation.gif'
+            if not os.path.exists(imagePathPerspGIF):
+                result = False
+
+        if type == 'viewcube':
+            # front
+            imagePathVCGIF = tmp + 'images/viewcube/FRONT/animation.gif'
+            if not os.path.exists(imagePathVCGIF):
+                result = False
+
+            # side
+            imagePathVCGIF = tmp + 'images/viewcube/SIDE/animation.gif'
+            if not os.path.exists(imagePathVCGIF):
+                result = False
+
+            # top
+            imagePathVCGIF = tmp + 'images/viewcube/TOP/animation.gif'
+            if not os.path.exists(imagePathVCGIF):
+                result = False
+
+        if type == 'custom':
+            imagePathCustomGIF = tmp + 'images/custom/animation.gif'
+            if not os.path.exists(imagePathCustomGIF):
+                result = False
+            pass
+
+        if type == 'rotation':
+            pathRoot = tmp + 'images/rotation'
+            [numDirs, pathDirs] = self.directory_num_rot(pathRoot)
+
+            for path in pathDirs:
+                pathToGif = path + '/animation.gif'
+                # print pathToGif
+                if not os.path.exists(pathToGif):
+                    result = False
+
+        return result
+    # -----------------------------------------------------------------------------------------------------------------
+
+    # -----------------------------------------------------------------------------------------------------------------
+    # Test instance: check_if_fluid_attributes_exist
+    # -----------------------------------------------------------------------------------------------------------------
+    def check_if_fluid_attributes_exist(self, fluidBoxName):
+        a = FluidContainerValues()
+        for attr, value in a.__dict__.iteritems():
+            msg = 'check_if_fluid_attributes_exist - ' + attr
+            try:
+                cmdStr = fluidBoxName + '.' + attr
+                cmds.getAttr(cmdStr)
+                self.logResult(True, msg)
+            except Exception as e:
+                self.logResult(False, msg)
+                # print e.message
+    # -----------------------------------------------------------------------------------------------------------------

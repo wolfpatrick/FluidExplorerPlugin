@@ -70,6 +70,9 @@ class CreateProjectDialog(QtGui.QDialog):
         # FFmpeg path
         self.ffmpegpath = self.getFFmpegPath()
 
+        # FluidExplorer path
+        self.fluidExplorerPath = ""
+
         # Calculation of time
         self.isTimeCalculated = False
         self.time_Caching = 0
@@ -91,7 +94,7 @@ class CreateProjectDialog(QtGui.QDialog):
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
         self.runTests(self.workDirPath)
-        self.setAnimationStartEndTime()
+        ###self.setAnimationStartEndTime()
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     def centre(self):
@@ -200,7 +203,23 @@ class CreateProjectDialog(QtGui.QDialog):
     @QtCore.Slot()
     def buttonCreateSimulation_Event(self):
 
+        # First of all check of ffmpeg and fluidExplorer executable files are ok
+        ffmpegIsOk = FluidExplorerUtils.FluidExplorerUtils.checkIfFFmpgeIsExectuable(self.ffmpegpath)
+        fluidExplorerIsOk = FluidExplorerUtils.FluidExplorerUtils.checkIfFluidExplorerIsExectuable(self.fluidExplorerPath)
+
+        if not ffmpegIsOk:
+            self.showMessageBox('Warning - Create Sumulation','Cannot execute FFmpeg. Simulation stopped!\nFor more information please see the editor log.', 'warning')
+            self.close()
+            return
+
+        if not fluidExplorerIsOk:
+            self.showMessageBox('Warning - Create Sumulation','Cannot execute FluidExplorer application. Simulation stopped!\nFor more information please see the editor log.', 'warning')
+            self.close()
+            return
+
+        #
         # Create project and all contents
+        #
 
         self.currentMayaSceneName = ""
         pathName = self.ui.lineEdit_ProjPath.text()
@@ -377,6 +396,8 @@ class CreateProjectDialog(QtGui.QDialog):
             progress.setLabelText("<b>Creating GIF animations ...</b>")
             progress.show()
             progressIndex = 0
+
+            gifIndex = 0
             for idx, val in enumerate(renderedImage):
                 tmpList = val
                 for val in tmpList:
@@ -399,7 +420,8 @@ class CreateProjectDialog(QtGui.QDialog):
                         self.close()
                         return
 
-                print "GIF Animation " + str(progressIndex) + " created."
+                gifIndex += 1
+                print "GIF Animation " + str(gifIndex) + " created."
 
             progress.close()
         # --------------------------------------------------------------------------------------------------------------
@@ -688,6 +710,12 @@ class CreateProjectDialog(QtGui.QDialog):
 
 
     def calculateTimeClicked(self):
+
+        # Show from FRONT
+        mayaUtils = MayaFunctionUtils()
+        mayaUtils.changeToPerspCam()
+        mayaUtils.viewFromCamPosition('FRONT', self.simulationSettings.fluidBoxName)
+
         # Delete / create output folder
         filePathMain = os.path.dirname(os.path.abspath(__file__))
         fxPathRel = os.path.dirname(os.path.abspath(filePathMain))
@@ -735,6 +763,10 @@ class CreateProjectDialog(QtGui.QDialog):
         gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir, outputGifFileDir, outputGifFileName, start_time, fps=25, gifOptimization=25)
 
         res_time_gif = time.time() - start_time_gif
+
+        # Back to persp cam
+        mayaUtils.changeToPerspCam()
+        mayaUtils.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
 
         # Store results
         self.time_Caching = res_time_caching
@@ -833,24 +865,28 @@ class CreateProjectDialog(QtGui.QDialog):
 
         if self.CLICK_FLAG_CAM_SPH:
             self.choosenCamera = testObject.cam_custom_name
-            print "cam name -----------------------------"
             print self.choosenCamera
             self.simulationSettings.cam_custom_name = self.choosenCamera
-            print "cam name -----------------------------"
+
+        if testObject.cam_rotation != 0:
+            self.CLICK_FLAG_CAM_ROT = True
+            self.ui.spinBox_rotDeg.setValue(testObject.cam_rotation)
 
         self.update()
 
 
     def runTests(self, workDir):
-        print "--------------"
+
         containerName = self.fluidName
         testFolder = os.path.abspath(os.path.dirname(__file__) + '/Test')
-        print testFolder
-        print os.path.exists(testFolder)
-        print "--------------"
+        print " -- TESTS STARTED --"
+
         testUtils = Test()
         testUtils.initTest(testFolder, containerName)
         testUtils.setUpLogger()
+
+        testUtils.check_if_ffmpeg_exists()
+
         """
         inputValues = testUtils.wrong_projectName()
         self.setuptInputFields(inputValues)
@@ -865,7 +901,7 @@ class CreateProjectDialog(QtGui.QDialog):
         inputValues = testUtils.wrong_projectPath()
         self.setuptInputFields(inputValues)
         testResults = self.buttonCreateSimulation_Event()
-        testUtils.evaluate_wrong_projectPath(testResults)
+        test        Utils.evaluate_wrong_projectPath(testResults)
 
         inputValues = testUtils.empty_projectPath()
         self.setuptInputFields(inputValues)
@@ -891,17 +927,29 @@ class CreateProjectDialog(QtGui.QDialog):
         testUtils.evaluate_create_sumulation_cache_and_images_viewcube(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
         """
 
+        """
         inputValues = testUtils.create_sumulation_cache_and_images_custom()
         self.setuptInputFields(inputValues)
         testResults = self.buttonCreateSimulation_Event()
         testUtils.evaluate_create_sumulation_cache_and_images_custom(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+        """
 
-        #create_sumulation_cache_and_images_viewcube
-        #camera -centerOfInterest 5 -focalLength 35 -lensSqueezeRatio 1 -cameraScale 1 -horizontalFilmAperture 1.4173 -horizontalFilmOffset 0 -verticalFilmAperture 0.9449 -verticalFilmOffset 0 -filmFit Fill -overscan 1 -motionBlur 0 -shutterAngle 144 -nearClipPlane 0.1 -farClipPlane 10000 -orthographic 0 -orthographicWidth 30 -panZoomEnabled 0 -horizontalPan 0 -verticalPan 0 -zoom 1; objectMoveCommand; cameraMakeNode 1 "";
-        # move -r -2.903079 -7.230613 8.326038 ;
+        """
+        inputValues = testUtils.create_sumulation_cache_and_images_rotation()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluate_create_sumulation_cache_and_images_rotation(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples, inputValues.cam_rotation)
+        """
+
+        """
+        inputValues = testUtils.create_sumulation_cache_and_images_all_cameras()
+        self.setuptInputFields(inputValues)
+        testResults = self.buttonCreateSimulation_Event()
+        testUtils.evaluation_create_sumulation_cache_and_images_all_cameras(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
+        """
+
+        testUtils.check_if_fluid_attributes_exist(self.fluidName)
+
         self.close()
 
-
     # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-

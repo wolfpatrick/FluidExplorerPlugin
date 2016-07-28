@@ -22,9 +22,13 @@ class GifCreator():
         inputDirFile = os.path.abspath(directoryImages + imageNames)
         outputFileName = os.path.abspath(outputGifFileDir + outputGifFileName)
 
-        pathToFfmpeg = ffmpegPath + "/ffmpeg.exe"
-        isFfmpegExecutable = self.is_exe(pathToFfmpeg)
-        returnCode = False
+        if os.name == 'nt':
+            pathToFfmpeg = ffmpegPath + "/ffmpeg.exe"
+            isFfmpegExecutable = self.is_exe(pathToFfmpeg)
+            returnCode = False
+        else:
+            # TODO: Unix path
+            pass
 
         if isFfmpegExecutable:
             start_number = str(start_number)
