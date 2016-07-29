@@ -96,9 +96,7 @@ class MayaFunctionUtils(object):
                     print("Warning: Cannot set fluid attribute: ", tmpCmd, " Details: ", e.message)
                     pass
             else:
-                print("------------------------------------------------------")
                 print("Warning: Fluid attribute ", item, " does not exist!")
-                print("------------------------------------------------------")
 
         print("")
 
@@ -313,6 +311,9 @@ class MayaFunctionUtils(object):
         #print endFrame
         #print resWidth
         #print resHeight
+
+        resWidth = 960
+        resHeight = 540
 
         cmds.setAttr('defaultRenderGlobals.currentRenderer', 'mayaSoftware', type='string')
         cmds.setAttr('defaultResolution.width', resWidth)

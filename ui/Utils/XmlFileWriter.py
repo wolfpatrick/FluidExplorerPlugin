@@ -17,6 +17,8 @@ class XmlFileWriter:
     viewCubeCamera = ""
     customCamera = ""
     rotationCamera = ""
+    animationStartTime = ""
+    animationEndTime = ""
 
     def __init__(self):
         pass
@@ -65,6 +67,12 @@ class XmlFileWriter:
         el_RotationCamera = xml.SubElement(appt, "RotationCamera")
         el_RotationCamera.text = self.rotationCamera
 
+        el_AnimationStartTime = xml.SubElement(appt, "AnimationStartTime")
+        el_AnimationStartTime.text = self.animationStartTime
+
+        el_AnimationEndTime = xml.SubElement(appt, "AnimationEndTime")
+        el_AnimationEndTime.text = self.animationEndTime
+
         # Create file
         tree = xml.ElementTree(appt)
 
@@ -89,6 +97,8 @@ class XmlFileWriter:
         self.addElement_CustomCamera(projectSetting.cam_custom_name)
         self.addElement_RotationCamera(projectSetting.cam_rotation)
         self.addElement_MayaFilePath(projectSetting.simulationNameMB)
+        self.addElement_AnimationStartTime(projectSetting.animationStartTime)
+        self.addElement_AnimationEndTime(projectSetting.animationEndTime)
 
         self.writeValuesInFile()
 
@@ -124,3 +134,9 @@ class XmlFileWriter:
 
     def addElement_RotationCamera(self, value):
         self.rotationCamera = str(value)
+
+    def addElement_AnimationStartTime(self, value):
+        self.animationStartTime = str(value)
+
+    def addElement_AnimationEndTime(self, value):
+        self.animationEndTime = str(value)
