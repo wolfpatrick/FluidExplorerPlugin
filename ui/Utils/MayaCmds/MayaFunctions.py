@@ -84,15 +84,21 @@ class MayaFunctionUtils(object):
             try:
                 attributeValue = float(getattr(values, item))
             except Exception as e:
-                 print("Warning: Cannot set fluid attribute: ", tmpCmd, " Details: ", e.message)
+                 print("Warning: Cannot get fluid attribute: ", tmpCmd, " Details: ", e.message)
 
             # Set the attribute in the fluid container dialog
-            try:
-                cmds.setAttr(tmpCmd, attributeValue)
-                print(str(item), attributeValue)
-            except Exception as e:
-                print("Warning: Cannot get fluid attribute: ", tmpCmd, " Details: ", e.message)
-                pass
+            attrExists = cmds.attributeQuery(item, node=fluidName, exists=True)
+            if attrExists:
+                try:
+                    cmds.setAttr(tmpCmd, attributeValue)
+                    print(str(item), attributeValue)
+                except Exception as e:
+                    print("Warning: Cannot set fluid attribute: ", tmpCmd, " Details: ", e.message)
+                    pass
+            else:
+                print("------------------------------------------------------")
+                print("Warning: Fluid attribute ", item, " does not exist!")
+                print("------------------------------------------------------")
 
         print("")
 

@@ -203,6 +203,12 @@ class CreateProjectDialog(QtGui.QDialog):
     @QtCore.Slot()
     def buttonCreateSimulation_Event(self):
 
+        # If the fluid container is incorrect, the application closes
+        if not FluidExplorerUtils.FluidExplorerUtils.containerIsCorrect(self.fluidName):
+            self.showMessageBox('Error - Create Sumulation','Cannot select fluid attributes of of the selected container. Simulation stopped!\nFor more information please see the editor log.', 'warning')
+            self.close()
+            return
+
         # First of all check of ffmpeg and fluidExplorer executable files are ok
         ffmpegIsOk = FluidExplorerUtils.FluidExplorerUtils.checkIfFFmpgeIsExectuable(self.ffmpegpath)
         fluidExplorerIsOk = FluidExplorerUtils.FluidExplorerUtils.checkIfFluidExplorerIsExectuable(self.fluidExplorerPath)

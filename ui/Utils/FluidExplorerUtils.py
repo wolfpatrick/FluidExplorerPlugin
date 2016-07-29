@@ -3,6 +3,8 @@ import ConfigParser
 import subprocess
 import xml.etree.cElementTree as ET
 
+import maya.cmds as cmds
+
 
 class FluidExplorerUtils(object):
 
@@ -32,6 +34,22 @@ class FluidExplorerUtils(object):
                     return el_child_text
         except:
             print("Warning: Cannot read XML attribute")
+
+
+    @staticmethod
+    def containerIsCorrect(containerName):
+
+        nodeName = containerName
+        objectExists = cmds.objExists(nodeName)
+        attrExists = cmds.attributeQuery('gravity', node=nodeName, exists=True)
+
+        containerOK = objectExists and attrExists
+
+        if not containerOK:
+            print("Fatal Error: Cannot select container attribute! Please check the nodeName and the container type.")
+
+        return containerOK
+
 
     @staticmethod
     def checkIfFFmpgeIsExectuable(pathToFFmpeg):
