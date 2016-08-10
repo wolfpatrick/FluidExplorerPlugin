@@ -44,6 +44,7 @@ class FileOpenDialog(QtGui.QDialog):
                 
                 # Call Subprocess
                 pid = subprocess.Popen(["fluidexplorer.exe", str_load_path], shell=True) # call subprocess
+                print "FluidExplorer started ..."
 
 
             except Exception as e:
@@ -74,12 +75,12 @@ class FileOpenDialog(QtGui.QDialog):
             print("Path of the maya file to load: ", tmpSimulationName)
         except:
             canReadConfigFile = False
-            errorText = "An error occured while loading the project file!"
+            errorText = "An error occured while loading the project configuration file!"
             return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
 
         if tmpSimulationName == "" or tmpSimulationName == None:
             canReadConfigFile = False
-            errorText = "An error occured while loading the project file!\nProperty: 'MayaFilePath'"
+            errorText = "An error occured while loading the project configuration file!\nProperty: 'MayaFilePath'"
             return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
 
         # Check if same scene opened
@@ -102,14 +103,25 @@ class FileOpenDialog(QtGui.QDialog):
         print("Load Animation", "")
         print("")
 
+        # Current scene name
+        self.rawName = cmds.file(query = True, sceneName = True);
+        print self.rawName
+
         strStarted = "started"
 
         dialog = QtGui.QFileDialog(self)
-        dialog.setWindowTitle(self.tr("Fluid Explorer - Choose Project Directory"))
+        dialog.setWindowTitle(self.tr("Fluid Explorer - Load Simulation"))
         dialog.setFileMode(QtGui.QFileDialog.ExistingFile)
         dialog.setNameFilter("Fluid Explorer Project (*.fxp)")
-        dialog.setDirectory(WORKING_DIRECTORY)
+
+        if len(self.rawName) > 0:
+            dialog.setDirectory(os.path.abspath(self.rawName))
+        else:
+            dialog.setDirectory(WORKING_DIRECTORY)
+
         dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
+
+
 
         if dialog.exec_():
 
@@ -123,18 +135,19 @@ class FileOpenDialog(QtGui.QDialog):
                 if not canReadConfigFile:
                     # Can not read xml project file with
                     self.showMessageBox(errorText, 'critical')
+                    return ["", "", ""]
 
                 else:
                     if not isSameScene:
                         # Warning - not the same scene is loaded
                         self.showMessageBox(errorText, 'warning')
-                        return
+                        return ["", "", ""]
 
                     # Check if the fluid container exists in the scene
                     [nodeExists, errorMsg] = self.checkIfFluidNodeExistsInScene(choosenDir)
                     if not nodeExists:
                         self.showMessageBox(errorMsg, 'warning')
-                        return
+                        return ["", "", ""]
 
                     #        # Warning scene is loaded
                     #        self.showMessageBox(errorText, 'warning')
@@ -146,7 +159,7 @@ class FileOpenDialog(QtGui.QDialog):
                             fluidExplorerPath = self.getFXPath(fxPathRoot, FX_RELATIVE_PATH)
 
                             if not fluidExplorerPath == "":
-                                self.openSimulation(choosenDir, fxPathRoot)
+                                pid = self.openSimulation(choosenDir, fxPathRoot)
                             else:
                                 raise Exception("FluidExplorer executable file not found!")
                             
@@ -156,7 +169,10 @@ class FileOpenDialog(QtGui.QDialog):
                             errorMsg = "Unable to start the FluidExplorer application!" + "\nDetails: " + e.message
                             self.showMessageBox(errorMsg, 'critical')
 
-                        return strStarted   # return started -> everything fine!
+                        return [strStarted, choosenDir, pid]   # return started -> everything fine!
+        else:
+            # cancel
+            return ["", "", ""]
 
     def readSimulationDataPath(self, choosenDir):
         try:

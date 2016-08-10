@@ -1,6 +1,7 @@
 import logging
 import os
 import subprocess
+import shutil
 
 import maya.cmds as cmds
 from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
@@ -44,6 +45,9 @@ class Test():
         cmds.playbackOptions(animationStartTime=1.00)
         cmds.playbackOptions(animationEndTime=15.00)
 
+        # Remove test folder
+        self.removeTestDir()
+
         # Camera
         import maya.mel as mel
         str1 = 'camera -centerOfInterest 5 -focalLength 35 -lensSqueezeRatio 1 -cameraScale 1 -horizontalFilmAperture 1.4173 -horizontalFilmOffset 0 -verticalFilmAperture 0.9449 -verticalFilmOffset 0 -filmFit Fill -overscan 1 -motionBlur 0 -shutterAngle 144 -nearClipPlane 0.1 -farClipPlane 10000 -orthographic 0 -orthographicWidth 30 -panZoomEnabled 0 -horizontalPan 0 -verticalPan 0 -zoom 1; objectMoveCommand; cameraMakeNode 1 "";'
@@ -54,6 +58,11 @@ class Test():
         str3 = 'select -r ' + containerName + ';'
         mel.eval(str3)
 
+    def removeTestDir(self):
+        dirName = self.workDir + '/' + 'TestProjects'
+        dirName = os.path.abspath(dirName)
+        if os.path.exists(dirName):
+            shutil.rmtree(dirName)
 
     def setUpLogger(self):
         # Create logger
@@ -553,6 +562,14 @@ class Test():
 
             tmp = projectPath + "/" + projectName + "/" + str(i) + "/"
 
+            # Project File
+            projectFileExists = True
+            tmpPrjPath = projectPath + "/" + projectName + "/" + projectName + '.fxp'
+            if os.path.exists(tmpPrjPath):
+                projectFileExists = True
+            else:
+                projectFileExists = False
+
             # Files OK - check number of cache files
             cacheFilesOK = self.checkCacheFilesOK(tmp)
             if not cacheFilesOK:
@@ -572,9 +589,14 @@ class Test():
 
         # Log result
         if cacheFilesOK:
-            self.logResult(True, 'use_all_cameras-cache_files')
+            self.logResult(True, 'use_all_cameras-cache_files_exist')
         else:
-            self.logResult(False, 'use_all_cameras-cache_files')
+            self.logResult(False, 'use_all_cameras-cache_files_exist')
+
+        if projectFileExists:
+            self.logResult(True, 'use_all_cameras-project_file_exists')
+        else:
+            self.logResult(False, 'use_all_cameras-project_file_exists')
 
         if camPerspectiveOK:
             self.logResult(True, 'use_all_cameras-gif_perspective')

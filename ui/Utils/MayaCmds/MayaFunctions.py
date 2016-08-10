@@ -37,17 +37,21 @@ class MayaFunctionUtils(object):
                 index_fluidShape = i
         
         if int(lenSelObj) == 0:
-            return [False, "Please select a valid Fluid Container first!"]
+            return [False, "Please select a valid Fluid Container first!", ""]
 
         elif int(count_fluidShape) >= 2:
-            return [False, "Please select one Fluid Container only!"]
+            return [False, "Please select one Fluid Container only!", ""]
 
         else:
             if int(count_fluidShape) == 1:
 
                 currentObj = selectedObjName[int(index_fluidShape)]
                 nodetype = cmds.nodeType(currentObj)
-                
+
+                print "node1111111111111111111111111111"
+                print currentObj
+                print "node1111111111111111111111111111"
+
                 containerName = ''
                 if nodetype == 'transform':
                     lr = cmds.listRelatives(currentObj, children=True)
@@ -56,10 +60,12 @@ class MayaFunctionUtils(object):
                 else:
                     containerName = currentObj
 
-                return [True, containerName]
+                # containerName = fluid node
+                # currentObj = transform node
+                return [True, containerName, currentObj]
 
             else:
-                return [False, "Please select an valid Fluid Container!"]
+                return [False, "Please select an valid Fluid Container!", ""]
 
 
     def createFluid(self, cmdStr, progressbar):

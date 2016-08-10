@@ -39,7 +39,7 @@ class CreateProjectDialog(QtGui.QDialog):
     FLUID_EXPLORER_URL = DefaultUIParameters.URL
     DIALOG_STYLE_SHEET = DefaultUIParameters.buttonStyleBold
 
-    def __init__(self, args, fluidName):
+    def __init__(self, args, fluidName, transformNode):
 
         QtGui.QDialog.__init__(self, args)
         print("")
@@ -59,6 +59,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Store the selected fluid container name
         self.setFluidName(fluidName)
+        self.transformNode = transformNode
 
         # Parameter Tab (second tab)
         self.tabParamtersObj = None
@@ -91,11 +92,20 @@ class CreateProjectDialog(QtGui.QDialog):
         # Centre the main window
         self.centre()
 
+
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
         self.runTests(self.workDirPath)
         ###self.setAnimationStartEndTime()
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        # Select the transform node
+        cmds.select(self.transformNode, r=True)
+
+        #self.setWindowFlags(self.windowFlags() |
+        #    QtCore.Qt.WindowMinimizeButtonHint |
+        #    QtCore.Qt.WindowStaysOnTopHint)
+
 
     def centre(self):
         # The dialog window is shifted to the right that the maya question dialogs are not hidden
@@ -317,6 +327,9 @@ class CreateProjectDialog(QtGui.QDialog):
         print "\n"
         """
 
+        # Lock the node
+        FluidExplorerUtils.FluidExplorerUtils.lockNodes(self.fluidName, self.transformNode)
+
         # --------------------------------------------------------------------------------------------------------------
         # Create the cache and render the images
         # --------------------------------------------------------------------------------------------------------------
@@ -434,6 +447,9 @@ class CreateProjectDialog(QtGui.QDialog):
 
         text = "Simulations successfully created!" + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
         self.showMessageBox("Information", text, 'information')
+
+        # Select the transform node
+        cmds.select(self.transformNode, r=True)
 
         print ""
         print("Simulation successfully created!")
@@ -885,13 +901,18 @@ class CreateProjectDialog(QtGui.QDialog):
 
         containerName = self.fluidName
         testFolder = os.path.abspath(os.path.dirname(__file__) + '/Test')
+
+        print ""
         print " -- TESTS STARTED --"
+        print ""
 
         testUtils = Test()
         testUtils.initTest(testFolder, containerName)
         testUtils.setUpLogger()
 
+        """
         testUtils.check_if_ffmpeg_exists()
+        """
 
         """
         inputValues = testUtils.wrong_projectName()
@@ -954,7 +975,9 @@ class CreateProjectDialog(QtGui.QDialog):
         testUtils.evaluation_create_sumulation_cache_and_images_all_cameras(inputValues.projectPath, inputValues.projectName, inputValues.numberOfSamples)
         """
 
+        """
         testUtils.check_if_fluid_attributes_exist(self.fluidName)
+        """
 
         self.close()
 

@@ -2,6 +2,7 @@ import os
 import ConfigParser
 import subprocess
 import xml.etree.cElementTree as ET
+import sys
 
 import maya.cmds as cmds
 
@@ -96,3 +97,58 @@ class FluidExplorerUtils(object):
         """
 
         return True
+
+    @staticmethod
+    def lockNodes(fluidNode, transformNOde):
+        if not fluidNode == "":
+            cmds.lockNode(fluidNode)
+        if not transformNOde == "":
+            cmds.lockNode(transformNOde)
+
+    @staticmethod
+    def killProcess(processnameArg):
+
+        # Check if windows is running
+        if sys.platform.startswith('win'):
+
+            processname = processnameArg + '.exe'
+            processFound = False
+
+            tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
+            # communicate() - gets the tasklist command result
+            tlproc = subprocess.Popen(tlcall, shell=True, stdout=subprocess.PIPE)
+            # trimming it to the actual lines with information
+            tlout = tlproc.communicate()[0].strip().split('\r\n')
+            # if TASKLIST returns single line without processname: it's not running
+            if len(tlout) > 1 and processname in tlout[-1]:
+                print('Process "%s" is running .' % processname)
+                processFound = True
+            else:
+                print(tlout[0])
+                print('Process "%s" is NOT running.' % processname)
+
+            if processFound:
+
+                """
+                # Close by number
+                cmdProcessPidCmd = 'wmic process where caption=' + '\"' + processname + '\"' + ' get processid'
+                cmdProcessPid = subprocess.Popen(cmdProcessPidCmd, stdout=subprocess.PIPE, shell=True)
+                pid = cmdProcessPid.communicate()[0].strip().split('\r\n')
+
+                print('Process PID: for "%s" found ' % processname)
+                #for p in pid:
+                #    print p
+                """
+
+                # Close the process
+                try:
+                    cmdStr = 'taskkill /im' + ' ' + processname
+                    #os.system(cmdStr)
+                    kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
+                    print('Process "%s" closed ' % processname)
+
+                except Exception as e:
+                    print('Error: Process "%s" not closed' % processname)
+                    print('Details: "%s"' % e.message)
+                    pass
+
