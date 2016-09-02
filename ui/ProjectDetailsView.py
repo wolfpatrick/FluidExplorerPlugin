@@ -35,20 +35,17 @@ from PySide import QtCore, QtGui
 from ProjectDetailsViewUI import Ui_ProjectDetailsView
 
 from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
-from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ProjectSubSettings
 from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ProjectDetailsViewUtils
-import os
+from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ExternalCallSetting
+from FluidExplorerPlugin.ui.Utils.LoadFluidCacheFile import LoadFluidCacheFile
+from FluidExplorerPlugin.ui.Utils.ExternalCallWorkerThread import WorkThread
 
 from maya import OpenMayaUI as omui
+import maya.cmds as cmds
 from shiboken import wrapInstance
-#import maya.cmds as cmds
+import os
 
-"""
-class windowTest(baseClass, widgetForm):
-    def __init__(self, parent = None):
-        super(windowTest, self).__init__(parent)
-        self.setupUi(self)
-"""
+
 class ProjectDetailsView(QtGui.QDialog):
 
     PERSPECTIVE_CAMERA_AVAILABLE = '1'
@@ -59,12 +56,17 @@ class ProjectDetailsView(QtGui.QDialog):
 
         # Stores th path to the XML file
         self.pathToXMLFile = pathToXMLFile
+        self.PathToXMLCache = ''
 
         # Members
         self.projectSettings = None
         self.hashMapToXMLProjectFile = {}
         self.hashMapToGIF = {}
         self.currentAnimationLoaded = None
+
+        # Thread which starts the FX app
+        self.workThread = None
+        self.FLUIDEXPLORER_APP_NAME = "fluidexplorer"
 
         # Set up the user interface from the ui file
         self.ui = Ui_ProjectDetailsView()
@@ -84,7 +86,7 @@ class ProjectDetailsView(QtGui.QDialog):
         self.initializewidget()
         self.setWindowHeightWithoutPreview()
         self.initializeComponentss()
-        self.setWindowTitle('Fluid Explorer - Simulation Details View')
+        self.setWindowTitle('Fluid Explorer - Project View')
 
         # Window flags - top and buttons
         self.setWindowFlags(self.windowFlags() |
@@ -106,6 +108,15 @@ class ProjectDetailsView(QtGui.QDialog):
         if self.projectSettings:
             self.initComboBoxSimulations(self.projectSettings)
             self.initPreview(self.projectSettings)
+
+        # Register scriptJob
+        self.FXScriptJob()
+        self._rcwin = 1
+
+        # External call
+        self.externalCall = ExternalCallSetting()
+        self.setupExternallCall()
+
 
     def setPathToProjectFile(self, path):
         self.pathToXMLFile = path
@@ -170,6 +181,12 @@ class ProjectDetailsView(QtGui.QDialog):
         self.ui.label_moviePreview.setMaximumHeight(170)
         self.ui.label_moviePreview.setMinimumHeight(170)
 
+    def setupExternallCall(self):
+        # TODO
+        self.externalCall.pathToFluidExplorer = 'E:/FluidExplorer_Code/Release/'
+        self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
+        self.externalCall.fluidExplorerArgs = '/load path=E:\FluidExplorer_Code\FlameShape\FlameShape1'
+
     def scaleMovieLabel(self):
         # Is supposed to be: 960x540
         # Width = 300
@@ -180,9 +197,9 @@ class ProjectDetailsView(QtGui.QDialog):
     def setValuesFromConfigurationFile(self, projectSettings):
         canReadAllAttributes = True
 
-        print("Read projects attributes for:\n")
+        print("\nRead projects attributes:\n")
         for attr, value in projectSettings.__dict__.iteritems():
-            print attr, ": ", value
+            #print attr, ": ", value
             if value == None:
                 canReadAllAttributes = False
                 print("Warning: Cannot read attribute", attr)
@@ -282,20 +299,80 @@ class ProjectDetailsView(QtGui.QDialog):
     # - Event handlers -
     @QtCore.Slot()
     def applyCacheClicked(self):
+        # Check of corredt scene is opened
+        currentSceneName = cmds.file(q=True, sceneName=True)
+        sceneFromConfigFile = self.projectSettings.mayaFilePath
+        isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
+        if not isSameScene:
+            strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
+            self.showMessageBox(strError, 'warning')
+            return
+
+        # Same scene ...
         currentIndex = self.ui.comboBox_simulations.currentIndex()
         if currentIndex >= 1:
-            pathToXMLFile = self.hashMapToXMLProjectFile[currentIndex-1]
-            if pathToXMLFile == self.currentAnimationLoaded:
+            self.PathToXMLCache = self.hashMapToXMLProjectFile[currentIndex-1]
+            if self.PathToXMLCache == self.currentAnimationLoaded:
                 # Do not load the cache which is already loaded! -> pass
+                cmds.select(self.projectSettings.fluidContainerName, r=True)
                 pass
             else:
-                print('Load cache file', pathToXMLFile)
-                self.currentAnimationLoaded = pathToXMLFile
+                print('Load cache file', self.PathToXMLCache)
+                self.currentAnimationLoaded = self.PathToXMLCache
+
+                # Set animation start and edn time
+                canSetTime = ProjectDetailsViewUtils.setAnimationStartEndTime(self.projectSettings.animationStartTime, self.projectSettings.animationEndTime)
+                if not canSetTime:
+                    self.showMessageBox('Cannot set the start / end time of the animation.', 'warning')
+
+                # Load cache file
+                try:
+                    LoadFluidCacheFile.applyCacheFile(self.PathToXMLCache, self.projectSettings.fluidContainerName)
+                except Exception as e:
+                    print e.message
+                    self.showMessageBox(e.message, 'critical')
 
 
     @QtCore.Slot()
     def exploreSimulationsClicked(self):
         print 'exploreSimulationsClicked'
+
+        # Check of corredt scene is opened
+        currentSceneName = cmds.file(q=True, sceneName=True)
+        sceneFromConfigFile = self.projectSettings.mayaFilePath
+        isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
+        if not isSameScene:
+            strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
+            self.showMessageBox(strError, 'warning')
+            return
+
+        # Check if fluidexplorer app is running
+        isFXProcessRunning = ProjectDetailsViewUtils.checkIfProcessIsRunning_WIN(self.FLUIDEXPLORER_APP_NAME)
+        if isFXProcessRunning:
+            return
+
+        # Check if path exists
+        pathToFXAPP = self.externalCall.pathToFluidExplorer + '/' + self.externalCall.fluidExplorerCmd
+        if not os.path.exists(os.path.abspath(pathToFXAPP)):
+            errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if  the executable file is available."
+            self.showMessageBox(errorMsg, 'warning')
+            return
+
+        # Run the worker thread
+        if self.workThread:
+            self.workThread.stop()
+
+            # Start thread again
+            self.workThread = WorkThread(self.externalCall)
+            self.connect(self.workThread, QtCore.SIGNAL("update(QString)"), self.updateIndexFromThread)
+            self.workThread.start()
+
+        else:
+            # Start thread
+            self.workThread = WorkThread(self.externalCall)
+            self.connect(self.workThread, QtCore.SIGNAL("update(QString)"), self.updateIndexFromThread)
+            self.workThread.start()
+
 
     @QtCore.Slot()
     def checkBoxPreviewValueChanged(self, state):
@@ -325,11 +402,39 @@ class ProjectDetailsView(QtGui.QDialog):
     @QtCore.Slot()
     def frameChangedHandler(self, frameNumber):
         pass
-        #print frameNumber
 
     # - Event handlers end -
 
     # - Help functions -
+    def updateIndexFromThread(self, text):
+        print "UPDATE INDEX: " + text
+
+        # If the thread sends am error -> stop
+        if text == "ERROR":
+            self.showMessageBox('Cannot execute the FluidExplorer application!\nSee editor output for details.', 'critical')
+            return
+
+        # Else, update the combo box
+        try:
+            intIndex = int(text)
+        except:
+            intIndex = 0
+        finally:
+            print '------------------------'
+            print intIndex
+            print '------------------------'
+
+            # TODO
+            if intIndex > 2:
+                self.ui.comboBox_simulations.setCurrentIndex(0)
+                self.update()
+                print "AAAAAAAAAAAAAAAAAAAA"
+            else:
+                self.ui.comboBox_simulations.setCurrentIndex(1)
+                self.update()
+                print "BBBBBBBBBBBBBBBBBBB"
+
+
     def setLineEditEnabledAndReadOnly(self, component):
         component.setStyleSheet(self.getStyle())
         component.setReadOnly(True)
@@ -365,7 +470,7 @@ class ProjectDetailsView(QtGui.QDialog):
             self.showMessageBox(errorText, 'critical')
             return projectSettings
 
-        print projectSettings.projectName
+        #print projectSettings.projectName
 
         return projectSettings
 
@@ -373,12 +478,37 @@ class ProjectDetailsView(QtGui.QDialog):
         msgBox = QtGui.QMessageBox(self)
         msgBox.setText(errorMsg)
         if type == 'critical':
-            msgBox.setWindowTitle("Error - Load Simulation")
+            msgBox.setWindowTitle("Error")
             msgBox.setIcon(QtGui.QMessageBox.Critical)
         if type == 'warning':
-            msgBox.setWindowTitle("Warning - Load Simulation")
+            msgBox.setWindowTitle("Warning")
             msgBox.setIcon(QtGui.QMessageBox.Warning)
 
         msgBox.setStyleSheet(DefaultUIParameters.buttonStyleBold)
         msgBox.exec_()
+
+    def closeEvent(self, event):
+
+        #ProjectDetailsViewUtils.killProcess_WIN('fluidexplorer')
+        print self.workThread
+        # Stop thread if running
+        if self.workThread:
+            self.workThread.stop()
+            #self.workThread.terminate()
+        ProjectDetailsViewUtils.killProcess_WIN('fluidexplorer')
     # - Help functions end -
+
+    # ScriptJob
+    def FXScriptJob(self):
+            #self.close()
+            #import maya.cmds as cmds
+            sJob = cmds.scriptJob(event=['deleteAll', self.ScriptJobMethodCall])
+            sJob = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
+
+
+    def ScriptJobMethodCall(self):
+        if self.workThread:
+            self.workThread.stop()
+        ProjectDetailsViewUtils.checkIfProcessExistsAndClose(self.FLUIDEXPLORER_APP_NAME)
+        self.PathToXMLCache = ''
+    # ScriptJob

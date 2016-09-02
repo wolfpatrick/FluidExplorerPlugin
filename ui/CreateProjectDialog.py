@@ -90,8 +90,8 @@ class CreateProjectDialog(QtGui.QDialog):
         self.setupComponents()
 
         # Centre the main window
-        self.centre()
-
+        # self.centre()
+        # self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowMinimizeButtonHint | QtCore.Qt.WindowStaysOnTopHint)
 
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
@@ -101,10 +101,6 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Select the transform node
         cmds.select(self.transformNode, r=True)
-
-        #self.setWindowFlags(self.windowFlags() |
-        #    QtCore.Qt.WindowMinimizeButtonHint |
-        #    QtCore.Qt.WindowStaysOnTopHint)
 
 
     def centre(self):

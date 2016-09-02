@@ -106,7 +106,7 @@ class FluidExplorerUtils(object):
             cmds.lockNode(transformNOde)
 
     @staticmethod
-    def killProcess(processnameArg):
+    def killProcess_WIN(processnameArg):
 
         # Check if windows is running
         if sys.platform.startswith('win'):
@@ -152,3 +152,6 @@ class FluidExplorerUtils(object):
                     print('Details: "%s"' % e.message)
                     pass
 
+    def checkIfCurrentSceneIsSceneFromConfigFile(self):
+         # Get current scene name
+        currentSceneName = cmds.file(q=True, sceneName=True)
