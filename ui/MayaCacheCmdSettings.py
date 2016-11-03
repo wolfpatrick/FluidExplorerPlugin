@@ -1,3 +1,5 @@
+import logging
+
 class MayaCacheCmdSettings(object):
     def _init__(self):
         self._fluidBoxName = ""
@@ -146,18 +148,17 @@ class MayaCacheCmdSettings(object):
 
     @staticmethod
     def printValues(valuesGeneral):
-        print " "
-        print "Project Settings:\n"
-        print "\tProj. Name: " + str(valuesGeneral.prjName)
-        print "\tOutput Path: " + str(valuesGeneral.outputPath)
-        print "\tFluid container: " + str(valuesGeneral.fluidBoxName)
-        print "\tNum. Samples: " + str(valuesGeneral.numberSamples)
-        print "\tNum. Frames: " + str(valuesGeneral.numberOfFrames)
-        print "\tScene Name: " + str(valuesGeneral.simulationNameMB)
-        print "\tImages available: " + str(valuesGeneral.imageView)
-        print "\tCamera Perspective: " + str(valuesGeneral.cam_perspective)
-        print "\tCamera ViewCube: " + str(valuesGeneral.cam_viewcube)
-        print "\tCamera Custom: " + str(valuesGeneral.cam_sphere) + "/" + str(valuesGeneral.cam_custom_name)
-        print "\tCamera Rotation: " + str(valuesGeneral.cam_rotation)
-        print "\tAnimation Start Time: " + str(valuesGeneral.animationStartTime)
-        print "\tAnimation End Time: " + str(valuesGeneral.animationEndTime)
+        logging.info('Project settings:')
+        logging.info("  Proj. Name: %s", str(valuesGeneral.prjName))
+        logging.info("  Output Path: %s" + str(valuesGeneral.outputPath))
+        logging.info("  Fluid container: %s" + str(valuesGeneral.fluidBoxName))
+        logging.info("  Num. Samples: %s" + str(valuesGeneral.numberSamples))
+        logging.info("  Num. Frames: %s" + str(valuesGeneral.numberOfFrames))
+        logging.info("  Scene Name: %s" + str(valuesGeneral.simulationNameMB))
+        logging.info("  Images available: %s" + str(valuesGeneral.imageView))
+        logging.info("  Camera Perspective: %s" + str(valuesGeneral.cam_perspective))
+        logging.info("  Camera ViewCube: %s" + str(valuesGeneral.cam_viewcube))
+        logging.info("  Camera Custom: %s" + str(valuesGeneral.cam_sphere) + "/" + str(valuesGeneral.cam_custom_name))
+        logging.info("  Camera Rotation: %s" + str(valuesGeneral.cam_rotation))
+        logging.info("  Animation Start Time: %s" + str(valuesGeneral.animationStartTime))
+        logging.info("  Animation End Time: %s" + str(valuesGeneral.animationEndTime))

@@ -1,4 +1,6 @@
 import os
+import logging
+
 import maya.cmds as cmds
 import pymel.core as pm
 import maya.mel as mel
@@ -48,10 +50,6 @@ class MayaFunctionUtils(object):
                 currentObj = selectedObjName[int(index_fluidShape)]
                 nodetype = cmds.nodeType(currentObj)
 
-                print "node1111111111111111111111111111"
-                print currentObj
-                print "node1111111111111111111111111111"
-
                 containerName = ''
                 if nodetype == 'transform':
                     lr = cmds.listRelatives(currentObj, children=True)
@@ -67,21 +65,20 @@ class MayaFunctionUtils(object):
             else:
                 return [False, "Please select an valid Fluid Container!", ""]
 
-
     def createFluid(self, cmdStr, progressbar):
         try:
             pm.mel.eval(cmdStr)
+
         except Exception as e:
-            print "Fatal Error: An error occured while the cache files were created! Details: " + e.message
+            logging.error('An error occured while the cache files were created! Details: %s', e.message)
             raise Exception(e.message)
 
     def setSampledValue(self, fluidName, values):
         """
         :type values: ContainerValuesList
         """
-        print("")
-        print('Set sampled values for: ', fluidName)
-        print("")
+
+        logging.info('Set sampled values for: %s', fluidName)
 
         members = [attr for attr in dir(values) if not callable(values) and not attr.startswith("__")]
         for item in members:
@@ -90,21 +87,20 @@ class MayaFunctionUtils(object):
             try:
                 attributeValue = float(getattr(values, item))
             except Exception as e:
-                 print("Warning: Cannot get fluid attribute: ", tmpCmd, " Details: ", e.message)
+                logging.warning('Cannot read fluid attribute: %s - Details: %s', tmpCmd, e.message)
 
             # Set the attribute in the fluid container dialog
             attrExists = cmds.attributeQuery(item, node=fluidName, exists=True)
             if attrExists:
                 try:
                     cmds.setAttr(tmpCmd, attributeValue)
-                    print(str(item), attributeValue)
+                    # print(str(item), attributeValue)
+                    logging.info('%s - %s', str(item), attributeValue)
                 except Exception as e:
-                    print("Warning: Cannot set fluid attribute: ", tmpCmd, " Details: ", e.message)
-                    pass
-            else:
-                print("Warning: Fluid attribute ", item, " does not exist!")
+                    logging.warning('Cannot set fluid attribute: %s - Details: %s', tmpCmd, e.message)
 
-        print("")
+            else:
+                logging.warning('Fluid attribute %s does not exist', item)
 
     def changeToPerspCam(self):
         currentCam = cmds.lookThru(q=True)
@@ -140,7 +136,6 @@ class MayaFunctionUtils(object):
         # Execute MEL command
         mel.eval(cmd)
         cmds.viewFit(an=False)
-
 
     def renderImagesFromCameras(self, generalSettings, fluidIndex, progress, progressIndex):
         """
@@ -229,8 +224,8 @@ class MayaFunctionUtils(object):
                 cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
                 mel.eval(cmdStr)
             except Exception as er:
-                print("Fatal Error: An error occured while camera was changed! Details: ", er.message)
-                print("Fatal Error: Could not look through camera ", generalSettings._cam_custom_name)
+                logging.error('An error occured while camera was changed! Details: %s', er.message)
+                logging.error('Could not look through camera %s', generalSettings._cam_custom_name)
                 raise Exception(er.message)
                 return
 
@@ -311,12 +306,14 @@ class MayaFunctionUtils(object):
 
         renderSuccess = True
 
-        #print path
-        #print filename
-        #print startFrame
-        #print endFrame
-        #print resWidth
-        #print resHeight
+        # print path
+        # print filename
+        # print startFrame
+        # print endFrame
+        # print resWidth
+        # print resHeight
+
+        logging.info('Rendering started')
 
         resWidth = 960
         resHeight = 540
@@ -371,13 +368,13 @@ class MayaFunctionUtils(object):
             try:
                 mel.eval(melStrCmd)
             except RuntimeError as err:
-                print("Error: An error occured while the images were rendered! Details:", err.message)
+                logging.error('An error occured while the images were rendered! Details: %s', err.message)
                 raise Exception(err.message)
                 renderSuccess = False
                 return renderSuccess
 
             except Exception as er:
-                print("Error: An error occured while the images were rendered! Details:", er.message)
+                logging.error('An error occured while the images were rendered! Details: %s', er.message)
                 raise Exception(er.message)
                 renderSuccess = False
                 return renderSuccess

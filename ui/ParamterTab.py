@@ -1,6 +1,7 @@
 from PySide import QtGui
 from PySide import QtCore
 import maya.cmds as cmds
+import logging
 
 from RangeSlider.HRangeSlider import QHRangeSlider
 from SliderContainers.ParamterTabDefaultValues import ParameterTabDefaultValues
@@ -184,14 +185,14 @@ class SliderContainer(object):
                     v = float(v_str)
 
                     if v < float(slider.rangeValues[0]):
-                        #print "error to small"
+                        # print "error to small"
                         lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                     elif v > float(slider.rangeValues[1]):
-                        #print "error to big"
+                        # print "error to big"
                         lineEditMin.setText(str(format(slider.rangeValues[1], '.2f')))
                         lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                     else:
-                        #print "ok"
+                        # print "ok"
                         pass
 
                 except ValueError:
@@ -211,14 +212,14 @@ class SliderContainer(object):
                 v = float(v_str)
 
                 if v < float(slider.rangeValues[0]):
-                    #print "error to small"
+                    # print "error to small"
                     lineEditMax.setText(str(format(slider.rangeValues[0], '.2f')))
                     lineEditMin.setText(str(format(slider.rangeValues[0], '.2f')))
                 elif v > float(slider.rangeValues[1]):
-                    #print "error to big"
+                    # print "error to big"
                     lineEditMax.setText(str(format(slider.rangeValues[1], '.2f')))
                 else:
-                    #print "ok"
+                    # print "ok"
                     pass
 
             except ValueError:
@@ -240,16 +241,16 @@ class SliderContainer(object):
                 v = round(v, 2)
 
                 if v < float(rangeSlider.rangeValues[0]):
-                    #print "error to small"
+                    # print "error to small"
                     lineEdit.setText(str(format(rangeSlider.rangeValues[0], '.2f')))
                     v = rangeSlider.rangeValues[0]
                 elif v > float(rangeSlider.rangeValues[1]):
-                    #print "error to big"
+                    # print "error to big"
                     lineEdit.setText(str(format(rangeSlider.rangeValues[1], '.2f')))
                     v = rangeSlider.rangeValues[1]
                 else:
                     pass
-                    #print "OK"
+                    # print "OK"
 
             except ValueError:
                 lineEdit.setText(str(format(rangeSlider.defaultSingleValue, '.2f')))
@@ -285,7 +286,7 @@ class SliderContainer(object):
                 isFieldLocked = cmds.getAttr(cmdStr, lock=True)
                 return isFieldLocked
             except ValueError:
-                print("Warning: Cannot get lock state of attribute: ", cmdStr)
+                logging.warning('Cannot get lock state of attribute: %s', cmdStr)
                 return isFieldLocked
 
         def translate(self, value, leftMin, leftMax, rightMin, rightMax):
@@ -389,7 +390,7 @@ class ParameterTab(object):
         pass
 
     def getSelectedValuesFromSlider(self):
-        print "\nGet selected values from paramter tab:\n"
+        logging.info('Read selected values from paramter tab')
 
         from Utils.RangeSliderSpan import SliderSpanSelected
 

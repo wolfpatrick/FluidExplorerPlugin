@@ -1,4 +1,5 @@
 import random
+import logging
 
 
 class SliderSpanSelected():
@@ -50,10 +51,12 @@ class SliderSpanSelected():
 
     def setSpanValues(self, container):
         if container.checkBox.isChecked():
-            print (container.label.text(), ": ", container.lineEditMin.text(), container.lineEditMax.text())
+            infoTxt = (container.label.text(), ": ", container.lineEditMin.text(), container.lineEditMax.text())
+            logging.info(infoTxt)
             return [container.lineEditMin.text(), container.lineEditMax.text()]
         else:
-            print (container.label.text(), ": ", container.lineEditDefault.text())
+            infoTxt = (container.label.text(), ": ", container.lineEditDefault.text())
+            logging.info(infoTxt)
             return [container.lineEditDefault.text(), container.lineEditDefault.text()]
 
 

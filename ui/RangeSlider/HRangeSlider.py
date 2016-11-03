@@ -1,8 +1,5 @@
 # Code adapted from:
 # Hazen 4/09
-# Widget Range slider widget.
-
-
 from PySide import QtCore, QtGui
 
 
@@ -138,60 +135,7 @@ class QHRangeSlider(QtGui.QWidget):
 
         else:
             # If only one rectange is visible
-            """
-            painter = QtGui.QPainter(self)
-            rmin = self.rmin
-            rmax = self.rmax
-            w = self.width()
-            h = self.height()
-
-            # Background
-            g1 = QtGui.QColor(64, 64, 64)
-            if self.enabledFlag == False:
-                 g1 = QtGui.QColor(QtCore.Qt.black)
-
-            painter.setPen(g1)
-            painter.setBrush(QtCore.Qt.lightGray)
-
-            if self.enabledFlag == False:
-                 painter.setBrush(QtCore.Qt.transparent)
-
-            painter.drawRect(2, 2, w-4, h-4)
-
-            # Bar
-            lb = QtGui.QColor(215, 128, 26)
-
-            if self.enabledFlag == False:
-                lb = QtGui.QColor(QtGui.QColor(90, 90, 90))     # Color when slider is dissabled
-
-            painter.setPen(QtCore.Qt.darkGray)
-
-            if self.enabledFlag == False:
-                painter.setPen(QtCore.Qt.black)
-
-            painter.setBrush(lb)
-
-            if self.isRangeActive == True:
-                painter.drawRect(rmin-0, 5, rmax-rmin+0, h-10)
-
-            # Min tab
-            painter.setPen(QtCore.Qt.black)
-            painter.setBrush(QtGui.QColor(211, 211, 1))
-            painter.setBrush(lb)
-            x = QtGui.QColor(QtGui.QColor(211, 211, 211))
-
-            if self.isRangeActive == True:
-                painter.setBrush(x)
-
-            if self.enabledFlag == False:
-                painter.setBrush(lb)
-
-            painter.drawRect(rmin-self.bar_width, 1, 20, h-2)
-            painter.setBrush(QtCore.Qt.red)
-
-            if self.enabledFlag == False:
-                painter.setBrush(QtCore.Qt.transparent)
-            """
+            pass
 
     def mouseMoveEvent(self, event):
         self.isRangeActive = True
@@ -243,7 +187,7 @@ class QHRangeSlider(QtGui.QWidget):
                         self.emitRange()
 
             """
-            # If ramnge should be movable
+            # If range should be movable
             elif self.moving == "bar":
                 temp = self.start_rmin - diff
                 if (temp >= self.bar_width) and (temp < w - self.bar_width - (self.start_rmax - self.start_rmin)):

@@ -44,6 +44,7 @@ from maya import OpenMayaUI as omui
 import maya.cmds as cmds
 from shiboken import wrapInstance
 import os
+import logging
 
 
 class ProjectDetailsView(QtGui.QDialog):
@@ -197,12 +198,13 @@ class ProjectDetailsView(QtGui.QDialog):
     def setValuesFromConfigurationFile(self, projectSettings):
         canReadAllAttributes = True
 
-        print("\nRead projects attributes:\n")
+        logging.info('Read projects attributes:')
         for attr, value in projectSettings.__dict__.iteritems():
-            #print attr, ": ", value
+            # txt = attr + ": " + value
+            logging.info('%s : %s', attr, value)
             if value == None:
                 canReadAllAttributes = False
-                print("Warning: Cannot read attribute", attr)
+                logging.warning('Cannot read attribute %s', attr)
 
         if projectSettings:
             self.ui.lineEdit_projectName.setText(projectSettings.projectName)
@@ -233,7 +235,11 @@ class ProjectDetailsView(QtGui.QDialog):
                 tmpNameForElement = 'Simulation ' + str(i+1)
 
                 # Folders
-                tmp = projectSettings.projectPath + "/" + str(i) + "/"
+                tmpProject = projectSettings.projectName + '.fxp'
+                index = self.pathToXMLFile.find(tmpProject)
+                tmp = self.pathToXMLFile[0:index]
+                tmp = tmp + '/' + str(i) + '/'
+                #tmp = projectSettings.projectPath + "/" + str(i) + "/"
                 if os.path.exists(tmp):
                     pathToXMLProjectFileList = ProjectDetailsViewUtils.getPathToXMLFile(tmp)
 
@@ -305,6 +311,7 @@ class ProjectDetailsView(QtGui.QDialog):
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
         if not isSameScene:
             strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
+            logging.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
             self.showMessageBox(strError, 'warning')
             return
 
@@ -317,25 +324,27 @@ class ProjectDetailsView(QtGui.QDialog):
                 cmds.select(self.projectSettings.fluidContainerName, r=True)
                 pass
             else:
-                print('Load cache file', self.PathToXMLCache)
+                logging.info('Load cache file: %s', self.PathToXMLCache)
                 self.currentAnimationLoaded = self.PathToXMLCache
 
                 # Set animation start and edn time
                 canSetTime = ProjectDetailsViewUtils.setAnimationStartEndTime(self.projectSettings.animationStartTime, self.projectSettings.animationEndTime)
                 if not canSetTime:
+                    logging.warning('Cannot set the start / end time of the animation')
                     self.showMessageBox('Cannot set the start / end time of the animation.', 'warning')
 
                 # Load cache file
                 try:
                     LoadFluidCacheFile.applyCacheFile(self.PathToXMLCache, self.projectSettings.fluidContainerName)
                 except Exception as e:
-                    print e.message
+                    logging.error('%s', e.message)
                     self.showMessageBox(e.message, 'critical')
+
 
 
     @QtCore.Slot()
     def exploreSimulationsClicked(self):
-        print 'exploreSimulationsClicked'
+        logging.info('Explore simulations clicked')
 
         # Check of corredt scene is opened
         currentSceneName = cmds.file(q=True, sceneName=True)
@@ -343,6 +352,7 @@ class ProjectDetailsView(QtGui.QDialog):
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
         if not isSameScene:
             strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
+            logging.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
             self.showMessageBox(strError, 'warning')
             return
 
@@ -354,6 +364,7 @@ class ProjectDetailsView(QtGui.QDialog):
         # Check if path exists
         pathToFXAPP = self.externalCall.pathToFluidExplorer + '/' + self.externalCall.fluidExplorerCmd
         if not os.path.exists(os.path.abspath(pathToFXAPP)):
+            logging.error('Cannot find the FluidExplorer application executable')
             errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if  the executable file is available."
             self.showMessageBox(errorMsg, 'warning')
             return
@@ -397,7 +408,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
     @QtCore.Slot()
     def helpButtonClicked(self):
-        print 'help'
+        logging.info('Help clicked')
 
     @QtCore.Slot()
     def frameChangedHandler(self, frameNumber):
@@ -407,10 +418,12 @@ class ProjectDetailsView(QtGui.QDialog):
 
     # - Help functions -
     def updateIndexFromThread(self, text):
-        print "UPDATE INDEX: " + text
+        # print "UPDATE INDEX: " + text
+        logging.info('Update index: %s', text)
 
         # If the thread sends am error -> stop
         if text == "ERROR":
+            logging.error('Cannot execute the FluidExplorer application')
             self.showMessageBox('Cannot execute the FluidExplorer application!\nSee editor output for details.', 'critical')
             return
 
@@ -420,10 +433,6 @@ class ProjectDetailsView(QtGui.QDialog):
         except:
             intIndex = 0
         finally:
-            print '------------------------'
-            print intIndex
-            print '------------------------'
-
             # TODO
             if intIndex > 2:
                 self.ui.comboBox_simulations.setCurrentIndex(0)
@@ -468,9 +477,8 @@ class ProjectDetailsView(QtGui.QDialog):
         except Exception as e:
             errorText = "An error occured while loading the project configuration file!\nDetails: " + str(e.message)
             self.showMessageBox(errorText, 'critical')
+            logging.error('Loading the project configuration file: %s', errorText)
             return projectSettings
-
-        #print projectSettings.projectName
 
         return projectSettings
 
@@ -490,7 +498,7 @@ class ProjectDetailsView(QtGui.QDialog):
     def closeEvent(self, event):
 
         #ProjectDetailsViewUtils.killProcess_WIN('fluidexplorer')
-        print self.workThread
+
         # Stop thread if running
         if self.workThread:
             self.workThread.stop()

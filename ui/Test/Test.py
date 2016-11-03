@@ -6,21 +6,24 @@ import shutil
 import maya.cmds as cmds
 from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
 
+
 #######################################################################################################################
 # READ ME - Test Configuration
 # 1) Set animation start and end time
-#       FluidMain.py: Set runTests=True (line 62/63)
+#       FluidMain.py: Set runTests=True (~line 74)
 #       Ses animation start time to 1
 #       Ses animation end time to 15
 # 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete TestProjects if exists
 # 3) Create an empty fluid container (with emitter)
-# 4) In CreateProjectDialog uncommit line 96 - self.runTests(self.workDirPath)
+# 4) In CreateProjectDialog uncommit - self.runTests(self.workDirPath) - line 96
 # 4) Run test -> Create Simulation Button
 #######################################################################################################################
+
 
 class Test():
 
     def __init__(self):
+
         # TODO: Path to log file
         self.workDir = ""
         self.LOG_PATH = ""
@@ -137,6 +140,7 @@ class Test():
 
         return stepCount
 
+
     #
     # TESTS INSTANCES
     #
@@ -144,6 +148,8 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: check_if_ffmpeg_exists
     def check_if_ffmpeg_exists(self):
+        self.lgr.info(' ### Test - check_if_ffmpeg_exists ###')
+
         pathToFFmpeg = os.path.abspath(self.workDir + '/../../')
         if os.name=='nt':
             pathToFFmpegExe = pathToFFmpeg + '/lib/ffmpeg/ffmpeg.exe'
@@ -176,12 +182,15 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: wrong_projectName
     def wrong_projectName(self):
+
         t = Test()
         t.projectName = "TestProject?"
         t.cam_perspective = False
         return t
 
     def evaluate_wrong_projectName(self, testResult):
+        self.lgr.info(' ### Test - wrong_projectName ###')
+
         if testResult == None:
             self.logResult(True, 'wrong_projectName')
         else:
@@ -191,11 +200,14 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: empty_projectName
     def empty_projectName(self):
+
         t = Test()
         t.projectName = ""
         return t
 
     def evaluate_empty_projectName(self, testResult):
+        self.lgr.info(' ### Test - empty_projectName ###')
+
         if testResult == None:
             self.logResult(True, 'empty_projectName')
         else:
@@ -205,12 +217,15 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: wrong_projectPath
     def wrong_projectPath(self):
+
         t = Test()
         t.projectName = "TestProject"
         t.projectPath = "E:/T?MP/"
         return t
 
     def evaluate_wrong_projectPath(self, testResult):
+        self.lgr.info(' ### Test - wrong_projectPath ###')
+
         if testResult == None:
             self.logResult(True, 'wrong_projectPath')
         else:
@@ -220,12 +235,15 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: empty_projectPath
     def empty_projectPath(self):
+
         t = Test()
         t.projectName = "TestProject"
         t.projectPath = ""
         return t
 
     def evaluate_empty_projectPath(self, testResult):
+        self.lgr.info(' ### Test - empty_projectPath ###')
+
         if testResult == None:
             self.logResult(True, 'empty_projectPath')
         else:
@@ -246,6 +264,7 @@ class Test():
         return t
 
     def evaluate_create_sumulation_cache_only(self, projectPath, projectName, numberOfSamples):
+        self.lgr.info(' ### Test - create_sumulation_cache_only ###')
 
         # Evaluation - project file exists
         tmp = projectPath + "/" + projectName + "/" + projectName + '.fxp'
@@ -272,7 +291,6 @@ class Test():
         for i in range(0, int(numberOfSamples)):
             tmp = projectPath + "/" + projectName + "/" + str(i)
             if self.directory_mc_xml(tmp) == self.numberOfFilesInSimulation:
-                #print self.directory_mc_xml(tmp)
                 pass
             else:
                 numberOK = False
@@ -297,6 +315,8 @@ class Test():
         return t
 
     def evaluate_create_sumulation_cache_and_images_perspective(self, projectPath, projectName, numberOfSamples):
+        self.lgr.info(' ### Test - create_sumulation_cache_and_images_perspective ###')
+
         # Evaluation - number of rendered images correct
         numberOK = True
         for i in range(0, int(numberOfSamples)):
@@ -341,6 +361,8 @@ class Test():
         return t
 
     def evaluate_create_sumulation_cache_and_images_viewcube(self, projectPath, projectName, numberOfSamples):
+        self.lgr.info(' ### Test - create_sumulation_cache_and_images_viewcube ###')
+
         # Evaluation - number of rendered images correct
         numberFrontOK = True
         numberSideOK = True
@@ -432,6 +454,8 @@ class Test():
         return t
 
     def evaluate_create_sumulation_cache_and_images_custom(self, projectPath, projectName, numberOfSamples):
+        self.lgr.info(' ### Test - create_sumulation_cache_and_images_custom ###')
+
         # Evaluation - number of rendered images correct
         numberOK = True
         for i in range(0, int(numberOfSamples)):
@@ -479,6 +503,8 @@ class Test():
         return t
 
     def evaluate_create_sumulation_cache_and_images_rotation(self, projectPath, projectName, numberOfSamples, deg):
+        self.lgr.info(' ### Test - create_sumulation_cache_and_images_rotation ###')
+
         # Evaluation - number of rotation views is ok and number of rendered images is ok
         numberDirsOK = True
         numberImagesOK = True
@@ -531,6 +557,26 @@ class Test():
     # -----------------------------------------------------------------------------------------------------------------
 
     # -----------------------------------------------------------------------------------------------------------------
+    # Test instance: check_if_fluid_attributes_exist
+    # -----------------------------------------------------------------------------------------------------------------
+    def check_if_fluid_attributes_exist(self, fluidBoxName):
+        self.lgr.info(' ### Test - check_if_fluid_attributes_exist ###')
+
+        a = FluidContainerValues()
+        for attr, value in a.__dict__.iteritems():
+            msg = 'check_if_fluid_attributes_exist - ' + attr
+            try:
+                cmdStr = fluidBoxName + '.' + attr
+                cmds.getAttr(cmdStr)
+                self.logResult(True, msg)
+            except Exception as e:
+                self.logResult(False, msg)
+                # print e.message
+    # -----------------------------------------------------------------------------------------------------------------
+
+
+    # IMPORTANT TEST CASE - BEGIN
+    # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: create_sumulation_cache_and_images_rotation
     def create_sumulation_cache_and_images_all_cameras(self):
         t = Test()
@@ -547,11 +593,10 @@ class Test():
 
         return t
 
-    # -----------------------------------------------------------------------------------------------------------------
-    # Test Instance: create_sumulation_cache_and_images_all_cameras
     def evaluation_create_sumulation_cache_and_images_all_cameras(self, projectPath, projectName, numberOfSamples):
-        # Evaluation - Check if the gif images exist in all folders and check if cahce files exist
+        self.lgr.info(' ### Test - create_sumulation_cache_and_images_all_cameras ###')
 
+        # Evaluation - Check if the gif images exist in all folders and check if cahce files exist
         cacheFilesOK = True
         camPerspectiveOK = True
         camViewcubeOK = True
@@ -667,19 +712,4 @@ class Test():
 
         return result
     # -----------------------------------------------------------------------------------------------------------------
-
-    # -----------------------------------------------------------------------------------------------------------------
-    # Test instance: check_if_fluid_attributes_exist
-    # -----------------------------------------------------------------------------------------------------------------
-    def check_if_fluid_attributes_exist(self, fluidBoxName):
-        a = FluidContainerValues()
-        for attr, value in a.__dict__.iteritems():
-            msg = 'check_if_fluid_attributes_exist - ' + attr
-            try:
-                cmdStr = fluidBoxName + '.' + attr
-                cmds.getAttr(cmdStr)
-                self.logResult(True, msg)
-            except Exception as e:
-                self.logResult(False, msg)
-                # print e.message
-    # -----------------------------------------------------------------------------------------------------------------
+    # IMPORTANT TEST CASE - END

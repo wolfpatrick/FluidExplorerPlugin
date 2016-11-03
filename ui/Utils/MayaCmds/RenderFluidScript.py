@@ -1,7 +1,7 @@
 import maya.cmds as cmds
 import maya.mel as mel
 
-
+# NOT IN USE
 class RenderFluidScript():
 
     def __init__(self):
@@ -57,11 +57,12 @@ class RenderFluidScript():
             startFrom += 1
             mel.eval('currentTime %s ;'%(startFrom))
 
+"""
 #  -- TEST --
 #path = "E:/TMP/XXX"
 #filename = "image"
 #startFrame = 10
 #endFrame = 15
 #renderImages(path, filename, startFrame, endFrame, resWidth=960, resHeight=540)
-#
+"""
 

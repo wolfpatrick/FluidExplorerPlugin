@@ -1,5 +1,7 @@
 import os
+import sys
 import subprocess
+import logging
 
 
 class GifCreator():
@@ -22,7 +24,7 @@ class GifCreator():
         inputDirFile = os.path.abspath(directoryImages + imageNames)
         outputFileName = os.path.abspath(outputGifFileDir + outputGifFileName)
 
-        if os.name == 'nt':
+        if sys.platform.startswith('win'):
             pathToFfmpeg = ffmpegPath + "/ffmpeg.exe"
             isFfmpegExecutable = self.is_exe(pathToFfmpeg)
             returnCode = False
@@ -56,7 +58,7 @@ class GifCreator():
                     subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=False, startupinfo=startupinfo)
                     subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=False, startupinfo=startupinfo)
                 except Exception as er:
-                    print("Error: " "Could not create the GIF animations! Details: ", er.message)
+                    logging.error("Could not create the GIF animations! Details: %s", er.message)
                     returnCode = False
                     return returnCode
 
@@ -71,7 +73,7 @@ class GifCreator():
                     subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette])
                     subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName])
                 except Exception as er:
-                    print("Error: " "Could not create the GIF animations! Details: ", er.message)
+                    logging.error("Could not create the GIF animations! Details: %s", er.message)
                     returnCode = False
                     return returnCode
 

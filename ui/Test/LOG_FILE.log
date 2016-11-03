@@ -1,0 +1,7 @@
+2016-11-03 13:12:22,174 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
+2016-11-03 13:12:22,176 - Test instance - use_all_cameras-cache_files_exist - successfully executed
+2016-11-03 13:12:22,177 - Test instance - use_all_cameras-project_file_exists - successfully executed
+2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_perspective - successfully executed
+2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_viewcube - successfully executed
+2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_custom - successfully executed
+2016-11-03 13:12:22,178 - Test instance - use_all_cameras-gif_rotation - successfully executed

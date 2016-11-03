@@ -1,3 +1,12 @@
+import os
+import sys
+import xml.etree.cElementTree as ET
+import subprocess
+import logging
+
+import maya.cmds as cmds
+
+
 class ProjectSubSettings():
 
     def __init__(self):
@@ -19,13 +28,6 @@ class ExternalCallSetting():
         self.fluidExplorerArgs = ''
 
 
-import os,sys
-import xml.etree.cElementTree as ET
-import maya.cmds as cmds
-import shlex
-import subprocess
-
-
 class ProjectDetailsViewUtils():
 
     def __init__(self):
@@ -41,10 +43,9 @@ class ProjectDetailsViewUtils():
                 for child in root:
                     if child.tag.lower() == childName.lower():
                         el_child_text = child.text
-                        #print el_child_text
                         return el_child_text
             except Exception as e:
-                print("Warning: Cannot read XML attribute")
+                logging.warning('Cannot read XML attribute')
                 errorMsg = "Cannot read project attributes from confuration file! Details: " + str(e.message)
                 raise Exception(errorMsg)
         else:
@@ -64,7 +65,8 @@ class ProjectDetailsViewUtils():
             projectSettings.cam_vc = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'ViewCubeCamera')
 
         except Exception as e:
-            print "Error: Cannot read project attributes! Details: " + str(e.message)
+            errorTxt = "Cannot read project attributes! Details: " + str(e.message)
+            logging.error(errorTxt)
             raise Exception(e.message)
 
         return projectSettings
@@ -101,7 +103,6 @@ class ProjectDetailsViewUtils():
                     path = os.path.abspath(tmp)
                     path = path.replace('\\', '/')
                     if os.path.exists(path):
-                        print path
                         hashMapToGIF[i] = path
 
                 elif projectSettings.cam_vc == '1':
@@ -116,14 +117,13 @@ class ProjectDetailsViewUtils():
     @staticmethod
     def setAnimationStartEndTime(start, end):
         canSetTime = True
-        print start
-        print end
         try:
             cmds.playbackOptions(animationStartTime=start)
             cmds.playbackOptions(animationEndTime=end)
+            logging.info('Set animation start time: %s', start)
+            logging.info('Set animation end time: %s', end)
         except Exception as e:
-            print("Warning: Cannot set start/end time")
-            print e.message
+            logging.warning("Cannot set start/end time: %s", e.message)
             canSetTime = False
 
         return canSetTime
@@ -145,50 +145,13 @@ class ProjectDetailsViewUtils():
             tlout = tlproc.communicate()[0].strip().split('\r\n')
             # if TASKLIST returns single line without processname: process is not running
             if len(tlout) > 1 and processname in tlout[-1]:
-                print('Process "%s" is running.' % processname)
+                logging.info('Process "%s" is running', processname)
                 processFound = True
             else:
-                print(tlout[0])
-                print('Process "%s" is NOT running.' % processname)
+                logging.info('%s', str(tlout[0]))
+                logging.info('Process "%s" is NOT running', processname)
 
         return processFound
-
-    @staticmethod
-    def killProcess_WIN(processnameArg):
-
-        processname = processnameArg + '.exe'
-
-        # Check if windows is os
-        if sys.platform.startswith('win'):
-
-            # Check if PF is running
-            processFound = ProjectDetailsViewUtils.checkIfProcessIsRunning_WIN(processnameArg)
-
-            if processFound:
-
-                """
-                # Close by number
-                cmdProcessPidCmd = 'wmic process where caption=' + '\"' + processname + '\"' + ' get processid'
-                cmdProcessPid = subprocess.Popen(cmdProcessPidCmd, stdout=subprocess.PIPE, shell=True)
-                pid = cmdProcessPid.communicate()[0].strip().split('\r\n')
-
-                print('Process PID: for "%s" found ' % processname)
-                #for p in pid:
-                #    print p
-                """
-
-                # Close the process
-                try:
-                    #processname = processnameArg + '.exe'
-                    cmdStr = 'taskkill /im' + ' ' + processname
-                    #os.system(cmdStr)
-                    kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
-                    print('Process "%s" closed ' % processname)
-
-                except Exception as e:
-                    print('Error: Process "%s" not closed' % processname)
-                    print('Details: "%s"' % e.message)
-                    pass
 
     @staticmethod
     def checkIfProcessExistsAndClose(processName):
@@ -196,14 +159,12 @@ class ProjectDetailsViewUtils():
 
     @staticmethod
     def checkIfCorrectSceneIsOpened(currentScenePath, scenePathConfigFile):
-        print 'CURRENT SCENE:' + str(currentScenePath)
-        print 'MAYA SCENE:' + str(scenePathConfigFile)
+
+        logging.info('Current scene: %s', str(currentScenePath))
+        logging.info('Maya scene: %s', str(scenePathConfigFile))
 
         pr1 = ProjectDetailsViewUtils.getPrpjectNameFromString(currentScenePath)
         pr2 = ProjectDetailsViewUtils.getPrpjectNameFromString(scenePathConfigFile)
-
-        print pr1
-        print pr2
 
         if pr1 and pr2:
             if pr1.lower() == pr2.lower():
@@ -220,12 +181,10 @@ class ProjectDetailsViewUtils():
         posSceneName = path.find('fluid_simulation_scene.mb')
         if not posSceneName == -1:
             tmp = path[0:posSceneName-1]
-            print tmp
             pos = ProjectDetailsViewUtils.find(tmp, '/')
-            print pos
+
             if pos >= 2:
                 index = pos[len(pos)-1]
-                print index
                 projectName = path[index:posSceneName]
                 if projectName.endswith('/'): projectName = projectName[0:len(projectName)-1]
                 if projectName.startswith('/'): projectName = projectName[1:len(projectName)]

@@ -96,8 +96,7 @@ class MayaCacheCmdString(object):
 
         return command
 
-"""
-    //
+    """
 	// Description:
 	//	Create cache files on disk for the select fluid object(s) according
 	//  to the specified flags described below.
@@ -136,7 +135,7 @@ class MayaCacheCmdString(object):
 	//	$args[21] = 0/1, whether texture coordinates should be cached
 	//	$args[22] = 0/1, whether falloff should be cached
 	//
-"""
+    """
 
 
 

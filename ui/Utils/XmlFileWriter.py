@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as xml
 
 
-class XmlFileWriter:
+class XmlFileWriter():
 
     path = ""
     elementName = ""
