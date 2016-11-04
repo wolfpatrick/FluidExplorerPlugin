@@ -14,9 +14,12 @@ class FileOpenDialog(QtGui.QDialog):
     global FX_RELATIVE_PATH
     WORKING_DIRECTORY = cmds.workspace(q=True, dir=True)
 
-    PATH_FLUIDEXPLORER_APP = "E:/FluidExplorer_Code/Release/"
-    FX_RELATIVE_PATH = '/FluidExplorerPlugin/tmp/README.txt' 
+    #PATH_FLUIDEXPLORER_APP = "E:/FluidExplorer_Code/Release/"
+    #FX_RELATIVE_PATH = '/FluidExplorerPlugin/tmp/README.txt'
 
+    def __init__(self):
+        QtGui.QDialog.__init__(self)
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
     """
     #
     # NUT IN USE
@@ -71,7 +74,7 @@ class FileOpenDialog(QtGui.QDialog):
         try:
             tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'ProjectName')
             tmpPath = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'MayaFilePath')
-            logging.info("Path of the maya file to load: %s", tmpSimulationName)
+            self.lgr.info("Path of the maya file to load: %s", tmpSimulationName)
 
         except:
             canReadConfigFile = False
@@ -101,7 +104,7 @@ class FileOpenDialog(QtGui.QDialog):
         # currentSceneName: e.g. E:/Tmp/test.mb
         # fxPathRoot: e.g.: .../maya/2014-x64/scripts
 
-        logging.info("Load Animation")
+        self.lgr.info("Load Animation")
 
         # Current scene name
         self.rawName = cmds.file(query = True, sceneName = True);
@@ -133,21 +136,21 @@ class FileOpenDialog(QtGui.QDialog):
                 if not canReadConfigFile:
                     # Can not read xml project file with
                     self.showMessageBox(errorText, 'critical')
-                    logging.error(errorText)
+                    self.lgr.error(errorText)
                     return ["", "", ""]
 
                 else:
                     if not isSameScene:
                         # Warning - not the same scene is loaded
                         self.showMessageBox(errorText, 'warning')
-                        logging.warning(errorText)
+                        self.lgr.warning(errorText)
                         return ["", "", ""]
 
                     # Check if the fluid container exists in the scene
                     [nodeExists, errorMsg] = self.checkIfFluidNodeExistsInScene(choosenDir)
                     if not nodeExists:
                         self.showMessageBox(errorMsg, 'warning')
-                        logging.warning(errorMsg)
+                        self.lgr.warning(errorMsg)
                         return ["", "", ""]
 
                     #        # Warning scene is loaded
@@ -157,24 +160,26 @@ class FileOpenDialog(QtGui.QDialog):
                         try:
                             import exceptions
 
-                            fluidExplorerPath = self.getFXPath(fxPathRoot, FX_RELATIVE_PATH)
+                            #fluidExplorerPath = self.getFXPath(fxPathRoot, FX_RELATIVE_PATH)
 
+                            """
                             if not fluidExplorerPath == "":
                                 pass
                                 #pid = self.openSimulation(choosenDir, fxPathRoot)
                                 pid = 1
                             else:
-                                logging.error('FluidExplorer executable file not found')
+                                self.lgr.error('FluidExplorer executable file not found')
                                 raise Exception("FluidExplorer executable file not found!")
                             
                             # return "started"
+                            """
 
                         except Exception as e:
                             errorMsg = "Unable to start the FluidExplorer application!" + "\nDetails: " + e.message
-                            logging.error('Unable to start the FluidExplorer application! Details: %s', e.message)
+                            self.lgr.error('Unable to start the FluidExplorer application! Details: %s', e.message)
                             self.showMessageBox(errorMsg, 'critical')
 
-                        return [strStarted, choosenDir, pid]   # return started -> everything fine!
+                        return [strStarted, choosenDir, 1]   # return started -> everything fine!
         else:
             # cancel
             return ["", "", ""]
@@ -201,7 +206,7 @@ class FileOpenDialog(QtGui.QDialog):
 
     def checkIfFluidNodeExistsInScene(self, choosenFile):
         tmpFluidNodeName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenFile, 'FluidBoxName')
-        logging.info("Fluid container name from the settings file: %s", tmpFluidNodeName)
+        self.lgr.info("Fluid container name from the settings file: %s", tmpFluidNodeName)
 
         if cmds.objExists(tmpFluidNodeName):
             return [True, ""]

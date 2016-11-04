@@ -7,7 +7,8 @@ import logging
 class GifCreator():
 
     def __init__(self):
-        pass
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
 
     def createGifFromImages(self, ffmpegPath, directoryImages, outputGifFileDir, outputGifFileName, start_number, fps=25, gifOptimization=True):
 
@@ -58,7 +59,7 @@ class GifCreator():
                     subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=False, startupinfo=startupinfo)
                     subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=False, startupinfo=startupinfo)
                 except Exception as er:
-                    logging.error("Could not create the GIF animations! Details: %s", er.message)
+                    self.lgr.error("Could not create the GIF animations! Details: %s", er.message)
                     returnCode = False
                     return returnCode
 
@@ -73,7 +74,7 @@ class GifCreator():
                     subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette])
                     subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName])
                 except Exception as er:
-                    logging.error("Could not create the GIF animations! Details: %s", er.message)
+                    self.lgr.error("Could not create the GIF animations! Details: %s", er.message)
                     returnCode = False
                     return returnCode
 

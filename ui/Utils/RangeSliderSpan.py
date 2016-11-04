@@ -5,6 +5,9 @@ import logging
 class SliderSpanSelected():
     def __init__(self, dynamicSimulationLayout, densityLayout, velocityLayout, turbulenceLayout, temperatureLayout, fuelLayout, colorLayout):
 
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
+
         self.gravity_Span = self.setSpanValues(dynamicSimulationLayout.containerGravity)
         self.viscosity_Span = self.setSpanValues(dynamicSimulationLayout.containerViscosity)
         self.friction_Span = self.setSpanValues(dynamicSimulationLayout.containerFriction)
@@ -52,11 +55,11 @@ class SliderSpanSelected():
     def setSpanValues(self, container):
         if container.checkBox.isChecked():
             infoTxt = (container.label.text(), ": ", container.lineEditMin.text(), container.lineEditMax.text())
-            logging.info(infoTxt)
+            self.lgr.info(infoTxt)
             return [container.lineEditMin.text(), container.lineEditMax.text()]
         else:
             infoTxt = (container.label.text(), ": ", container.lineEditDefault.text())
-            logging.info(infoTxt)
+            self.lgr.info(infoTxt)
             return [container.lineEditDefault.text(), container.lineEditDefault.text()]
 
 

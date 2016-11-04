@@ -287,7 +287,7 @@ class Ui_CreateProjectDialog(object):
         self.label_3.setText(QtGui.QApplication.translate("CreateProjectDialog", "View Cube", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("CreateProjectDialog", "Custom", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("CreateProjectDialog", "Rotation", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Simulations:", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Sequences:", None, QtGui.QApplication.UnicodeUTF8))
         self.labelTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Time:", None, QtGui.QApplication.UnicodeUTF8))
         self.lineEdit_numberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "128", None, QtGui.QApplication.UnicodeUTF8))
         self.labelAnimationTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Animation [Start Time / End Time]:", None, QtGui.QApplication.UnicodeUTF8))

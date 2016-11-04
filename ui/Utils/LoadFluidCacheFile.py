@@ -8,10 +8,11 @@ class LoadFluidCacheFile():
 
     @staticmethod
     def applyCacheFile(pathToCacheXMLFile, nodeName):
+        lgr = logging.getLogger('FluidExplorerPlugin')
 
-        logging.info('Apply cache file')
-        logging.info('Selected object: %s', str(nodeName))
-        logging.info('Cache path: %s', str(pathToCacheXMLFile))
+        lgr.info('Apply cache file')
+        lgr.info('Selected object: %s', str(nodeName))
+        lgr.info('Cache path: %s', str(pathToCacheXMLFile))
 
         # 1. Select the fluid container
         try:
@@ -22,9 +23,10 @@ class LoadFluidCacheFile():
 
         # Check if path is available and executable
         if os.path.isfile(pathToCacheXMLFile) and os.access(pathToCacheXMLFile, os.R_OK):
-            logging.info("Load fluid cache file: Path to xml file is correct")
+            lgr.info("Load fluid cache file: Path to xml file is correct")
             pass
         else:
+            lgr.error('Path to cache file is not correct or files are not accessible')
             raise Exception("Path to cache file is not correct or files are not accessible.")
 
         # 2. Delete current cache node
@@ -34,9 +36,12 @@ class LoadFluidCacheFile():
             try:
                 mel.eval(strCmd)
             except Exception as e:
+                lgr.error('Cannot delete the current cache for: %s', str(nodeName))
+                lgr.error('Cache error details: %s', e.message)
                 errorMsg = "Cannot delete the current cache for '" + str(nodeName) + "'!\nPlease visit the help page more information.\nDetails: " + e.message
                 raise Exception(errorMsg)
         else:
+            lgr.error('Fluid container %s does not exist', str(nodeName))
             errorMsg = "Fluid Container '" + str(nodeName) + "' does not exist!\nPlease visit the help page more information."
             raise Exception(errorMsg)
 
@@ -45,6 +50,7 @@ class LoadFluidCacheFile():
             lineToEval = 'doImportFluidCacheFile("{0}", "xmlcache", {{"{1}"}}, {{}});'.format(pathToCacheXMLFile, nodeName)
             mel.eval(lineToEval)
         except Exception as e:
+            lgr.error('Cannot attach the cached file. Details: %s', e.message)
             errorMsg = "Cannot attach the cached file for '" + str(nodeName) + "'!\nPlease visit the help page more information.\nDetails: " + e.message
             raise Exception(errorMsg)
 

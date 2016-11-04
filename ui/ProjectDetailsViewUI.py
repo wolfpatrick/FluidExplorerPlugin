@@ -153,6 +153,6 @@ class Ui_ProjectDetailsView(object):
         self.label_fluidContainer.setText(QtGui.QApplication.translate("ProjectDetailsView", "Fluid Container", None, QtGui.QApplication.UnicodeUTF8))
         self.label_startTime.setText(QtGui.QApplication.translate("ProjectDetailsView", "Start Time", None, QtGui.QApplication.UnicodeUTF8))
         self.label_endTime.setText(QtGui.QApplication.translate("ProjectDetailsView", "End Time", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_loadSimulation.setText(QtGui.QApplication.translate("ProjectDetailsView", "Load Simulation", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_loadSimulation.setText(QtGui.QApplication.translate("ProjectDetailsView", "Load Sequence", None, QtGui.QApplication.UnicodeUTF8))
         self.label_preview.setText(QtGui.QApplication.translate("ProjectDetailsView", "Simulation Preview", None, QtGui.QApplication.UnicodeUTF8))
 

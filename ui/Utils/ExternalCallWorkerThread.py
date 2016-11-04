@@ -10,6 +10,10 @@ class WorkThread(QtCore.QThread):
 
     def __init__(self, externalCallSettings):
         QtCore.QThread.__init__(self)
+
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
+
         self.running = True
         self.SEARCH_PATTERN_CMD = 'PATRICK'
 
@@ -23,9 +27,9 @@ class WorkThread(QtCore.QThread):
         try:
             os.chdir(self.pathToFXApp)
             process = subprocess.Popen([shlex.split(self.cmdFXAPP), self.cmdFXArg], shell=True, stdout=subprocess.PIPE)
-            logging.info('Exteral application started')
+            self.lgr.info('Exteral application started')
         except Exception as e:
-            logging.error('Cannot execute fluid explorer app. Details: %s', e.message)
+            self.lgr.error('Critical: Cannot execute fluid explorer app. Details: %s', e.message)
             self.emit(QtCore.SIGNAL('update(QString)'), "ERROR")
             return
 
@@ -37,12 +41,14 @@ class WorkThread(QtCore.QThread):
 
             output = process.stdout.readline()
             if output.startswith(self.SEARCH_PATTERN_CMD):
-                logging.info('Received event from fluid explorer app')
+                self.lgr.info('Received event from fluid explorer app')
 
             if output == '' and process.poll() is not None:
                 break
             if output:
-                print output.strip()
+                self.lgr.info(output.strip())
+                #print output.strip()
+
         rc = process.poll()
         return rc
 

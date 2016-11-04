@@ -11,6 +11,10 @@ class MayaFunctionUtils(object):
     def __init__(self):
         self.finished = False
 
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
+
+
     def getObjType(self, selection):
         t = cmds.objectType(selection)
 
@@ -70,7 +74,7 @@ class MayaFunctionUtils(object):
             pm.mel.eval(cmdStr)
 
         except Exception as e:
-            logging.error('An error occured while the cache files were created! Details: %s', e.message)
+            self.lgr.error('An error occured while the cache files were created! Details: %s', e.message)
             raise Exception(e.message)
 
     def setSampledValue(self, fluidName, values):
@@ -78,7 +82,7 @@ class MayaFunctionUtils(object):
         :type values: ContainerValuesList
         """
 
-        logging.info('Set sampled values for: %s', fluidName)
+        self.lgr.info('Set sampled values for: %s', fluidName)
 
         members = [attr for attr in dir(values) if not callable(values) and not attr.startswith("__")]
         for item in members:
@@ -87,7 +91,7 @@ class MayaFunctionUtils(object):
             try:
                 attributeValue = float(getattr(values, item))
             except Exception as e:
-                logging.warning('Cannot read fluid attribute: %s - Details: %s', tmpCmd, e.message)
+                self.lgr.warning('Cannot read fluid attribute: %s - Details: %s', tmpCmd, e.message)
 
             # Set the attribute in the fluid container dialog
             attrExists = cmds.attributeQuery(item, node=fluidName, exists=True)
@@ -95,12 +99,12 @@ class MayaFunctionUtils(object):
                 try:
                     cmds.setAttr(tmpCmd, attributeValue)
                     # print(str(item), attributeValue)
-                    logging.info('%s - %s', str(item), attributeValue)
+                    self.lgr.info('%s - %s', str(item), attributeValue)
                 except Exception as e:
-                    logging.warning('Cannot set fluid attribute: %s - Details: %s', tmpCmd, e.message)
+                    self.lgr.warning('Cannot set fluid attribute: %s - Details: %s', tmpCmd, e.message)
 
             else:
-                logging.warning('Fluid attribute %s does not exist', item)
+                self.lgr.warning('Fluid attribute %s does not exist', item)
 
     def changeToPerspCam(self):
         currentCam = cmds.lookThru(q=True)
@@ -224,8 +228,8 @@ class MayaFunctionUtils(object):
                 cmdStr = "lookThroughModelPanel" + " " + str(generalSettings.cam_custom_name) + " " + "modelPanel4;"
                 mel.eval(cmdStr)
             except Exception as er:
-                logging.error('An error occured while camera was changed! Details: %s', er.message)
-                logging.error('Could not look through camera %s', generalSettings._cam_custom_name)
+                self.lgr.error('An error occured while camera was changed! Details: %s', er.message)
+                self.lgr.error('Could not look through camera %s', generalSettings._cam_custom_name)
                 raise Exception(er.message)
                 return
 
@@ -313,7 +317,7 @@ class MayaFunctionUtils(object):
         # print resWidth
         # print resHeight
 
-        logging.info('Rendering started')
+        self.lgr.info('Rendering started')
 
         resWidth = 960
         resHeight = 540
@@ -368,13 +372,13 @@ class MayaFunctionUtils(object):
             try:
                 mel.eval(melStrCmd)
             except RuntimeError as err:
-                logging.error('An error occured while the images were rendered! Details: %s', err.message)
+                self.lgr.error('An error occured while the images were rendered! Details: %s', err.message)
                 raise Exception(err.message)
                 renderSuccess = False
                 return renderSuccess
 
             except Exception as er:
-                logging.error('An error occured while the images were rendered! Details: %s', er.message)
+                self.lgr.error('An error occured while the images were rendered! Details: %s', er.message)
                 raise Exception(er.message)
                 renderSuccess = False
                 return renderSuccess

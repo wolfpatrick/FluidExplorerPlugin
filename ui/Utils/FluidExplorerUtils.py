@@ -35,7 +35,8 @@ class FluidExplorerUtils(object):
 
                     return el_child_text
         except:
-            logging.warning("Cannot read XML attribute")
+            lgr = logging.getLogger('FluidExplorerPlugin')
+            lgr.warning("Cannot read XML attribute")
 
     @staticmethod
     def containerIsCorrect(containerName):
@@ -47,7 +48,8 @@ class FluidExplorerUtils(object):
         containerOK = objectExists and attrExists
 
         if not containerOK:
-            logging.error("Cannot select container attribute! Please check the nodeName and the container type")
+            lgr = logging.getLogger('FluidExplorerPlugin')
+            lgr.error("Cannot select container attribute! Please check the nodeName and the container type")
 
         return containerOK
 
@@ -64,13 +66,15 @@ class FluidExplorerUtils(object):
         except OSError as e:
             if e.errno == os.errno.ENOENT:
                 # Handle file not found error.
-                logging.error("Fatal Error: Cannot find ffmpeg. Details: %s", e.message)
-                logging.error("Please check if executable file exists in /lib/ffmpeg/")
+                lgr = logging.getLogger('FluidExplorerPlugin')
+                lgr.error("Fatal Error: Cannot find ffmpeg. Details: %s", e.message)
+                lgr.error("Please check if executable file exists in /lib/ffmpeg/")
 
                 return False
             else:
                 # Something else went wrong while trying to run ffmpeg
-                logging.error("Cannot execute ffmpeg. Details: %s", e.message)
+                lgr = logging.getLogger('FluidExplorerPlugin')
+                lgr.error("Cannot execute ffmpeg. Details: %s", e.message)
 
                 return False
 
@@ -83,7 +87,7 @@ class FluidExplorerUtils(object):
         else:
             # TODO: Unix
             pass
-        print pathToFluidExplorer
+
         """
         try:
             subprocess.call([pathToFluidExplorer], shell=False)
@@ -121,6 +125,8 @@ class FluidExplorerUtils(object):
     @staticmethod
     def killProcess_WIN(processnameArg):
 
+        lgr = logging.getLogger('FluidExplorerPlugin')
+
         processname = processnameArg + '.exe'
         processFound = False
 
@@ -132,11 +138,11 @@ class FluidExplorerUtils(object):
         # if TASKLIST returns single line without processname: it's not running
         if len(tlout) > 1 and processname in tlout[-1]:
             # print('Process "%s" is running .' % processname)
-            logging.info('Process "%s" is running', processname)
+            lgr.info('Process "%s" is running', processname)
             processFound = True
         else:
             # print('Process "%s" is NOT running.' % processname)
-            logging.info('Process "%s" is not running', processname)
+            lgr.info('Process "%s" is not running', processname)
 
         if processFound:
 
@@ -157,8 +163,9 @@ class FluidExplorerUtils(object):
 
                 kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
                 # print('Process "%s" closed ' % processname)
-                logging.info('Process "%s" closed ', processname)
+                lgr.info('Process "%s" closed ', processname)
 
             except Exception as e:
-                logging.error('Process "%s" not closed', processname)
-                logging.error('Details: %s', e.message)
+                lgr.error('Process "%s" not closed', processname)
+                lgr.error('Details: %s', e.message)
+                lgr.error('Details: %s', e.message)

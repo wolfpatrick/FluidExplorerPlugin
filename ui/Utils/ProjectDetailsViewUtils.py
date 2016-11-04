@@ -24,17 +24,19 @@ class ProjectSubSettings():
 class ExternalCallSetting():
     def __init__(self):
         self.pathToFluidExplorer = ''
-        self.fluidExplorerCmd = ''
         self.fluidExplorerArgs = ''
 
 
 class ProjectDetailsViewUtils():
 
     def __init__(self):
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
         pass
 
     @staticmethod
     def readAttributeFromXmlConfigurationsFile(xml_file, childName):
+        lgr = logging.getLogger('FluidExplorerPlugin')
+
         if os.path.exists(xml_file):
             try:
                 tree = ET.ElementTree(file=xml_file)
@@ -45,7 +47,7 @@ class ProjectDetailsViewUtils():
                         el_child_text = child.text
                         return el_child_text
             except Exception as e:
-                logging.warning('Cannot read XML attribute')
+                lgr.warning('Cannot read XML attribute')
                 errorMsg = "Cannot read project attributes from confuration file! Details: " + str(e.message)
                 raise Exception(errorMsg)
         else:
@@ -66,7 +68,7 @@ class ProjectDetailsViewUtils():
 
         except Exception as e:
             errorTxt = "Cannot read project attributes! Details: " + str(e.message)
-            logging.error(errorTxt)
+            self.lgr.error(errorTxt)
             raise Exception(e.message)
 
         return projectSettings
@@ -116,12 +118,14 @@ class ProjectDetailsViewUtils():
 
     @staticmethod
     def setAnimationStartEndTime(start, end):
+        lgr = logging.getLogger('FluidExplorerPlugin')
+
         canSetTime = True
         try:
             cmds.playbackOptions(animationStartTime=start)
             cmds.playbackOptions(animationEndTime=end)
-            logging.info('Set animation start time: %s', start)
-            logging.info('Set animation end time: %s', end)
+            lgr.info('Set animation start time: %s', start)
+            lgr.info('Set animation end time: %s', end)
         except Exception as e:
             logging.warning("Cannot set start/end time: %s", e.message)
             canSetTime = False
@@ -130,6 +134,8 @@ class ProjectDetailsViewUtils():
 
     @staticmethod
     def checkIfProcessIsRunning_WIN(processnameArg):
+        lgr = logging.getLogger('FluidExplorerPlugin')
+
         processFound = False
 
         # Check if windows is the os
@@ -145,23 +151,25 @@ class ProjectDetailsViewUtils():
             tlout = tlproc.communicate()[0].strip().split('\r\n')
             # if TASKLIST returns single line without processname: process is not running
             if len(tlout) > 1 and processname in tlout[-1]:
-                logging.info('Process "%s" is running', processname)
+                lgr.info('Process "%s" is running', processname)
                 processFound = True
             else:
-                logging.info('%s', str(tlout[0]))
-                logging.info('Process "%s" is NOT running', processname)
+                lgr.info('%s', str(tlout[0]))
+                lgr.info('Process "%s" is NOT running', processname)
 
         return processFound
 
     @staticmethod
     def checkIfProcessExistsAndClose(processName):
-        ProjectDetailsViewUtils.killProcess_WIN(processName)
+        if ProjectDetailsViewUtils != None:
+            ProjectDetailsViewUtils.killProcess_WIN(processName)
 
     @staticmethod
     def checkIfCorrectSceneIsOpened(currentScenePath, scenePathConfigFile):
+        lgr = logging.getLogger('FluidExplorerPlugin')
 
-        logging.info('Current scene: %s', str(currentScenePath))
-        logging.info('Maya scene: %s', str(scenePathConfigFile))
+        lgr.info('Current scene: %s', str(currentScenePath))
+        lgr.info('Maya scene: %s', str(scenePathConfigFile))
 
         pr1 = ProjectDetailsViewUtils.getPrpjectNameFromString(currentScenePath)
         pr2 = ProjectDetailsViewUtils.getPrpjectNameFromString(scenePathConfigFile)
@@ -194,3 +202,34 @@ class ProjectDetailsViewUtils():
     @staticmethod
     def find(s, ch):
         return [i for i, ltr in enumerate(s) if ltr == ch]
+
+
+    @staticmethod
+    def getPathFluidExplorer():
+        filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
+        filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
+        fxPathRel = os.path.abspath(filename)
+
+        '''
+        if sys.platform.startswith('win'):
+            fxPathRel = fxPathRel + '/fluidexplorer.exe'
+            fxPathRel = os.path.abspath(fxPathRel)
+        elif sys.platform.startswith(''):
+            # TODO: UNIX
+            pass
+        '''
+
+        return fxPathRel
+
+    @staticmethod
+    def getPathSettingsFile():
+        pass
+
+    @staticmethod
+    def getPathCacheFiles(pathFromDialog):
+        # Parent directory
+        parDir = os.path.dirname(pathFromDialog)
+        # print parDir
+
+        return parDir

@@ -1,7 +1,160 @@
-2016-11-03 13:12:22,174 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
-2016-11-03 13:12:22,176 - Test instance - use_all_cameras-cache_files_exist - successfully executed
-2016-11-03 13:12:22,177 - Test instance - use_all_cameras-project_file_exists - successfully executed
-2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_perspective - successfully executed
-2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_viewcube - successfully executed
-2016-11-03 13:12:22,177 - Test instance - use_all_cameras-gif_custom - successfully executed
-2016-11-03 13:12:22,178 - Test instance - use_all_cameras-gif_rotation - successfully executed
+2016-11-04 14:57:25,979 - Choosen camera: camera1
+2016-11-04 14:57:27,453 - Project settings:
+2016-11-04 14:57:27,456 -   Proj. Name: TestProject5
+2016-11-04 14:57:27,456 -   Output Path: %sC:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5
+2016-11-04 14:57:27,456 -   Fluid container: %sfluidShape1
+2016-11-04 14:57:27,457 -   Num. Samples: %s2
+2016-11-04 14:57:27,457 -   Num. Frames: %s15
+2016-11-04 14:57:27,457 -   Scene Name: %sC:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb
+2016-11-04 14:57:27,457 -   Images available: %s1
+2016-11-04 14:57:27,457 -   Camera Perspective: %s1
+2016-11-04 14:57:27,457 -   Camera ViewCube: %s1
+2016-11-04 14:57:27,459 -   Camera Custom: %sTrue/camera1
+2016-11-04 14:57:27,459 -   Camera Rotation: %s90
+2016-11-04 14:57:27,459 -   Animation Start Time: %s1.0
+2016-11-04 14:57:27,460 -   Animation End Time: %s15.0
+2016-11-04 14:57:27,460 - Read selected values from paramter tab
+2016-11-04 14:57:27,460 - (u'<span style=" font-size:8pt;">Gravity</span>', ': ', u'9.80')
+2016-11-04 14:57:27,461 - (u'<span style=" font-size:8pt;">Viscosity</span>', ': ', u'0.00')
+2016-11-04 14:57:27,461 - (u'<span style=" font-size:8pt;">Friction</span>', ': ', u'0.00')
+2016-11-04 14:57:27,463 - (u'<span style=" font-size:8pt;">Damp</span>', ': ', u'0.00')
+2016-11-04 14:57:27,463 - (u'<span style=" font-size:8pt;">Density Scale</span>', ': ', u'0.50')
+2016-11-04 14:57:27,463 - (u'<span style=" font-size:8pt;">Buoyancy</span>', ': ', u'1.00')
+2016-11-04 14:57:27,463 - (u'<span style=" font-size:8pt;">Dissipation</span>', ': ', u'0.00')
+2016-11-04 14:57:27,464 - (u'<span style=" font-size:8pt;">Diffusion</span>', ': ', u'0.00')
+2016-11-04 14:57:27,464 - (u'<span style=" font-size:8pt;">D. Pressure</span>', ': ', u'0.00')
+2016-11-04 14:57:27,466 - (u'<span style=" font-size:8pt;">Press. Th.</span>', ': ', u'1.00')
+2016-11-04 14:57:27,466 - (u'<span style=" font-size:8pt;">Noise</span>', ': ', u'0.00')
+2016-11-04 14:57:27,467 - (u'<span style=" font-size:8pt;">D. Tension</span>', ': ', u'0.00')
+2016-11-04 14:57:27,467 - (u'<span style=" font-size:8pt;">Tension Force</span>', ': ', u'0.00')
+2016-11-04 14:57:27,467 - (u'<span style=" font-size:8pt;">Gradient F.</span>', ': ', u'0.00')
+2016-11-04 14:57:27,467 - (u'<span style=" font-size:8pt;">Swirl</span>', ': ', u'0.00')
+2016-11-04 14:57:27,469 - (u'<span style=" font-size:8pt;">Noise</span>', ': ', u'0.00')
+2016-11-04 14:57:27,469 - (u'<span style=" font-size:8pt;">Strength</span>', ': ', u'0.00')
+2016-11-04 14:57:27,470 - (u'<span style=" font-size:8pt;">Frequency</span>', ': ', u'0.20')
+2016-11-04 14:57:27,470 - (u'<span style=" font-size:8pt;">Speed</span>', ': ', u'0.20')
+2016-11-04 14:57:27,470 - (u'<span style=" font-size:8pt;">Temp. Scale</span>', ': ', u'1.00')
+2016-11-04 14:57:27,470 - (u'<span style=" font-size:8pt;">Buoyancy</span>', ': ', u'3.00')
+2016-11-04 14:57:27,471 - (u'<span style=" font-size:8pt;">Pressure</span>', ': ', u'0.00')
+2016-11-04 14:57:27,471 - (u'<span style=" font-size:8pt;">Press. Th.</span>', ': ', u'0.00')
+2016-11-04 14:57:27,473 - (u'<span style=" font-size:8pt;">Dissipation</span>', ': ', u'0.10')
+2016-11-04 14:57:27,473 - (u'<span style=" font-size:8pt;">Diffusion</span>', ': ', u'0.10')
+2016-11-04 14:57:27,473 - (u'<span style=" font-size:8pt;">Turbulence</span>', ': ', u'0.10')
+2016-11-04 14:57:27,473 - (u'<span style=" font-size:8pt;">Noise</span>', ': ', u'0.00')
+2016-11-04 14:57:27,473 - (u'<span style=" font-size:8pt;">Tension</span>', ': ', u'0.00')
+2016-11-04 14:57:27,474 - (u'<span style=" font-size:8pt;">Fuel Scale</span>', ': ', u'1.00')
+2016-11-04 14:57:27,474 - (u'<span style=" font-size:8pt;">Reac. Speed</span>', ': ', u'0.05')
+2016-11-04 14:57:27,476 - (u'<span style=" font-size:8pt;">A./F. Ratio</span>', ': ', u'0.00')
+2016-11-04 14:57:27,476 - (u'<span style=" font-size:8pt;">Ignit. Temp.</span>', ': ', u'0.00')
+2016-11-04 14:57:27,476 - (u'<span style=" font-size:8pt;">Max Temp.</span>', ': ', u'1.00')
+2016-11-04 14:57:27,476 - (u'<span style=" font-size:8pt;">Heat R.</span>', ': ', u'1.00')
+2016-11-04 14:57:27,477 - (u'<span style=" font-size:8pt;">Light R.</span>', ': ', u'0.00')
+2016-11-04 14:57:27,477 - (u'<span style=" font-size:8pt;">C. Dissipation</span>', ': ', u'0.00')
+2016-11-04 14:57:27,479 - (u'<span style=" font-size:8pt;">C. Diffusion</span>', ': ', u'0.00')
+2016-11-04 14:57:27,487 - Set sampled values for: fluidShape1
+2016-11-04 14:57:27,489 - airFuelRatio - 0.0
+2016-11-04 14:57:27,490 - buoyancy - 3.0
+2016-11-04 14:57:27,490 - colorDiffusion - 0.0
+2016-11-04 14:57:27,490 - colorDissipation - 0.0
+2016-11-04 14:57:27,492 - densityBuoyancy - 1.0
+2016-11-04 14:57:27,492 - densityDiffusion - 0.0
+2016-11-04 14:57:27,493 - densityDissipation - 0.0
+2016-11-04 14:57:27,493 - densityGradientForce - 0.0
+2016-11-04 14:57:27,493 - densityNoise - 0.0
+2016-11-04 14:57:27,493 - densityPressure - 0.0
+2016-11-04 14:57:27,494 - densityPressureThreshold - 1.0
+2016-11-04 14:57:27,494 - densityScale - 0.5
+2016-11-04 14:57:27,496 - densityTension - 0.0
+2016-11-04 14:57:27,496 - friction - 0.0
+2016-11-04 14:57:27,496 - fuelIgnitionTemp - 0.0
+2016-11-04 14:57:27,496 - fuelScale - 1.0
+2016-11-04 14:57:27,497 - gravity - 9.8
+2016-11-04 14:57:27,497 - heatReleased - 1.0
+2016-11-04 14:57:27,499 - lightReleased - 0.0
+2016-11-04 14:57:27,499 - maxReactionTemp - 1.0
+2016-11-04 14:57:27,500 - reactionSpeed - 0.05
+2016-11-04 14:57:27,500 - temperatureDiffusion - 0.1
+2016-11-04 14:57:27,500 - temperatureDissipation - 0.1
+2016-11-04 14:57:27,500 - temperatureNoise - 0.0
+2016-11-04 14:57:27,502 - temperaturePressure - 0.0
+2016-11-04 14:57:27,503 - temperaturePressureThreshold - 0.0
+2016-11-04 14:57:27,503 - temperatureScale - 1.0
+2016-11-04 14:57:27,503 - temperatureTension - 0.0
+2016-11-04 14:57:27,503 - temperatureTurbulence - 0.1
+2016-11-04 14:57:27,505 - tensionForce - 0.0
+2016-11-04 14:57:27,506 - turbulenceFrequency - 0.2
+2016-11-04 14:57:27,506 - turbulenceSpeed - 0.2
+2016-11-04 14:57:27,506 - turbulenceStrength - 0.0
+2016-11-04 14:57:27,506 - velocityDamp - 0.0
+2016-11-04 14:57:27,507 - velocityNoise - 0.0
+2016-11-04 14:57:27,507 - velocitySwirl - 0.0
+2016-11-04 14:57:27,509 - viscosity - 0.0
+2016-11-04 14:57:29,000 - Rendering started
+2016-11-04 14:57:32,786 - Rendering started
+2016-11-04 14:57:38,704 - Rendering started
+2016-11-04 14:57:44,605 - Rendering started
+2016-11-04 14:57:50,615 - Rendering started
+2016-11-04 14:58:00,486 - Rendering started
+2016-11-04 14:58:09,256 - Rendering started
+2016-11-04 14:58:18,109 - Rendering started
+2016-11-04 14:58:26,987 - Rendering started
+2016-11-04 14:58:35,806 - Set sampled values for: fluidShape1
+2016-11-04 14:58:35,808 - airFuelRatio - 0.0
+2016-11-04 14:58:35,809 - buoyancy - 3.0
+2016-11-04 14:58:35,809 - colorDiffusion - 0.0
+2016-11-04 14:58:35,809 - colorDissipation - 0.0
+2016-11-04 14:58:35,811 - densityBuoyancy - 1.0
+2016-11-04 14:58:35,812 - densityDiffusion - 0.0
+2016-11-04 14:58:35,812 - densityDissipation - 0.0
+2016-11-04 14:58:35,812 - densityGradientForce - 0.0
+2016-11-04 14:58:35,812 - densityNoise - 0.0
+2016-11-04 14:58:35,813 - densityPressure - 0.0
+2016-11-04 14:58:35,813 - densityPressureThreshold - 1.0
+2016-11-04 14:58:35,815 - densityScale - 0.5
+2016-11-04 14:58:35,815 - densityTension - 0.0
+2016-11-04 14:58:35,815 - friction - 0.0
+2016-11-04 14:58:35,816 - fuelIgnitionTemp - 0.0
+2016-11-04 14:58:35,816 - fuelScale - 1.0
+2016-11-04 14:58:35,818 - gravity - 9.8
+2016-11-04 14:58:35,818 - heatReleased - 1.0
+2016-11-04 14:58:35,819 - lightReleased - 0.0
+2016-11-04 14:58:35,819 - maxReactionTemp - 1.0
+2016-11-04 14:58:35,819 - reactionSpeed - 0.05
+2016-11-04 14:58:35,821 - temperatureDiffusion - 0.1
+2016-11-04 14:58:35,821 - temperatureDissipation - 0.1
+2016-11-04 14:58:35,822 - temperatureNoise - 0.0
+2016-11-04 14:58:35,822 - temperaturePressure - 0.0
+2016-11-04 14:58:35,822 - temperaturePressureThreshold - 0.0
+2016-11-04 14:58:35,822 - temperatureScale - 1.0
+2016-11-04 14:58:35,822 - temperatureTension - 0.0
+2016-11-04 14:58:35,823 - temperatureTurbulence - 0.1
+2016-11-04 14:58:35,823 - tensionForce - 0.0
+2016-11-04 14:58:35,825 - turbulenceFrequency - 0.2
+2016-11-04 14:58:35,825 - turbulenceSpeed - 0.2
+2016-11-04 14:58:35,825 - turbulenceStrength - 0.0
+2016-11-04 14:58:35,825 - velocityDamp - 0.0
+2016-11-04 14:58:35,826 - velocityNoise - 0.0
+2016-11-04 14:58:35,826 - velocitySwirl - 0.0
+2016-11-04 14:58:35,828 - viscosity - 0.0
+2016-11-04 14:58:37,693 - Rendering started
+2016-11-04 14:58:41,573 - Rendering started
+2016-11-04 14:58:47,538 - Rendering started
+2016-11-04 14:58:53,509 - Rendering started
+2016-11-04 14:58:59,497 - Rendering started
+2016-11-04 14:59:09,381 - Rendering started
+2016-11-04 14:59:18,230 - Rendering started
+2016-11-04 14:59:26,914 - Rendering started
+2016-11-04 14:59:35,769 - Rendering started
+2016-11-04 14:59:45,115 - Creating GIF animations:
+2016-11-04 14:59:48,244 - GIF Animation "1" created
+2016-11-04 14:59:51,433 - GIF Animation "2" created
+2016-11-04 15:08:33,141 - #
+2016-11-04 15:08:33,141 - # Simulation successfully created: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5 -
+2016-11-04 15:08:33,142 - #
+2016-11-04 15:08:33,144 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
+2016-11-04 15:08:33,144 - Test instance - use_all_cameras-cache_files_exist - successfully executed
+2016-11-04 15:08:33,145 - Test instance - use_all_cameras-project_file_exists - successfully executed
+2016-11-04 15:08:33,145 - Test instance - use_all_cameras-gif_perspective - successfully executed
+2016-11-04 15:08:33,147 - Test instance - use_all_cameras-gif_viewcube - successfully executed
+2016-11-04 15:08:33,147 - Test instance - use_all_cameras-gif_custom - successfully executed
+2016-11-04 15:08:33,148 - Test instance - use_all_cameras-gif_rotation - successfully executed

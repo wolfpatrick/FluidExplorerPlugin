@@ -10,6 +10,7 @@
 #                                                                                                                      #
 ########################################################################################################################
 
+import sys
 import os
 import webbrowser
 import logging
@@ -19,7 +20,6 @@ from shiboken import wrapInstance
 
 import maya.cmds as cmds
 import maya.OpenMayaUI as omui
-
 
 from FluidExplorerPlugin.ui.FileOpenDialog import FileOpenDialog
 from FluidExplorerPlugin.ui.CreateProjectDialog import CreateProjectDialog
@@ -73,7 +73,7 @@ class ControlMainWindow(QtGui.QMainWindow):
         self.pid = None
 
         # Close fluidexp if running
-        FluidExplorerUtils.killProcess_WIN("fluidexplorer")
+        FluidExplorerUtils.killProcess("fluidexplorer")
 
         # Details View
         self.detailsView = None
@@ -89,6 +89,9 @@ class ControlMainWindow(QtGui.QMainWindow):
             # Animation Start/End Time
             cmds.playbackOptions(animationStartTime=1.00)
             cmds.playbackOptions(animationEndTime=15.00)
+
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
 
 
     # Places the plugin in the maya app
@@ -171,8 +174,8 @@ class ControlMainWindow(QtGui.QMainWindow):
         filePathMain = os.path.dirname(os.path.abspath(__file__))
         fxPathRel = os.path.abspath(filePathMain)
 
-        openDialog = FileOpenDialog(self)
-        [dialogResult, selectedDir, pid] = openDialog.openDirDialog(currentSceneName, fxPathRel)
+        self.openDialog = FileOpenDialog()
+        [dialogResult, selectedDir, pid] = self.openDialog.openDirDialog(currentSceneName, fxPathRel)
 
         # Scene opened flag
         sceneOpened = False
@@ -184,7 +187,7 @@ class ControlMainWindow(QtGui.QMainWindow):
             self.centre()
             self.show()
         else:
-            logging.info("Scene %s successfully opened", selectedDir)
+            self.lgr.info("Scene %s successfully opened", selectedDir)
             sceneOpened = True
             self.pid = pid
 
@@ -207,12 +210,12 @@ class ControlMainWindow(QtGui.QMainWindow):
         helpFunc = MayaFunctionUtils()
         [status, errorMsg, transformNode] = helpFunc.getSelectedContainerPy()
 
-        logging.info("Selected container (type: - transform node): %s",  transformNode)
+        self.lgr.info("Selected container (type: - transform node): %s",  transformNode)
 
         if status == False:
             errorMsg = errorMsg
             #QtGui.QMessageBox.information(self, 'Information1', str(errorMsg), QtGui.QMessageBox.Ok | QtGui.QMessageBox.Ok)
-            logging.warning("%s", errorMsg)
+            self.lgr.warning("%s", errorMsg)
             self.showMessageBox(errorMsg, 'warning')
 
         else:
@@ -222,7 +225,7 @@ class ControlMainWindow(QtGui.QMainWindow):
                 cmds.select(fluidShapeName, r=True)
 
                 self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)    # Hide main window
-                logging.info("Selected container (type: - transform node): %s",  errorMsg)
+                self.lgr.info("Selected container (type: - transform node): %s",  errorMsg)
 
                 # Show create simulation dialog
                 # errorMsg -> fluidName or error message
@@ -238,7 +241,7 @@ class ControlMainWindow(QtGui.QMainWindow):
 
             except ValueError as er:
                 errorMsg = "Cannot use selected fluid container '"+ fluidShapeName + "'" + ".\nDetails: " + er.message
-                logging.error("Cannot use selected fluid container: %s",  er.message)
+                self.lgr.error("Cannot use selected fluid container: %s",  er.message)
                 self.showMessageBox(errorMsg, 'critical')
 
     # Eventhandler - Help button
@@ -268,21 +271,25 @@ class ControlMainWindow(QtGui.QMainWindow):
 
 def main():
 
+    # Logger
+    lgr = logging.getLogger('FluidExplorerPlugin')
+
     # Check if maya version is correct (>= 2014)
     isVersionOK = checkMayaVersion()
     isPlattformOK = checkPlatform()
 
-    logging.info('Maya version correct: %s', isVersionOK)
-    logging.info('Platform correct: %s', isVersionOK)
+    lgr.info(' ')
+    lgr.info('Maya version correct: %s', isVersionOK)
+    lgr.info('Platform correct: %s', isVersionOK)
 
     if not isPlattformOK:
         showMessageBoxPlugin("The current operating system not supported!\nPlease use a Windows based version.", "warning")
-        logging.error('The current operating system not supported')
+        lgr.error('The current operating system not supported')
         return None
 
     if not isVersionOK:
         showMessageBoxPlugin("The current Maya version is not supported!\nPlease install version 2014 or higher.", "warning")
-        logging.error('The current Maya version is not supported')
+        lgr.error('The current Maya version is not supported')
         return None
 
     if isVersionOK and isPlattformOK:
@@ -293,7 +300,8 @@ def main():
 
         # Initialize main window and show in maya
         mainWin = ControlMainWindow( parent = getMayaWindow() )
-        logging.info('FluidExplorer plugin started')
+        lgr.info('FluidExplorer plugin started')
+        lgr.info(' ')
 
         return mainWin
 
@@ -338,3 +346,6 @@ def showMessageBoxPlugin(text, type):
         msgBox.setIcon(QtGui.QMessageBox.Critical)
 
     msgBox.exec_()
+
+
+

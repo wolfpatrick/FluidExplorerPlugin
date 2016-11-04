@@ -7,17 +7,18 @@ import maya.cmds as cmds
 from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
 
 
-#######################################################################################################################
-# READ ME - Test Configuration
-# 1) Set animation start and end time
-#       FluidMain.py: Set runTests=True (~line 74)
-#       Ses animation start time to 1
-#       Ses animation end time to 15
-# 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete TestProjects if exists
-# 3) Create an empty fluid container (with emitter)
-# 4) In CreateProjectDialog uncommit - self.runTests(self.workDirPath) - line 96
-# 4) Run test -> Create Simulation Button
-#######################################################################################################################
+########################################################################################################################
+# READ ME - Test Configuration                                                                                         #
+# 1) Set animation start and end time                                                                                  #
+#       FluidMain.py: Set runTests=True (~line 74)                                                                     #
+#       Ses animation start time to 1                                                                                  #
+#       Ses animation end time to 15                                                                                   #
+# 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete                    #
+#    TestProjects if exists                                                                                            #
+# 3) Create an empty fluid container (with emitter)                                                                    #
+# 4) In CreateProjectDialog uncommit - self.runTests(self.workDirPath) - line 96                                       #
+# 4) Run test -> Create Simulation Button                                                                              #
+########################################################################################################################
 
 
 class Test():

@@ -10,6 +10,9 @@ from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
 
 class SliderContainer(object):
         def __init__(self, property, propertyName, nodeName, fullPropertyName=""):
+            # Logging
+            self.lgr = logging.getLogger('FluidExplorerPlugin')
+
             self.propertyName = propertyName
 
             self.groupBox_Box = QtGui.QWidget()
@@ -286,7 +289,7 @@ class SliderContainer(object):
                 isFieldLocked = cmds.getAttr(cmdStr, lock=True)
                 return isFieldLocked
             except ValueError:
-                logging.warning('Cannot get lock state of attribute: %s', cmdStr)
+                self.lgr.warning('Cannot get lock state of attribute: %s', cmdStr)
                 return isFieldLocked
 
         def translate(self, value, leftMin, leftMax, rightMin, rightMax):
@@ -303,6 +306,8 @@ class SliderContainer(object):
 class ParameterTab(object):
 
     def __init__(self, boxName):
+        # Logging
+        self.lgr = logging.getLogger('FluidExplorerPlugin')
         self.fluidBoxName = boxName
         self.setupTabWidget()
 
@@ -390,7 +395,7 @@ class ParameterTab(object):
         pass
 
     def getSelectedValuesFromSlider(self):
-        logging.info('Read selected values from paramter tab')
+        self.lgr.info('Read selected values from paramter tab')
 
         from Utils.RangeSliderSpan import SliderSpanSelected
 

@@ -2,59 +2,289 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
-      <change type="DELETED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\Main.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame1.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame1.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame10.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame10.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame11.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame11.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame12.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame12.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame13.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame13.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame14.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame14.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame15.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame15.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame2.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame2.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame3.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame3.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame4.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame4.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame5.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame5.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame6.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame6.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame7.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame7.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame8.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame8.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/UntitledFrame9.mc" afterPath="$PROJECT_DIR$/Output/UntitledFrame9.mc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/animation.gif" afterPath="$PROJECT_DIR$/Output/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00002.jpg" afterPath="$PROJECT_DIR$/Output/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00003.jpg" afterPath="$PROJECT_DIR$/Output/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00004.jpg" afterPath="$PROJECT_DIR$/Output/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00005.jpg" afterPath="$PROJECT_DIR$/Output/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00006.jpg" afterPath="$PROJECT_DIR$/Output/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00007.jpg" afterPath="$PROJECT_DIR$/Output/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00008.jpg" afterPath="$PROJECT_DIR$/Output/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00009.jpg" afterPath="$PROJECT_DIR$/Output/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00010.jpg" afterPath="$PROJECT_DIR$/Output/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00011.jpg" afterPath="$PROJECT_DIR$/Output/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00012.jpg" afterPath="$PROJECT_DIR$/Output/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00013.jpg" afterPath="$PROJECT_DIR$/Output/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00014.jpg" afterPath="$PROJECT_DIR$/Output/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/image_00015.jpg" afterPath="$PROJECT_DIR$/Output/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/animation.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00002.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00003.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00004.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00005.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00006.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00007.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00008.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00009.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00010.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00011.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00012.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00013.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00014.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00015.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00015.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" afterPath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" afterPath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" afterPath="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" afterPath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" afterPath="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" afterPath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ParamterTab.py" afterPath="$PROJECT_DIR$/ui/ParamterTab.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsView.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" afterPath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/Test.py" afterPath="$PROJECT_DIR$/ui/Test/Test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output/Untitled.xml" afterPath="$PROJECT_DIR$/Output/Untitled.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" afterPath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
-      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\darkorange.stylesheet" afterPath="$PROJECT_DIR$/ui/Resources/darkorange.stylesheet" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -80,24 +310,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FluidMain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="14098" max-vertical-offset="15036">
+              <caret line="709" column="23" selection-start-line="709" selection-start-column="18" selection-end-line="709" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FluidMain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FluidMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7245">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="120" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6244" max-vertical-offset="7497">
+              <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
               <folding>
-                <element signature="e#1332#1341#0" expanded="true" />
+                <element signature="e#1332#1342#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HRangeSlider.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py">
+      <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5922">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-              <folding />
+            <state vertical-scroll-proportion="0.9142857" vertical-offset="3661" max-vertical-offset="11655">
+              <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+              <folding>
+                <element signature="e#844#876#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +353,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ui/SliderContainers/Dynamic Simulation.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/GifCreatpr.py" />
         <option value="$PROJECT_DIR$/MEL/start_from_shelf.txt" />
         <option value="$PROJECT_DIR$/tmp/runMainFromMaya.txt" />
@@ -135,33 +376,34 @@
         <option value="$PROJECT_DIR$/ui/ChooseCameraDialog.py" />
         <option value="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py" />
-        <option value="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
         <option value="$PROJECT_DIR$/ui/Utils/DefaultUIValues.py" />
         <option value="$PROJECT_DIR$/ui/Resources/darkorange.stylesheet_template" />
         <option value="$PROJECT_DIR$/ui/Utils/PrijectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/LoadFluidCacheFile.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
-        <option value="$PROJECT_DIR$/ui/ParamterTab.py" />
-        <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
-        <option value="$PROJECT_DIR$/ui/Test/Test.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" />
         <option value="$PROJECT_DIR$/ui/Resources/darkorange.stylesheet" />
         <option value="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" />
         <option value="$PROJECT_DIR$/Main.py" />
-        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
         <option value="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
+        <option value="$PROJECT_DIR$/ui/Test/Test.py" />
         <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
+        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+        <option value="$PROJECT_DIR$/ui/ParamterTab.py" />
+        <option value="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
+        <option value="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/FluidMain.py" />
+        <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
       </list>
     </option>
   </component>
@@ -238,6 +480,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -719,7 +1011,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13757455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13712242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -801,12 +1093,23 @@
           <url>file://$PROJECT_DIR$/ui/SliderContainers/DynamicSimulationLayout.py</url>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py</url>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="273" max-vertical-offset="5922">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Icons/icons.qrc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="609">
@@ -840,13 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/SliderContainers/ColorLayout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="798">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainers/DensityLayout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="1302">
@@ -857,19 +1153,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tmp/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tmp/runMainFromMaya.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1007" max-vertical-offset="1974">
+          <caret line="88" column="3" selection-start-line="88" selection-start-column="3" selection-end-line="88" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7273" max-vertical-offset="11088">
+          <caret line="517" column="18" selection-start-line="517" selection-start-column="18" selection-end-line="517" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/RangeSlider/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet_template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17244898" vertical-offset="2498" max-vertical-offset="10584">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="796" max-vertical-offset="5922">
+          <caret line="53" column="15" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/SliderContainers/ColorLayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6206896" vertical-offset="0" max-vertical-offset="798">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainers/DynamicSimulationLayout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-7.2413793" vertical-offset="0" max-vertical-offset="882">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainers/FuelLayout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1092">
+        <state vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="1092">
           <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
         </state>
       </provider>
@@ -883,7 +1254,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainers/TemperatureLayout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="1281">
+        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1281">
           <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
         </state>
       </provider>
@@ -902,171 +1273,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1911">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ParamterTab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.724138" vertical-offset="3611" max-vertical-offset="9177">
-          <caret line="184" column="36" selection-start-line="184" selection-start-column="36" selection-end-line="184" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsViewUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="3444">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="877" max-vertical-offset="11088">
-          <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tmp/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tmp/runMainFromMaya.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1007" max-vertical-offset="1974">
-          <caret line="88" column="3" selection-start-line="88" selection-start-column="3" selection-end-line="88" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialogUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6447">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/DefaultUIValues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="805" max-vertical-offset="1785">
-          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1176">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/GifCreatpr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2079">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="546">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.586206" vertical-offset="3270" max-vertical-offset="4221">
-          <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2821" max-vertical-offset="3801">
-          <caret line="175" column="10" selection-start-line="175" selection-start-column="10" selection-end-line="175" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/XmlFileWriter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3108">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1134">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1218">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,142 +1284,209 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2170" max-vertical-offset="3150">
-          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="712" max-vertical-offset="3150">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="1783" max-vertical-offset="8211">
+          <caret line="100" column="27" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1533">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        <state vertical-scroll-proportion="-9.413794" vertical-offset="0" max-vertical-offset="1533">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/GifCreatpr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="460" max-vertical-offset="2100">
+          <caret line="37" column="53" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="607" max-vertical-offset="1575">
+          <caret line="44" column="112" selection-start-line="44" selection-start-column="110" selection-end-line="44" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75862" vertical-offset="0" max-vertical-offset="525">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/XmlFileWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="1258" max-vertical-offset="3108">
+          <caret line="75" column="14" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialogUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.137931" vertical-offset="5084" max-vertical-offset="6447">
+          <caret line="263" column="26" selection-start-line="263" selection-start-column="26" selection-end-line="263" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-5.0689654" vertical-offset="0" max-vertical-offset="3864">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet">
+    <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7273" max-vertical-offset="11088">
-          <caret line="517" column="18" selection-start-line="517" selection-start-column="18" selection-end-line="517" selection-end-column="18" />
-          <folding />
+        <state vertical-scroll-proportion="0.3234694" vertical-offset="733" max-vertical-offset="5040">
+          <caret line="50" column="40" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/RangeSlider/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-22.655172" vertical-offset="78" max-vertical-offset="1029">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
+    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15015">
-          <caret line="578" column="62" selection-start-line="578" selection-start-column="62" selection-end-line="578" selection-end-column="62" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="1218">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.931034" vertical-offset="4891" max-vertical-offset="20244">
-          <caret line="273" column="35" selection-start-line="273" selection-start-column="35" selection-end-line="273" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/MayaCacheCmdSettings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2569" max-vertical-offset="3549">
-          <caret line="145" column="36" selection-start-line="145" selection-start-column="36" selection-end-line="152" selection-end-column="24" />
-          <folding />
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="5500" max-vertical-offset="20874">
+          <caret line="277" column="34" selection-start-line="277" selection-start-column="29" selection-end-line="277" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.429022" vertical-offset="2772" max-vertical-offset="5775">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="3631" max-vertical-offset="5880">
+          <caret line="188" column="17" selection-start-line="188" selection-start-column="15" selection-end-line="188" selection-end-column="17" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
+    <entry file="file://$PROJECT_DIR$/ui/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87142855" vertical-offset="7147" max-vertical-offset="8127">
-          <caret line="381" column="6" selection-start-line="381" selection-start-column="6" selection-end-line="381" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1911">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py">
+    <entry file="file://$PROJECT_DIR$/ui/MayaCacheCmdSettings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021428572" vertical-offset="42" max-vertical-offset="1386">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-16.862068" vertical-offset="2640" max-vertical-offset="3591">
+          <caret line="149" column="13" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/ParamterTab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.931034" vertical-offset="3673" max-vertical-offset="9282">
+          <caret line="190" column="31" selection-start-line="190" selection-start-column="26" selection-end-line="190" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22292323" vertical-offset="2098" max-vertical-offset="3570">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        <state vertical-scroll-proportion="-2.9655173" vertical-offset="1783" max-vertical-offset="3717">
+          <caret line="89" column="8" selection-start-line="89" selection-start-column="8" selection-end-line="89" selection-end-column="8" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Resources/darkorange.stylesheet_template">
+    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsViewUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17244898" vertical-offset="2498" max-vertical-offset="10584">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.80714285" vertical-offset="2464" max-vertical-offset="3444">
+          <caret line="155" column="107" selection-start-line="155" selection-start-column="107" selection-end-line="155" selection-end-column="107" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py">
+    <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5922">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="987">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ui/Utils/DefaultUIValues.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5362776" vertical-offset="834" max-vertical-offset="1785">
+          <caret line="64" column="8" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7570978" vertical-offset="309" max-vertical-offset="1302">
+          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="14098" max-vertical-offset="15036">
+          <caret line="709" column="23" selection-start-line="709" selection-start-column="18" selection-end-line="709" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FluidMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7245">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="120" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6244" max-vertical-offset="7497">
+          <caret line="351" column="0" selection-start-line="351" selection-start-column="0" selection-end-line="351" selection-end-column="0" />
           <folding>
-            <element signature="e#1332#1341#0" expanded="true" />
+            <element signature="e#1332#1342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9142857" vertical-offset="3661" max-vertical-offset="11655">
+          <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+          <folding>
+            <element signature="e#844#876#0" expanded="true" />
           </folding>
         </state>
       </provider>
