@@ -2,290 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/animation.gif" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/animation.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00002.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00002.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00003.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00003.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00004.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00004.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00005.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00005.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00006.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00006.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00007.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00007.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00008.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00008.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00009.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00009.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00010.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00010.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00011.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00011.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00012.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00012.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00013.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00013.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00014.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00014.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/custom/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/perspective/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_0/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_180/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_270/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/rotation/deg_90/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/FRONT/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/SIDE/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/0/images/viewcube/TOP/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/custom/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/perspective/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_0/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_180/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_270/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/rotation/deg_90/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/FRONT/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/SIDE/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00015.jpg" afterPath="$PROJECT_DIR$/ui/Test/TestProjects/TestProject5/1/images/viewcube/TOP/image_00015.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" afterPath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" afterPath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" afterPath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" afterPath="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" afterPath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ParamterTab.py" afterPath="$PROJECT_DIR$/ui/ParamterTab.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsView.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" afterPath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/Test.py" afterPath="$PROJECT_DIR$/ui/Test/Test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
     <ignored path="FluidExplorerPlugin.iws" />
@@ -310,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="14098" max-vertical-offset="15036">
+            <state vertical-scroll-proportion="0.71768355" vertical-offset="14069" max-vertical-offset="15036">
               <caret line="709" column="23" selection-start-line="709" selection-start-column="18" selection-end-line="709" selection-end-column="23" />
               <folding />
             </state>
@@ -332,14 +49,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9142857" vertical-offset="3661" max-vertical-offset="11655">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3661" max-vertical-offset="11655">
               <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
               <folding>
                 <element signature="e#844#876#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LOG_FILE.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -353,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/GifCreatpr.py" />
         <option value="$PROJECT_DIR$/MEL/start_from_shelf.txt" />
         <option value="$PROJECT_DIR$/tmp/runMainFromMaya.txt" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialogUI_old.py" />
@@ -404,6 +140,7 @@
         <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/FluidMain.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
+        <option value="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
       </list>
     </option>
   </component>
@@ -494,42 +231,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1008,10 +709,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13712242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13712242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1153,13 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tmp/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
@@ -1270,13 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1463,14 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14098" max-vertical-offset="15036">
-          <caret line="709" column="23" selection-start-line="709" selection-start-column="18" selection-end-line="709" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FluidMain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6244" max-vertical-offset="7497">
@@ -1483,11 +1162,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9142857" vertical-offset="3661" max-vertical-offset="11655">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3661" max-vertical-offset="11655">
           <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
           <folding>
             <element signature="e#844#876#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="980">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Test/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71768355" vertical-offset="14069" max-vertical-offset="15036">
+          <caret line="709" column="23" selection-start-line="709" selection-start-column="18" selection-end-line="709" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
