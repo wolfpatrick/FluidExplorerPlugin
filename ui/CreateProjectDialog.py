@@ -98,9 +98,11 @@ class CreateProjectDialog(QtGui.QDialog):
         # self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowMinimizeButtonHint | QtCore.Qt.WindowStaysOnTopHint)
 
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
-        self.runTests(self.workDirPath)
+        # self.runTests(self.workDirPath)
         ###self.setAnimationStartEndTime()
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         # Select the transform node
@@ -444,6 +446,11 @@ class CreateProjectDialog(QtGui.QDialog):
 
             progress.close()
         # --------------------------------------------------------------------------------------------------------------
+
+        # Copy settings file to project folder
+        pathToSettingsFile = os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/Resources/settings_file/fluidExplorer.settings')
+        copySettingsFileTo = os.path.abspath(self.simulationSettings.outputPath + '/fluidExplorer.settings')
+        FluidExplorerUtils.FluidExplorerUtils.copySettingsFile(pathToSettingsFile, copySettingsFileTo)
 
         text = "Simulations successfully created!" + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
         self.showMessageBox("Information", text, 'information')

@@ -4,6 +4,7 @@ import subprocess
 import xml.etree.cElementTree as ET
 import sys
 import logging
+import shutil
 
 import maya.cmds as cmds
 
@@ -169,3 +170,8 @@ class FluidExplorerUtils(object):
                 lgr.error('Process "%s" not closed', processname)
                 lgr.error('Details: %s', e.message)
                 lgr.error('Details: %s', e.message)
+
+
+    @staticmethod
+    def copySettingsFile(scr, dst):
+        shutil.copyfile(scr, dst)
