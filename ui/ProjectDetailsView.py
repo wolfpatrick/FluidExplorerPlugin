@@ -386,6 +386,13 @@ class ProjectDetailsView(QtGui.QDialog):
             self.showMessageBox(strError, 'warning')
             return
 
+        # Check if xml files are available
+        if not len(self.hashMapToXMLProjectFile) == int(self.projectSettings.numberOfSimulations) +1:
+            self.lgr.warning('Number of XML cache files is not correct')
+            errorMsg = "The number of .xml cache files is not correct!\nPlease check the project folder or create the simulation again."
+            self.showMessageBox(errorMsg, 'warning')
+            return
+
         # Check if fluidexplorer app is running
         isFXProcessRunning = ProjectDetailsViewUtils.checkIfProcessIsRunning_WIN(self.FLUIDEXPLORER_APP_NAME)
         if isFXProcessRunning:
