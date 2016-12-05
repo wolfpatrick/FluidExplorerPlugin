@@ -370,7 +370,8 @@ class ProjectDetailsView(QtGui.QDialog):
                     self.lgr.error('%s', e.message)
                     self.showMessageBox(e.message, 'critical')
 
-
+            # Set the values
+            ProjectDetailsViewUtils.applyValuesFromXMLFile(self.PathToXMLCache, self.projectSettings.fluidContainerName)
 
     @QtCore.Slot()
     def exploreSimulationsClicked(self):
@@ -387,7 +388,7 @@ class ProjectDetailsView(QtGui.QDialog):
             return
 
         # Check if xml files are available
-        if not len(self.hashMapToXMLProjectFile) == int(self.projectSettings.numberOfSimulations) +1:
+        if not len(self.hashMapToXMLProjectFile) == int(self.projectSettings.numberOfSimulations) + 1:
             self.lgr.warning('Number of XML cache files is not correct')
             errorMsg = "The number of .xml cache files is not correct!\nPlease check the project folder or create the simulation again."
             self.showMessageBox(errorMsg, 'warning')

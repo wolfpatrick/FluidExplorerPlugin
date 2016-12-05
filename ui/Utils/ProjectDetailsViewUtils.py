@@ -4,6 +4,8 @@ import xml.etree.cElementTree as ET
 import subprocess
 import logging
 
+from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
+
 import maya.cmds as cmds
 
 
@@ -230,6 +232,47 @@ class ProjectDetailsViewUtils():
     def getPathCacheFiles(pathFromDialog):
         # Parent directory
         parDir = os.path.dirname(pathFromDialog)
-        # print parDir
 
         return parDir
+
+    @staticmethod
+    def applyValuesFromXMLFile(path, containerName):
+        lgr = logging.getLogger('FluidExplorerPlugin')
+        lgr.info("Read node propertie from xml file: %s", path)
+
+        file = open(path, 'r')
+        fileContent = file.read()
+
+        if not fileContent:
+            return
+
+        contnetLines = fileContent.splitlines()
+        members = [attr for attr in dir(FluidContainerValues()) if not callable(attr) and not attr.startswith("__")]
+        for member in members:
+            pattern = member + '='
+            for line in contnetLines:
+                if (pattern in line) and ('</extra>' in line):
+                    ind = line.find(pattern)
+
+                    ind1 = ind + len(pattern)
+                    ind2 = line.find('</extra>')
+
+                    value = line[ind1:ind2]
+
+                    try:
+                        valueInt = float(value)
+
+                        # Set value in maya
+                        import maya.cmds as cmds
+                        tmpContainer = containerName + '.' + member
+
+                        try:
+                            cmds.setAttr(tmpContainer, valueInt)
+                        except Exception as e:
+                            lgr.warning("Cannot set maya attribute for: %s", member)
+
+                    except Exception as e:
+                        lgr.warning("Cannot read value for: %s", member)
+
+                    finally:
+                        break
