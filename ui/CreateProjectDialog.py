@@ -812,7 +812,7 @@ class CreateProjectDialog(QtGui.QDialog):
         # Calculate time in seconds
         timeInSeconds = (self.time_Caching + (numberCameras * (self.time_Renering+self.time_GIF))) * numberSamples
 
-        if timeInSeconds > 300:
+        if timeInSeconds > 3599:
             str = time.strftime("%H:%M", time.gmtime(timeInSeconds))
             timeStr = str + ' h.'
 
