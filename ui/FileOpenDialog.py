@@ -20,6 +20,7 @@ class FileOpenDialog(QtGui.QDialog):
     def __init__(self):
         QtGui.QDialog.__init__(self)
         self.lgr = logging.getLogger('FluidExplorerPlugin')
+
     """
     #
     # NUT IN USE
@@ -71,6 +72,13 @@ class FileOpenDialog(QtGui.QDialog):
         isNumberOk = True
         canReadConfigFile = True
 
+        fileExists = os.path.exists(choosenDir)
+        if not fileExists:
+            canReadConfigFile = False
+            self.lgr.warning("File does not exist: %s", choosenDir)
+            errorText = "Project configuration file does not exists!"
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
+
         try:
             tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'ProjectName')
             tmpPath = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'MayaFilePath')
@@ -79,7 +87,7 @@ class FileOpenDialog(QtGui.QDialog):
         except:
             canReadConfigFile = False
             errorText = "An error occured while loading the project configuration file!"
-            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText]
 
         if tmpSimulationName == "" or tmpSimulationName == None:
             canReadConfigFile = False

@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" afterPath="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ParamterTab.py" afterPath="$PROJECT_DIR$/ui/ParamterTab.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" afterPath="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" afterPath="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
     <ignored path="FluidExplorerPlugin.iws" />
@@ -46,10 +41,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="image_00013.jpg" pinned="false" current-in-tab="true">
+      <file leaf-file-name="image_00013.jpg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Output/image_00013.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="7191" max-vertical-offset="11508">
+              <caret line="372" column="28" selection-start-line="372" selection-start-column="28" selection-end-line="372" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileOpenDialog.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5040816" vertical-offset="955" max-vertical-offset="5901">
+              <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -98,7 +113,6 @@
         <option value="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
         <option value="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
         <option value="$PROJECT_DIR$/ui/Test/Test.py" />
-        <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
         <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
@@ -113,6 +127,7 @@
         <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
         <option value="$PROJECT_DIR$/ui/ParamterTab.py" />
+        <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
       </list>
     </option>
   </component>
@@ -189,6 +204,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FluidExplorerPlugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -666,7 +695,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -881,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="5733">
-          <caret line="204" column="38" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1911">
@@ -955,13 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="7535" max-vertical-offset="11823">
-          <caret line="373" column="101" selection-start-line="373" selection-start-column="101" selection-end-line="373" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95557964" vertical-offset="0" max-vertical-offset="1533">
@@ -973,13 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8039003" vertical-offset="182" max-vertical-offset="1197">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1415" max-vertical-offset="3654">
-          <caret line="176" column="33" selection-start-line="176" selection-start-column="33" selection-end-line="176" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1110,6 +1118,30 @@
     <entry file="file://$PROJECT_DIR$/Output/image_00013.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33265308" vertical-offset="73" max-vertical-offset="3654">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7191" max-vertical-offset="11508">
+          <caret line="372" column="28" selection-start-line="372" selection-start-column="28" selection-end-line="372" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5040816" vertical-offset="955" max-vertical-offset="5901">
+          <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
