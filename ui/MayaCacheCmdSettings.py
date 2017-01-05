@@ -17,6 +17,7 @@ class MayaCacheCmdSettings(object):
         self._createCacheCommandString = ""
         self._simulationNameMB = ""
         self._imageView = 0
+        self._sampledValuesString = ""
 
     @property
     def fluidBoxName(self):
@@ -146,21 +147,35 @@ class MayaCacheCmdSettings(object):
     def numberOfFrames(self, value):
         self._numberOfFrames = value
 
+    """
+    sampledValuesString: contains the names of the attributes which the user selected for sampling.
+                        e.g: Noise,0.0,1.0;Diffusion,0,2: ...
+                        --> <value1,minRange,maxRange;value2,minRange,maxRange;value3,minRange,maxRange>
+    """
+    @property
+    def sampledValuesString(self):
+        return self._sampledValuesString
+
+    @sampledValuesString.setter
+    def sampledValuesString(self, value):
+        self._sampledValuesString = value
+
     @staticmethod
     def printValues(valuesGeneral):
         lgr = logging.getLogger('FluidExplorerPlugin')
 
         lgr.info('Project settings:')
         lgr.info("  Proj. Name: %s", str(valuesGeneral.prjName))
-        lgr.info("  Output Path: %s" + str(valuesGeneral.outputPath))
-        lgr.info("  Fluid container: %s" + str(valuesGeneral.fluidBoxName))
-        lgr.info("  Num. Samples: %s" + str(valuesGeneral.numberSamples))
-        lgr.info("  Num. Frames: %s" + str(valuesGeneral.numberOfFrames))
-        lgr.info("  Scene Name: %s" + str(valuesGeneral.simulationNameMB))
-        lgr.info("  Images available: %s" + str(valuesGeneral.imageView))
-        lgr.info("  Camera Perspective: %s" + str(valuesGeneral.cam_perspective))
-        lgr.info("  Camera ViewCube: %s" + str(valuesGeneral.cam_viewcube))
-        lgr.info("  Camera Custom: %s" + str(valuesGeneral.cam_sphere) + "/" + str(valuesGeneral.cam_custom_name))
-        lgr.info("  Camera Rotation: %s" + str(valuesGeneral.cam_rotation))
-        lgr.info("  Animation Start Time: %s" + str(valuesGeneral.animationStartTime))
-        lgr.info("  Animation End Time: %s" + str(valuesGeneral.animationEndTime))
+        lgr.info("  Output Path: %s", str(valuesGeneral.outputPath))
+        lgr.info("  Fluid Container: %s", str(valuesGeneral.fluidBoxName))
+        lgr.info("  Num. Samples: %s", str(valuesGeneral.numberSamples))
+        lgr.info("  Num. Frames: %s", str(valuesGeneral.numberOfFrames))
+        lgr.info("  Scene Name: %s", str(valuesGeneral.simulationNameMB))
+        lgr.info("  Available Images: %s", str(valuesGeneral.imageView))
+        lgr.info("  Camera Perspective: %s", str(valuesGeneral.cam_perspective))
+        lgr.info("  Camera ViewCube: %s", str(valuesGeneral.cam_viewcube))
+        lgr.info("  Camera Custom: %s", str(valuesGeneral.cam_sphere) + "/" + str(valuesGeneral.cam_custom_name))
+        lgr.info("  Camera Rotation: %s", str(valuesGeneral.cam_rotation))
+        lgr.info("  Animation Start Time: %s", str(valuesGeneral.animationStartTime))
+        lgr.info("  Animation End Time: %s", str(valuesGeneral.animationEndTime))
+        lgr.info("  String Sampled Values: %s", str(valuesGeneral.sampledValuesString))

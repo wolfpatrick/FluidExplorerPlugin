@@ -14,12 +14,13 @@ class SliderContainer(object):
             self.lgr = logging.getLogger('FluidExplorerPlugin')
 
             self.propertyName = propertyName
+            self.propertyString = property
 
             self.groupBox_Box = QtGui.QWidget()
             gridLayout_Box = QtGui.QGridLayout()
             self.groupBox_Box.setLayout(gridLayout_Box)
 
-            QtGui.QToolTip.setFont(QtGui.QFont('SansSerif', 10))
+            QtGui.QToolTip.setFont(QtGui.QFont('MS Shell', 10))
             txt = "<span style=\" font-size:8pt;\">" + property + "</span>"
             self.label = QtGui.QLabel(txt)
 
@@ -45,6 +46,11 @@ class SliderContainer(object):
             self.rangeSlider.setValues([sliderMinValue, sliderMaxValue])
             self.rangeSlider.setEmitWhileMoving(True)
             self.resetButton = QtGui.QPushButton("Reset all Values")
+
+            if len(fullPropertyName) > 0:
+                self.labelName = fullPropertyName
+            else:
+                self.labelName = self.propertyString
 
             # Lock icon
             self.pix = QtGui.QPixmap(":/icon_lock.png").scaled(12, 12)
@@ -402,6 +408,7 @@ class ParameterTab(object):
         self.selectedSliderValues = SliderSpanSelected(self.DynamicSimulationLayout, self.DensityLayout,
                                                        self.VelocityLayout, self.TurbulenceLayout,
                                                        self.TemperatureLayout, self.FuelLayout, self.ColorLayout)
+
         return self.selectedSliderValues
 
     def randomValuesSnapshot(self):

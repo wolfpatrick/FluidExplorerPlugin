@@ -2,11 +2,21 @@ import random
 import logging
 
 
+class UsedSpansMinMax():
+
+    def __init__(self):
+        self.min = ""
+        self.max = ""
+        self.name = ""
+
 class SliderSpanSelected():
     def __init__(self, dynamicSimulationLayout, densityLayout, velocityLayout, turbulenceLayout, temperatureLayout, fuelLayout, colorLayout):
 
         # Logging
         self.lgr = logging.getLogger('FluidExplorerPlugin')
+
+        # Stores a list with objects of 'UsedSpansMinMax' which  saves all ranges used by the user
+        self.usedSpansMinMax = list()
 
         self.gravity_Span = self.setSpanValues(dynamicSimulationLayout.containerGravity)
         self.viscosity_Span = self.setSpanValues(dynamicSimulationLayout.containerViscosity)
@@ -56,11 +66,29 @@ class SliderSpanSelected():
         if container.checkBox.isChecked():
             infoTxt = (container.label.text(), ": ", container.lineEditMin.text(), container.lineEditMax.text())
             self.lgr.info(infoTxt)
+
+            # Add to list
+            objUsdRanges = self.createUsedRangesAndMinMaxValues(container)
+            self.usedSpansMinMax.append(objUsdRanges)
+
             return [container.lineEditMin.text(), container.lineEditMax.text()]
         else:
             infoTxt = (container.label.text(), ": ", container.lineEditDefault.text())
             self.lgr.info(infoTxt)
             return [container.lineEditDefault.text(), container.lineEditDefault.text()]
+
+    def createUsedRangesAndMinMaxValues(self, container):
+        tmp = UsedSpansMinMax()
+        tmp.min = container.rangeSlider.minValue
+        tmp.max = container.rangeSlider.maxValue
+        tmp.name = container.labelName
+
+        return tmp
+
+    def foo(self):
+        return self.usedSpansMinMax
+
+
 
 
 class FluidContainerValues():

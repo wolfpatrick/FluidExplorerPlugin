@@ -276,6 +276,22 @@ class CreateProjectDialog(QtGui.QDialog):
         self.simulationSettings.numberSamples = self.ui.horizontalSlider_numberSeq.value()
         self.setCameraButtonSelection()
 
+        # Get current spans: Stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
+        currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
+
+        # Get a list of all the sliders which were used and also save min and max values
+        concatenatedString = ""
+        delimiter_1 = ','
+        delimiter_2 = ';'
+        for iIndex in range(0, len(currentSpans.usedSpansMinMax)):
+            str_min = str(round(currentSpans.usedSpansMinMax[iIndex].min, 1))
+            str_max = str(round(currentSpans.usedSpansMinMax[iIndex].max, 1))
+            str_val = str(currentSpans.usedSpansMinMax[iIndex].name)
+            tmp = str_val + delimiter_1 + str_min + delimiter_1 + str_max
+            concatenatedString += (tmp + delimiter_2)
+        concatenatedString = concatenatedString[0:len(concatenatedString)-1]   # delete the last delimeter
+        self.simulationSettings.sampledValuesString = concatenatedString
+
         # Show setting parameters in console and create xml file
         MayaCacheCmdSettings.printValues(self.simulationSettings)
         fileCreated = self.createProjectSettingsFile(simulationNameAbsolut)
@@ -292,7 +308,7 @@ class CreateProjectDialog(QtGui.QDialog):
         # --------------------------------------------------------------------------------------------------------------
 
         # Current spans stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
-        currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
+        # currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
 
         randomSamplesList = list()
         cacheCmdList = list()
@@ -457,6 +473,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Select the transform node
         cmds.select(self.transformNode, r=True)
+
         self.lgr.info('#')
         self.lgr.info("# Simulation successfully created: %s -", self.simulationSettings.outputPath)
         self.lgr.info('#')

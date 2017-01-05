@@ -19,6 +19,7 @@ class XmlFileWriter():
     rotationCamera = ""
     animationStartTime = ""
     animationEndTime = ""
+    sampledValuesNameRange = ""
 
     def __init__(self):
         pass
@@ -36,8 +37,9 @@ class XmlFileWriter():
         # Add children (project settings)
         el_ProjectPath = xml.SubElement(appt, "ProjectPath")
         el_ProjectPath.text = self.projectPath
+        #xml.SubElement(appt,'\n')
 
-        el_ProjectName = xml.SubElement(appt, "ProjectName")
+        el_ProjectName = xml.SubElement(appt, "ProjectName", )
         el_ProjectName.text = self.projectName
 
         el_FluidBoxName = xml.SubElement(appt, "FluidBoxName")
@@ -73,15 +75,37 @@ class XmlFileWriter():
         el_AnimationEndTime = xml.SubElement(appt, "AnimationEndTime")
         el_AnimationEndTime.text = self.animationEndTime
 
+        el_SampledValuesNameRange = xml.SubElement(appt, "SampledValuesNameRange")
+        el_SampledValuesNameRange.text = self.sampledValuesNameRange
+
+        self.indent(appt)
+
         # Create file
         tree = xml.ElementTree(appt)
 
         try:
             with open(self.path, "w") as fh:
-                tree.write(fh)
+                tree.write(fh, encoding="utf-8", xml_declaration=True)
                 return True
         except:
             return False
+
+    # Source:
+    # http://stackoverflow.com/questions/3095434/inserting-newlines-in-xml-file-generated-via-xml-etree-elementtree-in-python
+    def indent(self, elem, level=0):
+        i = "\n" + level*"  "
+        if len(elem):
+            if not elem.text or not elem.text.strip():
+                elem.text = i + "  "
+            if not elem.tail or not elem.tail.strip():
+                elem.tail = i
+            for elem in elem:
+                self.indent(elem, level+1)
+            if not elem.tail or not elem.tail.strip():
+                elem.tail = i
+        else:
+            if level and (not elem.tail or not elem.tail.strip()):
+                elem.tail = i
 
     # Add nodes
     def writeSettingToXmlFile(self, projectSetting):
@@ -99,6 +123,7 @@ class XmlFileWriter():
         self.addElement_MayaFilePath(projectSetting.simulationNameMB)
         self.addElement_AnimationStartTime(projectSetting.animationStartTime)
         self.addElement_AnimationEndTime(projectSetting.animationEndTime)
+        self.addElement_SampledValuesNameRange(projectSetting.sampledValuesString)
 
         self.writeValuesInFile()
 
@@ -140,3 +165,6 @@ class XmlFileWriter():
 
     def addElement_AnimationEndTime(self, value):
         self.animationEndTime = str(value)
+
+    def addElement_SampledValuesNameRange(self, value):
+        self.sampledValuesNameRange = str(value)
