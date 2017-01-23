@@ -8,6 +8,7 @@ class UsedSpansMinMax():
         self.min = ""
         self.max = ""
         self.name = ""
+        self.nameForPattern = "'"
 
 class SliderSpanSelected():
     def __init__(self, dynamicSimulationLayout, densityLayout, velocityLayout, turbulenceLayout, temperatureLayout, fuelLayout, colorLayout):
@@ -82,6 +83,7 @@ class SliderSpanSelected():
         tmp.min = container.rangeSlider.minValue
         tmp.max = container.rangeSlider.maxValue
         tmp.name = container.labelName
+        tmp.nameForPattern = container.propertyName
 
         return tmp
 

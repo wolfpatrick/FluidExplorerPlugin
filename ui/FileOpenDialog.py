@@ -77,7 +77,7 @@ class FileOpenDialog(QtGui.QDialog):
             canReadConfigFile = False
             self.lgr.warning("File does not exist: %s", choosenDir)
             errorText = "Project configuration file does not exists!"
-            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText]
 
         try:
             tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'ProjectName')
@@ -92,7 +92,7 @@ class FileOpenDialog(QtGui.QDialog):
         if tmpSimulationName == "" or tmpSimulationName == None:
             canReadConfigFile = False
             errorText = "An error occured while loading the project configuration file!\nProperty: 'MayaFilePath'"
-            return [canReadConfigFile, isNumberOk, isSameScene, errorText ]
+            return [canReadConfigFile, isNumberOk, isSameScene, errorText]
 
         # Check if same scene opened
         tmpSimulationName_low = tmpSimulationName.lower()

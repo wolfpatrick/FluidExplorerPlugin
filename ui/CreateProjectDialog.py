@@ -287,8 +287,12 @@ class CreateProjectDialog(QtGui.QDialog):
             str_min = str(round(currentSpans.usedSpansMinMax[iIndex].min, 1))
             str_max = str(round(currentSpans.usedSpansMinMax[iIndex].max, 1))
             str_val = str(currentSpans.usedSpansMinMax[iIndex].name)
-            tmp = str_val + delimiter_1 + str_min + delimiter_1 + str_max
+            str_val_name_pattern = str(currentSpans.usedSpansMinMax[iIndex].nameForPattern)
+
+            tmp = str_val + delimiter_1 + str_min + delimiter_1 + str_max + delimiter_1 + str_val_name_pattern
             concatenatedString += (tmp + delimiter_2)
+
+        # e.g. Gravity,0.0,10.0,gravity;Viscosity,0.0,1.0,viscosity;Density Scale,0.0,2.0,densityScale
         concatenatedString = concatenatedString[0:len(concatenatedString)-1]   # delete the last delimeter
         self.simulationSettings.sampledValuesString = concatenatedString
 
