@@ -5,6 +5,7 @@ import subprocess
 import logging
 
 from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
+from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
 
 import maya.cmds as cmds
 
@@ -67,6 +68,8 @@ class ProjectDetailsViewUtils():
             projectSettings.animationEndTime = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'AnimationEndTime')
             projectSettings.cam_persp = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'PerspectiveCamera')
             projectSettings.cam_vc = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'ViewCubeCamera')
+            projectSettings.cam_custom = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'CustomCamera')
+            projectSettings.cam_rotation = ProjectDetailsViewUtils.readAttributeFromXmlConfigurationsFile(xml_file, 'RotationCamera')
 
         except Exception as e:
             errorTxt = "Cannot read project attributes! Details: " + str(e.message)
@@ -91,7 +94,7 @@ class ProjectDetailsViewUtils():
         return files_xml
 
     @staticmethod
-    def getGIFHashMap(projectSettings):
+    def getGIFHashMap(projectSettings, projectPath):
         hashMapToGIF = {}
 
         try:
@@ -102,7 +105,7 @@ class ProjectDetailsViewUtils():
         if num > 0:
             for i in range(num):
                 if projectSettings.cam_persp == '1':
-                    tmp = '{0}/{1}/{2}/{3}/{4}'.format(projectSettings.projectPath, i, 'images', 'perspective', 'animation.gif')
+                    tmp = '{0}/{1}/{2}/{3}/{4}'.format(projectPath, i, 'images', 'perspective', 'animation.gif')
 
                     path = os.path.abspath(tmp)
                     path = path.replace('\\', '/')
@@ -110,7 +113,21 @@ class ProjectDetailsViewUtils():
                         hashMapToGIF[i] = path
 
                 elif projectSettings.cam_vc == '1':
-                    tmp = '{0}/{1}/{2}/{3}/{4}/{5}'.format(projectSettings.projectPath, i, 'images', 'viewcube', 'front', 'animation.gif')
+                    tmp = '{0}/{1}/{2}/{3}/{4}/{5}'.format(projectPath, i, 'images', 'viewcube', 'front', 'animation.gif')
+                    path = os.path.abspath(tmp)
+                    path = path.replace('\\', '/')
+                    if os.path.exists(path):
+                        hashMapToGIF[i] = path
+
+                elif projectSettings.cam_custom != 'None':
+                    tmp = '{0}/{1}/{2}/{3}/{4}'.format(projectPath, i, 'images', 'custom', 'animation.gif')
+                    path = os.path.abspath(tmp)
+                    path = path.replace('\\', '/')
+                    if os.path.exists(path):
+                        hashMapToGIF[i] = path
+
+                elif projectSettings.cam_rotation != '0':
+                    tmp = '{0}/{1}/{2}/{3}/{4}'.format(projectPath, i, 'images', 'rotation_0', 'animation.gif')
                     path = os.path.abspath(tmp)
                     path = path.replace('\\', '/')
                     if os.path.exists(path):
@@ -163,8 +180,11 @@ class ProjectDetailsViewUtils():
 
     @staticmethod
     def checkIfProcessExistsAndClose(processName):
+        print "patrick"
         if ProjectDetailsViewUtils != None:
+            print "patrick w"
             ProjectDetailsViewUtils.killProcess_WIN(processName)
+            FluidExplorerUtils.killProcess("fluidexplorer")
 
     @staticmethod
     def checkIfCorrectSceneIsOpened(currentScenePath, scenePathConfigFile):
@@ -205,13 +225,17 @@ class ProjectDetailsViewUtils():
     def find(s, ch):
         return [i for i, ltr in enumerate(s) if ltr == ch]
 
-
     @staticmethod
     def getPathFluidExplorer():
         filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
+        # TODO - Insert correct path
         filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
         fxPathRel = os.path.abspath(filename)
+
+        print filePathMainParent
+        print filename
+        print fxPathRel
 
         '''
         if sys.platform.startswith('win'):
@@ -276,3 +300,34 @@ class ProjectDetailsViewUtils():
 
                     finally:
                         break
+
+    @staticmethod
+    def get_favorites(proj_dir):
+        file_path = proj_dir + '/fluidExplorer.favorites'
+        search_pattern = 'favorites='
+        if os.path.exists(file_path):
+
+            f = open(file_path, "r")
+            lines = f.readlines()
+            f.close()
+
+        if len(lines) > 0:
+
+            for line in lines:
+                if 'favorites=' in line:
+                    favorites_str = line[line.index(search_pattern) + len(search_pattern):]
+                    favorites_elements = favorites_str.split(';')
+
+                    list_of_favorites = []
+                    for element in favorites_elements:
+                        if '1' in element:
+                            list_of_favorites.append(True)
+                        else:
+                            list_of_favorites.append(False)
+
+            return list_of_favorites
+
+        else:
+            return []
+
+        pass

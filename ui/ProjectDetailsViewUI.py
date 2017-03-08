@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\DetailsViewUI.ui'
 #
-# Created: Wed Aug 10 11:54:10 2016
+# Created: Fri Jan 27 11:46:27 2017
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_ProjectDetailsView(object):
     def setupUi(self, ProjectDetailsView):
         ProjectDetailsView.setObjectName("ProjectDetailsView")
-        ProjectDetailsView.resize(340, 622)
+        ProjectDetailsView.resize(340, 629)
         self.label_projectName = QtGui.QLabel(ProjectDetailsView)
         self.label_projectName.setGeometry(QtCore.QRect(20, 48, 91, 21))
         font = QtGui.QFont()
@@ -108,7 +108,7 @@ class Ui_ProjectDetailsView(object):
         self.label_loadSimulation.setStyleSheet("")
         self.label_loadSimulation.setObjectName("label_loadSimulation")
         self.label_preview = QtGui.QLabel(ProjectDetailsView)
-        self.label_preview.setGeometry(QtCore.QRect(20, 356, 271, 30))
+        self.label_preview.setGeometry(QtCore.QRect(20, 378, 271, 30))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setWeight(75)
@@ -118,12 +118,12 @@ class Ui_ProjectDetailsView(object):
         self.label_preview.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_preview.setObjectName("label_preview")
         self.line_3 = QtGui.QFrame(ProjectDetailsView)
-        self.line_3.setGeometry(QtCore.QRect(20, 387, 300, 1))
+        self.line_3.setGeometry(QtCore.QRect(20, 409, 300, 1))
         self.line_3.setFrameShape(QtGui.QFrame.HLine)
         self.line_3.setFrameShadow(QtGui.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.label_moviePreview = QtGui.QLabel(ProjectDetailsView)
-        self.label_moviePreview.setGeometry(QtCore.QRect(20, 403, 300, 200))
+        self.label_moviePreview.setGeometry(QtCore.QRect(20, 425, 300, 200))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label_moviePreview.setFont(font)
@@ -132,13 +132,19 @@ class Ui_ProjectDetailsView(object):
         self.label_moviePreview.setText("")
         self.label_moviePreview.setObjectName("label_moviePreview")
         self.pushButton_exploreSimulations = QtGui.QPushButton(ProjectDetailsView)
-        self.pushButton_exploreSimulations.setGeometry(QtCore.QRect(20, 317, 301, 23))
+        self.pushButton_exploreSimulations.setGeometry(QtCore.QRect(20, 341, 301, 23))
         self.pushButton_exploreSimulations.setText("Explore Simulations  ...")
         self.pushButton_exploreSimulations.setObjectName("pushButton_exploreSimulations")
         self.pushButton_help = QtGui.QPushButton(ProjectDetailsView)
         self.pushButton_help.setGeometry(QtCore.QRect(300, 211, 24, 24))
         self.pushButton_help.setText("")
         self.pushButton_help.setObjectName("pushButton_help")
+        self.label_fluidContainer_2 = QtGui.QLabel(ProjectDetailsView)
+        self.label_fluidContainer_2.setGeometry(QtCore.QRect(21, 313, 301, 20))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_fluidContainer_2.setFont(font)
+        self.label_fluidContainer_2.setObjectName("label_fluidContainer_2")
 
         self.retranslateUi(ProjectDetailsView)
         QtCore.QMetaObject.connectSlotsByName(ProjectDetailsView)
@@ -153,6 +159,7 @@ class Ui_ProjectDetailsView(object):
         self.label_fluidContainer.setText(QtGui.QApplication.translate("ProjectDetailsView", "Fluid Container", None, QtGui.QApplication.UnicodeUTF8))
         self.label_startTime.setText(QtGui.QApplication.translate("ProjectDetailsView", "Start Time", None, QtGui.QApplication.UnicodeUTF8))
         self.label_endTime.setText(QtGui.QApplication.translate("ProjectDetailsView", "End Time", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_loadSimulation.setText(QtGui.QApplication.translate("ProjectDetailsView", "Load Sequence", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_loadSimulation.setText(QtGui.QApplication.translate("ProjectDetailsView", "Load Simulation", None, QtGui.QApplication.UnicodeUTF8))
         self.label_preview.setText(QtGui.QApplication.translate("ProjectDetailsView", "Simulation Preview", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_fluidContainer_2.setText(QtGui.QApplication.translate("ProjectDetailsView", "File: -", None, QtGui.QApplication.UnicodeUTF8))
 

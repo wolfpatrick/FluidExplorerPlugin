@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>622</height>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -290,7 +290,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>356</y>
+     <y>378</y>
      <width>271</width>
      <height>30</height>
     </rect>
@@ -316,7 +316,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>387</y>
+     <y>409</y>
      <width>300</width>
      <height>1</height>
     </rect>
@@ -329,7 +329,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>403</y>
+     <y>425</y>
      <width>300</width>
      <height>200</height>
     </rect>
@@ -353,7 +353,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>317</y>
+     <y>341</y>
      <width>301</width>
      <height>23</height>
     </rect>
@@ -373,6 +373,24 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_fluidContainer_2">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>313</y>
+     <width>301</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>File: -</string>
    </property>
   </widget>
  </widget>

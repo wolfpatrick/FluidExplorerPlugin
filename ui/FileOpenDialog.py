@@ -23,7 +23,7 @@ class FileOpenDialog(QtGui.QDialog):
 
     """
     #
-    # NUT IN USE
+    # NOT IN USE
     #
     def openSimulation(self, choosenFile, fxPathRoot):
         # choosenFile: Path to the .fxp file
@@ -223,17 +223,17 @@ class FileOpenDialog(QtGui.QDialog):
                            "Please check if the the node '" + tmpFluidNodeName + "' exists."]
 
     def showMessageBox(self, errorMsg, type):
-        msgBox = QtGui.QMessageBox(self)
-        msgBox.setText(errorMsg)
+        self.msgBox = QtGui.QMessageBox(self)
+        self.msgBox.setText(errorMsg)
         if type == 'critical':
-            msgBox.setWindowTitle("Error - Load Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Critical)
+            self.msgBox.setWindowTitle("Error - Load Simulation")
+            self.msgBox.setIcon(QtGui.QMessageBox.Critical)
         if type == 'warning':
-            msgBox.setWindowTitle("Warning - Load Simulation")
-            msgBox.setIcon(QtGui.QMessageBox.Warning)
+            self.msgBox.setWindowTitle("Warning - Load Simulation")
+            self.msgBox.setIcon(QtGui.QMessageBox.Warning)
 
-        msgBox.setStyleSheet(DefaultUIParameters.buttonStyleBold)
-        msgBox.exec_()
+        self.msgBox.setStyleSheet(DefaultUIParameters.buttonStyleBold)
+        self.msgBox.exec_()
 
     # The dialog to get to the directory of the simulations
     def openDirDialogQuick(self):

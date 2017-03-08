@@ -73,7 +73,7 @@ class ControlMainWindow(QtGui.QMainWindow):
         self.pid = None
 
         # Close fluidexp if running
-        FluidExplorerUtils.killProcess("fluidexplorer")
+        #FluidExplorerUtils.killProcess("fluidexplorer")
 
         # Details View
         self.detailsView = None
@@ -89,6 +89,8 @@ class ControlMainWindow(QtGui.QMainWindow):
             # Animation Start/End Time
             cmds.playbackOptions(animationStartTime=1.00)
             cmds.playbackOptions(animationEndTime=15.00)
+
+        FluidExplorerUtils.killProcess("fluidexplorer")
 
         # Logging
         self.lgr = logging.getLogger('FluidExplorerPlugin')
@@ -268,6 +270,18 @@ class ControlMainWindow(QtGui.QMainWindow):
         # close (x button) event
         FluidExplorerUtils.killProcess("fluidexplorer")
 
+    """
+    def FXScriptJob(self):
+        pass
+            #self.close()
+            #import maya.cmds as cmds
+            #sJob1 = cmds.scriptJob(event=['deleteAll', self.ScriptJobMethodCall])        # new file
+            #sJob2 = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
+
+
+    def ScriptJobMethodCall(self):
+    #self.hide()
+    """
 
 def main():
 
@@ -293,7 +307,6 @@ def main():
         return None
 
     if isVersionOK and isPlattformOK:
-
         # Check if a window has already been opened. If yes, close it. Otherwise create new maya main window
         if cmds.window("FluidExplorer",ex=True) == 1:
             cmds.deleteUI("FluidExplorer")
@@ -302,6 +315,7 @@ def main():
         mainWin = ControlMainWindow( parent = getMayaWindow() )
         lgr.info('FluidExplorer plugin started')
         lgr.info(' ')
+        #FXScriptJob();
 
         return mainWin
 
@@ -347,5 +361,15 @@ def showMessageBoxPlugin(text, type):
 
     msgBox.exec_()
 
+"""
+def FXScriptJob():
+    #self.close()
+    import maya.cmds as cmds
+    #import maya.cmds as cmds
+    sJob1 = cmds.scriptJob(event=['deleteAll', ScriptJobMethodCall])        # new file
+    #sJob2 = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
 
+def ScriptJobMethodCall():
+        #cmd.deleteUI("FluidExplorer")
 
+"""

@@ -16,6 +16,8 @@
 		<file>icon_fluidexplorer_black.png</file>
 		<file>down_arrow.png</file>
 		<file>darkorange-stylesheet</file>
+		<file>favorites_off.png</file>
+		<file>favorites_on.png</file>
 
      </qresource>
 </RCC>

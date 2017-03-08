@@ -64,6 +64,7 @@ class ProjectDetailsView(QtGui.QDialog):
         # Stores th path to the XML file
         self.pathToXMLFile = pathToXMLFile
         self.PathToXMLCache = ''
+        self.selectedProjectFolder = ''
 
         # Members
         self.projectSettings = None
@@ -83,6 +84,9 @@ class ProjectDetailsView(QtGui.QDialog):
         [xPos, yPos] = self.moveWindowToPanel()
         self.move(xPos, yPos)
 
+        # Load icons
+        self.init_icons()
+
         # QMovie
         self.movie = QtGui.QMovie(self)
 
@@ -99,6 +103,15 @@ class ProjectDetailsView(QtGui.QDialog):
         self.setWindowFlags(self.windowFlags() |
             QtCore.Qt.WindowMinimizeButtonHint |
             QtCore.Qt.WindowStaysOnTopHint)
+
+        # Check if project file correct
+        if not os.path.exists(self.pathToXMLFile):
+            self.lgr.warning('Cannot load project file')
+            self.showMessageBox('The project file could not be loaded!', 'warning')
+            self.close(0)
+            return
+        elif os.path.exists(self.pathToXMLFile):
+            self.selectedProjectFolder = os.path.dirname(self.pathToXMLFile)
 
         self.show()
 
@@ -120,6 +133,9 @@ class ProjectDetailsView(QtGui.QDialog):
         self.FXScriptJob()
         self._rcwin = 1
 
+        # File watcher
+        self.init_file_watcher()
+
         # External call
         self.externalCall = ExternalCallSetting()
         self.setupExternallCall()
@@ -127,6 +143,11 @@ class ProjectDetailsView(QtGui.QDialog):
         self.lgr.info('Load project view created')
         self.lgr.info('Project path: %s', pathToXMLFile)
 
+
+    def init_icons(self):
+        self.icon_help = QtGui.QIcon(QtGui.QPixmap(':/help_icon_orange.png'))
+        self.fav_icon_on = QtGui.QIcon(QtGui.QPixmap(':/favorites_on.png'))
+        self.fav_icon_off = QtGui.QIcon(QtGui.QPixmap(':/favorites_off.png'))
 
     def setPathToProjectFile(self, path):
         self.pathToXMLFile = path
@@ -165,16 +186,17 @@ class ProjectDetailsView(QtGui.QDialog):
         self.setMaximumWidth(340)
 
     def setWindowHeightWithPreview(self):
-        self.setMinimumHeight(620-25)
-        self.setMaximumHeight(620-25)
+        self.setMinimumHeight(620-12)
+        self.setMaximumHeight(620-12)
+        self.update()
+        self.repaint()
 
     def setWindowHeightWithoutPreview(self):
-        self.setMinimumHeight(360-0)
-        self.setMaximumHeight(360-0)
+        self.setMinimumHeight(380-2)
+        self.setMaximumHeight(380-2)
 
     def initializeComponentss(self):
-        icon_help = QtGui.QIcon(QtGui.QPixmap(':/help_icon_orange.png'))
-        self.ui.pushButton_help.setIcon(icon_help)
+        self.ui.pushButton_help.setIcon(self.icon_help)
 
         self.setWindowTitle('Fluid Explorer - Simulation Details View')
         self.changeHLineStyle()
@@ -191,6 +213,12 @@ class ProjectDetailsView(QtGui.QDialog):
         self.ui.label_moviePreview.setMaximumHeight(170)
         self.ui.label_moviePreview.setMinimumHeight(170)
 
+        txt = "File: " + "-"
+        self.ui.label_fluidContainer_2.setText(txt)
+        font = self.ui.label_fluidContainer_2.font()
+        font.setPointSize(8)
+        self.ui.label_fluidContainer_2.setFont(font)
+
     def setupExternallCall(self):
         # e.g. fluidexplorer.exe /settings path=E:/TMP/ANNAANNA/ANNAANNA.fxp /load path=E:/FluidExplorer_Code/FlameShape/FlameShape1
 
@@ -202,8 +230,13 @@ class ProjectDetailsView(QtGui.QDialog):
             # TODO: UNIX
             pass
 
+        print "-- debug --"
+        print os.path.abspath(self.externalCall.pathToFluidExplorer)
+        print "-- debug --"
+
+
         # Settings file
-        settingXMLFile = self.pathToXMLFile
+        settingXMLFile = self.pathToXMLFile # e.g. E:/TMP/Projects/TestProject1.fxp -> selected project file
 
         # Path to cached files
         cacheFile = ProjectDetailsViewUtils.getPathCacheFiles(self.pathToXMLFile)
@@ -213,10 +246,9 @@ class ProjectDetailsView(QtGui.QDialog):
 
         # For testing
         self.externalCall.pathToFluidExplorer = 'E:/FluidExplorer_Code/Release/'
-        self.externalCall.pathToFluidExplorer = 'E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug/'
+        #self.externalCall.pathToFluidExplorer = 'E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug/'
         self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
         self.externalCall.fluidExplorerArgs = '/load path=E:\FluidExplorer_Code\FlameShape\FlameShape1'
-
 
     def scaleMovieLabel(self):
         # Is supposed to be: 960x540
@@ -238,10 +270,26 @@ class ProjectDetailsView(QtGui.QDialog):
 
         if projectSettings:
             self.ui.lineEdit_projectName.setText(projectSettings.projectName)
-            self.ui.lineEdit_projectPath.setText(projectSettings.projectPath)
+            self.ui.lineEdit_projectPath.setText(self.selectedProjectFolder)
             self.ui.lineEdit_fluidContainer.setText(projectSettings.fluidContainerName)
-            self.ui.lineEdit_startTime.setText(projectSettings.animationStartTime)
-            self.ui.lineEdit_endTime.setText(projectSettings.animationEndTime)
+
+            # Convert values
+            try:
+                floatStartTime = float(projectSettings.animationStartTime)
+                strStartTime = str(round(floatStartTime, 2))
+            except ValueError:
+                self.lgr.warning('Cannot convert animation start time to float type')
+                strStartTime = "Error"
+
+            try:
+                floatEndTime = float(projectSettings.animationEndTime)
+                strEndTime = str(round(floatEndTime, 2))
+            except ValueError:
+                self.lgr.warning('Cannot convert animation end time to float type')
+                strEndTime = "Error"
+
+            self.ui.lineEdit_startTime.setText(strStartTime)
+            self.ui.lineEdit_endTime.setText(strEndTime)
 
         return canReadAllAttributes
 
@@ -249,6 +297,14 @@ class ProjectDetailsView(QtGui.QDialog):
 
         # Stores animation index and path
         haspMap = {}
+
+        # Clear list id items are available
+        item_len = self.ui.comboBox_simulations.count()
+        if item_len > 0:
+            self.ui.comboBox_simulations.clear()
+
+        # Read textfile which stores the favorites
+        list_of_favorites = ProjectDetailsViewUtils.get_favorites(self.selectedProjectFolder)
 
         # First item
         self.ui.comboBox_simulations.addItem('Select Sequence ...')
@@ -258,31 +314,52 @@ class ProjectDetailsView(QtGui.QDialog):
         except:
             num = 0
 
+        show_favorites_icon = False
+        if num == len(list_of_favorites):
+            show_favorites_icon = True
+
         if num > 0:
             for i in range(num):
 
                 # Firste entry
-                tmpNameForElement = 'Sequence ' + str(i+1)
+                tmpNameForElement = 'Sequence ' + str(i)
 
                 # Folders
-                tmpProject = projectSettings.projectName + '.fxp'
-                index = self.pathToXMLFile.find(tmpProject)
-                tmp = self.pathToXMLFile[0:index]
-                tmp = tmp + '/' + str(i) + '/'
-                #tmp = projectSettings.projectPath + "/" + str(i) + "/"
+                # tmpProject = projectSettings.projectName + '.fxp'
+                # index = self.pathToXMLFile.find(tmpProject)
+                # tmp = self.pathToXMLFile[0:index]
+                # tmp = tmp + '/' + str(i) + '/'
+
+                tmp = self.selectedProjectFolder + '/' + str(i) + '/'
                 if os.path.exists(tmp):
                     pathToXMLProjectFileList = ProjectDetailsViewUtils.getPathToXMLFile(tmp)
 
                     if len(pathToXMLProjectFileList) == 1:
                         if os.path.exists(pathToXMLProjectFileList[0]):
                             haspMap[i] = pathToXMLProjectFileList[0]
-                            self.ui.comboBox_simulations.addItem(tmpNameForElement)
+
+                            if show_favorites_icon:
+                                # Show icons left from item
+                                is_favorite = list_of_favorites[i]
+
+                                txt = tmpNameForElement
+                                if is_favorite:
+                                    self.ui.comboBox_simulations.addItem(self.fav_icon_on, txt)
+                                else:
+                                    self.ui.comboBox_simulations.addItem(self.fav_icon_off, txt)
+
+                                self.ui.comboBox_simulations.update()
+                            else:
+                                # Do not show icons
+                                txt = tmpNameForElement
+                                self.ui.comboBox_simulations.addItem(txt)
 
             self.hashMapToXMLProjectFile = haspMap
 
     def initPreview(self, projectSettings):
-        if projectSettings.cam_persp == '1' or projectSettings.cam_persp == '1':
-            self.hashMapToGIF = ProjectDetailsViewUtils.getGIFHashMap(projectSettings)
+        if (projectSettings.cam_persp == '1') or (projectSettings.cam_vc == '1') or \
+                (projectSettings.cam_custom != 'None') or (projectSettings.cam_rotation != '0'):
+            self.hashMapToGIF = ProjectDetailsViewUtils.getGIFHashMap(projectSettings, self.selectedProjectFolder)
         else:
             self.ui.checkBox_showPreview.setEnabled(False)
 
@@ -295,7 +372,6 @@ class ProjectDetailsView(QtGui.QDialog):
         self.connect(self.movie, QtCore.SIGNAL("frameChanged(int)"), self.frameChangedHandler)
 
     def playAnimation(self, simulationIndex):
-
         if self.hashMapToGIF == None:
             return
 
@@ -303,6 +379,11 @@ class ProjectDetailsView(QtGui.QDialog):
         hashIndex = simulationIndex - 1
 
         if simulationIndex == 0:
+            self.stopPlayingAnimation()
+            return
+
+        if (hashIndex > len(self.hashMapToGIF)-1) or (len(self.hashMapToGIF) == 0):
+            self.ui.label_moviePreview.setText("<b>[ Cannot find animation ... ]</b>")
             self.stopPlayingAnimation()
             return
 
@@ -331,6 +412,17 @@ class ProjectDetailsView(QtGui.QDialog):
     def stopPlayingAnimation(self):
         self.movie.stop()
         self.ui.label_moviePreview.setText("<b>[ No Simulation selected ... ]</b>")
+
+    def init_file_watcher(self):
+        # A file watcher detects changes in text files
+        # favorites: fluidExplorer.favorites
+        file_favorites = self.selectedProjectFolder + '/' + 'fluidExplorer.favorites'
+        if os.path.exists(file_favorites):
+            self.fs_watcher_favorites = QtCore.QFileSystemWatcher([file_favorites])
+            self.fs_watcher_favorites.connect(self.fs_watcher_favorites, QtCore.SIGNAL('fileChanged(QString)'), self.file_favorites_changed)
+
+    def file_favorites_changed(self):
+        self.initComboBoxSimulations(self.projectSettings)
 
     # - Event handlers -
     @QtCore.Slot()
@@ -388,7 +480,7 @@ class ProjectDetailsView(QtGui.QDialog):
             return
 
         # Check if xml files are available
-        if not len(self.hashMapToXMLProjectFile) == int(self.projectSettings.numberOfSimulations) + 1:
+        if not len(self.hashMapToXMLProjectFile) == int(self.projectSettings.numberOfSimulations): #+ 1:
             self.lgr.warning('Number of XML cache files is not correct')
             errorMsg = "The number of .xml cache files is not correct!\nPlease check the project folder or create the simulation again."
             self.showMessageBox(errorMsg, 'warning')
@@ -437,12 +529,34 @@ class ProjectDetailsView(QtGui.QDialog):
 
     @QtCore.Slot()
     def comboBoxSimulationsIndexChanged(self, index):
+        if self.ui.comboBox_simulations.count() == 0:
+            return
+
         if self.ui.checkBox_showPreview.checkState() == QtCore.Qt.Checked:
             currentIndex = self.ui.comboBox_simulations.currentIndex()
-            #hashMapIndex = currentIndex-1
 
             # Play animation
             self.playAnimation(currentIndex)
+
+        # Info text
+        if self.ui.comboBox_simulations.currentIndex() == 0:
+            txt = "File: -"
+        else:
+            [dirProjectName, dirNumberName, cacheXMLName] = self.getCacheNameFromPath(str(self.hashMapToXMLProjectFile[(self.ui.comboBox_simulations.currentIndex()-1)]))
+            if len(cacheXMLName) == 0:
+                txt = "File: -"
+            else:
+                txt = "File: " + str(dirProjectName) + '/' + str(dirNumberName) + '/' + str(cacheXMLName) # Do not show the entire path
+
+        self.ui.label_fluidContainer_2.setText(txt)
+
+        # Set tooltip
+        if self.ui.comboBox_simulations.currentIndex() == 0:
+            self.ui.label_fluidContainer_2.setToolTip("")
+        else:
+            space = " "
+            tooltip = str(self.hashMapToXMLProjectFile[(self.ui.comboBox_simulations.currentIndex())-1]) + space
+            self.ui.label_fluidContainer_2.setToolTip(tooltip)
 
     @QtCore.Slot()
     def helpButtonClicked(self):
@@ -456,7 +570,6 @@ class ProjectDetailsView(QtGui.QDialog):
 
     # - Help functions -
     def updateIndexFromThread(self, text):
-        # print "UPDATE INDEX: " + text
         self.lgr.info('Update index: %s', text)
 
         # If the thread sends am error -> stop
@@ -465,7 +578,7 @@ class ProjectDetailsView(QtGui.QDialog):
             self.showMessageBox('Cannot execute the FluidExplorer application!\nSee editor output for details.', 'critical')
             return
 
-        # Else, update the combo box
+        # Else, update the combobox
         try:
             intIndex = int(text)
         except:
@@ -486,7 +599,7 @@ class ProjectDetailsView(QtGui.QDialog):
     def changeHLineStyle(self):
         self.ui.line_1.setGeometry(20, 40, 300, 1)
         self.ui.line_2.setGeometry(20, 240, 300, 1)
-        self.ui.line_3.setGeometry(20, 390, 300, 1)
+        self.ui.line_3.setGeometry(20, 409, 300, 1)
         self.ui.line_1.setLineWidth(1)
         self.ui.line_2.setLineWidth(1)
         self.ui.line_3.setLineWidth(1)
@@ -500,7 +613,6 @@ class ProjectDetailsView(QtGui.QDialog):
             "/*font-weight: bold;*/"
             "}"
             )
-
         return styleEnabled
 
     def readProjectProperties(self, pathToXMLFile):
@@ -509,6 +621,10 @@ class ProjectDetailsView(QtGui.QDialog):
         projectSettings = None
         try:
             projectSettings = xmReader.getProjectSubSettings(pathToXMLFile)
+            # Set the path from the selected file (override)
+            # Do not read projec path from setting file
+            projectSettings.projectPath = self.selectedProjectFolder
+
         except Exception as e:
             errorText = "An error occured while loading the project configuration file!\nDetails: " + str(e.message)
             self.showMessageBox(errorText, 'critical')
@@ -531,7 +647,6 @@ class ProjectDetailsView(QtGui.QDialog):
         msgBox.exec_()
 
     def closeEvent(self, event):
-
         # ProjectDetailsViewUtils.killProcess_WIN('fluidexplorer')
 
         # Stop thread if running
@@ -539,19 +654,29 @@ class ProjectDetailsView(QtGui.QDialog):
             self.workThread.stop()
             # self.workThread.terminate()
         FluidExplorerUtils.killProcess('fluidexplorer')
+
+    def getCacheNameFromPath(self, text):
+        text = text + "/"
+
+        if text:
+            lastChar = text[len(text)-1]
+            if lastChar == '/' or '\\':
+                text = text[0:len(text)-1]
+
+            elements = text.split("/")
+            if len(elements) == 0:
+                return ""
+            else:
+                return [elements[len(elements)-3], elements[len(elements)-2], elements[len(elements)-1]]
+
     # - Help functions end -
 
     # ScriptJob
     def FXScriptJob(self):
-            #self.close()
-            #import maya.cmds as cmds
-            sJob = cmds.scriptJob(event=['deleteAll', self.ScriptJobMethodCall])
-            sJob = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
-
+            import maya.cmds as cmds
+            Job1 = cmds.scriptJob(event=['deleteAll', self.ScriptJobMethodCall])        # new file
+            Job2 = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
 
     def ScriptJobMethodCall(self):
-        if self.workThread:
-            self.workThread.stop()
-        ProjectDetailsViewUtils.checkIfProcessExistsAndClose(self.FLUIDEXPLORER_APP_NAME)
-        self.PathToXMLCache = ''
-    # ScriptJob
+        # Check if maya is open and close it
+        FluidExplorerUtils.killProcess(self.FLUIDEXPLORER_APP_NAME)

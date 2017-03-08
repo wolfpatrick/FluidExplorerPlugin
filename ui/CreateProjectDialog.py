@@ -108,7 +108,6 @@ class CreateProjectDialog(QtGui.QDialog):
         # Select the transform node
         cmds.select(self.transformNode, r=True)
 
-
     def centre(self):
         # The dialog window is shifted to the right that the maya question dialogs are not hidden
         screen = QtGui.QDesktopWidget().screenGeometry()

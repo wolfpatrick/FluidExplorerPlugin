@@ -30,12 +30,3 @@ class SliderContainerLayout(QtGui.QWidget):
 
     def setFluidBoxName(self, boxName):
         self.fluidBoxName = boxName
-
-
-
-
-
-
-
-
-

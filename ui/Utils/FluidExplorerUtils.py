@@ -163,7 +163,6 @@ class FluidExplorerUtils(object):
                 cmdStr = 'taskkill /im' + ' ' + processname
 
                 kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
-                # print('Process "%s" closed ' % processname)
                 lgr.info('Process "%s" closed ', processname)
 
             except Exception as e:
