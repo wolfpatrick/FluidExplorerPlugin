@@ -1,3 +1,4 @@
+"""
 from PySide import QtCore
 
 import shlex
@@ -55,3 +56,4 @@ class WorkThread(QtCore.QThread):
     def stop(self):
         # Stop the loop
         self.running = False
+"""

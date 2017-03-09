@@ -1,36 +1,3 @@
-"""
-from PySide import QtGui, QtCore
-import maya.cmds as cmds
-
-from PySide import QtCore, QtGui
-from maya import OpenMayaUI as omui
-from shiboken import wrapInstance
-
-
-class ProjectDetailsView(QtGui.QDockWidget):
-
-    def __init__(self):
-        super(ProjectDetailsView, self).__init__()
-        self.initUI()
-        print "Window created"
-
-    def initUI(self):
-        self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-        self.setGeometry(300, 300, 250, 150)
-        self.setWindowTitle('Icon')
-
-        self.setWindowFlags(QtCore.Qt.Tool | QtCore.Qt.WindowStaysOnTopHint)
-        self.setFixedSize(100, 200)
-
-        panelPtr = omui.MQtUtil.findControl('modelPanel1')
-        panel = wrapInstance(long(panelPtr), QtGui.QWidget)
-
-        position = panel.mapToGlobal(panel.pos())
-
-        self.move(position.x(), position.y())
-
-"""
-
 from PySide import QtCore, QtGui
 from ProjectDetailsViewUI import Ui_ProjectDetailsView
 
@@ -38,15 +5,15 @@ from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
 from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ProjectDetailsViewUtils
 from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ExternalCallSetting
 from FluidExplorerPlugin.ui.Utils.LoadFluidCacheFile import LoadFluidCacheFile
-from FluidExplorerPlugin.ui.Utils.ExternalCallWorkerThread import WorkThread
 from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
+# from FluidExplorerPlugin.ui.Utils.ExternalCallWorkerThread import WorkThread
 
 from maya import OpenMayaUI as omui
 import maya.cmds as cmds
 from shiboken import wrapInstance
-import os
-import sys
+import os, sys
 import logging
+import subprocess
 
 
 class ProjectDetailsView(QtGui.QDialog):
@@ -295,7 +262,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
     def initComboBoxSimulations(self, projectSettings):
         old_index = self.ui.comboBox_simulations.currentIndex()     # def = -1
-        print old_index
+
         # Stores animation index and path
         haspMap = {}
 
@@ -496,7 +463,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
     @QtCore.Slot()
     def exploreSimulationsClicked(self):
-        self.lgr.info('Explore simulations clicked')
+        self.lgr.info('Explore simulations')
 
         # Check of corredt scene is opened
         currentSceneName = cmds.file(q=True, sceneName=True)
@@ -528,6 +495,13 @@ class ProjectDetailsView(QtGui.QDialog):
             self.showMessageBox(errorMsg, 'warning')
             return
 
+        # Start the fluid explorer
+        self.execute_fx(self.externalCall)
+
+        """
+        #
+        # Threading
+        #
         # Run the worker thread
         if self.workThread:
             self.workThread.stop()
@@ -542,6 +516,9 @@ class ProjectDetailsView(QtGui.QDialog):
             self.workThread = WorkThread(self.externalCall)
             self.connect(self.workThread, QtCore.SIGNAL("update(QString)"), self.updateIndexFromThread)
             self.workThread.start()
+        #
+        #
+        """
 
     @QtCore.Slot()
     def checkBoxPreviewValueChanged(self, state):
@@ -597,28 +574,24 @@ class ProjectDetailsView(QtGui.QDialog):
     # - Event handlers end -
 
     # - Help functions -
-    def updateIndexFromThread(self, text):
-        self.lgr.info('Update index: %s', text)
+    def execute_fx(self, externalCallSettings):
+        pathToFXApp = externalCallSettings.pathToFluidExplorer
+        cmdFXAPP = externalCallSettings.fluidExplorerCmd
+        cmdFXArg = externalCallSettings.fluidExplorerArgs
 
-        # If the thread sends am error -> stop
-        if text == "ERROR":
-            self.lgr.error('Cannot execute the FluidExplorer application')
-            self.showMessageBox('Cannot execute the FluidExplorer application!\nSee editor output for details.', 'critical')
-            return
-
-        # Else, update the combobox
+        currentDir = os.getcwd()
         try:
-            intIndex = int(text)
-        except:
-            intIndex = 0
+            os.chdir(pathToFXApp)
+            process = subprocess.Popen([cmdFXAPP, cmdFXArg], shell=True)
+            self.lgr.info('External application startedd')
+            self.lgr.info('External call (cmd): %s', cmdFXAPP)
+            self.lgr.info('External call (args): %s', cmdFXArg)
+        except Exception as e:
+            self.lgr.error('Critical: Cannot execute fluid explorer app. Details: %s', e.message)
+            return
         finally:
-            # TODO
-            if intIndex > 2:
-                self.ui.comboBox_simulations.setCurrentIndex(0)
-                self.update()
-            else:
-                self.ui.comboBox_simulations.setCurrentIndex(1)
-                self.update()
+            os.chdir(currentDir)
+            subprocess._cleanup()
 
     def setLineEditEnabledAndReadOnly(self, component):
         component.setStyleSheet(self.getStyle())
@@ -675,12 +648,12 @@ class ProjectDetailsView(QtGui.QDialog):
         msgBox.exec_()
 
     def closeEvent(self, event):
-        # ProjectDetailsViewUtils.killProcess_WIN('fluidexplorer')
-
+        """
         # Stop thread if running
         if self.workThread:
             self.workThread.stop()
             # self.workThread.terminate()
+        """
         FluidExplorerUtils.killProcess('fluidexplorer')
 
     def getCacheNameFromPath(self, text):
@@ -696,6 +669,31 @@ class ProjectDetailsView(QtGui.QDialog):
                 return ""
             else:
                 return [elements[len(elements)-3], elements[len(elements)-2], elements[len(elements)-1]]
+
+    """
+    # Not in use -> see threading
+    def updateIndexFromThread(self, text):
+        self.lgr.info('Update index: %s', text)
+
+        # If the thread sends am error -> stop
+        if text == "ERROR":
+            self.lgr.error('Cannot execute the FluidExplorer application')
+            self.showMessageBox('Cannot execute the FluidExplorer application!\nSee editor output for details.', 'critical')
+            return
+
+        # Else, update the combobox
+        try:
+            intIndex = int(text)
+        except:
+            intIndex = 0
+        finally:
+            if intIndex > 2:
+                self.ui.comboBox_simulations.setCurrentIndex(0)
+                self.update()
+            else:
+                self.ui.comboBox_simulations.setCurrentIndex(1)
+                self.update()
+    """
 
     # - Help functions end -
 

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" afterPath="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsView.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -32,10 +32,22 @@
       <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17790414" vertical-offset="6543" max-vertical-offset="15015">
-              <caret line="322" column="32" selection-start-line="322" selection-start-column="32" selection-end-line="322" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.31530783" vertical-offset="11696" max-vertical-offset="14973">
+              <caret line="575" column="24" selection-start-line="575" selection-start-column="24" selection-end-line="575" selection-end-column="24" />
               <folding>
-                <element signature="e#844#876#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExternalCallWorkerThread.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="1344">
+              <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
+              <folding>
+                <marker date="1489071731752" expanded="true" signature="0:1657" placeholder="&quot;&quot;&quot;from PySide import QtCore...&quot;&quot;&quot;" />
               </folding>
             </state>
           </provider>
@@ -66,21 +78,11 @@
       <file leaf-file-name="SliderContainerLayouts.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FluidExplorerUtils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="903" max-vertical-offset="3633">
-              <caret line="52" column="65" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="65" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -140,7 +142,6 @@
         <option value="$PROJECT_DIR$/ui/Utils/LoadFluidCacheFile.py" />
         <option value="$PROJECT_DIR$/ui/Test/Test.py" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
         <option value="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/ui/Utils/XmlFileWriter.py" />
@@ -154,6 +155,7 @@
         <option value="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
         <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
       </list>
     </option>
@@ -744,7 +746,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10174881" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10139165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1078,13 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54285717" vertical-offset="182" max-vertical-offset="1197">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/ParamterTab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.021428572" vertical-offset="147" max-vertical-offset="9282">
@@ -1127,24 +1122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="903" max-vertical-offset="3633">
-          <caret line="52" column="65" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="11570" max-vertical-offset="20916">
@@ -1161,6 +1138,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.57237935" vertical-offset="2431" max-vertical-offset="3633">
+          <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6350" max-vertical-offset="7581">
@@ -1171,12 +1166,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="1344">
+          <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
+          <folding>
+            <marker date="1489071731752" expanded="true" signature="0:1657" placeholder="&quot;&quot;&quot;from PySide import QtCore...&quot;&quot;&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17790414" vertical-offset="6543" max-vertical-offset="15015">
-          <caret line="322" column="32" selection-start-line="322" selection-start-column="32" selection-end-line="322" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.31530783" vertical-offset="11696" max-vertical-offset="14973">
+          <caret line="575" column="24" selection-start-line="575" selection-start-column="24" selection-end-line="575" selection-end-column="24" />
           <folding>
-            <element signature="e#844#876#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
