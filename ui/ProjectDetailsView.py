@@ -294,7 +294,8 @@ class ProjectDetailsView(QtGui.QDialog):
         return canReadAllAttributes
 
     def initComboBoxSimulations(self, projectSettings):
-
+        old_index = self.ui.comboBox_simulations.currentIndex()     # def = -1
+        print old_index
         # Stores animation index and path
         haspMap = {}
 
@@ -320,7 +321,6 @@ class ProjectDetailsView(QtGui.QDialog):
 
         if num > 0:
             for i in range(num):
-
                 # Firste entry
                 tmpNameForElement = 'Sequence ' + str(i)
 
@@ -345,8 +345,10 @@ class ProjectDetailsView(QtGui.QDialog):
                                 txt = tmpNameForElement
                                 if is_favorite:
                                     self.ui.comboBox_simulations.addItem(self.fav_icon_on, txt)
+                                    # self.ui.comboBox_simulations.addItem(txt)
                                 else:
                                     self.ui.comboBox_simulations.addItem(self.fav_icon_off, txt)
+                                    # self.ui.comboBox_simulations.addItem(txt)
 
                                 self.ui.comboBox_simulations.update()
                             else:
@@ -354,7 +356,16 @@ class ProjectDetailsView(QtGui.QDialog):
                                 txt = tmpNameForElement
                                 self.ui.comboBox_simulations.addItem(txt)
 
+            # Save map
             self.hashMapToXMLProjectFile = haspMap
+
+            # Select index
+            if old_index == -1:
+                self.ui.comboBox_simulations.setCurrentIndex(0)
+            else:
+                if old_index <= self.ui.comboBox_simulations.count():
+                    self.ui.comboBox_simulations.setCurrentIndex(old_index)
+
 
     def initPreview(self, projectSettings):
         if (projectSettings.cam_persp == '1') or (projectSettings.cam_vc == '1') or \
@@ -415,14 +426,32 @@ class ProjectDetailsView(QtGui.QDialog):
 
     def init_file_watcher(self):
         # A file watcher detects changes in text files
+
         # favorites: fluidExplorer.favorites
         file_favorites = self.selectedProjectFolder + '/' + 'fluidExplorer.favorites'
         if os.path.exists(file_favorites):
             self.fs_watcher_favorites = QtCore.QFileSystemWatcher([file_favorites])
             self.fs_watcher_favorites.connect(self.fs_watcher_favorites, QtCore.SIGNAL('fileChanged(QString)'), self.file_favorites_changed)
 
+        # favorites: fluidExplorer.currentselection
+        file_selection = self.selectedProjectFolder + '/' + 'fluidExplorer.currentselection'
+        if os.path.exists(file_favorites):
+            self.fs_watcher_selection = QtCore.QFileSystemWatcher([file_selection])
+            self.fs_watcher_selection.connect(self.fs_watcher_selection, QtCore.SIGNAL('fileChanged(QString)'), self.file_selection_changed)
+
     def file_favorites_changed(self):
         self.initComboBoxSimulations(self.projectSettings)
+
+    def file_selection_changed(self):
+        seletion_index = ProjectDetailsViewUtils.get_selection_from_file(self.selectedProjectFolder)
+        seletion_index_cb = seletion_index + 1
+
+        if seletion_index_cb <= self.ui.comboBox_simulations.count():
+            if self.ui.comboBox_simulations.currentIndex() != seletion_index_cb:
+                self.ui.comboBox_simulations.setCurrentIndex(seletion_index_cb)
+        else:
+            if self.ui.comboBox_simulations.currentIndex() != 0:
+                self.ui.comboBox_simulations.setCurrentIndex(0)
 
     # - Event handlers -
     @QtCore.Slot()
@@ -513,7 +542,6 @@ class ProjectDetailsView(QtGui.QDialog):
             self.workThread = WorkThread(self.externalCall)
             self.connect(self.workThread, QtCore.SIGNAL("update(QString)"), self.updateIndexFromThread)
             self.workThread.start()
-
 
     @QtCore.Slot()
     def checkBoxPreviewValueChanged(self, state):

@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Resources/DetailsViewUI.ui" afterPath="$PROJECT_DIR$/ui/Resources/DetailsViewUI.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Resources/DetailsViewUI.py" afterPath="$PROJECT_DIR$/ui/Resources/DetailsViewUI.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsView.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/SliderContainerLayouts.py" afterPath="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -40,8 +32,8 @@
       <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54242927" vertical-offset="7181" max-vertical-offset="14427">
-              <caret line="373" column="45" selection-start-line="373" selection-start-column="45" selection-end-line="373" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.17790414" vertical-offset="6543" max-vertical-offset="15015">
+              <caret line="322" column="32" selection-start-line="322" selection-start-column="32" selection-end-line="322" selection-end-column="32" />
               <folding>
                 <element signature="e#844#876#0" expanded="true" />
               </folding>
@@ -62,8 +54,8 @@
       <file leaf-file-name="ProjectDetailsViewUtils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.344828" vertical-offset="4388" max-vertical-offset="7098">
-              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6350" max-vertical-offset="7581">
+              <caret line="355" column="20" selection-start-line="355" selection-start-column="20" selection-end-line="355" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -74,7 +66,7 @@
       <file leaf-file-name="SliderContainerLayouts.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
+            <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -266,7 +258,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -748,7 +744,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10174881" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10174881" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1167,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.344828" vertical-offset="4388" max-vertical-offset="7098">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6350" max-vertical-offset="7581">
+          <caret line="355" column="20" selection-start-line="355" selection-start-column="20" selection-end-line="355" selection-end-column="20" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -1177,8 +1173,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54242927" vertical-offset="7181" max-vertical-offset="14427">
-          <caret line="373" column="45" selection-start-line="373" selection-start-column="45" selection-end-line="373" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.17790414" vertical-offset="6543" max-vertical-offset="15015">
+          <caret line="322" column="32" selection-start-line="322" selection-start-column="32" selection-end-line="322" selection-end-column="32" />
           <folding>
             <element signature="e#844#876#0" expanded="true" />
           </folding>

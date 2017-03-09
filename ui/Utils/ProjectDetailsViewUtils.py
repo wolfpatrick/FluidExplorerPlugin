@@ -314,7 +314,7 @@ class ProjectDetailsViewUtils():
         if len(lines) > 0:
 
             for line in lines:
-                if 'favorites=' in line:
+                if search_pattern in line:
                     favorites_str = line[line.index(search_pattern) + len(search_pattern):]
                     favorites_elements = favorites_str.split(';')
 
@@ -330,4 +330,27 @@ class ProjectDetailsViewUtils():
         else:
             return []
 
-        pass
+    @staticmethod
+    def get_selection_from_file(proj_dir):
+        file_path = proj_dir + '/fluidExplorer.currentselection'
+        search_pattern = 'currentselection='
+        if os.path.exists(file_path):
+
+            f = open(file_path, "r")
+            lines = f.readlines()
+            f.close()
+
+        if len(lines) > 0:
+
+            for line in lines:
+                if search_pattern in line:
+                    favorites_str = line[line.index(search_pattern) + len(search_pattern):]
+                    try:
+                        number = int(favorites_str)
+                    except ValueError:
+                        number = 0
+
+            return number
+
+        else:
+            return 0
