@@ -86,7 +86,7 @@ class FluidExplorerUtils(object):
         if sys.platform.startswith('win'):
             pathToFluidExplorer = pathToFluidExplorer + '/fluidexplorer.exe'
         else:
-            # TODO: Unix
+            # TODO: Unix path
             pass
 
         """

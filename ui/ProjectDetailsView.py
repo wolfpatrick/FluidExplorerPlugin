@@ -194,7 +194,7 @@ class ProjectDetailsView(QtGui.QDialog):
         if sys.platform.startswith('win'):
             self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
         elif sys.platform.startswith(''):
-            # TODO: UNIX
+            # TODO: Unix path
             pass
 
         print "-- debug --"

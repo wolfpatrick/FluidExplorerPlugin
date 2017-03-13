@@ -25,7 +25,6 @@ class Test():
 
     def __init__(self):
 
-        # TODO: Path to log file
         self.workDir = ""
         self.LOG_PATH = ""
 
@@ -155,7 +154,6 @@ class Test():
         if os.name=='nt':
             pathToFFmpegExe = pathToFFmpeg + '/lib/ffmpeg/ffmpeg.exe'
         else:
-            # TODO: Add path to file
             # pathToFFmpegExe=
             pass
 
@@ -175,9 +173,8 @@ class Test():
 
     # -----------------------------------------------------------------------------------------------------------------
     # Test Instance: check_if_fluidExplorer_exists
-    def check_if_fluidExplorer_exists(self):
-        # TODO
-        pass
+    #def check_if_fluidExplorer_exists(self):
+    #    pass
     # -----------------------------------------------------------------------------------------------------------------
 
     # -----------------------------------------------------------------------------------------------------------------

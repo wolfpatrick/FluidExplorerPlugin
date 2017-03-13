@@ -229,6 +229,7 @@ class ProjectDetailsViewUtils():
     def getPathFluidExplorer():
         filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
+
         # TODO - Insert correct path
         filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
         fxPathRel = os.path.abspath(filename)

@@ -10,7 +10,6 @@
 #                                                                                                                      #
 ########################################################################################################################
 
-import sys
 import os
 import webbrowser
 import logging
@@ -92,6 +91,9 @@ class ControlMainWindow(QtGui.QMainWindow):
 
         FluidExplorerUtils.killProcess("fluidexplorer")
 
+        # Register script job for closing the application
+        self.FXScriptJobDeleteShelf()
+
         # Logging
         self.lgr = logging.getLogger('FluidExplorerPlugin')
 
@@ -106,9 +108,9 @@ class ControlMainWindow(QtGui.QMainWindow):
             Center the main window on the screen. This implemention will handle the window
             being resized or the screen resolution changing.
             """
-            # Get the current screens' dimensions...
+            # Get the current screens' dimensions
             screen = QtGui.QDesktopWidget().screenGeometry()
-            # ... and get this windows' dimensions
+            # Get this windows' dimensions
             mysize = self.geometry()
             # The horizontal position is calulated as screenwidth - windowwidth /2
             hpos = ( screen.width() - mysize.width() ) / 2
@@ -270,18 +272,10 @@ class ControlMainWindow(QtGui.QMainWindow):
         # close (x button) event
         FluidExplorerUtils.killProcess("fluidexplorer")
 
-    """
-    def FXScriptJob(self):
-        pass
-            #self.close()
-            #import maya.cmds as cmds
-            #sJob1 = cmds.scriptJob(event=['deleteAll', self.ScriptJobMethodCall])        # new file
-            #sJob2 = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
+    # This script job ('quitApplication') is called when the application is closed
+    def FXScriptJobDeleteShelf(self):
+        scriptJob = cmds.scriptJob(event=['quitApplication', "maya.mel.eval('if (`shelfLayout -exists FluidExplorer `) deleteUI FluidExplorer;')"])
 
-
-    def ScriptJobMethodCall(self):
-    #self.hide()
-    """
 
 def main():
 
@@ -360,16 +354,3 @@ def showMessageBoxPlugin(text, type):
         msgBox.setIcon(QtGui.QMessageBox.Critical)
 
     msgBox.exec_()
-
-"""
-def FXScriptJob():
-    #self.close()
-    import maya.cmds as cmds
-    #import maya.cmds as cmds
-    sJob1 = cmds.scriptJob(event=['deleteAll', ScriptJobMethodCall])        # new file
-    #sJob2 = cmds.scriptJob(event=['quitApplication', self.ScriptJobMethodCall])
-
-def ScriptJobMethodCall():
-        #cmd.deleteUI("FluidExplorer")
-
-"""

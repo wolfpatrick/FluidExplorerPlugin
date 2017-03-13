@@ -75,7 +75,6 @@ class CreateProjectDialog(QtGui.QDialog):
         self.ffmpegpath = self.getFFmpegPath()
 
         # FluidExplorer path
-        # TODO
         self.fluidExplorerPath = self.getFluidExplorerPath()
 
         # Calculation of time
