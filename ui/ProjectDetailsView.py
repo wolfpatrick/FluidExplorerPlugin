@@ -491,12 +491,20 @@ class ProjectDetailsView(QtGui.QDialog):
         pathToFXAPP = self.externalCall.pathToFluidExplorer + '/' + self.externalCall.fluidExplorerCmd
         if not os.path.exists(os.path.abspath(pathToFXAPP)):
             self.lgr.error('Cannot find the FluidExplorer application executable')
-            errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if  the executable file is available."
+            errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if the executable file is available."
             self.showMessageBox(errorMsg, 'warning')
             return
 
-        # Start the fluid explorer
-        self.execute_fx(self.externalCall)
+        # Check th folder structure
+        if ProjectDetailsViewUtils.check_project_folder_structure(self.selectedProjectFolder, self.projectSettings,
+                                                                  len(self.hashMapToXMLProjectFile)):
+            # Start the fluid explorer
+            self.execute_fx(self.externalCall)
+        else:
+            self.lgr.error('Project structure is not correct. Check the folder numbers')
+            errorMsg = "The project structure is not correct!\nPlease check the project folder or create the simulation again."
+            self.showMessageBox(errorMsg, 'warning')
+            return
 
         """
         #

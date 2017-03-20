@@ -355,3 +355,20 @@ class ProjectDetailsViewUtils():
 
         else:
             return 0
+
+    @staticmethod
+    def check_project_folder_structure(selectedProjectFolder, projectSettings, len_hash_map):
+        path_exists = True
+        dir_count = 0
+        for i in range(0, int(projectSettings.numberOfSimulations)):
+            path = selectedProjectFolder + '/' + str(i)
+            if os.path.exists(path):
+                path_exists = True
+                dir_count = dir_count + 1
+            else:
+                path_exists = False
+
+        if path_exists and (int(dir_count) == int(projectSettings.numberOfSimulations)) and (len_hash_map == int(projectSettings.numberOfSimulations)):
+            return True
+        else:
+            return False
