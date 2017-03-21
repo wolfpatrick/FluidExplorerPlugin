@@ -189,18 +189,13 @@ class ProjectDetailsView(QtGui.QDialog):
     def setupExternallCall(self):
         # e.g. fluidexplorer.exe /settings path=E:/TMP/ANNAANNA/ANNAANNA.fxp /load path=E:/FluidExplorer_Code/FlameShape/FlameShape1
 
-        # FluidExplorer
-        self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer()
+        # FluidExplorer path
         if sys.platform.startswith('win'):
             self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
         elif sys.platform.startswith(''):
             # TODO: Unix path
             pass
-
-        print "-- debug --"
-        print os.path.abspath(self.externalCall.pathToFluidExplorer)
-        print "-- debug --"
-
+        self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
 
         # Settings file
         settingXMLFile = self.pathToXMLFile # e.g. E:/TMP/Projects/TestProject1.fxp -> selected project file
@@ -423,10 +418,17 @@ class ProjectDetailsView(QtGui.QDialog):
     # - Event handlers -
     @QtCore.Slot()
     def applyCacheClicked(self):
-        # Check of corredt scene is opened
+        # self.lgr.info('Apply Cache clicked')
+
+        # Check if correct scene is opened
         currentSceneName = cmds.file(q=True, sceneName=True)
-        sceneFromConfigFile = self.projectSettings.mayaFilePath
+        if self.selectedProjectFolder[len(self.selectedProjectFolder)-1] == '/':
+            self.selectedProjectFolder = self.selectedProjectFolder[0:len(self.selectedProjectFolder)-1]
+        project_file = self.selectedProjectFolder + '/' + 'fluid_simulation_scene.mb'
+
+        sceneFromConfigFile = project_file
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
+
         if not isSameScene:
             strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
             self.lgr.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
@@ -465,10 +467,15 @@ class ProjectDetailsView(QtGui.QDialog):
     def exploreSimulationsClicked(self):
         self.lgr.info('Explore simulations')
 
-        # Check of corredt scene is opened
+        # Check if correct scene is opened
         currentSceneName = cmds.file(q=True, sceneName=True)
-        sceneFromConfigFile = self.projectSettings.mayaFilePath
+        if self.selectedProjectFolder[len(self.selectedProjectFolder)-1] == '/':
+            self.selectedProjectFolder = self.selectedProjectFolder[0:len(self.selectedProjectFolder)-1]
+        project_file = self.selectedProjectFolder + '/' + 'fluid_simulation_scene.mb'
+
+        sceneFromConfigFile = project_file
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
+
         if not isSameScene:
             strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
             self.lgr.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
@@ -496,10 +503,13 @@ class ProjectDetailsView(QtGui.QDialog):
             return
 
         # Check th folder structure
-        if ProjectDetailsViewUtils.check_project_folder_structure(self.selectedProjectFolder, self.projectSettings,
-                                                                  len(self.hashMapToXMLProjectFile)):
+        if ProjectDetailsViewUtils.check_project_folder_structure(self.selectedProjectFolder, self.projectSettings, self.hashMapToXMLProjectFile):
             # Start the fluid explorer
-            self.execute_fx(self.externalCall)
+            exec_res = self.execute_fx(self.externalCall)
+            if not exec_res:
+                errorMsg = "Cannot open the FluidExplorer application!\nSee the console output for details."
+                self.showMessageBox(errorMsg, 'critical')
+                return
         else:
             self.lgr.error('Project structure is not correct. Check the folder numbers')
             errorMsg = "The project structure is not correct!\nPlease check the project folder or create the simulation again."
@@ -578,7 +588,6 @@ class ProjectDetailsView(QtGui.QDialog):
     @QtCore.Slot()
     def frameChangedHandler(self, frameNumber):
         pass
-
     # - Event handlers end -
 
     # - Help functions -
@@ -596,10 +605,11 @@ class ProjectDetailsView(QtGui.QDialog):
             self.lgr.info('External call (args): %s', cmdFXArg)
         except Exception as e:
             self.lgr.error('Critical: Cannot execute fluid explorer app. Details: %s', e.message)
-            return
+            return False
         finally:
             os.chdir(currentDir)
             subprocess._cleanup()
+            return True
 
     def setLineEditEnabledAndReadOnly(self, component):
         component.setStyleSheet(self.getStyle())
@@ -633,12 +643,13 @@ class ProjectDetailsView(QtGui.QDialog):
             # Set the path from the selected file (override)
             # Do not read projec path from setting file
             projectSettings.projectPath = self.selectedProjectFolder
+            projectSettings.mayaFilePath = ""
 
         except Exception as e:
             errorText = "An error occured while loading the project configuration file!\nDetails: " + str(e.message)
             self.showMessageBox(errorText, 'critical')
             self.lgr.error('Loading the project configuration file: %s', errorText)
-            return projectSettings
+            return None
 
         return projectSettings
 
@@ -662,7 +673,7 @@ class ProjectDetailsView(QtGui.QDialog):
             self.workThread.stop()
             # self.workThread.terminate()
         """
-        FluidExplorerUtils.killProcess('fluidexplorer')
+        FluidExplorerUtils.killProcess(self.FLUIDEXPLORER_APP_NAME)
 
     def getCacheNameFromPath(self, text):
         text = text + "/"
@@ -702,7 +713,6 @@ class ProjectDetailsView(QtGui.QDialog):
                 self.ui.comboBox_simulations.setCurrentIndex(1)
                 self.update()
     """
-
     # - Help functions end -
 
     # ScriptJob

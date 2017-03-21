@@ -178,7 +178,8 @@ class ControlMainWindow(QtGui.QMainWindow):
         filePathMain = os.path.dirname(os.path.abspath(__file__))
         fxPathRel = os.path.abspath(filePathMain)
 
-        self.openDialog = FileOpenDialog()
+        styleSheet = ControlMainWindow.getStyleSheet()
+        self.openDialog = FileOpenDialog(styleSheet)
         [dialogResult, selectedDir, pid] = self.openDialog.openDirDialog(currentSceneName, fxPathRel)
 
         # Scene opened flag

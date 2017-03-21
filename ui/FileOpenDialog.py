@@ -12,14 +12,15 @@ class FileOpenDialog(QtGui.QDialog):
 
     global WORKING_DIRECTORY
     global FX_RELATIVE_PATH
+
     WORKING_DIRECTORY = cmds.workspace(q=True, dir=True)
 
-    #PATH_FLUIDEXPLORER_APP = "E:/FluidExplorer_Code/Release/"
     #FX_RELATIVE_PATH = '/FluidExplorerPlugin/tmp/README.txt'
 
-    def __init__(self):
+    def __init__(self, styleSheet):
         QtGui.QDialog.__init__(self)
         self.lgr = logging.getLogger('FluidExplorerPlugin')
+        self.style = styleSheet
 
     """
     #
@@ -82,6 +83,19 @@ class FileOpenDialog(QtGui.QDialog):
         try:
             tmpSimulationName = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'ProjectName')
             tmpPath = FluidExplorerUtils.readAttributeFromXmlConfigurationsFile(choosenDir, 'MayaFilePath')
+
+            # tmpPath: Stores the file which holds the fluid container based on the selected directory
+            dir_path = os.path.dirname(choosenDir)
+            tmpPath = dir_path + '/' + 'fluid_simulation_scene.mb'
+
+            # Stores the name of the project
+            tmpSimulationName = os.path.dirname(dir_path)
+
+            # tmpPath = scene name ('fluid_simulation_scene.mb') based on the selected directory
+            # currentScene = scene which is opend at the moment
+            # print os.path.abspath(tmpPath)
+            # print os.path.abspath(currentScene)
+
             self.lgr.info("Path of the maya file to load: %s", tmpSimulationName)
 
         except:
@@ -95,13 +109,13 @@ class FileOpenDialog(QtGui.QDialog):
             return [canReadConfigFile, isNumberOk, isSameScene, errorText]
 
         # Check if same scene opened
-        tmpSimulationName_low = tmpSimulationName.lower()
+        tmpSimulationName_low = os.path.abspath(tmpPath).lower()
         # currentScene_low = currentScene.lower()
-        currentScene_low = self.getPrpjectNameFromString(currentScene).lower()
+        currentScene_low = os.path.abspath(currentScene).lower()
 
         if tmpSimulationName_low != currentScene_low:
             isSameScene = False
-            errorTxt = "Please load the correct maya scene file first!\nProject name: " + tmpSimulationName+'\nProject path: ' + tmpPath
+            errorTxt = "Please load the correct maya scene file first!\nScene Path: " + tmpPath
 
             return [canReadConfigFile, isNumberOk, isSameScene, errorTxt]
 
@@ -116,19 +130,19 @@ class FileOpenDialog(QtGui.QDialog):
 
         # Current scene name
         self.rawName = cmds.file(query = True, sceneName = True);
-
         strStarted = "started"
 
         dialog = QtGui.QFileDialog(self)
-        dialog.setWindowTitle(self.tr("Fluid Explorer - Load Simulation"))
-        dialog.setFileMode(QtGui.QFileDialog.ExistingFile)
-        dialog.setNameFilter("Fluid Explorer Project (*.fxp)")
-
         if len(self.rawName) > 0:
             dialog.setDirectory(os.path.abspath(self.rawName))
+            dialog.update()
         else:
             dialog.setDirectory(WORKING_DIRECTORY)
 
+        dialog.setStyleSheet(self.style)
+        dialog.setWindowTitle(self.tr("Fluid Explorer - Load Simulation"))
+        dialog.setFileMode(QtGui.QFileDialog.ExistingFile)
+        dialog.setNameFilter("Fluid Explorer Project (*.fxp)")
         dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
 
 
@@ -139,7 +153,7 @@ class FileOpenDialog(QtGui.QDialog):
                 choosenDir = selectedFile[0]
                 
                 # Get the current maya scene name
-                [canReadConfigFile, isNumberOk, isSameScene, errorText] = self.checkPrjRoot(choosenDir, currentSceneName)
+                [canReadConfigFile, isNumberOk, isSameScene, errorText] = self.checkPrjRoot(choosenDir, self.rawName)
               
                 if not canReadConfigFile:
                     # Can not read xml project file with

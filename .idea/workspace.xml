@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/ProjectDetailsView.py" afterPath="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -29,56 +31,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LOG_FILE.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="9639" max-vertical-offset="9828">
-              <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FluidMain.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FluidMain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FluidMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="7581">
-              <caret line="44" column="23" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.96011394" vertical-offset="6465" max-vertical-offset="7602">
+              <caret line="356" column="18" selection-start-line="356" selection-start-column="18" selection-end-line="356" selection-end-column="18" />
               <folding>
                 <element signature="e#1332#1341#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maya_shelf_buttons.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maya_shelf_buttons.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="847" max-vertical-offset="2541">
-              <caret line="76" column="1" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
-              <folding>
-                <element signature="e#969#993#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectDetailsView.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20996094" vertical-offset="9760" max-vertical-offset="14994">
-              <caret line="482" column="12" selection-start-line="482" selection-start-column="12" selection-end-line="482" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectDetailsViewUtils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6738" max-vertical-offset="7791">
-              <caret line="368" column="35" selection-start-line="368" selection-start-column="35" selection-end-line="368" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -133,16 +93,16 @@
         <option value="$PROJECT_DIR$/ui/ProjectDetailsViewUI.py" />
         <option value="$PROJECT_DIR$/ui/MayaCacheCmdSettings.py" />
         <option value="$PROJECT_DIR$/ui/SliderContainerLayouts.py" />
-        <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/ExternalCallWorkerThread.py" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
         <option value="$PROJECT_DIR$/ui/Test/Test.py" />
         <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/Tmp/README.txt" />
-        <option value="$PROJECT_DIR$/FluidMain.py" />
         <option value="$PROJECT_DIR$/maya_shelf_buttons.py" />
+        <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
+        <option value="$PROJECT_DIR$/FluidMain.py" />
       </list>
     </option>
   </component>
@@ -711,17 +671,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10139165" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10135135" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15250199" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.092136614" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14138205" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15329626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09821074" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0981717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17871326" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12568952" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -731,6 +690,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2446386" sideWeight="0.65500796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24970178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.092136614" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3709293" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1047,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2309" max-vertical-offset="5901">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
@@ -1065,13 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="92" max-vertical-offset="1344">
           <caret line="58" column="3" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2006" max-vertical-offset="20895">
-          <caret line="137" column="10" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1103,9 +1049,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7841797" vertical-offset="11566" max-vertical-offset="20895">
+          <caret line="614" column="45" selection-start-line="614" selection-start-column="45" selection-end-line="614" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_shelf_buttons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7201923" vertical-offset="847" max-vertical-offset="2541">
+          <caret line="76" column="1" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55270654" vertical-offset="4248" max-vertical-offset="8001">
+          <caret line="239" column="25" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5175781" vertical-offset="3607" max-vertical-offset="15351">
+          <caret line="197" column="76" selection-start-line="197" selection-start-column="76" selection-end-line="197" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/FileOpenDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.01994302" vertical-offset="3381" max-vertical-offset="6342">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Test/LOG_FILE.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9828">
+        <state vertical-scroll-proportion="1.0104463" vertical-offset="8575" max-vertical-offset="9828">
           <caret line="459" column="0" selection-start-line="459" selection-start-column="0" selection-end-line="459" selection-end-column="0" />
           <folding />
         </state>
@@ -1113,37 +1099,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FluidMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="7581">
-          <caret line="44" column="23" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.96011394" vertical-offset="6465" max-vertical-offset="7602">
+          <caret line="356" column="18" selection-start-line="356" selection-start-column="18" selection-end-line="356" selection-end-column="18" />
           <folding>
             <element signature="e#1332#1341#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_shelf_buttons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="847" max-vertical-offset="2541">
-          <caret line="76" column="1" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
-          <folding>
-            <element signature="e#969#993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6738" max-vertical-offset="7791">
-          <caret line="368" column="35" selection-start-line="368" selection-start-column="35" selection-end-line="368" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ProjectDetailsView.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20996094" vertical-offset="9760" max-vertical-offset="14994">
-          <caret line="482" column="12" selection-start-line="482" selection-start-column="12" selection-end-line="482" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>

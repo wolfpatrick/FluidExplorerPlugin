@@ -226,17 +226,18 @@ class ProjectDetailsViewUtils():
         return [i for i, ltr in enumerate(s) if ltr == ch]
 
     @staticmethod
-    def getPathFluidExplorer():
+    def getPathFluidExplorer(cmd):
         filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
 
         # TODO - Insert correct path
-        filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
-        fxPathRel = os.path.abspath(filename)
+        filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/', cmd)
+        if os.path.exists(os.path.abspath(filename)):
+            fxPathRel = os.path.abspath(filename)
+        else:
+            fxPathRel = ""
 
-        print filePathMainParent
-        print filename
-        print fxPathRel
+        # print fxPathRel
 
         '''
         if sys.platform.startswith('win'):
@@ -357,18 +358,27 @@ class ProjectDetailsViewUtils():
             return 0
 
     @staticmethod
-    def check_project_folder_structure(selectedProjectFolder, projectSettings, len_hash_map):
-        path_exists = True
+    def check_project_folder_structure(selectedProjectFolder, projectSettings, hash_map):
+        path_exists, str_contains_num = True, True
         dir_count = 0
+
         for i in range(0, int(projectSettings.numberOfSimulations)):
             path = selectedProjectFolder + '/' + str(i)
+            xml_name = hash_map[i]
+
+            # Check if number in string
+            file_name = xml_name.split('/')[-1]
+            if not str(i) in file_name:
+                str_contains_num = False
+
             if os.path.exists(path):
                 path_exists = True
                 dir_count = dir_count + 1
             else:
                 path_exists = False
 
-        if path_exists and (int(dir_count) == int(projectSettings.numberOfSimulations)) and (len_hash_map == int(projectSettings.numberOfSimulations)):
+        if path_exists and (int(dir_count) == int(projectSettings.numberOfSimulations)) and \
+                (len(hash_map) == int(projectSettings.numberOfSimulations)) and str_contains_num:
             return True
         else:
             return False
