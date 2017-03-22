@@ -313,22 +313,21 @@ class ProjectDetailsViewUtils():
             lines = f.readlines()
             f.close()
 
-        if len(lines) > 0:
+            if len(lines) > 0:
 
-            for line in lines:
-                if search_pattern in line:
-                    favorites_str = line[line.index(search_pattern) + len(search_pattern):]
-                    favorites_elements = favorites_str.split(';')
+                for line in lines:
+                    if search_pattern in line:
+                        favorites_str = line[line.index(search_pattern) + len(search_pattern):]
+                        favorites_elements = favorites_str.split(';')
 
-                    list_of_favorites = []
-                    for element in favorites_elements:
-                        if '1' in element:
-                            list_of_favorites.append(True)
-                        else:
-                            list_of_favorites.append(False)
+                        list_of_favorites = []
+                        for element in favorites_elements:
+                            if '1' in element:
+                                list_of_favorites.append(True)
+                            else:
+                                list_of_favorites.append(False)
 
-            return list_of_favorites
-
+                return list_of_favorites
         else:
             return []
 
