@@ -56,8 +56,8 @@ class GifCreator():
                 palette = outputGifFileDir + '/palette.png'
                 palette = os.path.abspath(palette)
                 try:
-                    subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=False, startupinfo=startupinfo)
-                    subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=False, startupinfo=startupinfo)
+                    subprocess.call(subprocess_args + ['-vf', filters + ',' + palettegen_options, '-y', palette], shell=True, startupinfo=startupinfo)
+                    subprocess.call(subprocess_args + ['-i', palette, '-lavfi', filters + ' [x]; [x][1:v] ' + paletteuse_options, '-y', outputFileName], shell=True, startupinfo=startupinfo)
                 except Exception as er:
                     self.lgr.error("Could not create the GIF animations! Details: %s", er.message)
                     returnCode = False

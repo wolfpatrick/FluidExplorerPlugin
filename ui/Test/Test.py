@@ -125,7 +125,7 @@ class Test():
         list_dir = os.listdir(path)
         count = 0
         for file in list_dir:
-            if file.startswith('deg_'):
+            if file.startswith('rotation_'):
                 count += 1
                 pathList.append(path + '/' + file)
 
@@ -678,17 +678,17 @@ class Test():
 
         if type == 'viewcube':
             # front
-            imagePathVCGIF = tmp + 'images/viewcube/FRONT/animation.gif'
+            imagePathVCGIF = tmp + 'images/vc_front/animation.gif'
             if not os.path.exists(imagePathVCGIF):
                 result = False
 
             # side
-            imagePathVCGIF = tmp + 'images/viewcube/SIDE/animation.gif'
+            imagePathVCGIF = tmp + 'images/vc_side/animation.gif'
             if not os.path.exists(imagePathVCGIF):
                 result = False
 
             # top
-            imagePathVCGIF = tmp + 'images/viewcube/TOP/animation.gif'
+            imagePathVCGIF = tmp + 'images/vc_top/animation.gif'
             if not os.path.exists(imagePathVCGIF):
                 result = False
 
@@ -699,7 +699,7 @@ class Test():
             pass
 
         if type == 'rotation':
-            pathRoot = tmp + 'images/rotation'
+            pathRoot = tmp + 'images/'
             [numDirs, pathDirs] = self.directory_num_rot(pathRoot)
 
             for path in pathDirs:

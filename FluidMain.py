@@ -79,15 +79,17 @@ class ControlMainWindow(QtGui.QMainWindow):
         if self.detailsView:
             self.detailsView.close()
 
+        # ---------------------------------------------------------------------------------------------------- #
         # For tests only
         runTests = True
-        #runTests = False
+        runTests = False
         if runTests:
             import maya.mel as mel
 
             # Animation Start/End Time
             cmds.playbackOptions(animationStartTime=1.00)
             cmds.playbackOptions(animationEndTime=15.00)
+        # ---------------------------------------------------------------------------------------------------- #
 
         FluidExplorerUtils.killProcess("fluidexplorer")
 

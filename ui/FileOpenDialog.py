@@ -129,15 +129,13 @@ class FileOpenDialog(QtGui.QDialog):
         self.lgr.info("Load Animation")
 
         # Current scene name
-        self.rawName = cmds.file(query = True, sceneName = True);
+        # self.rawName = cmds.file(query = True, sceneName = True);
+        self.rawName = currentSceneName
         strStarted = "started"
 
-        dialog = QtGui.QFileDialog(self)
-        if len(self.rawName) > 0:
-            dialog.setDirectory(os.path.abspath(self.rawName))
-            dialog.update()
-        else:
-            dialog.setDirectory(WORKING_DIRECTORY)
+        dialog = QtGui.QFileDialog()
+        dialog.show()
+        dialog.close()
 
         dialog.setStyleSheet(self.style)
         dialog.setWindowTitle(self.tr("Fluid Explorer - Load Simulation"))
@@ -145,6 +143,11 @@ class FileOpenDialog(QtGui.QDialog):
         dialog.setNameFilter("Fluid Explorer Project (*.fxp)")
         dialog.setViewMode(QtGui.QFileDialog.List) # or Detail
 
+        if len(self.rawName) > 0:
+            # print os.path.dirname(self.rawName)
+            dialog.setDirectory(os.path.dirname(self.rawName))
+        else:
+            dialog.setDirectory(WORKING_DIRECTORY)
 
         if dialog.exec_():
 

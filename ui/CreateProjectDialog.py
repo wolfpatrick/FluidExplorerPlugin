@@ -94,13 +94,13 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Centre the main window
         # self.centre()
-        # self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowMinimizeButtonHint | QtCore.Qt.WindowStaysOnTopHint)
+        self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowMinimizeButtonHint | QtCore.Qt.WindowStaysOnTopHint)
 
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
         # self.runTests(self.workDirPath)
-        ###self.setAnimationStartEndTime()
+        # self.setAnimationStartEndTime()
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -214,6 +214,8 @@ class CreateProjectDialog(QtGui.QDialog):
     @QtCore.Slot()
     def buttonCreateSimulation_Event(self):
 
+        self.lgr.info("Simulation started")
+
         # If the fluid container is incorrect, the application closes
         if not FluidExplorerUtils.FluidExplorerUtils.containerIsCorrect(self.fluidName):
             self.showMessageBox('Error - Create Sumulation','Cannot select fluid attributes of of the selected container. Simulation stopped!\nFor more information please see the editor log.', 'warning')
@@ -290,6 +292,10 @@ class CreateProjectDialog(QtGui.QDialog):
             tmp = str_val + delimiter_1 + str_min + delimiter_1 + str_max + delimiter_1 + str_val_name_pattern
             concatenatedString += (tmp + delimiter_2)
 
+            print "----------------"
+            print concatenatedString
+            print "----------------"
+
         # e.g. Gravity,0.0,10.0,gravity;Viscosity,0.0,1.0,viscosity;Density Scale,0.0,2.0,densityScale
         concatenatedString = concatenatedString[0:len(concatenatedString)-1]   # delete the last delimeter
         self.simulationSettings.sampledValuesString = concatenatedString
@@ -311,6 +317,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Current spans stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
         # currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
+        self.lgr.info("Create cache commands and random values")
 
         randomSamplesList = list()
         cacheCmdList = list()
@@ -353,6 +360,7 @@ class CreateProjectDialog(QtGui.QDialog):
         # --------------------------------------------------------------------------------------------------------------
         # Create the cache and render the images
         # --------------------------------------------------------------------------------------------------------------
+
         self.mayaCallObject = MayaFunctionUtils()
 
         self.progressSteps = (self.getNumberOfActiveCameras() + 1) * self.simulationSettings.numberSamples
@@ -379,6 +387,7 @@ class CreateProjectDialog(QtGui.QDialog):
 
             # 2. Call maya cache function
             try:
+                self.lgr.info("Caching started for index %s", index)
                 self.mayaCallObject.createFluid(lCmd, None)
             except Exception as e:
                 self.showMessageBox('Error - Create Cache','An error occurred while the cache files were created!\nFor more information please see the editor log.', 'critical')
@@ -395,6 +404,7 @@ class CreateProjectDialog(QtGui.QDialog):
                 self.mayaCallObject.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
             if self.simulationSettings.imageView:
                 try:
+                    self.lgr.info("Rendering images started for index %s", index)
                     [progressIndexUpdated, renderedImageSubList] = self.mayaCallObject.renderImagesFromCameras(
                         self.simulationSettings, fluidIndex, progress, progressIndex)
                 except Exception as e:
@@ -414,20 +424,21 @@ class CreateProjectDialog(QtGui.QDialog):
                 progressWasCanceled = True
                 break
 
+            index = index + 1
+
         if self.simulationSettings.imageView:
             self.mayaCallObject.changeToPerspCam()
             self.mayaCallObject.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
 
         self.mayaCallObject = None
         progress.close()
-
         # --------------------------------------------------------------------------------------------------------------
 
         # --------------------------------------------------------------------------------------------------------------
         # Create GIF images
         # --------------------------------------------------------------------------------------------------------------
         if self.simulationSettings.imageView:
-            self.lgr.info("Creating GIF animations:")
+            self.lgr.info("Creating GIF animations")
             progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
             progress.setWindowTitle("Please wait ...")
             progress.setMinimumDuration(0)
@@ -449,15 +460,16 @@ class CreateProjectDialog(QtGui.QDialog):
                     outputGifFileName = 'animation.gif'
                     self.gifImageCreator = GifCreator()
                     start_time = self.simulationSettings.animationStartTime
+
                     isFFmpegExecutable = self.gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir,
                                                                                   outputGifFileDir, outputGifFileName,
                                                                                   start_time, fps=25, gifOptimization=25)
-
-                    if isFFmpegExecutable==False:
+                    if not isFFmpegExecutable:
                         self.showMessageBox('Error - Create Animations','An error occurred while the animations were created!\nFor more information please see the editor log.', 'critical')
                         progress.close()
                         self.close()
                         return
+
 
                 gifIndex += 1
                 self.lgr.info('GIF Animation "%s" created', str(gifIndex))
@@ -470,14 +482,14 @@ class CreateProjectDialog(QtGui.QDialog):
         copySettingsFileTo = os.path.abspath(self.simulationSettings.outputPath + '/fluidExplorer.settings')
         FluidExplorerUtils.FluidExplorerUtils.copySettingsFile(pathToSettingsFile, copySettingsFileTo)
 
-        text = "Simulations successfully created!" + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
+        text = "Simulations successfully created." + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
         self.showMessageBox("Information", text, 'information')
 
         # Select the transform node
         cmds.select(self.transformNode, r=True)
 
         self.lgr.info('#')
-        self.lgr.info("# Simulation successfully created: %s -", self.simulationSettings.outputPath)
+        self.lgr.info("# Simulation successfully created: %s", self.simulationSettings.outputPath)
         self.lgr.info('#')
 
         # Close window
@@ -904,6 +916,9 @@ class CreateProjectDialog(QtGui.QDialog):
         """
         :type testObject: Test
         """
+        self.lgr.info("#")
+        self.lgr.info("# Test started ...")
+        self.lgr.info("#")
 
         if testObject.projectName:
             self.ui.lineEdit_SimulationName.setText(testObject.projectName)

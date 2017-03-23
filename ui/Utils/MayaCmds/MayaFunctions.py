@@ -99,7 +99,7 @@ class MayaFunctionUtils(object):
                 try:
                     cmds.setAttr(tmpCmd, attributeValue)
                     # print(str(item), attributeValue)
-                    self.lgr.info('%s - %s', str(item), attributeValue)
+                    # self.lgr.info('%s - %s', str(item), attributeValue)
                 except Exception as e:
                     self.lgr.warning('Cannot set fluid attribute: %s - Details: %s', tmpCmd, e.message)
 
@@ -167,8 +167,12 @@ class MayaFunctionUtils(object):
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/perspective/"
             listRenderedImages.append(path)
-            os.mkdir(path)
-            #self.executeMELRemderCmd(path, fileName, start, end, resW, resH)
+
+            try:
+                os.mkdir(path)
+            except Exception as e:
+                self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
+
             mel.eval('RenderIntoNewWindow')
 
             # Rendering
@@ -182,14 +186,21 @@ class MayaFunctionUtils(object):
             progress.setValue(progressIndex)
 
         if (generalSettings.cam_viewcube == True):
-            os.mkdir(generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/")
+            # os.mkdir(generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/")
 
             # FRONT
             self.viewFromCamPosition('FRONT', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/FRONT/"
+            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/vc_front/"
             listRenderedImages.append(path)
-            os.mkdir(path)
-            #self.renderImages(path, fileName, start, end)
+
+            try:
+                os.mkdir(path)
+            except Exception as e:
+                self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
+
+            mel.eval('RenderIntoNewWindow')
+
+            # Rendering
             try:
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
@@ -201,24 +212,45 @@ class MayaFunctionUtils(object):
 
             # RIGHT
             self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/SIDE/"
+            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/vc_side/"
             listRenderedImages.append(path)
-            os.mkdir(path)
+
+            try:
+                os.mkdir(path)
+            except Exception as e:
+                self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
+
+            mel.eval('RenderIntoNewWindow')
+
+            # Rendering
             #self.renderImages(path, fileName, start, end)
             try:
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
                 return
+
             progressIndex += 1
             progress.setValue(progressIndex)
 
             # TOP
             self.viewFromCamPosition('TOP', generalSettings.fluidBoxName)
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/TOP/"
+            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/vc_top/"
             listRenderedImages.append(path)
-            os.mkdir(path)
-            self.renderImages(path, fileName, start, end)
+
+            try:
+                os.mkdir(path)
+            except Exception as e:
+                self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
+
+            mel.eval('RenderIntoNewWindow')
+
+            try:
+                self.renderImages(path, fileName, start, end)
+            except Exception as e:
+                raise e
+                return
+
             progressIndex += 1
             progress.setValue(progressIndex)
 
@@ -237,15 +269,20 @@ class MayaFunctionUtils(object):
             #mel.eval(cmdStr)
 
             path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/custom/"
-            os.mkdir(path)
+
+            try:
+                os.mkdir(path)
+            except Exception as e:
+                self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
 
             mel.eval('RenderIntoNewWindow')
-            #self.renderImages(path, fileName, start, end)
+
             try:
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
                 return
+
             progressIndex += 1
             progress.setValue(progressIndex)
             listRenderedImages.append(path)
@@ -258,8 +295,8 @@ class MayaFunctionUtils(object):
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
             cmds.viewFit('persp', an=False)
 
-            path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/"
-            os.mkdir(path)
+            # path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/"
+            # os.mkdir(path)
 
             # Rotate
             stepAcc = 0
@@ -269,10 +306,15 @@ class MayaFunctionUtils(object):
                 # Rotate camera
                 cmds.setAttr('persp.rotateY',  stepAcc)
                 cmds.viewFit('persp', an=False)
-                #cmds.dolly(d=-15)
+                # cmds.dolly(d=-15)
 
-                path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation/" + "deg_" + str(stepAcc) + "/"
-                os.mkdir(path)
+                path = generalSettings.outputPath + "/" + str(fluidIndex) + "/images/rotation_" + str(stepAcc) + "/"
+                try:
+                    os.mkdir(path)
+                except Exception as e:
+                    self.lgr.warning('Cannot create directory: %s - Details: %s', path, e.message)
+
+                mel.eval('RenderIntoNewWindow')
 
                 try:
                     self.renderImages(path, fileName, start, end)
@@ -283,8 +325,8 @@ class MayaFunctionUtils(object):
                 listRenderedImages.append(path)
                 stepAcc = stepAcc + valueY
 
-            progressIndex += 1
-            progress.setValue(progressIndex)
+                progressIndex += 1
+                progress.setValue(progressIndex)
 
         cmds.viewFit('persp', an=False)
 
@@ -317,7 +359,7 @@ class MayaFunctionUtils(object):
         # print resWidth
         # print resHeight
 
-        self.lgr.info('Rendering started')
+        self.lgr.info('Rendering started: %s', path)
 
         resWidth = 960
         resHeight = 540

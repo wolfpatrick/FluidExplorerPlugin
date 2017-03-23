@@ -63,7 +63,7 @@ class FluidExplorerUtils(object):
             pass
 
         try:
-            subprocess.call([pathToFFmpeg], shell=False)
+            subprocess.call([pathToFFmpeg], shell=True)
         except OSError as e:
             if e.errno == os.errno.ENOENT:
                 # Handle file not found error.
