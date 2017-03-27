@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/FileOpenDialog.py" afterPath="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" afterPath="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FluidMain.py" afterPath="$PROJECT_DIR$/FluidMain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" afterPath="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" afterPath="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" afterPath="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/Test/Test.py" afterPath="$PROJECT_DIR$/ui/Test/Test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -34,20 +29,7 @@
     <favorites_list name="FluidExplorerPlugin" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FluidMain.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FluidMain.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.96011394" vertical-offset="6507" max-vertical-offset="7644">
-              <caret line="358" column="18" selection-start-line="358" selection-start-column="18" selection-end-line="358" selection-end-column="18" />
-              <folding>
-                <element signature="e#1332#1341#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -80,7 +62,6 @@
         <option value="$PROJECT_DIR$/ui/Utils/PrijectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/LoadFluidCacheFile.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/FluidContainerValues.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
         <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/RenderFluidScript.py" />
         <option value="$PROJECT_DIR$/ui/Resources/darkorange.stylesheet" />
         <option value="$PROJECT_DIR$/ui/RangeSlider/HRangeSlider.py" />
@@ -100,13 +81,14 @@
         <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
         <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
-        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
         <option value="$PROJECT_DIR$/ui/Utils/RangeSliderSpan.py" />
         <option value="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
         <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/ui/Test/Test.py" />
-        <option value="$PROJECT_DIR$/FluidMain.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py" />
+        <option value="$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py" />
         <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+        <option value="$PROJECT_DIR$/FluidMain.py" />
       </list>
     </option>
   </component>
@@ -674,7 +656,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -833,13 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="712" max-vertical-offset="3150">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43228602" vertical-offset="0" max-vertical-offset="923">
@@ -961,13 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/SliderContainerLayouts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="609" max-vertical-offset="777">
@@ -1049,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43554688" vertical-offset="7030" max-vertical-offset="8988">
-          <caret line="361" column="51" selection-start-line="361" selection-start-column="51" selection-end-line="361" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/ParamterTab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43304843" vertical-offset="7944" max-vertical-offset="9282">
@@ -1092,13 +1052,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaCacheCmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="3192">
+          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Utils/MayaCmds/MayaFunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-52.310345" vertical-offset="5077" max-vertical-offset="8883">
+          <caret line="319" column="83" selection-start-line="319" selection-start-column="83" selection-end-line="319" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3330078" vertical-offset="9823" max-vertical-offset="21735">
-          <caret line="484" column="49" selection-start-line="484" selection-start-column="49" selection-end-line="484" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.19628906" vertical-offset="4419" max-vertical-offset="23037">
+          <caret line="220" column="8" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="8" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1053">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

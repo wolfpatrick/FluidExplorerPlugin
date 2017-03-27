@@ -39,9 +39,11 @@ class MayaCacheCmdString(object):
         tmp = cmds.optionVar(q='fluidCacheDistrib')
 
         if tmp == 1:
-            self.fluidCacheDistribMode = "OneFilePerFrame"
+            #self.fluidCacheDistribMode = "OneFilePerFrame"
+            self.fluidCacheDistribMode = "OneFile"
         if tmp == 2:
-            self.fluidCacheDistribMode = "OneFilePerFrame"
+            self.fluidCacheDistribMode = "OneFile"
+            #self.fluidCacheDistribMode = "OneFilePerFrame"
 
         self.fluidRefresh = cmds.optionVar(q='fluidRefresh')
         self.fluidCacheDirName = cacheDir

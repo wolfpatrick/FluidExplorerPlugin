@@ -141,7 +141,7 @@ class MayaFunctionUtils(object):
         mel.eval(cmd)
         cmds.viewFit(an=False)
 
-    def renderImagesFromCameras(self, generalSettings, fluidIndex, progress, progressIndex):
+    def renderImagesFromCameras(self, generalSettings, fluidIndex, gMainProgressBar, progressIndex):
         """
         :type generalSettings: MayaCacheCmdSettings
         """
@@ -177,13 +177,12 @@ class MayaFunctionUtils(object):
 
             # Rendering
             try:
+                cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images - Perspective Camera")
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 return
-
-            progressIndex += 1
-            progress.setValue(progressIndex)
 
         if (generalSettings.cam_viewcube == True):
             # os.mkdir(generalSettings.outputPath + "/" + str(fluidIndex) + "/images/viewcube/")
@@ -202,13 +201,12 @@ class MayaFunctionUtils(object):
 
             # Rendering
             try:
+                cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images - View Cube Front")
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 return
-
-            progressIndex += 1
-            progress.setValue(progressIndex)
 
             # RIGHT
             self.viewFromCamPosition('RIGHT', generalSettings.fluidBoxName)
@@ -225,13 +223,12 @@ class MayaFunctionUtils(object):
             # Rendering
             #self.renderImages(path, fileName, start, end)
             try:
+                cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images - View Cube Right")
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 return
-
-            progressIndex += 1
-            progress.setValue(progressIndex)
 
             # TOP
             self.viewFromCamPosition('TOP', generalSettings.fluidBoxName)
@@ -246,13 +243,12 @@ class MayaFunctionUtils(object):
             mel.eval('RenderIntoNewWindow')
 
             try:
+                cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images - View Cube Top")
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 return
-
-            progressIndex += 1
-            progress.setValue(progressIndex)
 
         if (generalSettings._cam_custom_name != None):
             # View from camera
@@ -278,13 +274,13 @@ class MayaFunctionUtils(object):
             mel.eval('RenderIntoNewWindow')
 
             try:
+                cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images ... - Custom Camera")
                 self.renderImages(path, fileName, start, end)
             except Exception as e:
                 raise e
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 return
 
-            progressIndex += 1
-            progress.setValue(progressIndex)
             listRenderedImages.append(path)
 
             self.viewFromCamPosition('PERSPECTIVE', generalSettings.fluidBoxName)
@@ -317,16 +313,15 @@ class MayaFunctionUtils(object):
                 mel.eval('RenderIntoNewWindow')
 
                 try:
+                    cmds.progressBar(gMainProgressBar, edit=True, step=1, status="Render images ... - Rotating Camera")
                     self.renderImages(path, fileName, start, end)
                 except Exception as e:
                     raise e
+                    cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                     return
 
                 listRenderedImages.append(path)
                 stepAcc = stepAcc + valueY
-
-                progressIndex += 1
-                progress.setValue(progressIndex)
 
         cmds.viewFit('persp', an=False)
 

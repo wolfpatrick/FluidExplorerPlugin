@@ -9,6 +9,7 @@ import itertools
 from PySide import QtGui
 from PySide import QtCore
 import maya.cmds as cmds
+import maya.mel as mel
 
 from CreateProjectDialogUI import Ui_CreateProjectDialog
 from Utils.DefaultUIValues import DefaultUIParameters
@@ -214,7 +215,9 @@ class CreateProjectDialog(QtGui.QDialog):
     @QtCore.Slot()
     def buttonCreateSimulation_Event(self):
 
+        self.lgr.info('#')
         self.lgr.info("Simulation started")
+        self.lgr.info('#')
 
         # If the fluid container is incorrect, the application closes
         if not FluidExplorerUtils.FluidExplorerUtils.containerIsCorrect(self.fluidName):
@@ -271,6 +274,9 @@ class CreateProjectDialog(QtGui.QDialog):
             self.close()
             return
 
+        # Hide the dialog -> support minimize window
+        self.hide()
+
         # Store information about the current scene
         self.simulationSettings.fluidBoxName = self.fluidName
         self.simulationSettings.numberSamples = self.ui.horizontalSlider_numberSeq.value()
@@ -292,10 +298,6 @@ class CreateProjectDialog(QtGui.QDialog):
             tmp = str_val + delimiter_1 + str_min + delimiter_1 + str_max + delimiter_1 + str_val_name_pattern
             concatenatedString += (tmp + delimiter_2)
 
-            print "----------------"
-            print concatenatedString
-            print "----------------"
-
         # e.g. Gravity,0.0,10.0,gravity;Viscosity,0.0,1.0,viscosity;Density Scale,0.0,2.0,densityScale
         concatenatedString = concatenatedString[0:len(concatenatedString)-1]   # delete the last delimeter
         self.simulationSettings.sampledValuesString = concatenatedString
@@ -304,6 +306,7 @@ class CreateProjectDialog(QtGui.QDialog):
         MayaCacheCmdSettings.printValues(self.simulationSettings)
         fileCreated = self.createProjectSettingsFile(simulationNameAbsolut)
         if not fileCreated:
+            self.show()
             self.lgr.error('Could not create settings file. Simulation stoped')
             self.showMessageBox('Error - Create Sumulation','An error occurred while the project file was created!\nFor more information please see the editor log.', 'critical')
             self.close()
@@ -362,41 +365,61 @@ class CreateProjectDialog(QtGui.QDialog):
         # --------------------------------------------------------------------------------------------------------------
 
         self.mayaCallObject = MayaFunctionUtils()
-
         self.progressSteps = (self.getNumberOfActiveCameras() + 1) * self.simulationSettings.numberSamples
+
+        """
+        # Old progressbar - not in use
         progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
         progressWasCanceled = False
         progress.setWindowTitle("Please wait ...")
         progress.setMinimumDuration(0)
         progress.setMaximum(int(self.progressSteps))
         progress.show()
+        """
+
+        # Progress bar in maya toolbar - start
+        self.progressSteps = (self.getNumberOfActiveCameras() + 1) * self.simulationSettings.numberSamples
+        step_end = self.progressSteps
+        gMainProgressBar = mel.eval('$tmp = $gMainProgressBar')
+        cmds.progressBar( gMainProgressBar,
+                        edit=True,
+                        beginProgress=True,
+                        isInterruptable=False,
+                        status='"Creating simulations ...',
+                        maxValue=step_end )
 
         renderedImage = list()
-        index = 0
         fluidIndex = 0
         progressIndex = 0
         for lCmd, lSamples in itertools.izip(self.simulationSettings.createCacheCommandString, self.simulationSettings.randomSliderSamples):
             """
             :type lSamples : MayaCacheCmd
             """
-            progressBarText = "<b>Simulation " + str(fluidIndex) + " / " + str(self.simulationSettings.numberSamples) + " created.<b>"
-            progress.setLabelText(progressBarText)
+
+            # Progress bar - start
+            progressBarText = "Creating simulation " + str(fluidIndex+1) + " / " + str(self.simulationSettings.numberSamples)
+            # progress.setLabelText(progressBarText)
+            cmds.progressBar(gMainProgressBar, edit=True, step=0, status=progressBarText)
 
             # 1. Set the values
             self.mayaCallObject.setSampledValue(self.simulationSettings.fluidBoxName, lSamples)
 
             # 2. Call maya cache function
             try:
-                self.lgr.info("Caching started for index %s", index)
+                self.lgr.info("Caching started for index %s", fluidIndex)
                 self.mayaCallObject.createFluid(lCmd, None)
             except Exception as e:
+                self.show()
                 self.showMessageBox('Error - Create Cache','An error occurred while the cache files were created!\nFor more information please see the editor log.', 'critical')
-                progress.close()
+                # progress.close()
+                cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                 self.close()
                 return
 
+            # Progress bar - update
             progressIndex += 1
-            progress.setValue(progressIndex)
+            # progress.setValue(progressIndex)
+            cmds.progressBar(gMainProgressBar, edit=True, step=1, status=progressBarText)
 
             # 3. Create the images
             if self.simulationSettings.imageView:
@@ -404,34 +427,32 @@ class CreateProjectDialog(QtGui.QDialog):
                 self.mayaCallObject.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
             if self.simulationSettings.imageView:
                 try:
-                    self.lgr.info("Rendering images started for index %s", index)
+                    self.lgr.info("Rendering images started for index %s", fluidIndex)
                     [progressIndexUpdated, renderedImageSubList] = self.mayaCallObject.renderImagesFromCameras(
-                        self.simulationSettings, fluidIndex, progress, progressIndex)
+                        self.simulationSettings, fluidIndex, gMainProgressBar, progressIndex)
                 except Exception as e:
+                    self.show()
                     self.showMessageBox('Error - Render Images','An error occurred while the images were rendered!\nFor more information please see the editor log.', 'critical')
-                    progress.close()
+                    # progress.close()
+                    cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
                     self.close()
                     return
 
                 progressIndex = progressIndexUpdated
                 renderedImage.append(renderedImageSubList)
 
-            progressBarText = "<b>Simulation " + str(fluidIndex+1) + " / " + str(self.simulationSettings.numberSamples) + " created.<b>"
-            progress.setLabelText(progressBarText)
-
             fluidIndex += 1
-            if progress.wasCanceled():
-                progressWasCanceled = True
-                break
-
-            index = index + 1
 
         if self.simulationSettings.imageView:
             self.mayaCallObject.changeToPerspCam()
             self.mayaCallObject.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
 
         self.mayaCallObject = None
-        progress.close()
+
+        # Progress bar - close
+        # progress.close()
+        cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
+
         # --------------------------------------------------------------------------------------------------------------
 
         # --------------------------------------------------------------------------------------------------------------
@@ -439,6 +460,9 @@ class CreateProjectDialog(QtGui.QDialog):
         # --------------------------------------------------------------------------------------------------------------
         if self.simulationSettings.imageView:
             self.lgr.info("Creating GIF animations")
+
+            """
+            # Old progress bar
             progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
             progress.setWindowTitle("Please wait ...")
             progress.setMinimumDuration(0)
@@ -446,13 +470,27 @@ class CreateProjectDialog(QtGui.QDialog):
             progress.setLabelText("<b>Creating GIF animations ...</b>")
             progress.show()
             progressIndex = 0
+            """
+
+            # Progress bar - start
+            gMainProgressBar = mel.eval('$tmp = $gMainProgressBar')
+            cmds.progressBar( gMainProgressBar,
+                            edit=True,
+                            beginProgress=True,
+                            isInterruptable=False,
+                            status='"Creating GIF animations ...',
+                            maxValue=len(renderedImage) )
 
             gifIndex = 0
             for idx, val in enumerate(renderedImage):
                 tmpList = val
                 for val in tmpList:
                     progressIndex += 1
-                    progress.setValue(progressIndex)
+                    # progress.setValue(progressIndex)
+
+                    # Progress bar - update
+                    txt = "Creating GIF animation" + " " + str(gifIndex+1) + " / " + str(len(renderedImage))
+                    cmds.progressBar(gMainProgressBar, edit=True, step=1, status=txt)
 
                     # Store the path to the rendered images
                     directoryImagesDir = val
@@ -464,17 +502,21 @@ class CreateProjectDialog(QtGui.QDialog):
                     isFFmpegExecutable = self.gifImageCreator.createGifFromImages(self.ffmpegpath, directoryImagesDir,
                                                                                   outputGifFileDir, outputGifFileName,
                                                                                   start_time, fps=25, gifOptimization=25)
-                    if not isFFmpegExecutable:
-                        self.showMessageBox('Error - Create Animations','An error occurred while the animations were created!\nFor more information please see the editor log.', 'critical')
-                        progress.close()
-                        self.close()
-                        return
 
+                    if not isFFmpegExecutable:
+                        self.show()
+                        self.showMessageBox('Error - Create Animations','An error occurred while the animations were created!\nFor more information please see the editor log.', 'critical')
+                        # progress.close()
+                        self.close()
+                        cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
+                        return
 
                 gifIndex += 1
                 self.lgr.info('GIF Animation "%s" created', str(gifIndex))
 
-            progress.close()
+            # Progress bar - close
+            # progress.close()
+            cmds.progressBar(gMainProgressBar, edit=True, endProgress=True)
         # --------------------------------------------------------------------------------------------------------------
 
         # Copy settings file to project folder
@@ -482,8 +524,11 @@ class CreateProjectDialog(QtGui.QDialog):
         copySettingsFileTo = os.path.abspath(self.simulationSettings.outputPath + '/fluidExplorer.settings')
         FluidExplorerUtils.FluidExplorerUtils.copySettingsFile(pathToSettingsFile, copySettingsFileTo)
 
-        text = "Simulations successfully created." + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB + ""
-        self.showMessageBox("Information", text, 'information')
+        # Show the dialog again
+        # self.show()
+
+        text = "Simulations successfully created." + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB
+        self.showMessageBox_centered("Information", text, 'information')
 
         # Select the transform node
         cmds.select(self.transformNode, r=True)
@@ -906,6 +951,23 @@ class CreateProjectDialog(QtGui.QDialog):
                 msgBox.setIcon(QtGui.QMessageBox.Information)
 
             msgBox.exec_()
+
+    def showMessageBox_centered(self, title, text, _type):
+        msgBox = QtGui.QMessageBox()
+        icon_fluidExplorer_black = QtGui.QIcon(QtGui.QPixmap(':/icon_fluidexplorer_black.png'))
+        msgBox.setWindowIcon(icon_fluidExplorer_black)
+        msgBox.setStyleSheet(self.DIALOG_STYLE_SHEET)
+        msgBox.setText(text)
+        msgBox.setWindowTitle(title)
+
+        if _type == 'warning':
+            msgBox.setIcon(QtGui.QMessageBox.Warning)
+        if _type == 'critical':
+            msgBox.setIcon(QtGui.QMessageBox.Critical)
+        if _type == 'information':
+            msgBox.setIcon(QtGui.QMessageBox.Information)
+
+        msgBox.exec_()
 
     #
     # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
