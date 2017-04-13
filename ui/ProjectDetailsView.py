@@ -11,7 +11,7 @@ from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
 from maya import OpenMayaUI as omui
 import maya.cmds as cmds
 from shiboken import wrapInstance
-import os, sys
+import os,sys
 import logging
 import subprocess
 
@@ -195,6 +195,7 @@ class ProjectDetailsView(QtGui.QDialog):
         elif sys.platform.startswith(''):
             # TODO: Unix path
             pass
+
         self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
 
         # Settings file
@@ -202,6 +203,11 @@ class ProjectDetailsView(QtGui.QDialog):
 
         # Path to cached files
         cacheFile = ProjectDetailsViewUtils.getPathCacheFiles(self.pathToXMLFile)
+
+        if os.path.exists(settingXMLFile) and os.path.exists(cacheFile):
+            self.externalCall.isArgumentCorrect = True
+        else:
+            self.externalCall.isArgumentCorrect = False
 
         # Args
         self.externalCall.fluidExplorerArgs = '/settings path=' + str(settingXMLFile) + ' ' + '/load path=' + str(cacheFile)
@@ -494,7 +500,7 @@ class ProjectDetailsView(QtGui.QDialog):
         if isFXProcessRunning:
             return
 
-        # Check if path exists
+        # Check if app path exists
         pathToFXAPP = self.externalCall.pathToFluidExplorer + '/' + self.externalCall.fluidExplorerCmd
         if not os.path.exists(os.path.abspath(pathToFXAPP)):
             self.lgr.error('Cannot find the FluidExplorer application executable')
@@ -504,12 +510,29 @@ class ProjectDetailsView(QtGui.QDialog):
 
         # Check th folder structure
         if ProjectDetailsViewUtils.check_project_folder_structure(self.selectedProjectFolder, self.projectSettings, self.hashMapToXMLProjectFile):
-            # Start the fluid explorer
-            exec_res = self.execute_fx(self.externalCall)
-            if not exec_res:
-                errorMsg = "Cannot open the FluidExplorer application!\nSee the console output for details."
+
+            # Show a warning if cuda version check is not successfully
+            # [nvcc_success, output] = ProjectDetailsViewUtils.check_if_cuda_compiler_available()
+            # if not nvcc_success:
+            # errorText = "The graphics driver could not find compatible graphics hardware!\nPlease check if CUDA is supported on your machine.\n\nThe aplication might not work correctly."
+            # self.showMessageBox(errorText, 'warning')
+            # self.lgr.warning('CUDA version check was no successfully. Result of nvcc -V: %s', output)
+
+            if self.externalCall.isArgumentCorrect and 1==2:
+                #
+                # Start the fluid explorer
+                #
+                exec_res = self.execute_fx(self.externalCall)
+                if not exec_res:
+                    errorMsg = "Cannot open the FluidExplorer application!\nSee the console output for details."
+                    self.showMessageBox(errorMsg, 'critical')
+                    return
+            else:
+                self.lgr.error('External call - argument is not correct. Please check if path exists: %s', self.externalCall.fluidExplorerArgs)
+                errorMsg = "Cannot start the FluidExplorer application! The arguments are not valid.\nSee console output for details."
                 self.showMessageBox(errorMsg, 'critical')
-                return
+
+
         else:
             self.lgr.error('Project structure is not correct. Check the folder numbers')
             errorMsg = "The project structure is not correct!\nPlease check the project folder or create the simulation again."

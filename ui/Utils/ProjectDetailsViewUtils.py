@@ -28,6 +28,7 @@ class ExternalCallSetting():
     def __init__(self):
         self.pathToFluidExplorer = ''
         self.fluidExplorerArgs = ''
+        self.isArgumentCorrect = False
 
 
 class ProjectDetailsViewUtils():
@@ -180,9 +181,7 @@ class ProjectDetailsViewUtils():
 
     @staticmethod
     def checkIfProcessExistsAndClose(processName):
-        print "patrick"
         if ProjectDetailsViewUtils != None:
-            print "patrick w"
             ProjectDetailsViewUtils.killProcess_WIN(processName)
             FluidExplorerUtils.killProcess("fluidexplorer")
 
@@ -381,3 +380,27 @@ class ProjectDetailsViewUtils():
             return True
         else:
             return False
+
+
+    @staticmethod
+    def check_if_cuda_compiler_available():
+        """
+        Checks if the nvcc tool is available. Returns True if the program call was not successfully, False otherwise.
+        The tool can not be executed if the venvironment variable is not set.
+        """
+        nvcc_success = False
+        try:
+            out = ""
+            p = subprocess.Popen(['nvcc', '-V'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            out, err = p.communicate()
+            if len(out) > 1:
+                if "nvcc fatal" in out:
+                    nvcc_success = False
+                else:
+                    nvcc_success = True
+                    # print out
+        except Exception as e:
+            nvcc_success = False
+            out = "Subprocess Exception: " + e.message
+
+        return [nvcc_success, out]
