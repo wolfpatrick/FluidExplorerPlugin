@@ -626,7 +626,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
             command = [program_name]
             command.extend(arguments)
-            output = subprocess.Popen(command, shell=True)
+            output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 
             self.lgr.info('External application started')
             self.lgr.info('External call (path): %s', pathToFXApp)
