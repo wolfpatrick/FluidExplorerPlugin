@@ -230,7 +230,7 @@ class ProjectDetailsViewUtils():
         filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
 
         # TODO - Insert correct path
-        filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/', cmd)
+        filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
         if os.path.exists(os.path.abspath(filename)):
             fxPathRel = os.path.abspath(filename)
         else:

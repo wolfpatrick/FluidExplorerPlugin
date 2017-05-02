@@ -187,7 +187,7 @@ class ProjectDetailsView(QtGui.QDialog):
         self.ui.label_fluidContainer_2.setFont(font)
 
     def setupExternallCall(self):
-        # e.g. fluidexplorer.exe /settings path=E:/TMP/ANNAANNA/ANNAANNA.fxp /load path=E:/FluidExplorer_Code/FlameShape/FlameShape1
+        # e.g. fluidexplorer.exe /settings path="E:/TMP/Fire_1/Fire_1.fxp" /load path="E:/TMP/Fire_1"
 
         # FluidExplorer path
         if sys.platform.startswith('win'):
@@ -197,6 +197,7 @@ class ProjectDetailsView(QtGui.QDialog):
             pass
 
         self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
+        self.externalCall.pathToFluidExplorer="E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug"
 
         # Settings file
         settingXMLFile = self.pathToXMLFile # e.g. E:/TMP/Projects/TestProject1.fxp -> selected project file
@@ -210,13 +211,7 @@ class ProjectDetailsView(QtGui.QDialog):
             self.externalCall.isArgumentCorrect = False
 
         # Args
-        self.externalCall.fluidExplorerArgs = '/settings path=' + str(settingXMLFile) + ' ' + '/load path=' + str(cacheFile)
-
-        # For testing
-        self.externalCall.pathToFluidExplorer = 'E:/FluidExplorer_Code/Release/'
-        #self.externalCall.pathToFluidExplorer = 'E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug/'
-        self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
-        self.externalCall.fluidExplorerArgs = '/load path=E:\FluidExplorer_Code\FlameShape\FlameShape1'
+        self.externalCall.fluidExplorerArgs = ['/settings', 'path='+str(settingXMLFile), '/load', 'path='+str(cacheFile)]
 
     def scaleMovieLabel(self):
         # Is supposed to be: 960x540
@@ -518,7 +513,7 @@ class ProjectDetailsView(QtGui.QDialog):
             # self.showMessageBox(errorText, 'warning')
             # self.lgr.warning('CUDA version check was no successfully. Result of nvcc -V: %s', output)
 
-            if self.externalCall.isArgumentCorrect and 1==2:
+            if self.externalCall.isArgumentCorrect:
                 #
                 # Start the fluid explorer
                 #
@@ -615,15 +610,26 @@ class ProjectDetailsView(QtGui.QDialog):
 
     # - Help functions -
     def execute_fx(self, externalCallSettings):
+
         pathToFXApp = externalCallSettings.pathToFluidExplorer
         cmdFXAPP = externalCallSettings.fluidExplorerCmd
         cmdFXArg = externalCallSettings.fluidExplorerArgs
 
+        # --------------------------------------------------------------------------------------------------------------
+        # Version 1 - Without console output
+        # --------------------------------------------------------------------------------------------------------------
         currentDir = os.getcwd()
         try:
             os.chdir(pathToFXApp)
-            process = subprocess.Popen([cmdFXAPP, cmdFXArg], shell=True)
-            self.lgr.info('External application startedd')
+            program_name = cmdFXAPP
+            arguments = [str(cmdFXArg[0]), str(cmdFXArg[1]), str(cmdFXArg[2]), str(cmdFXArg[3])]
+
+            command = [program_name]
+            command.extend(arguments)
+            output = subprocess.Popen(command, shell=True)
+
+            self.lgr.info('External application started')
+            self.lgr.info('External call (path): %s', pathToFXApp)
             self.lgr.info('External call (cmd): %s', cmdFXAPP)
             self.lgr.info('External call (args): %s', cmdFXArg)
         except Exception as e:
@@ -633,6 +639,7 @@ class ProjectDetailsView(QtGui.QDialog):
             os.chdir(currentDir)
             subprocess._cleanup()
             return True
+        # --------------------------------------------------------------------------------------------------------------
 
     def setLineEditEnabledAndReadOnly(self, component):
         component.setStyleSheet(self.getStyle())
