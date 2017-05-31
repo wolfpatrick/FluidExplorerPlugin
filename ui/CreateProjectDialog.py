@@ -1,4 +1,5 @@
 import os
+import struct
 import re
 import platform
 import webbrowser
@@ -340,6 +341,7 @@ class CreateProjectDialog(QtGui.QDialog):
             pathOut = self.simulationSettings.outputPath + "/" + str(iIndex)
             cacheCmd.setRenderSettingsFromMaya(self.simulationSettings.animationStartTime, self.simulationSettings.animationEndTime, pathOut, cacheName)
             cmdStr = cacheCmd.getCacheCommandString()
+            self.lgr.info("Cache command: %s", cmdStr)
             cacheCmdList.append(cmdStr)
             del cacheCmd
 
@@ -924,6 +926,16 @@ class CreateProjectDialog(QtGui.QDialog):
     def getFFmpegPath(self):
         filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filename = os.path.join(filePathMain, 'lib/ffmpeg/')
+
+        # Determine platform. lease note that this command returns the platform of python and not
+        # the platform of the underlying os. Assumption: Use 64 bit ffmpeg if 64 bit maya is running.
+        is64_bit = ((struct.calcsize('P') * 8) == 64)
+        if is64_bit:
+            filename = os.path.join(filename, 'x64/')
+        else:
+            filename = os.path.join(filename, 'x86/')
+
+        #filename = os.path.join(filename, '')
         fxPathRel = os.path.abspath(filename)
 
         return fxPathRel

@@ -27,6 +27,7 @@ class GifCreator():
 
         if sys.platform.startswith('win'):
             pathToFfmpeg = ffmpegPath + "/ffmpeg.exe"
+            pathToFfmpeg = os.path.abspath(pathToFfmpeg)
             isFfmpegExecutable = self.is_exe(pathToFfmpeg)
             returnCode = False
         else:

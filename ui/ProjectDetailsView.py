@@ -198,7 +198,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
         self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
         self.externalCall.pathToFluidExplorer="E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug"
-
+        self.externalCall.pathToFluidExplorer="E:\TMP_FX/fluidexplorer/bin/Win32/Release"
         # Settings file
         settingXMLFile = self.pathToXMLFile # e.g. E:/TMP/Projects/TestProject1.fxp -> selected project file
 

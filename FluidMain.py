@@ -1,12 +1,12 @@
 ########################################################################################################################
 #                                                                                                                      #
-#   This file calls the FluidExplorer Plugin and has to be stord in:                                                   #
+#   This file calls the FluidExplorer Plugin. Please store the file in the following directory:                        #
 #                                                                                                                      #
-#       Windows: maya\2014-x64\scripts\FluidMain.py                                                                    #
+#       Windows: \Users\<username>\Documents\maya\<version>\scripts\FluidExplorerPlugin\FluidMain.py                   #
 #                                                                                                                      #
-#   Path of the FluidExplorer Plugin:                                                                                  #
+#   Path to the FluidExplorer Plugin:                                                                                  #
 #                                                                                                                      #
-#       Windows: maya\2014-x64\scripts\FluidExplorerPlugin\                                                            #
+#       Windows: \Users\<username>\Documents\maya\<version>\scripts\FluidExplorerPlugin                                #
 #                                                                                                                      #
 ########################################################################################################################
 
@@ -198,11 +198,9 @@ class ControlMainWindow(QtGui.QMainWindow):
             sceneOpened = True
             self.pid = pid
 
-
         # --------------------------------------------------------------------------------------
         # Create scene details window
         if sceneOpened:
-
             #self.detailsView.close()
             self.detailsView = ProjectDetailsView(self, selectedDir)
             self.detailsView.show()

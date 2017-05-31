@@ -62,6 +62,12 @@ class FluidExplorerUtils(object):
             # TODO: Unix path
             pass
 
+        if not os.path.exists(pathToFFmpeg):
+            lgr = logging.getLogger('FluidExplorerPlugin')
+            lgr.error("Fatal Error: Cannot find ffmpeg path.")
+            lgr.error("Please check if executable file exists: %s", pathToFFmpeg)
+            return False
+
         try:
             subprocess.call([pathToFFmpeg], shell=True)
         except OSError as e:
@@ -69,7 +75,7 @@ class FluidExplorerUtils(object):
                 # Handle file not found error.
                 lgr = logging.getLogger('FluidExplorerPlugin')
                 lgr.error("Fatal Error: Cannot find ffmpeg. Details: %s", e.message)
-                lgr.error("Please check if executable file exists in /lib/ffmpeg/")
+                lgr.error("Please check if executable file exists: %s", pathToFFmpeg)
 
                 return False
             else:
