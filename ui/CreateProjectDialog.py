@@ -101,10 +101,13 @@ class CreateProjectDialog(QtGui.QDialog):
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # Only for testing
-        # self.runTests(self.workDirPath)
-        # self.setAnimationStartEndTime()
+        #self.runTests(self.workDirPath)
+        #self.setAnimationStartEndTime()
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        # Delete files from time calculation
+        self.deleteFilesFromOutputFolder()
 
         # Select the transform node
         cmds.select(self.transformNode, r=True)
@@ -138,7 +141,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.lgr.info("Default workspace / output directory: %s", self.workDirPath)
 
         # TODO - delete tmp
-        self.workDirPath = "E:/TMP"
+        # self.workDirPath = "E:/TMP"
 
         if platform.system() == "Windows":
             self.workDirPath = self.workDirPath.replace("/", "\\")
@@ -180,6 +183,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.ui.lineEdit_numberSeq.editingFinished.connect(self.lineEdit_numberSeq_EditFinished)
         self.ui.spinBox_rotDeg.valueChanged.connect(self.spinBoxRot_Event)
         self.ui.pushButtonBrowse_CalculateTime.clicked.connect(self.calculateTimeClicked)
+        self.ui.lineEdit_numberSeq.editingFinished.connect(self.checkNumSimIsOne_Event)
 
     def setAnimationStartEndTime(self):
         uiStatus = MayaUiDefaultValues()
@@ -282,6 +286,10 @@ class CreateProjectDialog(QtGui.QDialog):
         self.simulationSettings.fluidBoxName = self.fluidName
         self.simulationSettings.numberSamples = self.ui.horizontalSlider_numberSeq.value()
         self.setCameraButtonSelection()
+
+        # Minimum of samples = 2
+        if self.simulationSettings.numberSamples == 1:
+            self.simulationSettings.numberSamples = 2
 
         # Get current spans: Stores the min and max slider vqalues. e.g.: currentSpans.velocitySwirl_Span
         currentSpans = self.tabParamtersObj.getSelectedValuesFromSlider()
@@ -532,6 +540,9 @@ class CreateProjectDialog(QtGui.QDialog):
         text = "Simulations successfully created." + "\n\nProject Path: " + self.simulationSettings.outputPath + "" + "\nProject File: " + self.simulationSettings.simulationNameMB
         self.showMessageBox_centered("Information", text, 'information')
 
+        # Delete render window
+        FluidExplorerUtils.FluidExplorerUtils.deleteRenderWindow()
+
         # Select the transform node
         cmds.select(self.transformNode, r=True)
 
@@ -559,7 +570,11 @@ class CreateProjectDialog(QtGui.QDialog):
         numberSeq = self.ui.lineEdit_numberSeq.text()
         try:
             val = int(numberSeq)
-            if int(numberSeq) < DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN :
+            #if int(numberSeq) < DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN :
+            #    self.ui.lineEdit_numberSeq.setText(str(DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN))
+            #    self.ui.horizontalSlider_numberSeq.setValue(DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN)
+            #    self.ui.horizontalSlider_numberSeq.update()
+            if int(numberSeq) == 0:
                 self.ui.lineEdit_numberSeq.setText(str(DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN))
                 self.ui.horizontalSlider_numberSeq.setValue(DefaultUIParameters.DEF_NUMBER_SEQUENCES_MIN)
                 self.ui.horizontalSlider_numberSeq.update()
@@ -814,18 +829,15 @@ class CreateProjectDialog(QtGui.QDialog):
             else:
                 return False
 
+    def checkNumSimIsOne_Event(self):
+        if self.ui.lineEdit_numberSeq.text() == "1":
+            self.ui.lineEdit_numberSeq.setText("2")
 
-    def calculateTimeClicked(self):
-
-        # Show from FRONT
-        mayaUtils = MayaFunctionUtils()
-        mayaUtils.changeToPerspCam()
-        mayaUtils.viewFromCamPosition('FRONT', self.simulationSettings.fluidBoxName)
-
+    def deleteFilesFromOutputFolder(self):
         # Delete / create output folder
         filePathMain = os.path.dirname(os.path.abspath(__file__))
         fxPathRel = os.path.dirname(os.path.abspath(filePathMain))
-        outputFolder = fxPathRel + '/Output/'
+        outputFolder = fxPathRel + '/output/'
         outputFolderAbs = os.path.abspath(outputFolder)
 
         if os.path.exists(outputFolderAbs):
@@ -837,6 +849,20 @@ class CreateProjectDialog(QtGui.QDialog):
                 os.remove(tmpPathAbs)
         else:
             os.mkdir(outputFolderAbs)
+
+    def calculateTimeClicked(self):
+
+        # Show from FRONT
+        mayaUtils = MayaFunctionUtils()
+        mayaUtils.changeToPerspCam()
+        mayaUtils.viewFromCamPosition('FRONT', self.simulationSettings.fluidBoxName)
+
+        # Delete / create output folder
+        filePathMain = os.path.dirname(os.path.abspath(__file__))
+        fxPathRel = os.path.dirname(os.path.abspath(filePathMain))
+        outputFolder = fxPathRel + '/output/'
+        outputFolderAbs = os.path.abspath(outputFolder)
+        self.deleteFilesFromOutputFolder()
 
         # Caching
         start_time_cahching = time.time()
@@ -881,6 +907,9 @@ class CreateProjectDialog(QtGui.QDialog):
         # SetTime
         self.isTimeCalculated = True
         self.setTime()
+
+        # Delete render window
+        FluidExplorerUtils.FluidExplorerUtils.deleteRenderWindow()
 
     def setTime(self):
 

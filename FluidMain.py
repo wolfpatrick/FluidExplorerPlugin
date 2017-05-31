@@ -28,9 +28,11 @@ from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils  import FluidExplorerUtils
 from FluidExplorerPlugin.ui.Utils import settings
 from FluidExplorerPlugin.ui.Icons import icons
 from FluidExplorerPlugin.ui.ProjectDetailsView import ProjectDetailsView
+from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
+
 import FluidExplorerPlugin.ui.MainWindow as mainUi
 
-FLUID_EXPLORER_URL = "http://www.google.de"
+FLUID_EXPLORER_URL = DefaultUIParameters.URL
 
 
 # Get the maya main window as a QMainWindow instance
@@ -79,9 +81,10 @@ class ControlMainWindow(QtGui.QMainWindow):
         if self.detailsView:
             self.detailsView.close()
 
-        # ---------------------------------------------------------------------------------------------------- #
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         # For tests only
-        runTests = True
+        # runTests = True
         runTests = False
         if runTests:
             import maya.mel as mel
@@ -89,7 +92,8 @@ class ControlMainWindow(QtGui.QMainWindow):
             # Animation Start/End Time
             cmds.playbackOptions(animationStartTime=1.00)
             cmds.playbackOptions(animationEndTime=15.00)
-        # ---------------------------------------------------------------------------------------------------- #
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        # //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         FluidExplorerUtils.killProcess("fluidexplorer")
 
@@ -205,7 +209,6 @@ class ControlMainWindow(QtGui.QMainWindow):
             self.detailsView = ProjectDetailsView(self, selectedDir)
             self.detailsView.show()
         # --------------------------------------------------------------------------------------
-
 
     # Eventhandler - create simulation
     @QtCore.Slot()

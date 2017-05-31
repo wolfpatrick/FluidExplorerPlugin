@@ -6,14 +6,16 @@ from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ProjectDetailsV
 from FluidExplorerPlugin.ui.Utils.ProjectDetailsViewUtils import ExternalCallSetting
 from FluidExplorerPlugin.ui.Utils.LoadFluidCacheFile import LoadFluidCacheFile
 from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
+from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
 # from FluidExplorerPlugin.ui.Utils.ExternalCallWorkerThread import WorkThread
 
 from maya import OpenMayaUI as omui
 import maya.cmds as cmds
 from shiboken import wrapInstance
-import os,sys
+import os, sys
 import logging
 import subprocess
+import webbrowser
 
 
 class ProjectDetailsView(QtGui.QDialog):
@@ -601,7 +603,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
     @QtCore.Slot()
     def helpButtonClicked(self):
-        self.lgr.info('Help clicked')
+        webbrowser.open(DefaultUIParameters.URL, new=1)
 
     @QtCore.Slot()
     def frameChangedHandler(self, frameNumber):

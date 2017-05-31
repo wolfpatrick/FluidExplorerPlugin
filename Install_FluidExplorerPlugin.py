@@ -1,9 +1,9 @@
 ########################################################################################################################
 #                                                                                                                      #
-#   This file creates the FluidExplorer Plugin icons in the toolbar and                                                #
+#   This file creates the Fluid Explorer Plugin icons within the Maya toolbar and                                       #
 #   returns the main window instance.                                                                                  #
 #                                                                                                                      #
-#   Please execute the file from the python script editor.                                                             #
+#   Please execute the file from the python script editor in Maya                                                      #
 #                                                                                                                      #
 ########################################################################################################################
 
@@ -57,10 +57,14 @@ def create_fluidExplorer_shelf():
     except:
         create_fluidExplorer_shelf_text_only()
 
+#
 # Run FluidExplorer
+#
 fluidExplorerWin = FluidExplorerPlugin.FluidMain.main()
 if fluidExplorerWin:
     fluidExplorerWin.show()
 
+#
 # Create shelf buttons
+#
 create_fluidExplorer_shelf()

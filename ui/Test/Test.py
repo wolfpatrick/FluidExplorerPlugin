@@ -8,16 +8,27 @@ from FluidExplorerPlugin.ui.Utils.RangeSliderSpan import FluidContainerValues
 
 
 ########################################################################################################################
-# READ ME - Test Configuration                                                                                         #
+#                                                                                                                      #
+# README - Test Configuration                                                                                          #
+#                                                                                                                      #
 # 1) Set animation start and end time                                                                                  #
-#       FluidMain.py: Set runTests=True (~line 74)                                                                     #
-#       Ses animation start time to 1                                                                                  #
-#       Ses animation end time to 15                                                                                   #
-# 2) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects -> delete                    #
-#    TestProjects if exists                                                                                            #
-# 3) Create an empty fluid container (with emitter)                                                                    #
-# 4) In CreateProjectDialog uncommit - self.runTests(self.workDirPath) - line 96                                       #
-# 4) Run test -> Create Simulation Button                                                                              #
+#       Set animation start time to 1                                                                                  #
+#       Set animation end time to 15                                                                                   #
+#                                                                                                                      #
+# 2) Set runTests flag                                                                                                 #
+#       FluidExplorerPlugin/FluidMain.py: Set runTests=True (~line 85)                                                 #
+#                                                                                                                      #
+# 3) Check if folder 'TestProjects' exist: e.g.: FluidExplorerPlugin/ui/Test/TestProjects                              #
+#       Delete the directory 'TestProjects' if it exists                                                               #
+#       (Note: Avoid recursive deleting)                                                                               #
+#                                                                                                                      #
+# 4) Create an empty fluid container (with emitter)                                                                    #
+#                                                                                                                      #
+# 5) Set runTests flag                                                                                                 #
+#       In CreateProjectDialog.py uncommit: self.runTests(self.workDirPath) (~line 100)                                #
+#                                                                                                                      #
+# 6) Run the test -> Hit the Create Simulation Button in the dialog                                                    #
+#                                                                                                                      #
 ########################################################################################################################
 
 

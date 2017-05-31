@@ -1,7 +1,130 @@
-2017-03-23 12:47:02,049 - #
-2017-03-23 12:47:02,049 - # Test started ...
-2017-03-23 12:47:02,049 - #
-2017-03-23 12:47:02,051 - Choosen camera: camera1
-2017-03-23 12:47:02,052 - Simulation started
-2017-03-23 12:47:06,582 - Maya file not saved. Simulation stoped
-2017-03-23 12:47:06,585 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
+2017-05-31 13:54:26,167 - #
+2017-05-31 13:54:26,167 - # Test started ...
+2017-05-31 13:54:26,167 - #
+2017-05-31 13:54:26,168 - Choosen camera: camera1
+2017-05-31 13:54:26,170 - #
+2017-05-31 13:54:26,170 - Simulation started
+2017-05-31 13:54:26,170 - #
+2017-05-31 13:54:28,161 - Read selected values from paramter tab
+2017-05-31 13:54:28,163 - Gravity : 9.80
+2017-05-31 13:54:28,164 - Viscosity : 0.00
+2017-05-31 13:54:28,164 - Friction : 0.00
+2017-05-31 13:54:28,164 - Damp : 0.00
+2017-05-31 13:54:28,164 - Density Scale : 0.50
+2017-05-31 13:54:28,164 - Buoyancy : 1.00
+2017-05-31 13:54:28,165 - Dissipation : 0.00
+2017-05-31 13:54:28,165 - Diffusion : 0.00
+2017-05-31 13:54:28,167 - D. Pressure : 0.00
+2017-05-31 13:54:28,167 - Press. Th. : 1.00
+2017-05-31 13:54:28,167 - Noise : 0.00
+2017-05-31 13:54:28,167 - D. Tension : 0.00
+2017-05-31 13:54:28,168 - Tension Force : 0.00
+2017-05-31 13:54:28,168 - Gradient F. : 0.00
+2017-05-31 13:54:28,168 - Swirl : 0.00
+2017-05-31 13:54:28,170 - Noise : 0.00
+2017-05-31 13:54:28,170 - Strength : 0.00
+2017-05-31 13:54:28,171 - Frequency : 0.20
+2017-05-31 13:54:28,171 - Speed : 0.20
+2017-05-31 13:54:28,171 - Temp. Scale : 1.00
+2017-05-31 13:54:28,171 - Buoyancy : 3.00
+2017-05-31 13:54:28,173 - Pressure : 0.00
+2017-05-31 13:54:28,173 - Press. Th. : 0.00
+2017-05-31 13:54:28,173 - Dissipation : 0.10
+2017-05-31 13:54:28,174 - Diffusion : 0.10
+2017-05-31 13:54:28,174 - Turbulence : 0.10
+2017-05-31 13:54:28,174 - Noise : 0.00
+2017-05-31 13:54:28,174 - Tension : 0.00
+2017-05-31 13:54:28,176 - Fuel Scale : 1.00
+2017-05-31 13:54:28,176 - Reac. Speed : 0.05
+2017-05-31 13:54:28,177 - A./F. Ratio : 0.00
+2017-05-31 13:54:28,177 - Ignit. Temp. : 0.00
+2017-05-31 13:54:28,177 - Max Temp. : 1.00
+2017-05-31 13:54:28,177 - Heat R. : 1.00
+2017-05-31 13:54:28,177 - Light R. : 0.00
+2017-05-31 13:54:28,178 - C. Dissipation : 0.00
+2017-05-31 13:54:28,178 - C. Diffusion : 0.00
+2017-05-31 13:54:28,178 - Project settings:
+2017-05-31 13:54:28,180 -   Proj. Name: TestProject5
+2017-05-31 13:54:28,180 -   Output Path: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5
+2017-05-31 13:54:28,180 -   Fluid Container: fluidShape1
+2017-05-31 13:54:28,180 -   Num. Samples: 2
+2017-05-31 13:54:28,180 -   Num. Frames: 15
+2017-05-31 13:54:28,180 -   Scene Name: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb
+2017-05-31 13:54:28,181 -   Available Images: 1
+2017-05-31 13:54:28,181 -   Camera Perspective: 1
+2017-05-31 13:54:28,181 -   Camera ViewCube: 1
+2017-05-31 13:54:28,183 -   Camera Custom: True/camera1
+2017-05-31 13:54:28,183 -   Camera Rotation: 90
+2017-05-31 13:54:28,183 -   Animation Start Time: 1.0
+2017-05-31 13:54:28,183 -   Animation End Time: 15.0
+2017-05-31 13:54:28,184 -   String Sampled Values: 
+2017-05-31 13:54:28,187 - Create cache commands and random values
+2017-05-31 13:54:28,188 - Cache command: doCreateFluidCache 5 { "0", "1.0", "15.0", "OneFilePerFrame", "1", "C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0","0", "fluidShape1_0","0", "replace", "1", "1.0", "1.0", "0", "0", "mcc", "1", "1", "1", "1", "0", "1", "1" }
+2017-05-31 13:54:28,190 - Cache command: doCreateFluidCache 5 { "0", "1.0", "15.0", "OneFilePerFrame", "1", "C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1","0", "fluidShape1_1","0", "replace", "1", "1.0", "1.0", "0", "0", "mcc", "1", "1", "1", "1", "0", "1", "1" }
+2017-05-31 13:54:28,191 - Set sampled values for: fluidShape1
+2017-05-31 13:54:28,196 - Caching started for index 0
+2017-05-31 13:54:28,345 - Rendering images started for index 0
+2017-05-31 13:54:29,670 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/perspective/
+2017-05-31 13:54:33,798 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_front/
+2017-05-31 13:54:40,059 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_side/
+2017-05-31 13:54:46,358 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_top/
+2017-05-31 13:54:52,344 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/custom/
+2017-05-31 13:55:02,368 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_0/
+2017-05-31 13:55:06,095 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_90/
+2017-05-31 13:55:09,869 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_180/
+2017-05-31 13:55:13,585 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_270/
+2017-05-31 13:55:17,118 - Set sampled values for: fluidShape1
+2017-05-31 13:55:17,122 - Caching started for index 1
+2017-05-31 13:55:17,747 - Rendering images started for index 1
+2017-05-31 13:55:18,976 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/perspective/
+2017-05-31 13:55:23,200 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_front/
+2017-05-31 13:55:29,539 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_side/
+2017-05-31 13:55:35,868 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_top/
+2017-05-31 13:55:41,805 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/custom/
+2017-05-31 13:55:51,717 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_0/
+2017-05-31 13:55:55,424 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_90/
+2017-05-31 13:55:59,170 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_180/
+2017-05-31 13:56:02,934 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_270/
+2017-05-31 13:56:06,963 - Creating GIF animations
+2017-05-31 13:56:10,026 - GIF Animation "1" created
+2017-05-31 13:56:13,137 - GIF Animation "2" created
+2017-05-31 14:01:23,766 - #
+2017-05-31 14:01:23,769 - # Simulation successfully created: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5
+2017-05-31 14:01:23,769 - #
+2017-05-31 14:01:23,769 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
+2017-05-31 14:01:23,772 - Test instance - use_all_cameras-cache_files_exist - successfully executed
+2017-05-31 14:01:23,772 - Test instance - use_all_cameras-project_file_exists - successfully executed
+2017-05-31 14:01:23,772 - Test instance - use_all_cameras-gif_perspective - successfully executed
+2017-05-31 14:01:23,773 - Test instance - use_all_cameras-gif_viewcube - successfully executed
+2017-05-31 14:01:23,773 - Test instance - use_all_cameras-gif_custom - successfully executed
+2017-05-31 14:01:23,773 - Test instance - use_all_cameras-gif_rotation - successfully executed
+2017-05-31 14:23:20,306 -  
+2017-05-31 14:23:20,308 - Maya version correct: True
+2017-05-31 14:23:20,308 - Platform correct: True
+2017-05-31 14:23:20,437 - Process "fluidexplorer.exe" is not running
+2017-05-31 14:23:20,438 - FluidExplorer plugin started
+2017-05-31 14:23:20,440 -  
+2017-05-31 14:23:20,479 -  
+2017-05-31 14:23:20,479 - Maya version correct: True
+2017-05-31 14:23:20,480 - Platform correct: True
+2017-05-31 14:23:20,552 - Process "fluidexplorer.exe" is not running
+2017-05-31 14:23:20,553 - FluidExplorer plugin started
+2017-05-31 14:23:20,555 -  
+2017-05-31 14:23:20,608 -  
+2017-05-31 14:23:20,609 - Maya version correct: True
+2017-05-31 14:23:20,609 - Platform correct: True
+2017-05-31 14:23:20,684 - Process "fluidexplorer.exe" is not running
+2017-05-31 14:23:20,686 - FluidExplorer plugin started
+2017-05-31 14:23:20,687 -  
+2017-05-31 14:23:20,752 -  
+2017-05-31 14:23:20,753 - Maya version correct: True
+2017-05-31 14:23:20,753 - Platform correct: True
+2017-05-31 14:23:20,819 - Process "fluidexplorer.exe" is not running
+2017-05-31 14:23:20,821 - FluidExplorer plugin started
+2017-05-31 14:23:20,822 -  
+2017-05-31 14:23:20,881 -  
+2017-05-31 14:23:20,881 - Maya version correct: True
+2017-05-31 14:23:20,882 - Platform correct: True
+2017-05-31 14:23:20,951 - Process "fluidexplorer.exe" is not running
+2017-05-31 14:23:20,953 - FluidExplorer plugin started
+2017-05-31 14:23:20,953 -  

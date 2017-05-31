@@ -180,3 +180,9 @@ class FluidExplorerUtils(object):
     @staticmethod
     def copySettingsFile(scr, dst):
         shutil.copyfile(scr, dst)
+
+    @staticmethod
+    def deleteRenderWindow():
+        win_list = cmds.lsUI(windows=True)
+        if ('renderViewWindow' in win_list):
+            cmds.deleteUI('renderViewWindow', window=True)

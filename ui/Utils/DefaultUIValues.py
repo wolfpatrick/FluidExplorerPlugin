@@ -71,9 +71,9 @@ class DefaultUIParameters(object):
     DEF_SPIN_ROT = 45
 
     # Slider: Number of Sequences
-    DEF_NUMBER_SEQUENCES = 128
-    DEF_NUMBER_SEQUENCES_MIN = 2
-    DEF_NUMBER_SEQUENCES_MAX = 500
+    DEF_NUMBER_SEQUENCES = 15
+    DEF_NUMBER_SEQUENCES_MIN = 1
+    DEF_NUMBER_SEQUENCES_MAX = 200
 
     # Url to the help page
-    URL = "http://google.de"
+    URL = "http://fluidexplorer.cs.univie.ac.at/"
