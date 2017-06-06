@@ -170,6 +170,7 @@ class Test():
 
         try:
             path = pathToFFmpegExe
+
             subprocess.call([path], shell=False)
             self.logResult(True, 'check_if_ffmpeg_exists_and_executable-file_exists')
             self.logResult(True, 'check_if_ffmpeg_exists_and_executable-file_executable')

@@ -240,7 +240,7 @@ class CreateProjectDialog(QtGui.QDialog):
             return
 
         if not fluidExplorerIsOk:
-            self.showMessageBox('Warning - Create Sumulation','Cannot execute FluidExplorer application. Simulation stopped!\nFor more information please see the editor log.', 'warning')
+            self.showMessageBox('Warning - Create Sumulation','Cannot execute Fluid Explorer application. Simulation stopped!\nFor more information please see the editor log.', 'warning')
             self.close()
             return
 

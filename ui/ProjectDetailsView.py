@@ -192,11 +192,12 @@ class ProjectDetailsView(QtGui.QDialog):
         # e.g. fluidexplorer.exe /settings path="E:/TMP/Fire_1/Fire_1.fxp" /load path="E:/TMP/Fire_1"
 
         # FluidExplorer path
-        if sys.platform.startswith('win'):
+        if sys.platform.lower().startswith('win'):
+            # Windows
             self.externalCall.fluidExplorerCmd = 'fluidExplorer.exe'
-        elif sys.platform.startswith(''):
-            # TODO: Unix path
-            pass
+        elif sys.platform.lower().startswith('darwin'):
+            # MacOS
+            self.externalCall.fluidExplorerCmd = 'fluidExplorer'
 
         self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
         self.externalCall.pathToFluidExplorer="E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug"
@@ -493,15 +494,15 @@ class ProjectDetailsView(QtGui.QDialog):
             return
 
         # Check if fluidexplorer app is running
-        isFXProcessRunning = ProjectDetailsViewUtils.checkIfProcessIsRunning_WIN(self.FLUIDEXPLORER_APP_NAME)
+        isFXProcessRunning = ProjectDetailsViewUtils.checkIfProcessIsRunning(self.FLUIDEXPLORER_APP_NAME)
         if isFXProcessRunning:
             return
 
         # Check if app path exists
         pathToFXAPP = self.externalCall.pathToFluidExplorer + '/' + self.externalCall.fluidExplorerCmd
         if not os.path.exists(os.path.abspath(pathToFXAPP)):
-            self.lgr.error('Cannot find the FluidExplorer application executable')
-            errorMsg = "Cannot find the FluidExplorer application executable!" + "\n" + "Please check if the executable file is available."
+            self.lgr.error('Cannot find the Fluid Explorer application executable')
+            errorMsg = "Cannot find the Fluid Explorer application executable!" + "\n" + "Please check if the executable file is available."
             self.showMessageBox(errorMsg, 'warning')
             return
 
@@ -521,12 +522,12 @@ class ProjectDetailsView(QtGui.QDialog):
                 #
                 exec_res = self.execute_fx(self.externalCall)
                 if not exec_res:
-                    errorMsg = "Cannot open the FluidExplorer application!\nSee the console output for details."
+                    errorMsg = "Cannot open the Fluid Explorer application!\nSee the console output for details."
                     self.showMessageBox(errorMsg, 'critical')
                     return
             else:
                 self.lgr.error('External call - argument is not correct. Please check if path exists: %s', self.externalCall.fluidExplorerArgs)
-                errorMsg = "Cannot start the FluidExplorer application! The arguments are not valid.\nSee console output for details."
+                errorMsg = "Cannot start the Fluid Explorer application! The arguments are not valid.\nSee console output for details."
                 self.showMessageBox(errorMsg, 'critical')
 
 
@@ -628,14 +629,15 @@ class ProjectDetailsView(QtGui.QDialog):
 
             command = [program_name]
             command.extend(arguments)
-            output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+            output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE) # --> output windows pops up
+            #output = subprocess.Popen(command, shell=True) # --> output windows does not pop up
 
             self.lgr.info('External application started')
             self.lgr.info('External call (path): %s', pathToFXApp)
             self.lgr.info('External call (cmd): %s', cmdFXAPP)
             self.lgr.info('External call (args): %s', cmdFXArg)
         except Exception as e:
-            self.lgr.error('Critical: Cannot execute fluid explorer app. Details: %s', e.message)
+            self.lgr.error('Critical: Cannot execute Fluid Fxplorer app. Details: %s', e.message)
             return False
         finally:
             os.chdir(currentDir)

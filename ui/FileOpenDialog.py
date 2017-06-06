@@ -200,8 +200,8 @@ class FileOpenDialog(QtGui.QDialog):
                             """
 
                         except Exception as e:
-                            errorMsg = "Unable to start the FluidExplorer application!" + "\nDetails: " + e.message
-                            self.lgr.error('Unable to start the FluidExplorer application! Details: %s', e.message)
+                            errorMsg = "Unable to start the Fluid Explorer application!" + "\nDetails: " + e.message
+                            self.lgr.error('Unable to start the Fluid Explorer application! Details: %s', e.message)
                             self.showMessageBox(errorMsg, 'critical')
 
                         return [strStarted, choosenDir, 1]   # return started -> everything fine!

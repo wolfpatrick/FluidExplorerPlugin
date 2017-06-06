@@ -59,7 +59,7 @@ class FluidExplorerUtils(object):
         if sys.platform.startswith('win'):
             pathToFFmpeg = pathToFFmpeg + "/ffmpeg.exe"
         else:
-            # TODO: Unix path
+            pathToFFmpeg = pathToFFmpeg + "/ffmpeg"
             pass
 
         if not os.path.exists(pathToFFmpeg):
@@ -92,8 +92,7 @@ class FluidExplorerUtils(object):
         if sys.platform.startswith('win'):
             pathToFluidExplorer = pathToFluidExplorer + '/fluidexplorer.exe'
         else:
-            # TODO: Unix path
-            pass
+            pathToFluidExplorer = pathToFluidExplorer + '/fluidexplorer'
 
         """
         try:
@@ -126,30 +125,48 @@ class FluidExplorerUtils(object):
         if sys.platform.startswith('win'):
             FluidExplorerUtils.killProcess_WIN(processnameArg)
         elif sys.platform.startswith(''):
-            # TODO: Unix path
+            # TODO: Unix implementation
             pass
 
     @staticmethod
     def killProcess_WIN(processnameArg):
+        tasklist_available = True
+        taskkill_available = True
 
         lgr = logging.getLogger('FluidExplorerPlugin')
 
         processname = processnameArg + '.exe'
         processFound = False
 
-        tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
-        # communicate() - gets the tasklist command result
-        tlproc = subprocess.Popen(tlcall, shell=True, stdout=subprocess.PIPE)
-        # trimming it to the actual lines with information
-        tlout = tlproc.communicate()[0].strip().split('\r\n')
-        # if TASKLIST returns single line without processname: it's not running
-        if len(tlout) > 1 and processname in tlout[-1]:
-            # print('Process "%s" is running .' % processname)
-            lgr.info('Process "%s" is running', processname)
-            processFound = True
+        if os.path.exists('C:/Windows/System32/tasklist.exe'):
+            tlcall = 'C:/Windows/System32/tasklist.exe', '/FI', 'imagename eq %s' % processname
         else:
-            # print('Process "%s" is NOT running.' % processname)
-            lgr.info('Process "%s" is not running', processname)
+            tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
+            try:
+                subprocess.Popen('TASKLIST', shell=True)
+            except:
+                tasklist_available = False
+                lgr.error('Cannot execute TASKLIST.EXE command - fluidexplorer.exe hast not been closed')
+
+        if not tasklist_available:
+            return
+
+        try:
+            # communicate() - gets the tasklist command result
+            tlproc = subprocess.Popen(tlcall, shell=True, stdout=subprocess.PIPE)
+            # trimming it to the actual lines with information
+            tlout = tlproc.communicate()[0].strip().split('\r\n')
+            # if TASKLIST returns single line without processname: it's not running
+            if len(tlout) > 1 and processname in tlout[-1]:
+                # print('Process "%s" is running .' % processname)
+                lgr.info('Process "%s" is running', processname)
+                processFound = True
+            else:
+                # print('Process "%s" is NOT running.' % processname)
+                lgr.info('Process "%s" is not running', processname)
+        except:
+            lgr.error('Cannot execute TASKLIST.EXE command - fluidexplorer.exe hast not been closed')
+            processFound = False
 
         if processFound:
 
@@ -164,10 +181,22 @@ class FluidExplorerUtils(object):
             #    print p
             """
 
-            # Close the process
-            try:
-                cmdStr = 'taskkill /im' + ' ' + processname
+            if os.path.exists('C:/Windows/System32/taskkill.exe'):
+                cmdStr = 'C:/Windows/System32/taskkill.exe /im' + ' ' + processname + ' ' + '/F'
+            else:
+                cmdStr = 'taskkill /im' + ' ' + processname + ' ' + '/F'
+                try:
+                    subprocess.Popen('TASKKILL', shell=True)
+                except (OSError, IOError) as e:
+                    lgr.error('Cannot execute TASKKILL.EXE command - fluidexplorer.exe hast not been closed')
+                    taskkill_available = False
 
+            if not taskkill_available:
+                return
+
+            # Cloee the process
+            try:
+                #cmdStr = 'taskkill /im' + ' ' + processname
                 kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
                 lgr.info('Process "%s" closed ', processname)
 

@@ -153,22 +153,37 @@ class ProjectDetailsViewUtils():
         return canSetTime
 
     @staticmethod
-    def checkIfProcessIsRunning_WIN(processnameArg):
-        lgr = logging.getLogger('FluidExplorerPlugin')
+    def checkIfProcessIsRunning(processnameArg):
 
+        lgr = logging.getLogger('FluidExplorerPlugin')
         processFound = False
 
         # Check if windows is the os
         if sys.platform.startswith('win'):
+            tasklist_available = True
 
             processname = processnameArg + '.exe'
             processFound = False
 
-            tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
+            if os.path.exists('C:/Windows/System32/tasklist.exe'):
+                tlcall = 'C:/Windows/System32/tasklist.exe', '/FI', 'imagename eq %s' % processname
+            else:
+                tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
+                try:
+                    subprocess.Popen('TASKLIST', shell=True)
+                except:
+                    tasklist_available = False
+                    lgr.error('Cannot execute TASKLIST.EXE command - fluidexplorer.exe hast not been detected')
+
+            if not tasklist_available:
+                return
+
+            #tlcall = 'TASKLIST', '/FI', 'imagename eq %s' % processname
             # communicate() - gets the result of the tasklist command
             tlproc = subprocess.Popen(tlcall, shell=True, stdout=subprocess.PIPE)
             # trimming it to the actual lines with information
             tlout = tlproc.communicate()[0].strip().split('\r\n')
+
             # if TASKLIST returns single line without processname: process is not running
             if len(tlout) > 1 and processname in tlout[-1]:
                 lgr.info('Process "%s" is running', processname)
@@ -177,12 +192,16 @@ class ProjectDetailsViewUtils():
                 lgr.info('%s', str(tlout[0]))
                 lgr.info('Process "%s" is NOT running', processname)
 
+        else:
+            # TODO: Unix implementation
+            processFound = False
+
         return processFound
 
     @staticmethod
     def checkIfProcessExistsAndClose(processName):
         if ProjectDetailsViewUtils != None:
-            ProjectDetailsViewUtils.killProcess_WIN(processName)
+            # ProjectDetailsViewUtils.killProcess_WIN(processName)
             FluidExplorerUtils.killProcess("fluidexplorer")
 
     @staticmethod
