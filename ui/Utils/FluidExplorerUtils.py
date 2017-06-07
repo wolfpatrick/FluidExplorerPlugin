@@ -122,10 +122,10 @@ class FluidExplorerUtils(object):
 
     @staticmethod
     def killProcess(processnameArg):
-        if sys.platform.startswith('win'):
+        if sys.platform.lower().startswith('win'):
             FluidExplorerUtils.killProcess_WIN(processnameArg)
         elif sys.platform.startswith(''):
-            # TODO: Unix implementation
+            # TODO: unix implementation
             pass
 
     @staticmethod
@@ -196,7 +196,7 @@ class FluidExplorerUtils(object):
 
             # Cloee the process
             try:
-                #cmdStr = 'taskkill /im' + ' ' + processname
+                # cmdStr = 'taskkill /im' + ' ' + processname
                 kill = subprocess.Popen(cmdStr, shell=True, stdout=subprocess.PIPE)
                 lgr.info('Process "%s" closed ', processname)
 

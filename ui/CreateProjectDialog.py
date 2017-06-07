@@ -140,7 +140,6 @@ class CreateProjectDialog(QtGui.QDialog):
         self.workDirPath = cmds.workspace(q=True, dir=True)
         self.lgr.info("Default workspace / output directory: %s", self.workDirPath)
 
-        # TODO - delete tmp
         # self.workDirPath = "E:/TMP"
 
         if platform.system() == "Windows":

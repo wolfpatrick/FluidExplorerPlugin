@@ -159,7 +159,7 @@ class ProjectDetailsViewUtils():
         processFound = False
 
         # Check if windows is the os
-        if sys.platform.startswith('win'):
+        if sys.platform.lower().startswith('win'):
             tasklist_available = True
 
             processname = processnameArg + '.exe'
@@ -193,7 +193,7 @@ class ProjectDetailsViewUtils():
                 lgr.info('Process "%s" is NOT running', processname)
 
         else:
-            # TODO: Unix implementation
+            # TODO: unix implementation
             processFound = False
 
         return processFound
@@ -248,7 +248,7 @@ class ProjectDetailsViewUtils():
         filePathMain = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filePathMainParent = os.path.abspath(os.path.join(os.path.dirname(filePathMain)))
 
-        # TODO - Insert correct path
+        # TODO - insert correct path
         filename = os.path.join(filePathMainParent, 'lib/fluidexplorer/')
         if os.path.exists(os.path.abspath(filename)):
             fxPathRel = os.path.abspath(filename)

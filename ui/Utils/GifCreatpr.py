@@ -31,7 +31,7 @@ class GifCreator():
             isFfmpegExecutable = self.is_exe(pathToFfmpeg)
             returnCode = False
         elif sys.platform.lower().startswith('darwin'):
-            # TODO: Unix implementation
+            # TODO: unix implementation
             # pathToFfmpeg = ffmpegPath + "/ffmpeg"
             # pathToFfmpeg = os.path.abspath(pathToFfmpeg)
             # isFfmpegExecutable = self.is_exe(pathToFfmpeg)
