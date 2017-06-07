@@ -322,7 +322,8 @@ class ProjectDetailsViewUtils():
                         break
 
     @staticmethod
-    def get_favorites(proj_dir):
+    def get_favorites(proj_dir, number_of_simulations):
+
         file_path = proj_dir + '/fluidExplorer.favorites'
         search_pattern = 'favorites='
         if os.path.exists(file_path):
@@ -344,9 +345,25 @@ class ProjectDetailsViewUtils():
                                 list_of_favorites.append(True)
                             else:
                                 list_of_favorites.append(False)
-
                 return list_of_favorites
         else:
+
+            # Create the file and add the following content: favorites=0;1;1 ...
+            pattern = '0;' * number_of_simulations
+            str_content = 'favorites=' + pattern
+            str_content = str_content[0:len(str_content)-1] # Remove the last character
+
+            # Write line to file
+            f = open(file_path, "w")
+            f.write(str_content)
+            f.close()
+
+            if number_of_simulations == -1:
+                return []
+            else:
+                res = ProjectDetailsViewUtils.get_favorites(proj_dir, -1)
+                return res
+
             return []
 
     @staticmethod

@@ -270,16 +270,17 @@ class ProjectDetailsView(QtGui.QDialog):
         if item_len > 0:
             self.ui.comboBox_simulations.clear()
 
-        # Read textfile which stores the favorites
-        list_of_favorites = ProjectDetailsViewUtils.get_favorites(self.selectedProjectFolder)
-
-        # First item
-        self.ui.comboBox_simulations.addItem('Select Sequence ...')
-
+        # Read the number of samples information
         try:
             num = int(projectSettings.numberOfSimulations)
         except:
             num = 0
+
+        # Read textfile which stores the favorites
+        list_of_favorites = ProjectDetailsViewUtils.get_favorites(self.selectedProjectFolder, num)
+
+        # First item
+        self.ui.comboBox_simulations.addItem('Select Sequence ...')
 
         show_favorites_icon = False
         if num == len(list_of_favorites):
