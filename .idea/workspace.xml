@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;" />
+    <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
     <ignored path="FluidExplorerPlugin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +26,28 @@
     <favorites_list name="FluidExplorerPlugin" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="CreateProjectDialog.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2707775" vertical-offset="10176" max-vertical-offset="23310">
+              <caret line="526" column="30" selection-start-line="526" selection-start-column="30" selection-end-line="526" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FluidExplorerUtils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3362" max-vertical-offset="4494">
+              <caret line="199" column="45" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -78,12 +101,12 @@
         <option value="$PROJECT_DIR$/ui/Test/Test.py" />
         <option value="$PROJECT_DIR$/ui/FileOpenDialog.py" />
         <option value="$PROJECT_DIR$/FluidMain.py" />
-        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
         <option value="$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py" />
         <option value="$PROJECT_DIR$/ui/Utils/GifCreatpr.py" />
         <option value="$PROJECT_DIR$/ui/Test/LOG_FILE.log" />
         <option value="$PROJECT_DIR$/ui/Utils/ProjectDetailsViewUtils.py" />
         <option value="$PROJECT_DIR$/ui/ProjectDetailsView.py" />
+        <option value="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
       </list>
     </option>
   </component>
@@ -160,70 +183,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FluidExplorerPlugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -705,14 +664,13 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13558649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13553259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39475775" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2636183" sideWeight="0.34499204" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35583797" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07863384" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15329626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1308151" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13076311" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17871326" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12568952" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -722,6 +680,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18743867" sideWeight="0.65500796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24970178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35583797" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37040922" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1104,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="386" max-vertical-offset="2121">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,7 +1078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4796011" vertical-offset="5477" max-vertical-offset="15918">
           <caret line="294" column="34" selection-start-line="294" selection-start-column="34" selection-end-line="294" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,22 +1085,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="721">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/FluidExplorerUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2155477" vertical-offset="2171" max-vertical-offset="4494">
-          <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3362" max-vertical-offset="4494">
+          <caret line="199" column="45" selection-start-line="199" selection-start-column="45" selection-end-line="199" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21447721" vertical-offset="2154" max-vertical-offset="23310">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2707775" vertical-offset="10176" max-vertical-offset="23310">
+          <caret line="526" column="30" selection-start-line="526" selection-start-column="30" selection-end-line="526" selection-end-column="30" />
           <folding />
         </state>
       </provider>
