@@ -1,5 +1,9 @@
-# Code adapted from:
-# Hazen 4/09
+#
+# Author: Hazen 4/09
+# Source: GitHub
+# Adapted by Patrick Wolf
+#
+
 from PySide import QtCore, QtGui
 
 

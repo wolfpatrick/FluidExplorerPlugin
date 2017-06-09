@@ -25,7 +25,7 @@ from FluidExplorerPlugin.ui.CreateProjectDialog import CreateProjectDialog
 from FluidExplorerPlugin.ui.Utils.MayaCmds.MayaFunctions import MayaFunctionUtils
 from FluidExplorerPlugin.ui.Utils.MayaCmds import MayaFunctions
 from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils  import FluidExplorerUtils
-from FluidExplorerPlugin.ui.Utils import settings
+from FluidExplorerPlugin.ui.Utils import Settings
 from FluidExplorerPlugin.ui.Icons import icons
 from FluidExplorerPlugin.ui.ProjectDetailsView import ProjectDetailsView
 from FluidExplorerPlugin.ui.Utils.DefaultUIValues import DefaultUIParameters
@@ -135,7 +135,7 @@ class ControlMainWindow(QtGui.QMainWindow):
     # Read the dark orange stylesheet
     @staticmethod
     def getStyleSheet():
-        style_sheet_file = os.path.join(settings.PKG_RESOURCE_PATH, 'darkorange.stylesheet')
+        style_sheet_file = os.path.join(Settings.PKG_RESOURCE_PATH, 'darkorange.stylesheet')
         custome_style_sheet = open(style_sheet_file, 'r')
         sheet = custome_style_sheet.read()
         custome_style_sheet.close()
