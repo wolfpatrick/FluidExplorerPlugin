@@ -7,6 +7,7 @@ import logging
 import shutil
 
 import maya.cmds as cmds
+import maya.mel as mel
 
 
 class FluidExplorerUtils(object):
@@ -215,3 +216,20 @@ class FluidExplorerUtils(object):
         win_list = cmds.lsUI(windows=True)
         if ('renderViewWindow' in win_list):
             cmds.deleteUI('renderViewWindow', window=True)
+            cmds.refresh()
+            # mel.eval('catchQuiet(`deleteUI renderViewWindow`)')
+
+    """
+    If a user deletes the prefs folder, the query commands (e.g. cmds.optionVar(q='fluidCacheSimulationRate'))
+    return 0 instead of the correct values. This causes an error during caching.
+    In order to solve the probllem, this method opens the fluid cache options menue and cloes the window again.
+    Afterwards, the values should be retrieved correctly.
+    Please note that a more efficient method probably exists.
+    """
+    @staticmethod
+    def initCahceSettings():
+        simulationRate = cmds.optionVar(q='fluidCacheSimulationRate')
+        if simulationRate == 0:
+            mel.eval('CreateFluidCacheOptions;')
+            mel.eval('saveOptionBoxSize();')
+            mel.eval('if (`window -exists OptionBoxWindow`) deleteUI -window OptionBoxWindow;')

@@ -49,10 +49,12 @@ def create_fluidExplorer_shelf():
         iconHelp = '-image ' + path_icon_help
         
         cmd_fx = 'shelfButton -parent $scriptsShelf -annotation "Fluid Explorer" ' + '-label "FluidExplorer"' + iconFX + '-sourceType "python" ' +'-command ("fluidExplorerWin = FluidExplorerPlugin.FluidMain.main(); fluidExplorerWin.show()");'
-        cmd_help = 'shelfButton -parent $scriptsShelf -annotation "Help" ' + '-label "FluidExplorer"' + iconHelp + '-sourceType "python" ' +'-command ("FluidMain.helpButtonToolBar();");'
+        cmd_help = 'shelfButton -parent $scriptsShelf -annotation "Help" ' + '-label "FluidExplorer"' + iconHelp + '-sourceType "python" ' +'-command ("FluidExplorerPlugin.FluidMain.helpButtonToolBar();");'
         
         maya.mel.eval(cmd_fx)
         maya.mel.eval(cmd_help)
+
+        maya.mel.eval('catchQuiet(jumpToNamedShelf("FluidExplorer"))')
     
     except:
         create_fluidExplorer_shelf_text_only()

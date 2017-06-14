@@ -435,8 +435,8 @@ class ProjectDetailsView(QtGui.QDialog):
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
 
         if not isSameScene:
-            strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
-            self.lgr.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
+            strError = 'Please open the correct Maya scene first!\nPath: ' + sceneFromConfigFile
+            self.lgr.warning('Please open the correct Maya scene first! Path: %s', sceneFromConfigFile)
             self.showMessageBox(strError, 'warning')
             return
 
@@ -482,8 +482,8 @@ class ProjectDetailsView(QtGui.QDialog):
         isSameScene = ProjectDetailsViewUtils.checkIfCorrectSceneIsOpened(currentSceneName, sceneFromConfigFile)
 
         if not isSameScene:
-            strError = 'Please open the correct maya scene first!\nPath: ' + sceneFromConfigFile
-            self.lgr.warning('Please open the correct maya scene first! Path: %s', sceneFromConfigFile)
+            strError = 'Please open the correct Maya scene first!\nPath: ' + sceneFromConfigFile
+            self.lgr.warning('Please open the correct Maya scene first! Path: %s', sceneFromConfigFile)
             self.showMessageBox(strError, 'warning')
             return
 

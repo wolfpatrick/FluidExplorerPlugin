@@ -332,6 +332,8 @@ class ProjectDetailsViewUtils():
             lines = f.readlines()
             f.close()
 
+            list_of_favorites = []
+
             if len(lines) > 0:
 
                 for line in lines:
@@ -339,7 +341,6 @@ class ProjectDetailsViewUtils():
                         favorites_str = line[line.index(search_pattern) + len(search_pattern):]
                         favorites_elements = favorites_str.split(';')
 
-                        list_of_favorites = []
                         for element in favorites_elements:
                             if '1' in element:
                                 list_of_favorites.append(True)
@@ -417,13 +418,9 @@ class ProjectDetailsViewUtils():
         else:
             return False
 
-
+    """
     @staticmethod
     def check_if_cuda_compiler_available():
-        """
-        Checks if the nvcc tool is available. Returns True if the program call was not successfully, False otherwise.
-        The tool can not be executed if the venvironment variable is not set.
-        """
         nvcc_success = False
         try:
             out = ""
@@ -440,3 +437,4 @@ class ProjectDetailsViewUtils():
             out = "Subprocess Exception: " + e.message
 
         return [nvcc_success, out]
+        """

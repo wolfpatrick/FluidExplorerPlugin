@@ -115,7 +115,7 @@ class FileOpenDialog(QtGui.QDialog):
 
         if tmpSimulationName_low != currentScene_low:
             isSameScene = False
-            errorTxt = "Please load the correct maya scene file first!\nScene Path: " + tmpPath
+            errorTxt = "Please load the correct Maya scene file first!\nScene Path: " + tmpPath
 
             return [canReadConfigFile, isNumberOk, isSameScene, errorTxt]
 

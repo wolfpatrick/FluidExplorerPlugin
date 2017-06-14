@@ -41,7 +41,7 @@ if not os.path.exists(PKG_DATA_DIR) :
         if exception.errno != errno.EEXIST:
             raise
 
-PKG_RESOURCE_PATH = os.path.join(PKG_DIR, '.','resources')
+PKG_RESOURCE_PATH = os.path.join(PKG_DIR, 'Resources')
 #PKG_RESOURCE_PATH = os.path.join(PKG_DIR)
 
 if os.name == 'posix':

@@ -19,12 +19,13 @@ from shiboken import wrapInstance
 
 import maya.cmds as cmds
 import maya.OpenMayaUI as omui
+import maya.mel as mel
 
 from FluidExplorerPlugin.ui.FileOpenDialog import FileOpenDialog
 from FluidExplorerPlugin.ui.CreateProjectDialog import CreateProjectDialog
 from FluidExplorerPlugin.ui.Utils.MayaCmds.MayaFunctions import MayaFunctionUtils
 from FluidExplorerPlugin.ui.Utils.MayaCmds import MayaFunctions
-from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils  import FluidExplorerUtils
+from FluidExplorerPlugin.ui.Utils.FluidExplorerUtils import FluidExplorerUtils
 from FluidExplorerPlugin.ui.Utils import Settings
 from FluidExplorerPlugin.ui.Icons import icons
 from FluidExplorerPlugin.ui.ProjectDetailsView import ProjectDetailsView
@@ -50,7 +51,7 @@ class ControlMainWindow(QtGui.QMainWindow):
 
         # Initialize qt window
         super(ControlMainWindow, self).__init__(parent)
-        self.ui =  mainUi.Ui_MainWindow()
+        self.ui = mainUi.Ui_MainWindow()
         self.ui = mainUi.Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -97,6 +98,9 @@ class ControlMainWindow(QtGui.QMainWindow):
 
         FluidExplorerUtils.killProcess("fluidexplorer")
 
+        # Check if cache values are correct
+        FluidExplorerUtils.initCahceSettings()
+
         # Register script job for closing the application
         self.FXScriptJobDeleteShelf()
 
@@ -106,7 +110,6 @@ class ControlMainWindow(QtGui.QMainWindow):
 
     # Places the plugin in the maya app
     def centre(self):
-        #panelPtr = omui.MQtUtil.findControl('toolBar2')
         panelPtr = omui.MQtUtil.findControl('modelPanel1')
 
         if panelPtr == None:
@@ -169,7 +172,6 @@ class ControlMainWindow(QtGui.QMainWindow):
         self.ui.pushButtonNewProject.setStyleSheet(buttonStyleBold)
         self.ui.pushButtonLoadSimulation.setStyleSheet(buttonStyleBold)
 
-
     # Eventhandler - Load simulation
     @QtCore.Slot()
     def buttonLoadSimulation_Event(self):
@@ -180,7 +182,6 @@ class ControlMainWindow(QtGui.QMainWindow):
         currentSceneName = cmds.file(q=True, sceneName=True)
 
         # Path of the Fluid Explorer folder
-        #filePathMain = repr(__file__)
         filePathMain = os.path.dirname(os.path.abspath(__file__))
         fxPathRel = os.path.abspath(filePathMain)
 
@@ -263,10 +264,10 @@ class ControlMainWindow(QtGui.QMainWindow):
         msgBox.setStyleSheet("QPushButton{min-width: 70px;} QMessageBox{font-size: 12px;}")
         msgBox.setText(text)
 
-        if type== 'warning':
+        if type == 'warning':
             msgBox.setWindowTitle("Warning")
             msgBox.setIcon(QtGui.QMessageBox.Warning)
-        if type== 'critical':
+        if type == 'critical':
             msgBox.setWindowTitle("Error")
             msgBox.setIcon(QtGui.QMessageBox.Critical)
 
@@ -278,9 +279,29 @@ class ControlMainWindow(QtGui.QMainWindow):
 
     # This script job ('quitApplication') is called when the application is closed
     def FXScriptJobDeleteShelf(self):
-        scriptJob = cmds.scriptJob(event=['quitApplication', "maya.mel.eval('if (`shelfLayout -exists FluidExplorer `) deleteUI FluidExplorer;')"])
+        # Read the adapted mel script and load it
+        path_mel_script = os.path.join(Settings.PKG_RESOURCE_PATH, 'mel_scripts/RemoveShelfButton.mel')
+        fC = False
+        if os.path.exists(path_mel_script):
+            with open(path_mel_script, 'r') as content_file:
+                content = content_file.read()
+                if len(content) > 100:
+                    fC = True
+        if fC:
+            # Register th mel script
+            mel.eval(content)
 
+            # Register the script job
+            cmds.scriptJob(event=['quitApplication', self.shelf_command])
 
+    @staticmethod
+    def shelf_command():
+        if cmds.shelfLayout('FluidExplorer', ex=True):
+            cmd = 'deleteShelfTab FluidExplorer'
+            mel.eval('deleteShelfTabWithoutConfirm FluidExplorer')
+#
+# MAIN
+#
 def main():
 
     # Logger
