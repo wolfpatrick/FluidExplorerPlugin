@@ -1,0 +1,101 @@
+2017-06-19 14:58:19,211 - #
+2017-06-19 14:58:19,213 - # Test started ...
+2017-06-19 14:58:19,213 - #
+2017-06-19 14:58:19,213 - Choosen camera: camera1
+2017-06-19 14:58:19,213 - #
+2017-06-19 14:58:19,213 - Simulation started
+2017-06-19 14:58:19,214 - #
+2017-06-19 14:58:21,309 - Read selected values from paramter tab
+2017-06-19 14:58:21,311 - Gravity : 9.80
+2017-06-19 14:58:21,312 - Viscosity : 0.00
+2017-06-19 14:58:21,312 - Friction : 0.00
+2017-06-19 14:58:21,312 - Damp : 0.00
+2017-06-19 14:58:21,312 - Density Scale : 0.50
+2017-06-19 14:58:21,312 - Buoyancy : 1.00
+2017-06-19 14:58:21,313 - Dissipation : 0.00
+2017-06-19 14:58:21,313 - Diffusion : 0.00
+2017-06-19 14:58:21,313 - D. Pressure : 0.00
+2017-06-19 14:58:21,315 - Press. Th. : 1.00
+2017-06-19 14:58:21,315 - Noise : 0.00
+2017-06-19 14:58:21,315 - D. Tension : 0.00
+2017-06-19 14:58:21,315 - Tension Force : 0.00
+2017-06-19 14:58:21,315 - Gradient F. : 0.00
+2017-06-19 14:58:21,316 - Swirl : 0.00
+2017-06-19 14:58:21,316 - Noise : 0.00
+2017-06-19 14:58:21,316 - Strength : 0.00
+2017-06-19 14:58:21,318 - Frequency : 0.20
+2017-06-19 14:58:21,318 - Speed : 0.20
+2017-06-19 14:58:21,318 - Temp. Scale : 1.00
+2017-06-19 14:58:21,319 - Buoyancy : 3.00
+2017-06-19 14:58:21,319 - Pressure : 0.00
+2017-06-19 14:58:21,319 - Press. Th. : 0.00
+2017-06-19 14:58:21,319 - Dissipation : 0.10
+2017-06-19 14:58:21,319 - Diffusion : 0.10
+2017-06-19 14:58:21,321 - Turbulence : 0.10
+2017-06-19 14:58:21,321 - Noise : 0.00
+2017-06-19 14:58:21,321 - Tension : 0.00
+2017-06-19 14:58:21,322 - Fuel Scale : 1.00
+2017-06-19 14:58:21,322 - Reac. Speed : 0.05
+2017-06-19 14:58:21,322 - A./F. Ratio : 0.00
+2017-06-19 14:58:21,322 - Ignit. Temp. : 0.00
+2017-06-19 14:58:21,322 - Max Temp. : 1.00
+2017-06-19 14:58:21,323 - Heat R. : 1.00
+2017-06-19 14:58:21,323 - Light R. : 0.00
+2017-06-19 14:58:21,323 - C. Dissipation : 0.00
+2017-06-19 14:58:21,325 - C. Diffusion : 0.00
+2017-06-19 14:58:21,325 - Project settings:
+2017-06-19 14:58:21,325 -   Proj. Name: TestProject5
+2017-06-19 14:58:21,325 -   Output Path: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5
+2017-06-19 14:58:21,325 -   Fluid Container: fluidShape1
+2017-06-19 14:58:21,326 -   Num. Samples: 2
+2017-06-19 14:58:21,326 -   Num. Frames: 15
+2017-06-19 14:58:21,326 -   Scene Name: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/fluid_simulation_scene.mb
+2017-06-19 14:58:21,328 -   Available Images: 1
+2017-06-19 14:58:21,328 -   Camera Perspective: 1
+2017-06-19 14:58:21,328 -   Camera ViewCube: 1
+2017-06-19 14:58:21,328 -   Camera Custom: True/camera1
+2017-06-19 14:58:21,329 -   Camera Rotation: 90
+2017-06-19 14:58:21,329 -   Animation Start Time: 1.0
+2017-06-19 14:58:21,329 -   Animation End Time: 15.0
+2017-06-19 14:58:21,331 -   String Sampled Values: 
+2017-06-19 14:58:21,332 - Create cache commands and random values
+2017-06-19 14:58:21,332 - Cache command: doCreateFluidCache 5 { "0", "1.0", "15.0", "OneFilePerFrame", "1", "C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0","0", "fluidShape1_0","0", "replace", "1", "1.0", "1.0", "0", "0", "mcc", "1", "1", "1", "1", "1", "1", "1" }
+2017-06-19 14:58:21,334 - Cache command: doCreateFluidCache 5 { "0", "1.0", "15.0", "OneFilePerFrame", "1", "C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1","0", "fluidShape1_1","0", "replace", "1", "1.0", "1.0", "0", "0", "mcc", "1", "1", "1", "1", "1", "1", "1" }
+2017-06-19 14:58:21,335 - Set sampled values for: fluidShape1
+2017-06-19 14:58:21,339 - Caching started for index 0
+2017-06-19 14:58:21,500 - Rendering images started for index 0
+2017-06-19 14:58:22,855 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/perspective/
+2017-06-19 14:58:27,766 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_front/
+2017-06-19 14:58:34,815 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_side/
+2017-06-19 14:58:41,859 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/vc_top/
+2017-06-19 14:58:48,558 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/custom/
+2017-06-19 14:58:59,299 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_0/
+2017-06-19 14:59:03,736 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_90/
+2017-06-19 14:59:08,088 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_180/
+2017-06-19 14:59:12,530 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/0/images/rotation_270/
+2017-06-19 14:59:16,711 - Set sampled values for: fluidShape1
+2017-06-19 14:59:16,717 - Caching started for index 1
+2017-06-19 14:59:17,341 - Rendering images started for index 1
+2017-06-19 14:59:18,605 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/perspective/
+2017-06-19 14:59:23,512 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_front/
+2017-06-19 14:59:30,632 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_side/
+2017-06-19 14:59:37,711 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/vc_top/
+2017-06-19 14:59:44,424 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/custom/
+2017-06-19 14:59:55,020 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_0/
+2017-06-19 14:59:59,471 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_90/
+2017-06-19 15:00:03,859 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_180/
+2017-06-19 15:00:08,319 - Rendering started: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5/1/images/rotation_270/
+2017-06-19 15:00:13,012 - Creating GIF animations
+2017-06-19 15:00:16,171 - GIF Animation "1" created
+2017-06-19 15:00:19,259 - GIF Animation "2" created
+2017-06-19 15:02:21,177 - #
+2017-06-19 15:02:21,180 - # Simulation successfully created: C:/Users/Patrick/Documents/maya/2014-x64/scripts/FluidExplorerPlugin/ui/Test/TestProjects/TestProject5
+2017-06-19 15:02:21,180 - #
+2017-06-19 15:02:21,180 -  ### Test - create_sumulation_cache_and_images_all_cameras ###
+2017-06-19 15:02:21,183 - Test instance - use_all_cameras-cache_files_exist - successfully executed
+2017-06-19 15:02:21,184 - Test instance - use_all_cameras-project_file_exists - successfully executed
+2017-06-19 15:02:21,184 - Test instance - use_all_cameras-gif_perspective - successfully executed
+2017-06-19 15:02:21,184 - Test instance - use_all_cameras-gif_viewcube - successfully executed
+2017-06-19 15:02:21,184 - Test instance - use_all_cameras-gif_custom - successfully executed
+2017-06-19 15:02:21,186 - Test instance - use_all_cameras-gif_rotation - successfully executed
+2017-06-19 15:15:04,193 - Process "fluidexplorer.exe" is not running

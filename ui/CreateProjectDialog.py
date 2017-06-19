@@ -376,16 +376,6 @@ class CreateProjectDialog(QtGui.QDialog):
         self.mayaCallObject = MayaFunctionUtils()
         self.progressSteps = (self.getNumberOfActiveCameras() + 1) * self.simulationSettings.numberSamples
 
-        """
-        # Old progressbar - not in use
-        progress = QtGui.QProgressDialog("", None, 0, self.progressSteps, self)
-        progressWasCanceled = False
-        progress.setWindowTitle("Please wait ...")
-        progress.setMinimumDuration(0)
-        progress.setMaximum(int(self.progressSteps))
-        progress.show()
-        """
-
         # Progress bar in maya toolbar - start
         self.progressSteps = (self.getNumberOfActiveCameras() + 1) * self.simulationSettings.numberSamples
         step_end = self.progressSteps
@@ -396,6 +386,9 @@ class CreateProjectDialog(QtGui.QDialog):
                         isInterruptable=False,
                         status='"Creating simulations ...',
                         maxValue=step_end )
+
+        # Walk through the frames of the animation (timeline)
+        self.render_forward()
 
         renderedImage = list()
         fluidIndex = 0
@@ -550,7 +543,7 @@ class CreateProjectDialog(QtGui.QDialog):
         self.lgr.info('#')
 
         # Close window
-        self.close()
+        # self.close()
 
     @QtCore.Slot()
     def lineEdit_numberSeq_EditFinished(self):
@@ -877,7 +870,7 @@ class CreateProjectDialog(QtGui.QDialog):
         start_time_rendering = time.time()
 
         renderer = MayaFunctionUtils()
-        renderer.renderImages(outputFolder, "None", int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), 640, 480)
+        renderer.renderImages(outputFolder, "None", int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), 960, 540)
 
         res_time_rendering = time.time() - start_time_rendering
 
@@ -909,6 +902,27 @@ class CreateProjectDialog(QtGui.QDialog):
 
         # Delete render window
         FluidExplorerUtils.FluidExplorerUtils.deleteRenderWindow()
+
+    def render_forward(self):
+        if int(self.simulationSettings.animationStartTime) > 1:
+            self.lgr.info("Initial rendering started")
+
+            # Play the animation once in order to create correct results if the animation does not start at frame=1
+            mayaUtils = MayaFunctionUtils()
+            mayaUtils.changeToPerspCam()
+            mayaUtils.viewFromCamPosition('PERSPECTIVE', self.simulationSettings.fluidBoxName)
+
+            # Delete / create output folder
+            filePathMain = os.path.dirname(os.path.abspath(__file__))
+            fxPathRel = os.path.dirname(os.path.abspath(filePathMain))
+            outputFolder = fxPathRel + '/output/'
+            self.deleteFilesFromOutputFolder()
+
+            # Render images
+            renderer = MayaFunctionUtils()
+            renderer.renderImages(outputFolder, "None", int(self.simulationSettings.animationStartTime), int(self.simulationSettings.animationEndTime), 960, 540)
+            self.deleteFilesFromOutputFolder()
+            cmds.refresh()
 
     def setTime(self):
 

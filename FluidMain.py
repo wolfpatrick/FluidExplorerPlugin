@@ -1,10 +1,10 @@
 ########################################################################################################################
 #                                                                                                                      #
-#   This file calls the FluidExplorer Plugin. Please store the file in the following directory:                        #
+#   This file calls the Fluid Explorer plugin. Please store the file in the following directory:                       #
 #                                                                                                                      #
 #       Windows: \Users\<username>\Documents\maya\<version>\scripts\FluidExplorerPlugin\FluidMain.py                   #
 #                                                                                                                      #
-#   Path to the FluidExplorer Plugin:                                                                                  #
+#   Path to the Fluid Explorer plugin:                                                                                 #
 #                                                                                                                      #
 #       Windows: \Users\<username>\Documents\maya\<version>\scripts\FluidExplorerPlugin                                #
 #                                                                                                                      #
@@ -73,9 +73,6 @@ class ControlMainWindow(QtGui.QMainWindow):
 
         # Subprocess number
         self.pid = None
-
-        # Close fluidexp if running
-        #FluidExplorerUtils.killProcess("fluidexplorer")
 
         # Details View
         self.detailsView = None
@@ -223,7 +220,6 @@ class ControlMainWindow(QtGui.QMainWindow):
 
         if status == False:
             errorMsg = errorMsg
-            #QtGui.QMessageBox.information(self, 'Information1', str(errorMsg), QtGui.QMessageBox.Ok | QtGui.QMessageBox.Ok)
             self.lgr.warning("%s", errorMsg)
             self.showMessageBox(errorMsg, 'warning')
 
@@ -245,7 +241,6 @@ class ControlMainWindow(QtGui.QMainWindow):
 
                 # Dialog canceled
                 if dialogCode == QtGui.QDialog.Rejected:
-                    self.setWindowFlags(self.windowFlags() ^ QtCore.Qt.WindowStaysOnTopHint)    # Show main window again
                     self.show()
 
             except ValueError as er:
