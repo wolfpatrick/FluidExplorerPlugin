@@ -325,6 +325,7 @@ class ProjectDetailsViewUtils():
     def get_favorites(proj_dir, number_of_simulations):
 
         file_path = proj_dir + '/fluidExplorer.favorites'
+        file_path = os.path.abspath(file_path)
         search_pattern = 'favorites='
         if os.path.exists(file_path):
 
@@ -366,6 +367,17 @@ class ProjectDetailsViewUtils():
                 return res
 
             return []
+
+    @staticmethod
+    def create_file_current_selection(proj_dir):
+        file_path = proj_dir + '/fluidExplorer.currentselection'
+        file_path = os.path.abspath(file_path)
+        search_pattern = 'currentselection='
+        if not os.path.exists(file_path):
+            # Write line to file
+            f = open(file_path, "w")
+            f.write(search_pattern)
+            f.close()
 
     @staticmethod
     def get_selection_from_file(proj_dir):

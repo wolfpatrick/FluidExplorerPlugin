@@ -102,6 +102,9 @@ class ProjectDetailsView(QtGui.QDialog):
         self.FXScriptJob()
         self._rcwin = 1
 
+        # Create file for current selection
+        ProjectDetailsViewUtils.create_file_current_selection(self.selectedProjectFolder)
+
         # File watcher
         self.init_file_watcher()
 
@@ -200,8 +203,7 @@ class ProjectDetailsView(QtGui.QDialog):
             self.externalCall.fluidExplorerCmd = 'fluidExplorer'
 
         self.externalCall.pathToFluidExplorer = ProjectDetailsViewUtils.getPathFluidExplorer(self.externalCall.fluidExplorerCmd)
-        self.externalCall.pathToFluidExplorer="E:/Workspace_VisualStudio/fluidexplorer/Backup/fluidexplorer/bin/Win32/Debug"
-        self.externalCall.pathToFluidExplorer="E:\TMP_FX/fluidexplorer/bin/Win32/Release"
+
         # Settings file
         settingXMLFile = self.pathToXMLFile # e.g. E:/TMP/Projects/TestProject1.fxp -> selected project file
 
@@ -630,8 +632,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
             command = [program_name]
             command.extend(arguments)
-            output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE) # --> output windows pops up
-            #output = subprocess.Popen(command, shell=True) # --> output windows does not pop up
+            output = subprocess.Popen(command, shell=True)
 
             self.lgr.info('External application started')
             self.lgr.info('External call (path): %s', pathToFXApp)
