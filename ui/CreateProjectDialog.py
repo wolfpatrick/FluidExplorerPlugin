@@ -844,6 +844,14 @@ class CreateProjectDialog(QtGui.QDialog):
 
     def calculateTimeClicked(self):
 
+        waitWindow = QtGui.QDialog(self)
+        hbox = QtGui.QHBoxLayout()
+        waitLabel = QtGui.QLabel("<b>Calculating sumilation. Please wait ...</b>")
+        hbox.addWidget(waitLabel)
+        waitWindow.setLayout(hbox)
+        waitWindow.show()
+        waitWindow.repaint()
+
         # Show from FRONT
         mayaUtils = MayaFunctionUtils()
         mayaUtils.changeToPerspCam()
@@ -899,6 +907,8 @@ class CreateProjectDialog(QtGui.QDialog):
         # SetTime
         self.isTimeCalculated = True
         self.setTime()
+
+        waitWindow.close()
 
         # Delete render window
         FluidExplorerUtils.FluidExplorerUtils.deleteRenderWindow()
