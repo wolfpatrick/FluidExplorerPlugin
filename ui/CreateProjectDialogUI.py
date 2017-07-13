@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\CreateProjectDialogUI.ui'
 #
-# Created: Wed Jul 20 14:36:40 2016
+# Created: Thu Jul 13 11:29:47 2017
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -133,7 +133,7 @@ class Ui_CreateProjectDialog(object):
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.label_selectedCam = QtGui.QLabel(self.groupBoxCameras)
-        self.label_selectedCam.setGeometry(QtCore.QRect(254, 156, 151, 20))
+        self.label_selectedCam.setGeometry(QtCore.QRect(284, 156, 121, 20))
         font = QtGui.QFont()
         font.setPointSize(9)
         self.label_selectedCam.setFont(font)
@@ -226,7 +226,7 @@ class Ui_CreateProjectDialog(object):
         self.pushButtonBrowse_CalculateTime.setStyleSheet("")
         self.pushButtonBrowse_CalculateTime.setObjectName("pushButtonBrowse_CalculateTime")
         self.labelFluidBox_Value = QtGui.QLabel(self.tabSampling)
-        self.labelFluidBox_Value.setGeometry(QtCore.QRect(119, 230, 91, 21))
+        self.labelFluidBox_Value.setGeometry(QtCore.QRect(119, 230, 451, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setWeight(50)
@@ -287,7 +287,7 @@ class Ui_CreateProjectDialog(object):
         self.label_3.setText(QtGui.QApplication.translate("CreateProjectDialog", "View Cube", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("CreateProjectDialog", "Custom", None, QtGui.QApplication.UnicodeUTF8))
         self.label_5.setText(QtGui.QApplication.translate("CreateProjectDialog", "Rotation", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Sequences:", None, QtGui.QApplication.UnicodeUTF8))
+        self.labelNumberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "Number of Simulations:", None, QtGui.QApplication.UnicodeUTF8))
         self.labelTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Time:", None, QtGui.QApplication.UnicodeUTF8))
         self.lineEdit_numberSeq.setText(QtGui.QApplication.translate("CreateProjectDialog", "128", None, QtGui.QApplication.UnicodeUTF8))
         self.labelAnimationTime.setText(QtGui.QApplication.translate("CreateProjectDialog", "Animation [Start Time / End Time]:", None, QtGui.QApplication.UnicodeUTF8))

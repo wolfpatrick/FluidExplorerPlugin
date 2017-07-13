@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f09cb8b-b6f2-4794-a59a-6ea53cdf85c4" name="Default" comment="File added&#10;">
-      <change type="MOVED" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\lib\fluidexplorer\fluidExplorer.exe" afterPath="$PROJECT_DIR$/lib/fluidexplorer/fluidexplorer.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialog.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialog.py" />
+      <change type="MODIFICATION" beforePath="C:\Users\Patrick\Documents\maya\2014-x64\scripts\FluidExplorerPlugin\ui\Resources\CreateProjectDialogUI.ui" afterPath="$PROJECT_DIR$/ui/Resources/CreateProjectDialogUI.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" afterPath="$PROJECT_DIR$/ui/CreateProjectDialogUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f3c540e5-f12a-45ac-a07e-171968ea0ef6" name="Failed commit: Default" comment="icon added&#10;" />
@@ -32,11 +32,31 @@
       <file leaf-file-name="CreateProjectDialog.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33143786" vertical-offset="18051" max-vertical-offset="24381">
-              <caret line="879" column="38" selection-start-line="879" selection-start-column="38" selection-end-line="879" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.75207984" vertical-offset="2456" max-vertical-offset="24381">
+              <caret line="160" column="78" selection-start-line="160" selection-start-column="78" selection-end-line="160" selection-end-column="78" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChooseCameraUI.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/ChooseCameraUI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1218">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateProjectDialogUI.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialogUI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="6447">
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -221,7 +241,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -256,6 +275,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -887,13 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="1218">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Utils/MayaUiDefaultValues.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43228602" vertical-offset="0" max-vertical-offset="923">
@@ -1018,13 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="386" max-vertical-offset="2121">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialogUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026819924" vertical-offset="21" max-vertical-offset="6447">
-          <caret line="2" column="126" selection-start-line="2" selection-start-column="126" selection-end-line="2" selection-end-column="126" />
         </state>
       </provider>
     </entry>
@@ -1167,10 +1173,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialogUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="6447">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/ChooseCameraUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1218">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui/CreateProjectDialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33143786" vertical-offset="18051" max-vertical-offset="24381">
-          <caret line="879" column="38" selection-start-line="879" selection-start-column="38" selection-end-line="879" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.75207984" vertical-offset="2456" max-vertical-offset="24381">
+          <caret line="160" column="78" selection-start-line="160" selection-start-column="78" selection-end-line="160" selection-end-column="78" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
