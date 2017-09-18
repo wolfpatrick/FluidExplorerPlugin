@@ -607,7 +607,7 @@ class ProjectDetailsView(QtGui.QDialog):
 
     @QtCore.Slot()
     def helpButtonClicked(self):
-        webbrowser.open(DefaultUIParameters.URL, new=1)
+        webbrowser.open("http://fluidexplorer.cs.univie.ac.at/helpsection.php#load_simulation", new=1)
 
     @QtCore.Slot()
     def frameChangedHandler(self, frameNumber):

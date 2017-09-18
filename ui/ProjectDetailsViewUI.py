@@ -152,7 +152,7 @@ class Ui_ProjectDetailsView(object):
     def retranslateUi(self, ProjectDetailsView):
         ProjectDetailsView.setWindowTitle(QtGui.QApplication.translate("ProjectDetailsView", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.label_projectName.setText(QtGui.QApplication.translate("ProjectDetailsView", "Project Name", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton_applyCache.setText(QtGui.QApplication.translate("ProjectDetailsView", "Apply Cache", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton_applyCache.setText(QtGui.QApplication.translate("ProjectDetailsView", "Attach Cache", None, QtGui.QApplication.UnicodeUTF8))
         self.label_detailsView.setText(QtGui.QApplication.translate("ProjectDetailsView", "Simulation Details", None, QtGui.QApplication.UnicodeUTF8))
         self.checkBox_showPreview.setText(QtGui.QApplication.translate("ProjectDetailsView", "Show Preview", None, QtGui.QApplication.UnicodeUTF8))
         self.label_projectPath.setText(QtGui.QApplication.translate("ProjectDetailsView", "Project Path", None, QtGui.QApplication.UnicodeUTF8))
